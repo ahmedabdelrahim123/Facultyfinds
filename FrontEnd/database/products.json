@@ -1,0 +1,11 @@
+{
+  "products": [
+    {
+      "title": "product1",
+      "price": "50 EGP",
+      "image": "images/products/1.jpg",
+      "details": "this product is used in faculty of engineering",
+      "college": "engineering"
+    }
+  ]
+}
