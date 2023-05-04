@@ -2,6 +2,7 @@ const config = require('config');
 const mongoose = require('mongoose');
 var DB_URL= config.get('mongo.uri');
 const mongoOptions = config.get('mongo.options');
+// var mongoOptions={ "useNewUrlParser": true}
 mongoose.connect(DB_URL, mongoOptions)
   .then(() => {
     console.log('Connected to MongoDB');
@@ -9,7 +10,6 @@ mongoose.connect(DB_URL, mongoOptions)
   .catch((err) => {
     console.error('Error connecting to MongoDB', err);
   });
-// var DB_URL = "mongodb://127.0.0.1:27017/college";
 
 const ordersSchema = new mongoose.Schema({
  // relaions
@@ -18,19 +18,6 @@ const ordersSchema = new mongoose.Schema({
         ref: 'User',
         required: true
       },
-    //   products: [{
-    //     product: {
-    //       type: mongoose.Schema.Types.ObjectId,
-    //       ref: 'Product',
-    //       required: true
-    //     },
-    //     quantity: {
-    //       type: Number,
-    //       required: true
-    //     }
-    //   }],
-
-
       status: {
         type: String,
         enum: ['pending', 'shipped', 'delivered'],
