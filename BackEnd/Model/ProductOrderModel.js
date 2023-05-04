@@ -19,7 +19,7 @@ const productOrderSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Order'
   },
-//   quantity: Number,
+  quantity: Number,
 });
 
 const ProductOrder = mongoose.model('ProductOrder', productOrderSchema);

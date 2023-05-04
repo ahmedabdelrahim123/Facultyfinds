@@ -12,7 +12,7 @@ let create = async (req, res) => {
       date,
       products: []
     });
-
+    // console.log(order);
     await order.save();
 
     for (const product of products) {

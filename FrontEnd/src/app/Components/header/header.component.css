@@ -1,0 +1,123 @@
+    /* .header-top {
+
+        background-color: #e44b6a;
+
+        color: #ffffff;
+    }
+
+    .header-top a {
+        color: #ffffff;
+    }
+    .header-top a.close:hover {
+        color: #ffffff;
+    }
+
+    .header-top .top-message p a:hover {
+        border-bottom-color: #ffffff;
+    }
+
+    .cart-icon .cartCount {
+        background-color: #141414;
+        color: #ffffff;
+    }
+
+    .logo-img {
+        display: block;
+    }
+
+    .logo-title{
+        color: #0f0f0f;
+        font-size: 20px;
+    }
+
+    .header-mb .logo-img img,
+    .logo-fixed .logo-img img {
+        max-height: 35px;
+    }
+
+    .header-pc .logo-img img {
+        max-height: 60px;
+    }
+
+    .header-default .search-form .search-bar {
+        background-color: #fafafa;
+        border: none;
+    }
+
+    .header-default .search-form .search-bar .input-group-field {
+        color: #3c3c3c;
+    }
+
+    .header-default .search-form .search-bar .input-group-field::-webkit-input-placeholder {
+        color: #3c3c3c;
+    }
+
+    .header-default .search-form .search-bar .input-group-field::-moz-placeholder {
+        color: #3c3c3c;
+    }
+
+    .header-default.search-form .search-bar .input-group-field:-ms-input-placeholder {
+        color: #3c3c3c;
+    }
+
+    .header-default .search-form .search-bar .input-group-field:-moz-placeholder {
+        color: #3c3c3c;
+    }
+
+
+
+    @media (min-width:1200px) {
+        .header-default .header-bottom,
+        .lang-currency-groups .dropdown-menu {
+            background-color: #f7f7f7;
+        }
+
+        .header-default .header-bottom,
+        .header-default .header-bottom .acc-links,
+        .header-default .lang-currency-groups .dropdown-label,
+        .header-default .header-bottom .find-a-store > a {
+            color: #3c3c3c;
+        }
+
+        .header-default .header-bottom .social-icons a {
+            color: #232323 !important;
+        }
+
+        .header-default .header-bottom  .wishlist,
+        .header-default .header-bottom  .cart-icon a,
+        .header-default .search-form .search-bar .icon-search,
+        .header-default .header-bottom .find-a-store .icon-location {
+            color: #232323;
+        }
+
+        .header-default .lang-currency-groups .dropdown-label {
+            color: #3c3c3c;
+        }
+
+        .lang-currency-groups .btn-group .dropdown-item {
+            color: #3c3c3c;
+        }
+
+        .header-bottom .find-a-store:before,.header-bottom .header-panel-bt .right-groups .customer-links:before {
+            background: #eaeaea;
+        }
+
+        .header-bottom .lang-currency-groups .dropdown-toggle:after,.header-bottom .header-panel-bt .right-groups .customer-links a:after{
+            color: #c0c0c0;
+        }
+
+        .lang-currency-groups .btn-group .dropdown-item:hover,
+        .lang-currency-groups .btn-group .dropdown-item:focus:
+        .lang-currency-groups .btn-group .dropdown-item:active,
+        .lang-currency-groups .btn-group .dropdown-item.active {
+            color: #3c3c3c;
+        }
+
+
+    }
+    @media (max-width: 767px){
+        .search-open .wrapper-header .header-search__form{
+            background-color: #fafafa;
+        }
+    }
+ */
