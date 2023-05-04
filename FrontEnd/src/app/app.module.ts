@@ -13,6 +13,7 @@ import { AddToCartComponent } from './Components/add-to-cart/add-to-cart.compone
 import { HomeComponent } from './Components/home/home.component';
 import { AboutComponent } from './Components/about/about.component';
 import { ErrorComponent } from './Components/error/error.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ErrorComponent } from './Components/error/error.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
