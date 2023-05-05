@@ -38,4 +38,18 @@ export class ProductsComponent implements OnInit {
       this.products = this.allProducts.filter(p => p.college.toLowerCase() === college.toLowerCase());
     }}
   }
+
+
+  searchProductsByTitle(searchTerm: any): void {
+    const searchText = searchTerm?.target?.value?.trim();
+    console.log('searchTerm:', searchTerm);
+    if (!searchText) {
+      return;
+    }
+    if(this.selectedCollege === "all"){
+      this.products =this.allProducts.filter(p => p.title.toLowerCase().includes(searchText.toLowerCase())) ;
+    }
+    else
+    this.products =this.allProducts.filter(p => p.title.toLowerCase().includes(searchText.toLowerCase()) && p.college === this.selectedCollege) ;
+}
 }
