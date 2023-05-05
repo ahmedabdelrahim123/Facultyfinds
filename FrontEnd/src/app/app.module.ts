@@ -13,6 +13,7 @@ import { AddToCartComponent } from './Components/add-to-cart/add-to-cart.compone
 import { HomeComponent } from './Components/home/home.component';
 import { AboutComponent } from './Components/about/about.component';
 import { ErrorComponent } from './Components/error/error.component';
+import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ErrorComponent } from './Components/error/error.component';
     AddToCartComponent,
     HomeComponent,
     AboutComponent,
-    ErrorComponent
+    ErrorComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
