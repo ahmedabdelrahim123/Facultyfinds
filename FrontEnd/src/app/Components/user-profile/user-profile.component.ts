@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent {
+  myimage:string="../assets/user1.jpg"
 
 }
