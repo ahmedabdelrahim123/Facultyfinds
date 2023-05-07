@@ -24,7 +24,18 @@
                   </div>
                 </li>
                 <!-- Authentication Links -->
-                <a class="auth-modal-toggle btn btn-primary ms-2 me-1 " data-auth-modal-tab="sign-in" style="">Login</a>
+                <a *ngIf="!isAuthenticated()" class="auth-modal-toggle btn btn-primary ms-2 me-1 " data-auth-modal-tab="sign-in" >Login</a>
+                <li *ngIf="isAuthenticated()" class="nav-item dropdown">
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                     ahmed
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#">logout</a>
+
+                  </div>
+              </li>
+         
               </ul>
           </div>
       </div>
