@@ -1,0 +1,202 @@
+
+<div class="main">
+    <form>
+    
+        <div>
+        <P class="par"> contact</P>
+          <input style="
+          padding: 2%;
+              font-weight: 500;
+              height: 42px;
+              border-radius: 5px;
+              border: 1px solid #cbc6c6;
+              width: 90%;" type="email" id="email" placeholder="Email" name="email" required>
+        </div>
+    
+    
+    
+        <p  class="par">shipping address</p>
+            <div class="fullname">
+            <div>
+                <input style="
+    
+                margin-top: 3%;
+                    width: 40%;
+                    float: left;
+                    margin-right: 10%;
+                    font-weight: 500;
+                    border-radius: 5px;
+                    padding: 2%;
+                    border: 1px solid #cbc6c6;
+                    height: 40px;" type="text" placeholder="first name" id="name" name="name" required>
+              </div>
+    
+              <div>
+                <input style="
+      font-weight: 500;
+                margin-top: 3%;
+                    width: 40%;
+                    float: right;
+                    margin-right: 10%;
+                    border-radius: 5px;
+                    border: 1px solid #cbc6c6;
+                    padding: 2%;
+                    height: 40px;" type="text" placeholder="last name" id="name" name="name" required>
+              </div> </div>
+           
+    
+              <div>
+               
+                <input  style="
+                padding: 2%;
+                    font-weight: 500;
+                    height: 42px;
+                    border-radius: 5px;
+                    margin-top: 2%;
+                    border: 1px solid #cbc6c6;
+                    width: 90%;" type="text" id="address" placeholder="address" name="address" required>
+              </div>
+             
+    
+                <div>
+                   
+                    <input  style="
+                    margin-top: 2%;
+        margin-bottom: 2%;
+                    padding: 2%;
+                        font-weight: 500;
+                        height: 42px;
+                        border-radius: 5px;
+                        border: 1px solid #cbc6c6;
+                        width: 90%;" type="text" id="appartment" placeholder="appartment" name="address" required>
+                  </div>
+    
+    
+                  <div class="drop">
+    
+                    <div>
+    
+                        <input  style="float: left;
+                          border-radius: 5px;
+                        border: 1px solid #cbc6c6;
+                        width: 250px;
+                        padding: 2%;
+                    font-weight: 500;
+                        height: 40px;
+                    " type="text" id="city" name="city" placeholder="city" required>
+                      </div>
+    
+                  <div style=" 
+                  margin-right: 5%;
+                  margin-left: 5%;
+    
+    
+                  " class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                      Governorate
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                      <li><a class="dropdown-item active" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    </ul>
+                  </div>
+    
+     
+                  <div>
+                    <input style=" height: 40px;
+                    width: 280px;
+                    float: right;
+                    border-radius: 5px;
+                    padding: 2%;
+                    font-weight: 500;
+                        border: 1px solid #cbc6c6;
+                        
+                    margin-right: 5%;" type="text" id="zip" name="zip" placeholder="Zip/Postal Code" required>
+          </div>
+    
+        
+      
+          </div>
+    
+    
+    <div>
+          <input  style="
+          padding: 2%;
+              font-weight: 500;
+              height: 42px;
+              font-weight: 500;
+                margin-top: 3%;
+                margin-bottom: 2%;
+              border-radius: 5px;
+              border: 1px solid #cbc6c6;
+              width: 90%;" type="tel" id="phone" placeholder="phone number" name="phone" required>
+        </div> 
+      
+       
+         
+        <button class="btnn" type="submit">Continue shipping</button>
+        <button routerLink="/cart" style="margin-right: 40%;width: 20%;" class="btnn" type="submit"> <i style="padding-right: 5%;" class="fa fa-toggle-left"></i>back</button>
+      </form>
+    
+    
+      <!-- -------------------------------------------- -->
+    
+    
+      
+    
+    
+      <div class="vertical-line"></div>
+    
+    <div class="check">
+            
+    
+      <tbody >
+        <tr *ngFor="let item of products; let i = index">
+            <td><img style="width: 50px; border-radius: 10%; " src="{{item.image}}"  alt=""></td>
+           
+            <td>{{item.title}} </td>
+              <th style="width: 12%; color: rgb(53, 159, 175);">{{item.price}}</th> <br>
+        </tr>
+    </tbody>
+    
+    
+    <hr style="
+    color: #8b8989;
+        width: 80%;
+        margin-left: 10%;">
+        <p style="margin-bottom: 1%; margin-top: 5%; margin-left: 10%;font-weight: 600;"> 
+    ITEMS    ({{totalItem}})
+    
+    </p>
+     
+    
+     
+    <hr style="color: #8b8989;
+    width: 80%;
+    margin-top: 15%;
+    margin-left: 10%;">
+    <div>
+      <p style="float: left; margin-left: 12%;" class="strng">SUBTOTAL</p> 
+    <p style="float: right; margin-right: 15%;" class="strng">  ${{grandTotal}}   </p> <br><br>
+    </div>
+    
+    <div>
+        <p style="float: left;margin-left: 12%;" class="strng">SHIPPING </p>
+      <p style="float: right; margin-right: 15%;" class="strng">40$</p><br><br>
+    
+    </div>
+    
+    <div>
+        <strong style="float: left;margin-left: 12%;"  class="strng">TOTAL</strong>
+      <strong style="float: right; margin-right: 15%;"  class="strng"> ${{Total}}</strong>
+    </div>
+     
+    
+    </div>
+    
+    
+    
+    </div>
