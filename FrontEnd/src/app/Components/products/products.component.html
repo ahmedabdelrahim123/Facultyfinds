@@ -1,9 +1,10 @@
   <div class="categories">
     <div class="search">
-      <input type="search" id="search" name="search" placeholder="Search...." autocomplete="off">
+      <input type="search" id="search" name="search" placeholder="Search...." autocomplete="off" >
     </div>
    <div class="college">
-    <select name="college" id="college" [(ngModel)]="selectedCollege" (change)="filterProductsByCollege(selectedCollege)">
+    <select name="college" id="college">
+      <option value="all">All Colleges</option>
       <option value="engineering">Engineering</option>
       <option value="science">Science</option>
       <option value="arts">Arts</option>
@@ -14,7 +15,7 @@
   </div>
   </div>
   <div class="products">
-    <div class="product_card" *ngFor="let p of products">
+    <div class="product_card" *ngFor="let p of data">
       <img src={{p.image}} alt={{p.title}}>
       <p id="title">{{p.title}}</p>
       <p id="details">{{p.details}}</p>
