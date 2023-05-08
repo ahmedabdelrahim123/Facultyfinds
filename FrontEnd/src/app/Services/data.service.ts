@@ -8,11 +8,14 @@ import { Observable } from 'rxjs';
 export class DataService {
 
   constructor(private readonly http:HttpClient) { }
-  private readonly Base_URL = "http://localhost:8000";
+  private readonly Base_URL = "http://localhost:3000/api/product";
 
   getMyData(): Observable<any> {
     return this.http.get(`${this.Base_URL}/products`);
   }
+  // getMyData(): Observable<any[]> {
+  //   return this.http.get<any[]>(`${this.Base_URL}/products`);
+  // }
 }
 
 
