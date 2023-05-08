@@ -47,6 +47,79 @@
     "image": "assets/products/welding_machine.png",
     "details": "Adjustable Soldering Iron 220V 60W With High/Low/Close Switch and Power Indicator",
     "college": "engineering"
+  },
+  {
+
+    "id":7,
+    "title": "white coat",
+    "price": "120 EGP",
+    "image": "assets/products/white_coat.png",
+    "details": "white coat for libraries",
+    "college": "science"
+  },
+  {
+    "id":8,
+    "title": "Anatomy Tools",
+    "price": "200 EGP",
+    "image": "assets/products/anatomy_tools.png",
+    "details": "anatomy tools bag with scalpel, scissors, and tweezers",
+    "college": "science"
+  },
+  {
+    "id":9,
+    "title": "Beaker",
+    "price": "80 EGP",
+    "image": "assets/products/beaker.png",
+    "details": "Glass Beaker , Borosilicate 3.3 , 250 ml for laboratory",
+    "college": "science"
+  },
+  {
+    "id":10,
+    "title": "burette",
+    "price": "100 EGP",
+    "image": "assets/products/burette.png",
+    "details": "burette with rubber ball with its own stand",
+    "college": "science"
+  },
+  {
+    "id":11,
+    "title": "Conical Flask",
+    "price": "50 EGP",
+    "image": "assets/products/conical.png",
+    "details": "50 ml glass conical flask for laboratory",
+    "college": "science"
+  },
+  {
+    "id":12,
+    "title": "Measuring cylinders",
+    "price": "300 EGP",
+    "image": "assets/products/measuring_cylinder.png",
+    "details": "simple and practical measuring cylinders with different sizes",
+    "college": "science"
+  },
+  {
+    "id":13,
+    "title": "Measuring flasks",
+    "price": "300 EGP",
+    "image": "assets/products/measuring_flask.png",
+    "details": "simple and practical measuring flasks with different sizes",
+    "college": "science"
+  },
+  {
+    "id":14,
+    "title": "pipet",
+    "price": "10 EGP",
+    "image": "assets/products/pipet.png",
+    "details": "pipet for laboratroy instruments",
+    "college": "science"
+  },
+  {
+    "id":15,
+    "title": "spatula",
+    "price": "10 EGP",
+    "image": "assets/products/spatula.png",
+    "details": "stainless steel lab spatula",
+    "college": "science"
   }
   ]
 }
