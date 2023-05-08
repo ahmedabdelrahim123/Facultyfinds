@@ -15,6 +15,9 @@ import { AboutComponent } from './Components/about/about.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CartComponent } from './Components/cart/cart.component';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { FilterPipe } from './shared/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AddToCartComponent,
     HomeComponent,
     AboutComponent,
-    ErrorComponent
+    ErrorComponent,
+    CartComponent,
+    CheckoutComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from 'src/app/Services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,20 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  public totalItem : number = 0;
+  constructor(public cartService : CartService) { }
+
+  isAuthenticated() {
+    return true;
+ }
+ logout(){
+
+ }
+
+ ngOnInit(): void {
+  this.cartService.getProducts()
+  .subscribe(res=>{
+    this.totalItem = res.length;
+  })
 }
+ }
