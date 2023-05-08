@@ -3,6 +3,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 const productRouter = require("./Routes/productsRoutes");
+const orderRouter = require("./Routes/ordersRoutes");
+const userRouter = require("./Routes/usersRoutes");
 const cors = require('cors');
 
 // middlewares
@@ -17,6 +19,8 @@ app.use((req, res, next) => {
   next();
 });
 app.use("/api/product", productRouter);
+app.use("/api/order", orderRouter);
+app.use("/api/user", userRouter);
 
 //start server
 app.listen(PORT, () => {

@@ -7,16 +7,20 @@ connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
 });
 
-const productsSchema = new mongoose.Schema({
+const usersSchema = new mongoose.Schema({
   _id: {
     type: "number",
     required: true,
   },
-  title: {
+  email: {
     type: "string",
     required: true,
   },
-  price: {
+  username: {
+    type: "string",
+    required: true,
+  },
+  password: {
     type: "string",
     required: true,
   },
@@ -24,14 +28,17 @@ const productsSchema = new mongoose.Schema({
     type: "string",
     required: true,
   },
-  details: {
+  gender: {
     type: "string",
     required: true,
   },
-  college: {
+  type: {
     type: "string",
     required: true,
-  }
+  },
+  orders: {
+    type: "array",
+    required: true,
+  },
 });
-module.exports = mongoose.model('Product', productsSchema);
-
+module.exports = mongoose.model('User', usersSchema);

@@ -17,7 +17,7 @@ export class ProductsComponent implements OnInit {
   // selectedCollege: string = 'all';
   constructor(public myService:DataService){ }
   ngOnInit() {
-    this.myService.getMyData().subscribe(data => {
+    this.myService.getMyProducts().subscribe(data => {
       this.data = data;});
     // this.selectedCollege="all";
     // this.myService.GetAllProducts().subscribe({
