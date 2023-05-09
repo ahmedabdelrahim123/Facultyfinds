@@ -1,1 +1,172 @@
-<p>login works!</p>
+<button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">
+  Open My Modal
+</button>
+
+<ng-template #mymodal let-modal>
+  <!--Content-->
+  <div class="modal-content">
+    <!--Modal cascading tabs-->
+    <div class="modal-c-tabs">
+      <!-- Nav tabs -->
+      <!-- Template code -->
+
+      <ul class="nav nav-tabs md-tabs nav-justified" role="tablist">
+        <li class="nav-item waves-effect waves-light fs-5">
+          <a
+            class="nav-link"
+            [ngClass]="{ active: activePanel === 'panel1' }"
+            data-toggle="tab"
+            href="#panel1"
+            role="tab"
+            (click)="showPanel1()"
+            ><i class="fas fa-user mr-1"></i> Login</a
+          >
+        </li>
+        <li class="nav-item waves-effect waves-light fs-5">
+          <a
+            class="nav-link"
+            [ngClass]="{ active: activePanel === 'panel2' }"
+            data-toggle="tab"
+            href="#panel2"
+            role="tab"
+            (click)="showPanel2()"
+            ><i class="fas fa-user-plus mr-1"></i> Register</a
+          >
+        </li>
+      </ul>
+
+      <!-- Tab panels -->
+      <div class="tab-content">
+        <div *ngIf="panel1">
+          <!--Panel 1-->
+          <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+            <!--Body-->
+            <div class="modal-body">
+              <div class="md-form form-sm mb-5">
+                <i class="fas fa-envelope prefix"></i>
+                <input
+                  type="email"
+                  id="modalLRInput6"
+                  class="form-control form-control-sm validate"
+                />
+                <label
+                  data-error="wrong"
+                  data-success="right"
+                  for="modalLRInput6"
+                  >Your email</label
+                >
+              </div>
+
+              <div class="md-form form-sm mb-4">
+                <i class="fas fa-lock prefix"></i>
+                <input
+                  type="password"
+                  id="modalLRInput7"
+                  class="form-control form-control-sm validate"
+                />
+                <label
+                  data-error="wrong"
+                  data-success="right"
+                  for="modalLRInput7"
+                  >Your password</label
+                >
+              </div>
+              <div class="text-center mt-2">
+                <button class="btn btn-info waves-effect waves-light">
+                  Log in <i class="fas fa-sign-in ml-1"></i>
+                </button>
+              </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer display-footer">
+              <div class="options text-center text-md-right mt-1">
+                <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
+                <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+              </div>
+              <button
+                type="button"
+                class="btn btn-outline-info waves-effects ml-auto"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+          <!--/.Panel 1-->
+
+          <!--Panel 2-->
+        </div>
+      </div>
+      <div *ngIf="panel2">
+        <!--/.Panel 2-->
+        <div class="tab-pane fade active show" id="panel2" role="tabpanel">
+          <!--Body-->
+          <div class="modal-body">
+            <div class="md-form form-sm mb-5">
+              <i class="fas fa-envelope prefix"></i>
+              <input
+                type="email"
+                id="modalLRInput10"
+                class="form-control form-control-sm validate"
+              />
+              <label
+                data-error="wrong"
+                data-success="right"
+                for="modalLRInput10"
+                >Your email</label
+              >
+            </div>
+
+            <div class="md-form form-sm mb-5">
+              <i class="fas fa-lock prefix"></i>
+              <input
+                type="password"
+                id="modalLRInput8"
+                class="form-control form-control-sm validate"
+              />
+              <label data-error="wrong" data-success="right" for="modalLRInput8"
+                >Your password</label
+              >
+            </div>
+
+            <div class="md-form form-sm mb-4">
+              <i class="fas fa-lock prefix"></i>
+              <input
+                type="password"
+                id="modalLRInput9"
+                class="form-control form-control-sm validate"
+              />
+              <label data-error="wrong" data-success="right" for="modalLRInput9"
+                >Repeat password</label
+              >
+            </div>
+
+            <div class="text-center form-sm mt-2">
+              <button class="btn btn-info waves-effect waves-light">
+                Sign up <i class="fas fa-sign-in ml-1"></i>
+              </button>
+            </div>
+          </div>
+          <!--Footer-->
+          <div class="modal-footer">
+            <div class="options text-right">
+              <p class="pt-1">
+                Already have an account?
+                <a href="#" class="blue-text">Log In</a>
+              </p>
+            </div>
+            <button
+              type="button"
+              class="btn btn-outline-info waves-effect ml-auto"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--/.Content-->
+</ng-template>
