@@ -14,7 +14,7 @@ export class ProductsComponent implements OnInit {
   // products: Product[] = [];
   // allProducts: Product[] = [];
   // products:any;
-  // selectedCollege: string = 'all';
+  // selectedCollege: string = 'all';;']]
   constructor(public myService:DataService){ }
   ngOnInit() {
     this.myService.getMyProducts().subscribe(data => {
