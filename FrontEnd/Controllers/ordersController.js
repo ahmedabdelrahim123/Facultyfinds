@@ -7,5 +7,5 @@ let getAllOrders = async (req, res) => {
 };
 
 module.exports = {
-  getAllOrders
+  getAllOrders,
 };
