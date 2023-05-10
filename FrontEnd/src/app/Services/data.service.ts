@@ -24,6 +24,13 @@ export class DataService {
   getMyUsers(): Observable<any> {
     return this.http.get(`${this.Base_URL}/api/user/users`);
   }
+
+  addNewUser(newUser:any){
+    return this.http.post(`${this.Base_URL}/api/user/create`, newUser);
+  }
+  // AddNewStudent(newStudent:any){
+  //   return this.myClient.post(this.Base_URL, newStudent);
+  // }
 }
 
 

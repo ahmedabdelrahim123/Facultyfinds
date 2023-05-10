@@ -17,7 +17,8 @@
   <div class="products">
     <div class="product_card" *ngFor="let p of data">
       <a  [routerLink]="['/products', p._id]">
-       <img src={{p.image}} alt={{p.title}}>
+        <img [src]="p.image" [alt]="p.title">
+      <!-- <img src={{p.image}} alt={{p.title}}> -->
       <p id="title">{{p.title}}</p>
       <p id="details">{{p.details}}</p>
       <p id="price">{{p.price}}</p>

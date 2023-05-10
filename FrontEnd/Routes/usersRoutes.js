@@ -5,5 +5,5 @@ const cors = require("cors");
 
 
 router.get("/users", usersController.getAllUsers);
-
+router.post("/create", usersController.addNewUser);
 module.exports = router;
