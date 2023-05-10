@@ -12,5 +12,5 @@ export class ProductsService {
   GetAllProducts(){
     return this.myClient.get(this.Base_URL);
   }
-
 }
+
