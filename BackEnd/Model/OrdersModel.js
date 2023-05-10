@@ -1,33 +1,34 @@
-const config = require('config');
-const mongoose = require('mongoose');
-var DB_URL= config.get('mongo.uri');
-const mongoOptions = config.get('mongo.options');
-// var mongoOptions={ "useNewUrlParser": true}
-mongoose.connect(DB_URL, mongoOptions)
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((err) => {
-    console.error('Error connecting to MongoDB', err);
-  });
+const mongoose = require("mongoose");
+var DB_URL = "mongodb://127.0.0.1:27017/E-Commerce";
+
+mongoose.connect(DB_URL, { useNewUrlParser: true });
+const connection = mongoose.connection;
+connection.once('open', () => {
+  console.log('MongoDB database connection established successfully');
+});
 
 const ordersSchema = new mongoose.Schema({
- // relaions
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-      },
-      status: {
-        type: String,
-        enum: ['pending', 'shipped', 'delivered'],
-        default: 'pending'
-      },
-      date: {
-        type: Date,
-        default: Date.now // set the default value to the current date and time
-      }, 
-  
-  });
-  
-  module.exports = mongoose.model("Order", ordersSchema);
+  _id: {
+    type: "number",
+    required: true,
+  },
+  date: {
+    type: Date,
+    required: true,
+  },
+  pID: {
+    type: "array",
+    required: true,
+  },
+  statue: {
+    type: "string",
+    required: true,
+  },
+  userID: {
+    type: "number",
+    required: true,
+  }
+},
+    {timestamps: true }
+  );
+module.exports = mongoose.model('Order', ordersSchema);

@@ -1,23 +1,24 @@
-let UsersModel = require("../Model/UsersModel");
-var validate = require("../Utils/UsersValidation");
+// const validate = require("../Utils/coursesValidation");
+const usersModel = require("../Model/usersModel");
 
-let create = async (req, res) => {
- 
+let getAllUsers = async (req, res) => {
+  let data = await usersModel.find({});
+  res.json(data);
 };
 
-let show = async (req, res) => {
+let addNewUser = async (req, res) => {
+  var data = req.body;
+  // const valid = validate(data);
 
+  // if (!valid) console.log(validate.errors);
+  // else {
+    var newUser = new usersModel(data);
+    await newUser.save();
+    await res.json(newUser);
+  // }
 };
 
-let update = async (req, res) => {
- 
-};
-let remove = async (req, res) => {
- 
-};
 module.exports = {
-  create,
-  show,
-  update,
-  remove,
+  getAllUsers,
+  addNewUser
 };

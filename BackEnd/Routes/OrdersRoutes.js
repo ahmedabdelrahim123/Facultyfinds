@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const Controller = require("../Controllers/OrdersController");
+const ordersController = require("../Controllers/ordersController");
+const cors = require("cors");
 
-router.get("/", Controller.show);
-router.post("/create", Controller.create);
-router.put("/:id", Controller.update);
-router.delete("/:id", Controller.remove);
+router.get("/orders", ordersController.getAllOrders);
 
 module.exports = router;

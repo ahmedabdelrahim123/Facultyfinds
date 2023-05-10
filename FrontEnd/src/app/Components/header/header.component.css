@@ -1,0 +1,45 @@
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+.form-control {
+  border-radius: 3px;
+  width: 600px;
+  margin-left: 20px;
+}
+
+.search-icon {
+  position: absolute;
+  z-index: 10;
+  right: 50%;
+  top: 20px;
+  color: #0a2956!important
+
+}
+
+/* for login and register */
+.custom-border-bottom{
+  border: none;
+  border-bottom: 2px solid #ced4da;
+}
+label{
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+  font-family: monospace ;
+}
+
+.welcome{
+  animation-name: welcome;
+  animation-duration: 3s;
+  animation-iteration-count: 3;
+}
+@keyframes welcome {
+    50% {
+      font-style: italic;
+      color:#FEA1A1;
+      transform: translate(0px, 8px);
+  }
+}
+.star{
+  color:gold
+}
+.hand{
+  color:silver;
+}
