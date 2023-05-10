@@ -28,12 +28,12 @@ export class HeaderComponent {
   }
 
   //////for register user
-   AddUser(username:any, email:any, password:any, genderRadio:any){
+  AddUser(username:any, email:any, password:any, genderRadio:any){
     const gender = (genderRadio.value === 'male') ? 'male' : 'female';
-    let newUser = {username, email, password, gender, type: this.type,image: this.image, orders: this.orders};
+    let newUser = {username, email, password, gender, type: this.type, image: this.image, orders: this.orders};
     this.myService.addNewUser(newUser).subscribe(() =>{
       this.modalService.dismissAll();
-        this.router.navigate(['/']);
+      this.router.navigate(['/']);
     });
   }
   open(content: any) {
