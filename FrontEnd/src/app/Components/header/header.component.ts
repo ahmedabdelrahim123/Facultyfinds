@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Output, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/Services/data.service';
@@ -8,7 +14,6 @@ import { DataService } from 'src/app/Services/data.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-
 export class HeaderComponent {
   title = 'appBootstrap';
   closeResult: string = '';
@@ -16,13 +21,17 @@ export class HeaderComponent {
   panel2: boolean = false; // add boolean flag for Panel 2
   activePanel = 'panel1';
   public showModal = false;
-  type="user";
-  orders=[];
-  image="assets/products/avatar.png";
+  type = 'user';
+  orders = [];
+  image = 'assets/products/avatar.png';
 
-  constructor(private modalService: NgbModal,private myService:DataService, private router: Router) {
-    this.type="user";
-    this.orders=[];
+  constructor(
+    private modalService: NgbModal,
+    private myService: DataService,
+    private router: Router
+  ) {
+    this.type = 'user';
+    this.orders = [];
     this.panel1 = true;
     this.panel2 = false;
   }
@@ -36,6 +45,30 @@ export class HeaderComponent {
       this.router.navigate(['/']);
     });
   }
+
+  loginUser(email: any, password: any) {
+    let user = {
+      email,
+      password,
+    };
+    // this.myService.loginUser(user).subscribe(() => {
+    //   this.modalService.dismissAll();
+    //   this.router.navigate(['/']);
+    // });
+    this.myService.loginUser(user).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.modalService.dismissAll();
+        this.router.navigate(['/']);
+        // perform any actions with the response here
+      },
+      error: (error: any) => {
+        console.log(error);
+        // handle any errors here
+      },
+    });
+  }
+
   open(content: any) {
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
@@ -73,20 +106,17 @@ export class HeaderComponent {
     this.activePanel = 'panel2';
   }
 
-  public totalItem : number = 0;
+  public totalItem: number = 0;
 
   isAuthenticated() {
     return false;
- }
- logout(){
+  }
+  logout() {}
 
- }
-
-//  ngOnInit(): void {
-//   this.cartService.getProducts()
-//   .subscribe(res=>{
-//     this.totalItem = res.length;
-//   })
-// }
-
+  //  ngOnInit(): void {
+  //   this.cartService.getProducts()
+  //   .subscribe(res=>{
+  //     this.totalItem = res.length;
+  //   })
+  // }
 }

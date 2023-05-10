@@ -1,53 +1,80 @@
-<div id="app" >
-  <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color:whitesmoke; height: 75px;">
-      <div class="container" >
-          <a class="navbar-brand fw-bold" href="" >
-          E-Commerace
-          </a>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <!-- Left Side Of Navbar -->
-              <ul class="navbar-nav " >
-                 <li class="nav-item " style="margin-left: 150px;"><a class="text-decoration-none text-dark" href="">Home</a></li>
-                 <li class="nav-item" style="margin-left: 150px;"><a class="text-decoration-none text-dark" href="">Products</a></li>
-                 <li class="nav-item"style="margin-left: 150px;"><a class="text-decoration-none text-dark" href="">Add Product</a></li>
-                 <li class="nav-item"style="margin-left: 150px;"><a class="text-decoration-none text-dark" href="">About</a></li>
+<div id="app">
+  <nav
+    class="navbar navbar-expand-md navbar-light shadow-sm"
+    style="background-color: whitesmoke; height: 75px"
+  >
+    <div class="container">
+      <a class="navbar-brand fw-bold" href=""> E-Commerace </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Left Side Of Navbar -->
+        <ul class="navbar-nav">
+          <li class="nav-item" style="margin-left: 150px">
+            <a class="text-decoration-none text-dark" href="">Home</a>
+          </li>
+          <li class="nav-item" style="margin-left: 150px">
+            <a class="text-decoration-none text-dark" href="">Products</a>
+          </li>
+          <li class="nav-item" style="margin-left: 150px">
+            <a class="text-decoration-none text-dark" href="">Add Product</a>
+          </li>
+          <li class="nav-item" style="margin-left: 150px">
+            <a class="text-decoration-none text-dark" href="">About</a>
+          </li>
+        </ul>
 
-              </ul>
+        <!-- Right Side Of Navbar -->
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <button style="border: none" routerLink="cart">
+              <i style="font-size: 30px" class="fa fa-cart-plus"></i>
 
-              <!-- Right Side Of Navbar -->
-              <ul class="navbar-nav ms-auto">
-                <li  class="nav-item ">
-                  <button style=" border: none;" routerLink="cart">
-                      <i style="font-size: 30px;"  class="  fa fa-cart-plus"></i>
-
-                      <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
-                  </button>
-                </li>
-                <!-- Authentication Links -->
-                <a *ngIf="!isAuthenticated()" class="auth-modal-toggle btn btn-primary ms-2 me-1 " data-auth-modal-tab="sign-in" (click)="open(mymodal)">Login</a>
-                <li *ngIf="isAuthenticated()" class="nav-item dropdown">
-                  <a style="font-size: 20px;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    ahmed
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="#">logout</a>
-                  </div>
-              </li>
-
-              </ul>
-          </div>
+              <div style="font-size: 10px" class="badge bg-danger">
+                {{ totalItem }}
+              </div>
+            </button>
+          </li>
+          <!-- Authentication Links -->
+          <a
+            *ngIf="!isAuthenticated()"
+            class="auth-modal-toggle btn btn-primary ms-2 me-1"
+            data-auth-modal-tab="sign-in"
+            (click)="open(mymodal)"
+            >Login</a
+          >
+          <li *ngIf="isAuthenticated()" class="nav-item dropdown">
+            <a
+              style="font-size: 20px"
+              id="navbarDropdown"
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              v-pre
+            >
+              ahmed
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" href="#">logout</a>
+            </div>
+          </li>
+        </ul>
       </div>
+    </div>
   </nav>
 
-  <main class="py-4">
-  </main>
+  <main class="py-4"></main>
 </div>
 
 <!-- /////////////////////////////////////////////////  -->
 <ng-template #mymodal let-modal>
   <!--Content-->
-  <div class="modal-content" style="height: 75vh; overflow: auto;" >
+  <div class="modal-content" style="height: 75vh; overflow: auto">
     <!--Modal cascading tabs-->
     <div class="modal-c-tabs">
       <!-- Nav tabs -->
@@ -84,52 +111,73 @@
           <!--Panel 1-->
           <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
             <!--Body-->
-            <div class="modal-body">
+            <form
+              class="modal-body"
+              (ngSubmit)="loginUser(email.value, password.value)"
+            >
               <div class="md-form form-sm mb-5">
-                <h3 class="text-center m-4 welcome" style="font-family: cursive;">Hi <i class="fas fa-hand-sparkles hand"></i>, Welcome Back</h3>
+                <h3
+                  class="text-center m-4 welcome"
+                  style="font-family: cursive"
+                >
+                  Hi <i class="fas fa-hand-sparkles hand"></i>, Welcome Back
+                </h3>
               </div>
-                <div class="md-form form-sm mb-5">
+              <div class="md-form form-sm mb-5">
                 <label
-                data-error="wrong"
-                data-success="right"
-                for="modalLRInput6"
-                style="font-size: 20px; margin-bottom: 0.5rem;"
-                >Your email</label
-              >
-              <div class="d-flex">
-                <i class="fas fa-envelope prefix mt-2" style="font-size: 20px;"></i>
-                <input
-                  type="email"
-                  id="modalLRInput6"
-                  placeholder="enter your email address"
-                  class="form-control form-control-sm validate custom-border-bottom"
-                />
+                  data-error="wrong"
+                  data-success="right"
+                  for="modalLRInput6"
+                  style="font-size: 20px; margin-bottom: 0.5rem"
+                  >Your email</label
+                >
+                <div class="d-flex">
+                  <i
+                    class="fas fa-envelope prefix mt-2"
+                    style="font-size: 20px"
+                  ></i>
+                  <input
+                    type="email"
+                    id="modalLRInput6"
+                    name="email"
+                    #email
+                    placeholder="enter your email address"
+                    class="form-control form-control-sm validate custom-border-bottom"
+                  />
+                </div>
               </div>
-            </div>
 
-              <div class="md-form form-sm mb-4 ">
+              <div class="md-form form-sm mb-4">
                 <label
-                data-error="wrong"
-                data-success="right"
-                for="modalLRInput7"
-                >Your password</label
-              >
-              <div class="d-flex">
-                <i class="fas fa-lock prefix mt-2" style="font-size: 20px;"></i>
-                <input
-                  type="password"
-                  id="modalLRInput7"
-                  placeholder="enter your password"
-                  class="form-control form-control-sm validate custom-border-bottom"
-                />
-              </div>
+                  data-error="wrong"
+                  data-success="right"
+                  for="modalLRInput7"
+                  >Your password</label
+                >
+                <div class="d-flex">
+                  <i
+                    class="fas fa-lock prefix mt-2"
+                    style="font-size: 20px"
+                  ></i>
+                  <input
+                    type="password"
+                    id="modalLRInput7"
+                    name="password"
+                    #password
+                    placeholder="enter your password"
+                    class="form-control form-control-sm validate custom-border-bottom"
+                  />
+                </div>
               </div>
               <div class="text-center mt-5">
-                <button class="btn btn-info waves-effect waves-light fs-5">
+                <button
+                  type="submit"
+                  class="btn btn-info waves-effect waves-light fs-5"
+                >
                   Log in <i class="fas fa-sign-in ml-1"></i>
                 </button>
               </div>
-            </div>
+            </form>
             <!--Footer-->
             <!-- <div class="modal-footer display-footer">
 
@@ -140,32 +188,45 @@
           <!--Panel 2-->
         </div>
       </div>
-      <div *ngIf="panel2" >
+      <div *ngIf="panel2">
         <!--/.Panel 2-->
         <div class="tab-pane fade active show" id="panel2" role="tabpanel">
           <!--Body-->
-          <form class="modal-body" (ngSubmit)="AddUser(username.value,email.value, password.value, maleRadio.checked ? 'male' : 'female')">
+          <form
+            class="modal-body"
+            (ngSubmit)="
+              AddUser(
+                username.value,
+                email.value,
+                password.value,
+                maleRadio.checked ? 'male' : 'female'
+              )
+            "
+          >
             <div class="md-form form-sm mb-5">
-              <h3 class="text-center m-4 welcome" style="font-family: cursive;">Hi Dear <i class="fas fa-star star"></i>, We are glad you joined us</h3>
+              <h3 class="text-center m-4 welcome" style="font-family: cursive">
+                Hi Dear <i class="fas fa-star star"></i>, We are glad you joined
+                us
+              </h3>
               <label
-              data-error="wrong"
-              data-success="right"
-              for="modalLRInput10"
-              >Username</label
-            >
-            <div class="d-flex">
-            <i class="fas fa-user prefix mt-2" style="font-size: 20px;"></i>
-            <input
-              type="email"
-              id="modalLRInput10"
-              class="form-control form-control-sm validate custom-border-bottom"
-              placeholder="enter a username"
-              name="username"
-              #username
-            />
-          </div>
-          </div>
-          <div class="md-form form-sm mb-5">
+                data-error="wrong"
+                data-success="right"
+                for="modalLRInput10"
+                >Username</label
+              >
+              <div class="d-flex">
+                <i class="fas fa-user prefix mt-2" style="font-size: 20px"></i>
+                <input
+                  type="email"
+                  id="modalLRInput10"
+                  class="form-control form-control-sm validate custom-border-bottom"
+                  placeholder="enter a username"
+                  name="username"
+                  #username
+                />
+              </div>
+            </div>
+            <div class="md-form form-sm mb-5">
               <label
                 data-error="wrong"
                 data-success="right"
@@ -173,33 +234,36 @@
                 >Your email</label
               >
               <div class="d-flex">
-              <i class="fas fa-envelope prefix mt-2" style="font-size: 20px;"></i>
-              <input
-                type="email"
-                id="modalLRInput10"
-                class="form-control form-control-sm custom-border-bottom"
-                placeholder="enter your email address"
-                name="email"
-                #email
-              />
-            </div>
+                <i
+                  class="fas fa-envelope prefix mt-2"
+                  style="font-size: 20px"
+                ></i>
+                <input
+                  type="email"
+                  id="modalLRInput10"
+                  class="form-control form-control-sm custom-border-bottom"
+                  placeholder="enter your email address"
+                  name="email"
+                  #email
+                />
+              </div>
             </div>
 
             <div class="md-form form-sm mb-5">
               <label data-error="wrong" data-success="right" for="modalLRInput8"
-              >Your password</label
-            >
-            <div class="d-flex">
-              <i class="fas fa-lock prefix mt-2" style="font-size: 20px;"></i>
-              <input
-                type="password"
-                id="modalLRInput8"
-                class="form-control form-control-sm custom-border-bottom"
-                placeholder="enter a strong password"
-                name="password"
-                #password
-              />
-            </div>
+                >Your password</label
+              >
+              <div class="d-flex">
+                <i class="fas fa-lock prefix mt-2" style="font-size: 20px"></i>
+                <input
+                  type="password"
+                  id="modalLRInput8"
+                  class="form-control form-control-sm custom-border-bottom"
+                  placeholder="enter a strong password"
+                  name="password"
+                  #password
+                />
+              </div>
             </div>
 
             <div class="md-form form-sm mb-4">
@@ -207,37 +271,50 @@
                 >Repeat password</label
               >
               <div class="d-flex">
-              <i class="fas fa-lock prefix mt-2" style="font-size: 20px;"></i>
+                <i class="fas fa-lock prefix mt-2" style="font-size: 20px"></i>
+                <input
+                  type="password"
+                  id="modalLRInput9"
+                  class="form-control form-control-sm custom-border-bottom"
+                  placeholder="repeat the previous password"
+                />
+              </div>
+            </div>
+
+            <i class="fas fa-users prefix mt-2" style="font-size: 20px"></i>
+            <label>Gender:</label><br />
+            <div class="form-check">
               <input
-                type="password"
-                id="modalLRInput9"
-                class="form-control form-control-sm custom-border-bottom"
-                placeholder="repeat the previous password"
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="male"
+                value="male"
+                #maleRadio
               />
-            </div>
+              <label class="form-check-label" for="male">Male</label>
             </div>
 
-            <i class="fas fa-users prefix mt-2" style="font-size: 20px;"></i>
-            <label >Gender:</label><br>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gender" id="male" value="male" #maleRadio>
-                  <label class="form-check-label" for="male">Male</label>
-                </div>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gender" id="female" value="female" #femaleRadio>
-                  <label class="form-check-label" for="female">Female</label>
-                </div>
-                    <div class="text-center form-sm mt-2">
-              <button class="btn btn-info waves-effect waves-light fs-5" type="submit">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="female"
+                value="female"
+                #femaleRadio
+              />
+              <label class="form-check-label" for="female">Female</label>
+            </div>
+            <div class="text-center form-sm mt-2">
+              <button
+                class="btn btn-info waves-effect waves-light fs-5"
+                type="submit"
+              >
                 Sign up <i class="fas fa-sign-in ml-1"></i>
               </button>
             </div>
           </form>
-          <!--Footer-->
-          <!-- <div class="modal-footer">
-
-          </div> -->
         </div>
       </div>
     </div>
