@@ -1,11 +1,14 @@
-const mongoose = require("mongoose");
-var DB_URL = "mongodb://127.0.0.1:27017/E-Commerce";
-
-mongoose.connect(DB_URL, { useNewUrlParser: true });
-const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log('MongoDB database connection established successfully');
-});
+const config = require('config');
+const mongoose = require('mongoose');
+var DB_URL= config.get('mongo.uri');
+const mongoOptions = config.get('mongo.options');
+mongoose.connect(DB_URL, mongoOptions)
+  .then(() => {
+    console.log('Product database connection established successfully');
+  })
+  .catch((err) => {
+    console.error('Error connecting to MongoDB', err);
+  });
 
 const productsSchema = new mongoose.Schema({
   _id: {
