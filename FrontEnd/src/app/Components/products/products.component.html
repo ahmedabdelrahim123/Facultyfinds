@@ -25,7 +25,7 @@
                 <h6>Pharmacy</h6>
             </a>
         </div>
-      
+
         <div class="item">
             <a (click)="filter('Medicine')">
                 <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
@@ -40,7 +40,7 @@
                 <h6>Dentistry</h6>
             </a>
         </div>
-      
+
 
         <div class="item">
             <a (click)="filter('Arts')">
@@ -48,8 +48,8 @@
                 <h6>Arts</h6>
             </a>
         </div>
-      
-      
+
+
 
 
 
@@ -62,10 +62,12 @@
     <div class="row">
         <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'">
             <div class="card col-md-3">
+              <a [routerLink]="['/products', item._id]" style="text-decoration: none;">
                 <img src="{{item.image}}" alt="">
                 <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch; font-weight: 600;">{{item.title}}</h5>
                 <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
                 <p style="color:rgb(30, 128, 143)"><strong>Price:</strong> ${{item.price}}</p>
+              </a>
                 <button class="btn4 btn-primary" (click)=addtocart(item)>Add to cart</button>
             </div>
         </ng-container>

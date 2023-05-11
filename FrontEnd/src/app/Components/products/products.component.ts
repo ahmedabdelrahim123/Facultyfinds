@@ -13,15 +13,15 @@ export class ProductsComponent implements OnInit {
   public productList : any ;
   public filterCategory : any
   searchKey:string ="";
-  
+
   constructor(private api : DataService, private cartService : CartService) { }
 
   ngOnInit(): void {
     this.api.getMyProducts()
     .subscribe(res=>{
       this.productList = res;
-       // //and subscribes to the response data using the subscribe() method. When the response data is received, the code updates 
-     // the productList variable by iterating through each product in the list and renaming the category and adding the quantity 
+       // //and subscribes to the response data using the subscribe() method. When the response data is received, the code updates
+     // the productList variable by iterating through each product in the list and renaming the category and adding the quantity
     // and total properties to each product object.
       this.filterCategory = res;
       this.productList.forEach((a:any) => {
@@ -41,7 +41,7 @@ export class ProductsComponent implements OnInit {
 // //   //  to add the item to the cart.
   addtocart(item: any){
     this.cartService.addtoCart(item);
-   
+
   }
   filter(category:string){
     this.filterCategory = this.productList
