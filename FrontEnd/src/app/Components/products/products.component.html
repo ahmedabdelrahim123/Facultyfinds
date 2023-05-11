@@ -3,8 +3,8 @@
       <input type="search" id="search" name="search" placeholder="Search...." autocomplete="off" >
     </div>
    <div class="college">
-    <select name="college" id="college">
-      <option value="all">All Colleges</option>
+    <select name="college" id="college" [(ngModel)]="selectedCollege" (change)="filterProductsByCollege(selectedCollege)">
+        <option value="all">All Colleges</option>
       <option value="engineering">Engineering</option>
       <option value="science">Science</option>
       <option value="arts">Arts</option>

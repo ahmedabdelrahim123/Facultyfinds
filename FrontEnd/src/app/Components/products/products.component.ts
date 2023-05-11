@@ -11,10 +11,10 @@ import { DataService } from 'src/app/Services/data.service';
 })
 export class ProductsComponent implements OnInit {
   data:any;
-  // products: Product[] = [];
-  // allProducts: Product[] = [];
+  products: Product[] = [];
+  allProducts: Product[] = [];
   // products:any;
-  // selectedCollege: string = 'all';;']]
+  selectedCollege: string = 'all';
   constructor(public myService:DataService){ }
   ngOnInit() {
     this.myService.getMyProducts().subscribe(data => {
@@ -31,17 +31,17 @@ export class ProductsComponent implements OnInit {
     // });
   }
 
-  // filterProductsByCollege(college: string) {
-  //   this.selectedCollege = college;
-  //   if (  college  === 'all') {
-  //        // if 'all' is selected, show all products
-  //     this.products = this.allProducts;
-  //   } else {
-  //      // filter products based on selected college
-  //     if(this.allProducts){
-  //     this.products = this.allProducts.filter(p => p.college.toLowerCase() === college.toLowerCase());
-  //   }}
-  // }
+  filterProductsByCollege(college: string) {
+    this.selectedCollege = college;
+    if (  college  === 'all') {
+         // if 'all' is selected, show all products
+      this.products = this.allProducts;
+    } else {
+       // filter products based on selected college
+      if(this.allProducts){
+      this.products = this.allProducts.filter(p => p.college.toLowerCase() === college.toLowerCase());
+    }}
+  }
 
 
 //   searchProductsByTitle(searchTerm: any): void {
