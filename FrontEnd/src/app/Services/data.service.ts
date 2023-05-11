@@ -32,9 +32,7 @@ export class DataService {
   loginUser(user:any){
     return this.http.post(`${this.Base_URL}/api/user/login`, user);
   }
-  // AddNewStudent(newStudent:any){
-  //   return this.myClient.post(this.Base_URL, newStudent);
-  // }
+
 }
 
 
