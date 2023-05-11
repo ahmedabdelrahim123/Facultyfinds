@@ -1,6 +1,11 @@
 const express = require("express");
+const multer = require('multer');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+
+
 const bodyParser = require("body-parser");
 const productRouter = require("./Routes/productsRoutes");
 const orderRouter = require("./Routes/ordersRoutes");
@@ -18,6 +23,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
+
 app.use("/api/product", productRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/user", userRouter);

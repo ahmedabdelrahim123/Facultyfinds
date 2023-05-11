@@ -1,8 +1,7 @@
-import { Component , OnInit} from '@angular/core';
-import { ProductsService } from 'src/app/Services/products.service';
-import { Product,ProductsData} from './product.interface';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
-
+import { CartService } from 'src/app/Services/cart.service';
+// import { DataService } from 'src/app/Services/data.service';
 
 @Component({
   selector: 'app-products',
@@ -10,50 +9,47 @@ import { DataService } from 'src/app/Services/data.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  data:any;
-  products: Product[] = [];
-  allProducts: Product[] = [];
-  // products:any;
-  selectedCollege: string = 'all';
-  constructor(public myService:DataService){ }
-  ngOnInit() {
-    this.myService.getMyProducts().subscribe(data => {
-      this.data = data;});
-    // this.selectedCollege="all";
-    // this.myService.GetAllProducts().subscribe({
-    //   next: (data: any) => {
-    //     this.allProducts = data;
-    //     this.products = this.allProducts;
-    //   },
-    //   error: (err) => {
-    //     console.log(err);
-    //   }
-    // });
+
+  public productList : any ;
+  public filterCategory : any
+  searchKey:string ="";
+
+  constructor(private api : DataService, private cartService : CartService) { }
+
+  ngOnInit(): void {
+    this.api.getMyProducts()
+    .subscribe(res=>{
+      this.productList = res;
+       // //and subscribes to the response data using the subscribe() method. When the response data is received, the code updates
+     // the productList variable by iterating through each product in the list and renaming the category and adding the quantity
+    // and total properties to each product object.
+      this.filterCategory = res;
+      this.productList.forEach((a:any) => {
+        if(a.category ==="women's clothing" || a.category ==="men's clothing"){
+          a.category ="fashion"
+        }
+        Object.assign(a,{quantity:1,total:a.price});
+      });
+      console.log(this.productList)
+    });
+
+    this.cartService.search.subscribe((val:any)=>{
+      this.searchKey = val;
+    })
+  }
+  // The addtocart() method takes an item as a parameter and calls a method of a shopping cart service (cartService)
+// //   //  to add the item to the cart.
+  addtocart(item: any){
+    this.cartService.addtoCart(item);
+
+  }
+  filter(category:string){
+    this.filterCategory = this.productList
+    .filter((a:any)=>{
+      if(a.category == category || category==''){
+        return a;
+      }
+    })
   }
 
-  filterProductsByCollege(college: string) {
-    this.selectedCollege = college;
-    if (  college  === 'all') {
-         // if 'all' is selected, show all products
-      this.products = this.allProducts;
-    } else {
-       // filter products based on selected college
-      if(this.allProducts){
-      this.products = this.allProducts.filter(p => p.college.toLowerCase() === college.toLowerCase());
-    }}
-  }
-
-
-//   searchProductsByTitle(searchTerm: any): void {
-//     const searchText = searchTerm?.target?.value?.trim();
-//     console.log('searchTerm:', searchTerm);
-//     if (!searchText) {
-//       return;
-//     }
-//     if(this.selectedCollege === "all"){
-//       this.products =this.allProducts.filter(p => p.title.toLowerCase().includes(searchText.toLowerCase())) ;
-//     }
-//     else
-//     this.products =this.allProducts.filter(p => p.title.toLowerCase().includes(searchText.toLowerCase()) && p.college === this.selectedCollege) ;
-// }
 }

@@ -4,7 +4,7 @@
     style="background-color: whitesmoke; height: 75px"
   >
     <div class="container">
-      <a class="navbar-brand fw-bold" href=""> E-Commerace </a>
+      <a class="navbar-brand fw-bold" href=""> E-Commerce </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav">
@@ -12,10 +12,10 @@
             <a class="text-decoration-none text-dark" href="">Home</a>
           </li>
           <li class="nav-item" style="margin-left: 150px">
-            <a class="text-decoration-none text-dark" href="">Products</a>
+            <a routerLink="/products" class="text-decoration-none text-dark">Products</a>
           </li>
           <li class="nav-item" style="margin-left: 150px">
-            <a class="text-decoration-none text-dark" href="">Add Product</a>
+            <a routerLink="/products" class="text-decoration-none text-dark" >Add Product</a>
           </li>
           <li class="nav-item" style="margin-left: 150px">
             <a class="text-decoration-none text-dark" href="">About</a>
@@ -199,9 +199,8 @@
                 username.value,
                 email.value,
                 password.value,
-                maleRadio.checked ? 'male' : 'female'
-              )
-            "
+                maleRadio.checked ? 'male' : 'female',
+                imageInput)"
           >
             <div class="md-form form-sm mb-5">
               <h3 class="text-center m-4 welcome" style="font-family: cursive">
@@ -279,6 +278,11 @@
                   placeholder="repeat the previous password"
                 />
               </div>
+            </div>
+
+            <div class="md-form form-sm mb-5">
+              <label for="imageInput">Profile Image</label>
+              <input type="file" id="imageInput" accept="image/*" #imageInput>
             </div>
 
             <i class="fas fa-users prefix mt-2" style="font-size: 20px"></i>

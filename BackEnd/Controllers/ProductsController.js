@@ -8,11 +8,11 @@ let getAllProducts = async (req, res) => {
 };
 
 let getProductById = async (req, res) => {
-  console.log("in controller",req);
+  // console.log("in controller",req);
   let id = req.params.id;
-  console.log("in controller",req.params.id);
+  // console.log("in controller",req.params.id);
   let product = await productsModel.findById({_id: id});
-  console.log("in controller",product);
+  // console.log("in controller",product);
   res.json(product);
 };
 

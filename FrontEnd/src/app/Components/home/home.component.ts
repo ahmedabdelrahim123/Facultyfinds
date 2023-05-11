@@ -6,8 +6,11 @@ import { DataService } from 'src/app/Services/data.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
-  constructor(){ }
+  users:any;
+  constructor(private api : DataService){ }
   ngOnInit() {
-
+    this.api.getMyUsers()
+    .subscribe(res=>{
+      this.users = res;})
     }
 }
