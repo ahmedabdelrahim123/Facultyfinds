@@ -1,29 +1,28 @@
-  <div class="categories">
-    <div class="search">
-      <input type="search" id="search" name="search" placeholder="Search...." autocomplete="off" >
-    </div>
-   <div class="college">
-    <select name="college" id="college">
-      <option value="all">All Colleges</option>
-      <option value="engineering">Engineering</option>
-      <option value="science">Science</option>
-      <option value="arts">Arts</option>
-      <option value="pharmacy">Pharmacy</option>
-      <option value="dentistry">Dentistry</option>
-      <option value="medicine">Medicine</option>
-    </select>
+<div class="categories">
+  <div class="search">
+    <input type="search" id="search" name="search" placeholder="Search...." autocomplete="off" >
   </div>
+ <div class="college">
+  <select name="college" id="college">
+    <option value="all">All Colleges</option>
+    <option value="engineering">Engineering</option>
+    <option value="science">Science</option>
+    <option value="arts">Arts</option>
+    <option value="pharmacy">Pharmacy</option>
+    <option value="dentistry">Dentistry</option>
+    <option value="medicine">Medicine</option>
+  </select>
+</div>
+</div>
+<div class="products">
+  <div class="product_card" *ngFor="let p of data">
+    <a  [routerLink]="['/products', p._id]">
+      <img [src]="p.image" [alt]="p.title">
+    <!-- <img src={{p.image}} alt={{p.title}}> -->
+    <p id="title">{{p.title}}</p>
+    <p id="details">{{p.details}}</p>
+    <p id="price">{{p.price}}</p>
+    <button type="button" id="add_to_cart">+</button>
+  </a>
   </div>
-  <div class="products">
-    <div class="product_card" *ngFor="let p of data">
-      <a  [routerLink]="['/products', p._id]">
-        <img [src]="p.image" [alt]="p.title">
-      <!-- <img src={{p.image}} alt={{p.title}}> -->
-      <p id="title">{{p.title}}</p>
-      <p id="details">{{p.details}}</p>
-      <p id="price">{{p.price}}</p>
-      <button type="button" id="add_to_cart">+</button>
-    </a>
-    </div>
-  </div>
-
+</div>

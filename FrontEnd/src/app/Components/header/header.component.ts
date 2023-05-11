@@ -15,10 +15,15 @@ import { DataService } from 'src/app/Services/data.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
- isAuthenticated() {
-   return false;
-}
-logout(){
+  title = 'appBootstrap';
+  closeResult: string = '';
+  panel1: boolean = true; // add boolean flag for Panel 1
+  panel2: boolean = false; // add boolean flag for Panel 2
+  activePanel = 'panel1';
+  public showModal = false;
+  type = 'user';
+  orders = [];
+  image = 'assets/products/avatar.png';
 
   constructor(
     private modalService: NgbModal,
@@ -114,5 +119,4 @@ logout(){
   //     this.totalItem = res.length;
   //   })
   // }
-}
 }
