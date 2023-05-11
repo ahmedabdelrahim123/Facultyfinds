@@ -8,6 +8,7 @@ import {
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/Services/data.service';
+import { CartService } from 'src/app/Services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -26,6 +27,7 @@ export class HeaderComponent {
   image = 'assets/products/avatar.png';
 
   constructor(
+    private cartService : CartService,
     private modalService: NgbModal,
     private myService: DataService,
     private router: Router
@@ -113,10 +115,10 @@ export class HeaderComponent {
   }
   logout() {}
 
-  //  ngOnInit(): void {
-  //   this.cartService.getProducts()
-  //   .subscribe(res=>{
-  //     this.totalItem = res.length;
-  //   })
-  // }
+   ngOnInit(): void {
+    this.cartService.getProducts()
+    .subscribe(res=>{
+      this.totalItem = res.length;
+    })
+  }
 }
