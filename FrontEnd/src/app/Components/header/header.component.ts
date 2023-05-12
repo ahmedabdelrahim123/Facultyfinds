@@ -57,6 +57,7 @@ export class HeaderComponent {
       },
       (err) => {
         alert(err.error);
+        console.log(err);
       }
     );
   }

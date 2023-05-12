@@ -1,4 +1,4 @@
-const validate = require("../Utils/usersValidation");
+const validate = require("../Utils/userSchema");
 const usersModel = require("../Model/usersModel");
 const bcrypt = require("bcrypt");
 
@@ -10,8 +10,9 @@ let getAllUsers = async (req, res) => {
 
 let addNewUser = async (req, res) => {
   let data = req.body;
-  console.log(data);
-  const valid = validate(data);
+  // console.log(data);
+  console.log("in addNewUser method");
+  const valid = true;
 
   if (!valid) {
     return res.status(400).send("invalid data");

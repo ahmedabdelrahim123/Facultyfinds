@@ -7,7 +7,6 @@ const orderRouter = require("./Routes/ordersRoutes");
 const userRouter = require("./Routes/usersRoutes");
 const cors = require("cors");
 
-
 // middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
