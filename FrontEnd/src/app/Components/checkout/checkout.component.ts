@@ -19,9 +19,6 @@ export class CheckoutComponent {
   public totalItem : number = 0;
   // item: any;
 
-
-
-
 constructor(private cartService : CartService,private formBuilder: FormBuilder, private router: Router) {
   this.myForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
@@ -35,12 +32,7 @@ constructor(private cartService : CartService,private formBuilder: FormBuilder, 
   });
 }
 
- 
-
 ngOnInit(): void {
-// When the observable emits a value, the products property of the component is set to the emitted value,
-//  and the grandTotal property is set to the total price of all items in the cart, calculated by 
-//  calling the getTotalPrice method of the CartService.
 this.cartService.getProducts()
 .subscribe(res=>{
   this.products = res;
@@ -51,36 +43,7 @@ this.cartService.getProducts()
 })
 }
 
-
-// get nameValid() {
-//   return this.myForm.controls['firstName'].valid;
-// }
-// get lnameValid() {
-//   return this.myForm.controls['lastName'].valid;
-// }
-// get addValid() {
-//   return this.myForm.controls['address'].valid;
-// }
-// get aparValid() {
-//   return this.myForm.controls['apartment'].valid;
-// }
-
-// get cityValid() {
-//   return this.myForm.controls['city'].valid;
-// }
-
-// get phoneValid() {
-//   return this.myForm.controls['phone'].valid;
-// }
-// get zipValid() {
-//   return this.myForm.controls['zip'].valid;
-// }
-
-// get emailValid() {
-//   return this.myForm.controls['email'].valid;
-// }
-
-add() {
+Pay() {
   const formValues = this.myForm.value;
   if (!formValues.firstName || !formValues.email || !formValues.lastName || !formValues.phone 
     

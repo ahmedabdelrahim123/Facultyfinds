@@ -1,4 +1,3 @@
-
 .drop{
   display: flex;
   flex-wrap: wrap;
@@ -22,14 +21,15 @@ color: red;
   background: #efefef;
 
 }
+
 .para{
 font-size: 23px;
 font-family: math;
 font-weight: 900;
 margin-top: 3%;
 }
+
 .par{
-  
   font-size: 23px;
   font-family: math;
   font-weight: 900;
@@ -41,9 +41,8 @@ form{
 }
 .vertical-line {
   border-left: 1px solid #ccc;
-  height: 790px; /* adjust the height as needed */
+  height: 790px; 
 }
-
 
 .btnn{
   font-weight: 600;
