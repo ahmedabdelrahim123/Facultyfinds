@@ -16,8 +16,6 @@
         <div class="error-message" *ngIf="myForm.controls['email']?.errors?.['required']">Email is required.</div>
   
         <div class="error-message" *ngIf="myForm.controls['email'].errors?.['email']">Please enter a valid email address.</div>
-  
-  
       </div>
     </div>
   
@@ -25,8 +23,8 @@
     <div>
       <p  class="para">shipping address</p>
       <div class="fullname">
+
         <div>
-  
           <input  style="   margin-top: 2%;
           float: left;
                 padding: 2%;
@@ -37,14 +35,13 @@
                     width: 40%;
       " type="text" id="firstName" name="firstName" placeholder="firstName" formControlName="firstName" required>
       <div class="error-message"   *ngIf=" myForm.controls['firstName'].invalid && (myForm.controls['firstName'].dirty || myForm.controls['firstName'].touched)">
-  
         firstname is required.
       </div>
     </div>
-  
   </div>
+
+
     <div>
-  
       <input  style="   margin-top: 2%;
       float: right;
             padding: 2%;
@@ -59,10 +56,8 @@
   
     lastName is required.
   </div>
-  
   </div>
   </div>
-  
   
   
       <div>
@@ -80,6 +75,7 @@
         </div>
       </div>
   
+
       <div>
         <input style="
         margin-top: 2%;
@@ -97,9 +93,7 @@
   
   
       <div class="drop">
-      
         <div>
-  
             <input  style="float: left;
               border-radius: 5px;
               margin-top: 6%;
@@ -132,10 +126,10 @@
   
       zip code is required.
     </div>
-  
    </div>
   </div>
   
+
   <div>
     <input  style="
     padding: 2%;
@@ -147,10 +141,9 @@
         border: 1px solid #cbc6c6;
         width: 90%;" type="tel" id="phone" placeholder="phone number" name="phone" formControlName="phone"  required>
             <div class="error-message" *ngIf=" myForm.controls['phone'].invalid && (myForm.controls['phone'].dirty || myForm.controls['phone'].touched)">
-  
               phone is required
             </div>
-  </div> 
+            </div> 
   
   <button class="btnn" type="submit">
     Continue shipping
@@ -161,20 +154,13 @@
   <button routerLink="/cart" style="margin-right: 40%;width: 20%;" class="btnn" type="submit"> <i style="padding-right: 5%;" class="fa fa-toggle-left"></i>back</button>
   </form>
      
-  
-  
-      
+   
         <!-- -------------------------------------------- -->
       
-      
-        
-      
-      
+
         <div class="vertical-line"></div>
       
       <div class="check">
-              
-      
         <tbody >
           <tr *ngFor="let item of products; let i = index">
               <td><img style="width: 50px; border-radius: 10%; " src="{{item.image}}"  alt=""></td>
@@ -189,15 +175,16 @@
       color: #8b8989;
           width: 80%;
           margin-left: 10%;">
+
           <p style="margin-bottom: 1%; margin-top: 5%; margin-left: 10%;font-weight: 600;"> 
       ITEMS    ({{totalItem}})
-      
       </p>
         
       <hr style="color: #8b8989;
       width: 80%;
       margin-top: 15%;
       margin-left: 10%;">
+
       <div>
         <p style="float: left; margin-left: 12%;" class="strng">SUBTOTAL</p> 
       <p style="float: right; margin-right: 15%;" class="strng">  ${{grandTotal}}   </p> <br><br>
@@ -206,15 +193,12 @@
       <div>
           <p style="float: left;margin-left: 12%;" class="strng">SHIPPING </p>
         <p style="float: right; margin-right: 15%;" class="strng">40$</p><br><br>
-      
       </div>
       
       <div>
           <strong style="float: left;margin-left: 12%;"  class="strng">TOTAL</strong>
         <strong style="float: right; margin-right: 15%;"  class="strng"> ${{Total}}</strong>
       </div>
-       
-      
       </div></div>
       
     
