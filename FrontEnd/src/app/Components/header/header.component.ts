@@ -39,6 +39,8 @@ export class HeaderComponent {
   //////for register user
   AddUser(username: any, email: any, password: any, genderRadio: any) {
     const gender = genderRadio.value === 'male' ? 'male' : 'female';
+    console.log(genderRadio.value);
+
     let newUser = {
       username,
       email,
@@ -48,10 +50,15 @@ export class HeaderComponent {
       image: this.image,
       orders: this.orders,
     };
-    this.myService.addNewUser(newUser).subscribe(() => {
-      this.modalService.dismissAll();
-      this.router.navigate(['/']);
-    });
+    this.myService.addNewUser(newUser).subscribe(
+      () => {
+        this.modalService.dismissAll();
+        this.router.navigate(['/']);
+      },
+      (err) => {
+        alert(err.error);
+      }
+    );
   }
 
   loginUser(email: any, password: any) {

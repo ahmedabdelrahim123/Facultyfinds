@@ -1,21 +1,43 @@
-// const validate = require("../Utils/coursesValidation");
+const validate = require("../Utils/usersValidation");
 const usersModel = require("../Model/usersModel");
+const bcrypt = require("bcrypt");
 
 let getAllUsers = async (req, res) => {
   let data = await usersModel.find({});
+
   res.json(data);
 };
 
 let addNewUser = async (req, res) => {
   let data = req.body;
-  // const valid = validate(data);
+  console.log(data);
+  const valid = validate(data);
 
-  // if (!valid) console.log(validate.errors);
-  // else {
-  let newUser = new usersModel(data);
-  await newUser.save();
-  await res.json(newUser);
-  // }
+  if (!valid) {
+    return res.status(400).send("invalid data");
+  } else {
+    // validateUser(req, res);
+    let testingUserByEmail = await usersModel.findOne({
+      email: req.body.email,
+    });
+    let testingUserByUsername = await usersModel.findOne({
+      username: req.body.username,
+    });
+    //error.details[0].message
+    if (testingUserByEmail) {
+      return res.status(400).send("Email already taken");
+    } else if (testingUserByUsername) {
+      return res.status(400).send("Username already taken");
+    }
+    //////////////////////////////
+
+    let newUser = new usersModel(data);
+
+    const salt = await bcrypt.genSalt(10);
+    newUser.password = await bcrypt.hash(newUser.password, salt);
+    await newUser.save();
+    await res.json(newUser);
+  }
 };
 
 let login = async (req, res) => {
@@ -40,16 +62,6 @@ let login = async (req, res) => {
       error: error.message,
     });
   }
-  // console.log("user: " + user);
-  // if (!user) {
-  //   console.log("Invalid Credentials");
-  //   res.json({ message: "Invalid Credentials" });
-  // } else {
-  //   console.log("in");
-  //   res.json(user);
-  // }
-
-  // res.json(user);
 };
 
 module.exports = {
