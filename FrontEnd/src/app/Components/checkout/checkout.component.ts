@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
-// import { Validators } from '@angular/forms';
-// import { FormGroup, FormBuilder } from '@angular/forms';
 import { CartService } from 'src/app/Services/cart.service';
+import { Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
-  // myForm: FormGroup;
+  myForm: FormGroup;
+  zip: string = '';
   public products : any = [];
   public grandTotal !: number;
   public Total !: number;
@@ -16,14 +20,24 @@ export class CheckoutComponent {
   // item: any;
 
 
-constructor(private cartService : CartService) {
-  // this.myForm = this.fb.group({
-  //   name: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]]
-  // });
- }
+
+
+constructor(private cartService : CartService,private formBuilder: FormBuilder, private router: Router) {
+  this.myForm = this.formBuilder.group({
+    email: ['', [Validators.required, Validators.email]],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    address: ['', Validators.required],
+    apartment: ['', Validators.required],
+    city: ['', Validators.required],
+    zip: ['', Validators.required],
+    phone: ['', Validators.required]
+  });
+}
+
+ 
 
 ngOnInit(): void {
-
 // When the observable emits a value, the products property of the component is set to the emitted value,
 //  and the grandTotal property is set to the total price of all items in the cart, calculated by 
 //  calling the getTotalPrice method of the CartService.
@@ -36,5 +50,50 @@ this.cartService.getProducts()
   
 })
 }
+
+
+// get nameValid() {
+//   return this.myForm.controls['firstName'].valid;
+// }
+// get lnameValid() {
+//   return this.myForm.controls['lastName'].valid;
+// }
+// get addValid() {
+//   return this.myForm.controls['address'].valid;
+// }
+// get aparValid() {
+//   return this.myForm.controls['apartment'].valid;
+// }
+
+// get cityValid() {
+//   return this.myForm.controls['city'].valid;
+// }
+
+// get phoneValid() {
+//   return this.myForm.controls['phone'].valid;
+// }
+// get zipValid() {
+//   return this.myForm.controls['zip'].valid;
+// }
+
+// get emailValid() {
+//   return this.myForm.controls['email'].valid;
+// }
+
+add() {
+  const formValues = this.myForm.value;
+  if (!formValues.firstName || !formValues.email || !formValues.lastName || !formValues.phone 
+    
+    || !formValues.zip || !formValues.city || !formValues.apartment ) {
+    alert("Please fill in all fields");
+  }
+  else if ("this.myForm.valid" ) {
+    this.router.navigate(['/strip']);
+  }
+  else {
+    alert("Invalid data");
+  }
+}
+
 
 }

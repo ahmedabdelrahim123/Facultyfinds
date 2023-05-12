@@ -4,13 +4,15 @@ import { ProductsDetailsComponent } from './Components/products-details/products
 import { ProductsComponent } from './Components/products/products.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { StripComponent } from './Components/strip/strip.component';
 
 const routes: Routes = [
   {path:'', component:ProductsComponent},
   {path:'products', component:ProductsComponent},
   {path:'products/:id', component:ProductsDetailsComponent},
   {path:'cart', component: CartComponent},
-  {path:'checkout', component: CheckoutComponent}
+  {path:'checkout', component: CheckoutComponent},
+  {path:'strip', component: StripComponent}
   
 ];
 
