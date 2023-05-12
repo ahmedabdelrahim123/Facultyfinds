@@ -4,7 +4,6 @@ import { Validators } from '@angular/forms';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -17,7 +16,6 @@ export class CheckoutComponent {
   public grandTotal !: number;
   public Total !: number;
   public totalItem : number = 0;
-  // item: any;
 
 constructor(private cartService : CartService,private formBuilder: FormBuilder, private router: Router) {
   this.myForm = this.formBuilder.group({
