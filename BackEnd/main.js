@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 const productRouter = require("./Routes/productsRoutes");
 const orderRouter = require("./Routes/ordersRoutes");
-const userRouter = require("./Routes/usersRoutes");
+const userRouter = require("./Routes/UsersRoutes");
 const cors = require('cors');
 
 // middlewares

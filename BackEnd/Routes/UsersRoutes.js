@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 // ???
-const usersController = require("../Controllers/usersController.js");
+const usersController = require("../Controllers/UsersController.js");
 const cors = require("cors");
 
 

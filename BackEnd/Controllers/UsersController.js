@@ -40,9 +40,11 @@ let addNewUser = async (req, res) => {
 let updateUser = async (req, res) => {
   try {
     // Authenticate user making the request
-    const user = await User.findById(req.params.id);
+    let id = req.params.id;
+    const user = await usersModel.findById({_id: id});
+    console.log(user);
     if (!user) {
-      return res.status(404).send();
+      return res.status(404).send({ message: 'cant find id ' });
     }
 
     // Update user record in the database
@@ -51,7 +53,7 @@ let updateUser = async (req, res) => {
 
     res.send(user);
   } catch (e) {
-    res.status(400).send(e);
+    res.status(400).send({ message: 'cant save' });
   }
 };
 
