@@ -21,6 +21,10 @@ export class HeaderComponent {
   type = 'user';
   orders = [];
   image_name='';
+  errormessage='';
+  emailerrormessage='';
+  usernameerrormessage='';
+  fieldsRequired='';
   // image = 'assets/products/avatar.png';
 
   // selectedFile: File;
@@ -39,45 +43,38 @@ export class HeaderComponent {
   }
 
   //////for register user
-  AddUser(username:any, email:any, password:any, genderRadio:any, image:any){
-    this.image_name=image.files[0].name;
+  AddUser(username:any, email:any, password:any, genderRadio:any){
+    // this.image_name=image.files[0].name;
     const gender = (genderRadio.value === 'male') ? 'male' : 'female';
     let newUser = {username, email, password, gender, type: this.type, image: this.image_name, orders: this.orders};
-    this.myService.addNewUser(newUser).subscribe((response: any) =>{
+    this.myService.addNewUser(newUser).subscribe(() =>{
       this.modalService.dismissAll();
       this.router.navigate(['/']);
-      const savedUser = response.user;
-      console.log(savedUser);
-
+    },(err)=>{
+      this.errormessage = err.error;
+      if (this.errormessage.includes("Email already taken")) {
+        this.emailerrormessage = err.error;
+      }
+      else{
+        this.emailerrormessage='';
+      }
+      if (this.errormessage.includes("Username already taken")) {
+        this.usernameerrormessage = err.error;
+      }
+      else{
+        this.usernameerrormessage='';
+      }
+      if (this.errormessage.includes('is not allowed to be empty')) {
+        this.fieldsRequired= "there are fields required still empty";
+      }
+      else{
+        this.fieldsRequired="";
+      }
     });
-    // const formData = new FormData();
-    // formData.append('username', username);
-    // formData.append('email', email);
-    // formData.append('password', password);
-    // formData.append('gender', gender);
-    // formData.append('type', this.type);
-    // if(image){
-    // formData.append('image', image, image.name);
-    // }
-    // formData.append('orders', JSON.stringify(this.orders));
-    // this.myService.addNewUser(formData).subscribe(() =>{
-    //   this.modalService.dismissAll();
-    //   this.router.navigate(['/']);
-    // });
   }
 
   ////////////////for upload image in register
-  // onFileSelected(event: any) {
-  //   this.selectedFile = event.target.files[0];
-  // }
 
-  // onUpload() {
-  //   const formData = new FormData();
-  //   formData.append('image', this.selectedFile, this.selectedFile.name);
-  //   this.http.post<any>('/api/upload', formData).subscribe((response) => {
-  //     this.imagePath = response.imagePath;
-  //   });
-  // }
   //////////////for login
   loginUser(email: any, password: any) {
     let user = {
