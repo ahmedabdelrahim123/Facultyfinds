@@ -18,6 +18,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CartComponent } from './Components/cart/cart.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { FilterPipe } from './pipe/filter.pipe';
+import { StripComponent } from './Components/strip/strip.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FilterPipe } from './pipe/filter.pipe';
     ErrorComponent,
     CartComponent,
     CheckoutComponent,
-    FilterPipe
+    FilterPipe,
+    StripComponent
   ],
   imports: [
     BrowserModule,

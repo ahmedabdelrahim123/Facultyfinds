@@ -1,66 +1,76 @@
-
 .drop{
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .main{
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
+}
+.error-message {
+color: red;
 }
 
 .check{
-    height: 200px;
-    padding: 3%;
-    border: none;
-    width: 29%;
-    height: 790px;
-    background: #efefef;
+  height: 200px;
+  padding: 3%;
+  border: none;
+  width: 29%;
+  height: 790px;
+  background: #efefef;
 
 }
+
+.para{
+font-size: 23px;
+font-family: math;
+font-weight: 900;
+margin-top: 3%;
+}
+
 .par{
-    margin-top: 5%;
-    font-size: 23px;
-    font-family: math;
-    font-weight: 900;
+  font-size: 23px;
+  font-family: math;
+  font-weight: 900;
 }
+
 form{
-    padding-left: 5%;
-    width: 70%;
-    padding-top: 5%;
+  padding-left: 5%;
+  width: 70%;
+  padding-top: 5%;
 }
+
 .vertical-line {
-    border-left: 1px solid #ccc;
-    height: 790px; /* adjust the height as needed */
-  }
+  border-left: 1px solid #ccc;
+  height: 790px; 
+}
+
+.btnn{
+  font-weight: 600;
+  border: white;
+  background: #79bdda;
+  height: 50px;
+  margin-bottom: 10%;
+  float: right;
+  color: white;
+  margin-right: 10%;
+  margin-top: 3%;
+  width: 30%;
+}
+
+.btn{
+  border:1px solid#79bdda;
+  width: 270px;
+  height: 40px;
+  background-color: white;
+  color: #79bdda;
+
+}
 
 
-  .btnn{
-    font-weight: 600;
-    border: white;
-    background: #79bdda;
-    height: 50px;
-    margin-bottom: 10%;
-    float: right;
-    color: white;
-    margin-right: 10%;
-    margin-top: 3%;
-    width: 30%;
-
-
-  }
-  .btn{
-    border:1px solid#79bdda;
-    width: 270px;
-    height: 40px;
-    background-color: white;
-    color: #79bdda;
-
-  }
-
-  .btnn:hover{
-    background-color: white;
-    border: 1px solid #79bdda;
-    color: #79bdda;
-  }
+.btnn:hover{
+  background-color: white;
+  border: 1px solid #79bdda;
+  color: #79bdda;
+}
