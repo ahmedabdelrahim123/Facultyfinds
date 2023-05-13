@@ -36,6 +36,26 @@ let addNewUser = async (req, res) => {
 };
 
 
+//update
+let updateUser = async (req, res) => {
+  try {
+    // Authenticate user making the request
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).send();
+    }
+
+    // Update user record in the database
+    updates.forEach((update) => (user[update] = req.body[update]));
+    await user.save();
+
+    res.send(user);
+  } catch (e) {
+    res.status(400).send(e);
+  }
+};
+
+
 
   // let addNewUser = async (req, res) => {
   //   var data = req.body;
@@ -99,5 +119,6 @@ let login = async (req, res) => {
 module.exports = {
   getAllUsers,
   addNewUser,
-  login
+  login,
+  updateUser
 };
