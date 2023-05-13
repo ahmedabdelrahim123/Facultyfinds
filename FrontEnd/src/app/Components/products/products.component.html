@@ -58,10 +58,9 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'">
-            <div class="card col-md-3">
+<div class="products">
+    <!-- <div class="product"> -->
+            <div class="card "  *ngFor="let item of filterCategory | filter:searchKey:'title'">
               <a [routerLink]="['/products', item._id]" style="text-decoration: none;">
                 <img src="{{item.image}}" alt="">
                 <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch; font-weight: 600;">{{item.title}}</h5>
@@ -70,7 +69,5 @@
               </a>
                 <button class="btn4 btn-primary" (click)=addtocart(item)>Add to cart</button>
             </div>
-        </ng-container>
-
-    </div>
+    <!-- </div> -->
 </div>
