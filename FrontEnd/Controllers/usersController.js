@@ -15,7 +15,7 @@ let addNewUser = async (req, res) => {
   const valid = true;
 
   if (!valid) {
-    return res.status(400).send("invalid data");
+    return res.status(400).send("invalid data"+ error.details[0].message);
   } else {
     // validateUser(req, res);
     let testingUserByEmail = await usersModel.findOne({

@@ -24,7 +24,10 @@ export class HeaderComponent {
   type = 'user';
   orders = [];
   image = 'assets/products/avatar.png';
-
+  errormessage='';
+  emailerrormessage='';
+  usernameerrormessage='';
+  fieldsRequired='';
   constructor(
     private modalService: NgbModal,
     private myService: DataService,
@@ -39,24 +42,34 @@ export class HeaderComponent {
   //////for register user
   AddUser(username: any, email: any, password: any, genderRadio: any) {
     const gender = genderRadio.value === 'male' ? 'male' : 'female';
-    console.log(genderRadio.value);
+    // console.log(genderRadio.value);
 
-    let newUser = {
-      username,
-      email,
-      password,
-      gender,
-      type: this.type,
-      image: this.image,
-      orders: this.orders,
-    };
+    let newUser = {username, email, password, gender, type: this.type, image: this.image, orders: this.orders};
     this.myService.addNewUser(newUser).subscribe(
       () => {
         this.modalService.dismissAll();
         this.router.navigate(['/']);
       },
       (err) => {
-        alert(err.error);
+        this.errormessage = err.error;
+        if (this.errormessage.includes("Email already taken")) {
+          this.emailerrormessage = err.error;
+        }
+        else{
+          this.emailerrormessage='';
+        }
+        if (this.errormessage.includes("Username already taken")) {
+          this.usernameerrormessage = err.error;
+        }
+        else{
+          this.usernameerrormessage='';
+        }
+        if (this.errormessage.includes('is not allowed to be empty')) {
+          this.fieldsRequired= "there are fields required still empty";
+        }
+        else{
+          this.fieldsRequired="";
+        }
         console.log(err);
       }
     );
