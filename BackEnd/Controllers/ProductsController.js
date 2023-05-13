@@ -1,5 +1,5 @@
 // const validate = require("../Utils/coursesValidation");
-const productsModel = require("../Model/productsModel");
+const productsModel = require("../Model/ProductsModel");
 
 let getAllProducts = async (req, res) => {
   // console.log("in controller",req);
