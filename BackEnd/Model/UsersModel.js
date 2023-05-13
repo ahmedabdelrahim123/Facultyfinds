@@ -8,10 +8,6 @@ connection.once('open', () => {
 });
 
 const usersSchema = new mongoose.Schema({
-  _id: {
-    type: "number",
-    required: true,
-  },
   email: {
     type: "string",
     required: true,
