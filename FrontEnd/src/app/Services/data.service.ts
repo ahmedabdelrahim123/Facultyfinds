@@ -10,9 +10,19 @@ export class DataService {
   constructor(private readonly http:HttpClient) { }
   private readonly Base_URL = "http://localhost:3000";
 
-  getMyProducts(): Observable<any> {
-    return this.http.get(`${this.Base_URL}/api/product/products`);
+  // getMyProducts(): Observable<any> {
+  //   return this.http.get(`${this.Base_URL}/api/product/products`);
+  // }
+  getMyProducts(college?: string): Observable<any> {
+    let url = `${this.Base_URL}/api/product/products`;
+
+    if (college) {
+      url = `${url}?college=${college}`;
+    }
+
+    return this.http.get(url);
   }
+
 
   getProductById(_id: Number): Observable<any> {
     return this.http.get(`${this.Base_URL}/api/product/${_id}`);

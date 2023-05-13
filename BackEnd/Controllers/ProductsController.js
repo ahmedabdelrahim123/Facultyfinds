@@ -1,11 +1,25 @@
 // const validate = require("../Utils/coursesValidation");
 const productsModel = require("../Model/productsModel");
 
+// let getAllProducts = async (req, res) => {
+//   let data = await productsModel.find({});
+//   res.json(data);
+// };
+
 let getAllProducts = async (req, res) => {
-  // console.log("in controller",req);
-  let data = await productsModel.find({});
+  const college = req.query.college;
+  console.log(college);
+  let data = [];
+
+  if (college) {
+    data = await productsModel.find({ college: college });
+  } else {
+    data = await productsModel.find({});
+  }
+
   res.json(data);
 };
+
 
 let getProductById = async (req, res) => {
   // console.log("in controller",req);

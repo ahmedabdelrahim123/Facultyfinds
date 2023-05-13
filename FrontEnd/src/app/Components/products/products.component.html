@@ -1,33 +1,33 @@
 <div class="card-top container-fluid">
     <div class="container d-flex">
         <div class="item">
-            <a (click)="filter('')">
+            <a (click)="getMyProducts()">
                 <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="">
                 <h6>All products</h6>
             </a>
         </div>
         <div class="item">
-            <a (click)="filter('engineering')">
+            <a (click)="getMyProducts('engineering')">
                 <img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100" alt="">
                 <h6>Engineering</h6>
             </a>
         </div>
 
-        <div class="item">
-            <a (click)="filter('science')">
+      <div class="item">
+            <a (click)="getMyProducts('science')">
                 <img src="https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100" alt="">
                 <h6>Science</h6>
             </a>
         </div>
         <div class="item">
-            <a (click)="filter('Pharmacy')">
+            <a (click)="getMyProducts('Pharmacy')">
                 <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
                 <h6>Pharmacy</h6>
             </a>
         </div>
 
         <div class="item">
-            <a (click)="filter('Medicine')">
+            <a (click)="getMyProducts('Medicine')">
                 <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
                 <h6>Medicine</h6>
             </a>
@@ -35,7 +35,7 @@
 
 
         <div class="item">
-            <a (click)="filter('Dentistry')">
+            <a (click)="getMyProducts('Dentistry')">
                 <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
                 <h6>Dentistry</h6>
             </a>
@@ -43,24 +43,17 @@
 
 
         <div class="item">
-            <a (click)="filter('Arts')">
+            <a (click)="getMyProducts('Arts')">
                 <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
                 <h6>Arts</h6>
             </a>
         </div>
-
-
-
-
-
-
-
     </div>
 </div>
 
+
 <div class="products">
-    <!-- <div class="product"> -->
-            <div class="card "  *ngFor="let item of filterCategory | filter:searchKey:'title'">
+            <div class="card "  *ngFor="let item of productList">
               <a [routerLink]="['/products', item._id]" style="text-decoration: none;">
                 <img src="{{item.image}}" alt="">
                 <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch; font-weight: 600;">{{item.title}}</h5>
@@ -69,5 +62,4 @@
               </a>
                 <button class="btn4 btn-primary" (click)=addtocart(item)>Add to cart</button>
             </div>
-    <!-- </div> -->
 </div>

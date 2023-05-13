@@ -43,7 +43,7 @@ import { StripComponent } from './Components/strip/strip.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
