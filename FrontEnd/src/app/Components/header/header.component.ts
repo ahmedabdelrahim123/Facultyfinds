@@ -20,7 +20,7 @@ export class HeaderComponent {
   public showModal = false;
   type = 'user';
   orders = [];
-  image_name='';
+  image_name='assets';
   errormessage='';
   emailerrormessage='';
   usernameerrormessage='';

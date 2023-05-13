@@ -1,5 +1,6 @@
 const validate = require("../Utils/userSchema");
 const usersModel = require("../Model/usersModel");
+const bcrypt = require("bcrypt");
 
 let getAllUsers = async (req, res) => {
   let data = await usersModel.find({});
