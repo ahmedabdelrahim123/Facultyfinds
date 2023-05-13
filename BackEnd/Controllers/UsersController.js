@@ -1,7 +1,6 @@
 const validate = require("../Utils/userSchema");
 const usersModel = require("../Model/usersModel");
-const bcrypt = require("bcrypt");
-
+const mongoose = require("mongoose");
 let getAllUsers = async (req, res) => {
   let data = await usersModel.find({});
   res.json(data);
@@ -40,23 +39,25 @@ let addNewUser = async (req, res) => {
 
 
 //update
-let updateUser = async (req, res) => {
+const updateUser = async (req, res) => {
   try {
-    // Authenticate user making the request
-    let id = req.params.id;
-    const user = await usersModel.findById({_id: id});
-    console.log(user);
+    const userId = mongoose.Types.ObjectId(req.params.id);
+    const updates = Object.keys(req.body);
+
+    const user = await usersModel.findByIdAndUpdate(
+      userId,
+      req.body,
+      { new: true, runValidators: true }
+    );
+
     if (!user) {
-      return res.status(404).send({ message: 'cant find id ' });
+      return res.status(404).send({ message: 'User not found' });
     }
 
-    // Update user record in the database
-    updates.forEach((update) => (user[update] = req.body[update]));
-    await user.save();
-
     res.send(user);
-  } catch (e) {
-    res.status(400).send({ message: 'cant save' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: 'Server error' });
   }
 };
 
