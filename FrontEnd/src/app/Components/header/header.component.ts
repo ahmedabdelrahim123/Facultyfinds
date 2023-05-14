@@ -20,11 +20,11 @@ export class HeaderComponent {
   public showModal = false;
   type = 'user';
   orders = [];
-  image_name='assets';
-  errormessage='';
-  emailerrormessage='';
-  usernameerrormessage='';
-  fieldsRequired='';
+  image_name = 'assets';
+  errormessage = '';
+  emailerrormessage = '';
+  usernameerrormessage = '';
+  fieldsRequired = '';
   // image = 'assets/products/avatar.png';
 
   // selectedFile: File;
