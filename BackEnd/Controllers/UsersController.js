@@ -42,7 +42,7 @@ let addNewUser = async (req, res) => {
 let login = async (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
-  console.log(email, password);
+  // console.log(email, password);
 
   let user = await usersModel.findOne({ email: email });
 
@@ -54,7 +54,6 @@ let login = async (req, res) => {
     return res.status(400).send("Invalid email or password");
   }
 
-  // return res.status(200).send("Login Successful");
   let Token = jwt.sign(
     {
       userId: user._id,
@@ -64,7 +63,7 @@ let login = async (req, res) => {
   );
 
   res.header("x-auth-token", Token);
-  return res.status(200).json(user);
+  return res.status(200).json({user:user ,token: Token});
 };
 
 module.exports = {

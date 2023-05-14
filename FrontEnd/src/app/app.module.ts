@@ -9,7 +9,6 @@ import { ProductsComponent } from './Components/products/products.component';
 import { ProductsDetailsComponent } from './Components/products-details/products-details.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
-import { AddToCartComponent } from './Components/add-to-cart/add-to-cart.component';
 import { HomeComponent } from './Components/home/home.component';
 import { AboutComponent } from './Components/about/about.component';
 import { ErrorComponent } from './Components/error/error.component';
@@ -17,8 +16,8 @@ import { HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CartComponent } from './Components/cart/cart.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
-import { FilterPipe } from './pipe/filter.pipe';
 import { StripComponent } from './Components/strip/strip.component';
+import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -29,13 +28,11 @@ import { StripComponent } from './Components/strip/strip.component';
     ProductsDetailsComponent,
     LoginComponent,
     RegisterComponent,
-    AddToCartComponent,
     HomeComponent,
     AboutComponent,
     ErrorComponent,
     CartComponent,
     CheckoutComponent,
-    FilterPipe,
     StripComponent
   ],
   imports: [
@@ -43,7 +40,9 @@ import { StripComponent } from './Components/strip/strip.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    NgbDropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

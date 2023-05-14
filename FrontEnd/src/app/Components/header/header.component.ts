@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons,NgbDropdown,NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/Services/data.service';
 import { CartService } from 'src/app/Services/cart.service';
@@ -25,7 +25,9 @@ export class HeaderComponent {
   emailerrormessage='';
   usernameerrormessage='';
   fieldsRequired='';
-  // image = 'assets/products/avatar.png';
+  loginerror='';
+  username='';
+
 
   // selectedFile: File;
   imagePath: string = '';
@@ -84,23 +86,34 @@ export class HeaderComponent {
   ////////////////for upload image in register
 
   //////////////for login
+  isAuthenticated(){
+    const token = localStorage.getItem('token');
+    if (token){
+    // user is logged in
+    return true;
+  } else {
+    // user is not logged in
+    return false;
+  }
+  }
   loginUser(email: any, password: any) {
-    let user = {
-      email,
-      password,
-    };
-
+    let user = { email, password};
     this.myService.loginUser(user).subscribe(
-      (response) => {
+      (response: { [key: string]: any }) => {
+        this.username = response['user']['username'];
+        localStorage.setItem('token', response['token']);
+        // localStorage.setItem('username', response['user']['username']);
         this.modalService.dismissAll();
         this.router.navigate(['/']);
-        console.log(response);
+
+        // console.log(response['user']['username']);
+        // console.log(response['token']);
+        // const token = response['headers'].get("x-auth-token");
+        // console.log(token);
       },
       (err) => {
-        // console.error('Error occurred:', error);
-        console.log('error');
-        console.log(err.error);
-        // You could also show a toast message or display the error message in the UI
+        console.log(err);
+        this.loginerror=err.error;
       }
     );
   }
@@ -144,10 +157,10 @@ export class HeaderComponent {
 
   public totalItem: number = 0;
 
-  isAuthenticated() {
-    return false;
+
+  logout() {
+    localStorage.setItem('token',"");
   }
-  logout() {}
 
   ngOnInit(): void {
     this.cartService.getProducts().subscribe((res) => {

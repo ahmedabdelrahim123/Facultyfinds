@@ -42,27 +42,15 @@
             >Login</a
           >
           <li *ngIf="isAuthenticated()" class="nav-item dropdown">
-            <a
-              style="font-size: 20px"
-              id="navbarDropdown"
-              class="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-              v-pre
-            >
-              ahmed
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ username }}
             </a>
-            <div
-              class="dropdown-menu dropdown-menu-end"
-              aria-labelledby="navbarDropdown"
-            >
-              <a class="dropdown-item" href="#">Profile</a>
-              <a class="dropdown-item" href="#">logout</a>
-            </div>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" (click)="logout()" >Logout</a></li>
+            </ul>
           </li>
+
         </ul>
       </div>
     </div>
@@ -169,6 +157,7 @@
                   />
                 </div>
               </div>
+              <p class="error">{{loginerror}}</p>
               <div class="text-center mt-5">
                 <button
                   type="submit"
