@@ -37,24 +37,37 @@ let addNewUser = async (req, res) => {
 
 
 //update
-let updateUser = async (req, res) => {
-  try {
-    // Authenticate user making the request
-    const user = await User.findById(req.params.id);
-    if (!user) {
-      return res.status(404).send();
-    }
+// let updateUser = async (req, res) => {
+//   try {
+//     // Authenticate user making the request
+//     const user = await User.findById(req.params.id);
+//     if (!user) {
+//       return res.status(404).send();
+//     }
 
-    // Update user record in the database
-    updates.forEach((update) => (user[update] = req.body[update]));
-    await user.save();
+//     // Update user record in the database
+//     updates.forEach((update) => (user[update] = req.body[update]));
+//     await user.save();
 
-    res.send(user);
-  } catch (e) {
-    res.status(400).send(e);
-  }
-};
+//     res.send(user);
+//   } catch (e) {
+//     res.status(400).send(e);
+//   }
+// };
 
+
+
+// let updateUser = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const update = req.body;
+//     const user = await usersModel.findByIdAndUpdate(id, update, { new: true });
+//     res.json(user);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: 'Internal server error' });
+//   }
+// };
 
 
   // let addNewUser = async (req, res) => {
@@ -116,9 +129,34 @@ let login = async (req, res) => {
 };
 
 
+
+//Delete
+let deleteUser = async (req, res, next) => {
+  res.send("bts");
+  // try {
+  //   let id = req.params.id;
+  //   const user = await usersModel.findByIdAndDelete({_id: id});
+  //   if (!user) {
+  //     return res.status(404).json({
+  //       success: false,
+  //       message: 'User not found',
+  //     });
+  //   }
+  //   res.status(200).json({
+  //     success: true,
+  //     message: 'User deleted successfully',
+  //     data: user,
+  //   });
+  // } catch (error) {
+  //   next(error);
+  // }
+};
+
+
 module.exports = {
   getAllUsers,
   addNewUser,
   login,
-  updateUser
+  updateUser,
+  deleteUser
 };
