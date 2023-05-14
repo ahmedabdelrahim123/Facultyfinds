@@ -10,6 +10,12 @@
 }
 .error-message {
 color: red;
+margin-left: 1%;
+
+}
+
+.red-border {
+  border: 1px solid red;
 }
 
 .check{
