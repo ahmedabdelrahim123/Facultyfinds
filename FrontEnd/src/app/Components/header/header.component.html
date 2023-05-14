@@ -164,13 +164,14 @@
         <!--/.Panel 2-->
         <div class="tab-pane fade active show" id="panel2" role="tabpanel">
           <!--Body-->
-          <form  class="modal-body" (ngSubmit)="
+          <form  class="modal-body" enctype="multipart/form-data" (ngSubmit)="
               AddUser(
                 username.value,
                 email.value,
                 password.value,
                 repasword.value,
-                maleRadio.checked ? 'male' : 'female')"  >
+                image,
+                maleRadio.checked ? 'male' : 'female')">
           <div class="md-form form-sm mb-5">
               <h3 class="text-center m-4 welcome" style="font-family: cursive">
                 Hi Dear <i class="fas fa-star star"></i>, We are glad you joined us
@@ -207,7 +208,9 @@
               </div>
             </div>
             <p class="error">{{repassworderror}}</p>
-
+          <div>
+            <input type="file" name="image"  #image>
+          </div>
             <i class="fas fa-users prefix mt-2" style="font-size: 20px"></i>
             <label>Gender:</label><br />
             <div class="form-check">

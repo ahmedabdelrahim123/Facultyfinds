@@ -19,7 +19,7 @@ export class HeaderComponent {
   activePanel = 'panel1';
   public showModal = false;
   type = 'user';
-  orders = [];
+  orders=[];
   image_name='assets';
   errormessage='';
   emailerrormessage='';
@@ -28,6 +28,7 @@ export class HeaderComponent {
   loginerror='';
   username='';
   repassworderror='';
+  imageFile='';
 
 
   // selectedFile: File;
@@ -40,32 +41,40 @@ export class HeaderComponent {
     private http: HttpClient
   ) {
     this.type = 'user';
-    this.orders = [];
+    this.orders= [];
     this.panel1 = true;
     this.panel2 = false;
   }
+//   selectFile(event: Event){
+//     if(event.target){
 
+//   }
+//      const file= (event.target as HTMLInputElement).files[0];
+// this.image_name = file.name;}t
   //////for register user
-  AddUser(username: any, email: any, password: any, repassword: any,gender: any) {
-    if(password !== repassword){
+  AddUser(username: any, email: any, password: any, repassword: any,image:any,gender: any) {
+
+    if (image.files && image.files.length > 0){
+      this.imageFile=image.files[0];
+    const formData= new FormData();
+    formData.append('image', image.files[0]);
+    formData.append('username', username);
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('gender', gender);
+    formData.append('type', this.type);
+    formData.append('orders', JSON.stringify(this.orders));
+    console.log(formData.get('image'));
+
+    // const imageFile: File = image.files[0];
+      if(password !== repassword){
       this.repassworderror="your password doesn't match the previous one";
       return;
     }
     else{
       this.repassworderror='';
     }
-    // this.image_name=image.files[0].name;
-    // const gender = genderRadio.value == 'male' ? 'male' : 'female';
-    let newUser = {
-      username,
-      email,
-      password,
-      gender,
-      type: this.type,
-      image: this.image_name,
-      orders: this.orders,
-    };
-    this.myService.addNewUser(newUser).subscribe(
+    this.myService.addNewUser(formData).subscribe(
       () => {
         this.modalService.dismissAll();
         this.router.navigate(['/']);
@@ -89,7 +98,7 @@ export class HeaderComponent {
         }
       }
     );
-  }
+  }}
 
   ////////////////for upload image in register
 
