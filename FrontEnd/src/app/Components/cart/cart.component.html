@@ -30,27 +30,25 @@
                             
                         </tr>
                     </thead>
-                    <tbody style="border: 1px solid rgb(255, 255, 255);" >
+                    <tbody style="border: 1px solid rgb(255, 255, 255);">
                         <tr *ngFor="let item of products; let i = index">
-                            <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
-                           
-                            <td>{{item.title}} <br> <br>
-
-                                <p style="width: 80%;">{{item.description}}</p>
-                            </td>
-                           
-                           
-                            <th style="width: 12%; color: rgb(53, 159, 175);">{{item.price}}</th>                            
-                            <td style="width: 12%;">   {{item.quantity}}</td>
-
-                            <td style="width: 12%; color: rgb(53, 159, 175);">{{item.total}}</td>
-                            <td>
-                                <button (click)="removeItem(item)" class="btn btn-dark"><i class="fa fa-times-rectangle"></i></button>
-                            </td>
+                          <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
+                      
+                          <td>{{item.title}} <br> <br>
+                            <p style="width: 80%;">{{item.description}}</p>
+                          </td>
+                      
+                          <th style="width: 12%; color: rgb(53, 159, 175);">{{item.price}}</th>
+                          <td style="width: 12%;">{{item.quantity}}</td>
+                          <td style="width: 12%; color: rgb(53, 159, 175);">{{item.total}}</td>
+                          <td>
+                            <button (click)="removeItem(item)" class="btn btn-dark"><i class="fa fa-times-rectangle"></i></button>
+                          </td>
                         </tr>
-                       
-     
-                    </tbody>
+<!--                       
+                        <p>Total Price: ${{getTotalPrice()}}</p>
+                        <p>Grand Total: ${{grandTotal}}</p> -->
+                      </tbody>
                 </table>
                 
             </div>

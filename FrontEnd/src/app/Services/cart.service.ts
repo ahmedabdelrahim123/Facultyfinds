@@ -19,19 +19,23 @@ export class CartService {
     this.cartItemList.push(...product);
     this.productList.next(product);
   }
+  
   addtoCart(product : any){
+
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
     console.log(this.cartItemList)
   }
-  getTotalPrice() : number{
-    let grandTotal = 0;
-    this.cartItemList.map((a:any)=>{
-      grandTotal += a.total;
-    })
-    return grandTotal;
+  getTotalPrice(): number {
+    let total = 0;
+    for (let item of this.cartItemList) {
+      item.total = item.quantity * item.price;
+      total += item.total;
+    }
+    return total;
   }
+  
 
   removeCartItem(product: any){
     this.cartItemList.map((a:any, index:any)=>{
