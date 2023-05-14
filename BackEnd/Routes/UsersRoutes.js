@@ -9,5 +9,7 @@ const cors = require("cors");
 router.get("/users", usersController.getAllUsers);
 router.post("/create", [validator(userSchema)], usersController.addNewUser);
 router.post("/login", usersController.login);
-router.delete("/:id", usersController.deleteUser);
+router.put("/users/:id", usersController.updateUser);
+router.delete("/:id", usersController.DeleteUser);
+router.get("/:id", usersController.getUserById);
 module.exports = router;

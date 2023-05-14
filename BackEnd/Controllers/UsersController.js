@@ -44,7 +44,6 @@ let addNewUser = async (req, res) => {
 //update
 const updateUser = async (req, res) => {
   let Id = req.params.id;
-  let data = req.body;
   // const valid = userValid(data);
   // if (!valid) res.send("Not Compatible..");
   // else {
@@ -128,29 +127,26 @@ let login = async (req, res) => {
   return res.status(200).json({user:user ,token: Token});
 };
 
-
-
-//Delete
-let deleteUser = async (req, res, next) => {
-  res.send("bts");
-  // try {
-  //   let id = req.params.id;
-  //   const user = await usersModel.findByIdAndDelete({_id: id});
-  //   if (!user) {
-  //     return res.status(404).json({
-  //       success: false,
-  //       message: 'User not found',
-  //     });
-  //   }
-  //   res.status(200).json({
-  //     success: true,
-  //     message: 'User deleted successfully',
-  //     data: user,
-  //   });
-  // } catch (error) {
-  //   next(error);
-  // }
+//delete
+let DeleteUser = async (req, res) => {
+  var ID = req.params.id;
+  var UserToDelete = await usersModel.find({ _id: ID });
+  await usersModel.deleteOne({ _id: ID });
+  res.json(UserToDelete || "Not Found");
 };
+
+//get user by id
+let getUserById = async (req, res) => {
+  // console.log("in controller",req);
+  let id = req.params.id;
+  // console.log("in controller",req.params.id);
+  let user = await usersModel.findById({_id: id});
+  // console.log("in controller",product);
+  res.json(user);
+};
+
+
+
 
 
 module.exports = {
@@ -158,5 +154,6 @@ module.exports = {
   addNewUser,
   login,
   updateUser,
-  deleteUser
+  DeleteUser,
+  getUserById
 };
