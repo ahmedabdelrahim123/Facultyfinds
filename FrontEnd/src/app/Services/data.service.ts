@@ -40,4 +40,8 @@ export class DataService {
   loginUser(user: any) {
     return this.http.post(`${this.Base_URL}/api/user/login`, user);
   }
+
+  updateUser(user: any) {
+    return this.http.post(`${this.Base_URL}/api/user/users/:id`, user);
+  }
 }

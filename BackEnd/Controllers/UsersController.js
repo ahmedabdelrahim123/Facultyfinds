@@ -1,5 +1,5 @@
 const validate = require("../Utils/userSchema");
-const usersModel = require("../Model/usersModel");
+const usersModel = require("../Model/UsersModel");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -43,25 +43,24 @@ let addNewUser = async (req, res) => {
 
 //update
 const updateUser = async (req, res) => {
-  try {
-    const userId = mongoose.Types.ObjectId(req.params.id);
-    const updates = Object.keys(req.body);
-
-    const user = await usersModel.findByIdAndUpdate(
-      userId,
-      req.body,
-      { new: true, runValidators: true }
+  let Id = req.params.id;
+  let data = req.body;
+  // const valid = userValid(data);
+  // if (!valid) res.send("Not Compatible..");
+  // else {
+   
+    await usersModel.updateOne(
+      { _id: Id },
+      {
+        username: req.body.username,
+        email: req.body.email, 
+        image: req.body.image,
+        gender: req.body.gender,
+        type: req.body.type,
+      }
     );
-
-    if (!user) {
-      return res.status(404).send({ message: 'User not found' });
-    }
-
-    res.send(user);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send({ message: 'Server error' });
-  }
+    await res.send("updated successfully");
+  // }
 };
 
 
