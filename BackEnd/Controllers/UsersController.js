@@ -1,59 +1,67 @@
-// const validate = require("../Utils/coursesValidation");
-const usersModel = require("../Model/usersModel");
+const validate = require("../Utils/userSchema");
+const usersModel = require("../Model/UsersModel");
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 let getAllUsers = async (req, res) => {
   let data = await usersModel.find({});
   res.json(data);
 };
 
-// let addNewUser = async (req, res) => {
-//   var data = req.body;
-//   console.log(data);
-//   if(req.file){
-//     data.image = req.file.path;
-//   }else{
-//     data.image = 'assets/products/avatar.png';
-//   }
-//     var newUser = new usersModel(data);
-//     await newUser.save();
-//     await res.json(newUser);
-//     res.json({ user: { username, email, gender, type, orders, image: data.image } });
-//   };
 let addNewUser = async (req, res) => {
-  var data = req.body;
-  console.log(data);
-  if(req.file){
-    // Get just the filename from the path
-    const filename = req.file.filename;
-    data.image = filename;
-  }else{
-    data.image = 'avatar.png';
+  let data = req.body;
+  const valid = true;
+
+  if (!valid) {
+    return res.status(400).send("invalid data" + error.details[0].message);
+  } else {
+    // validateUser(req, res);
+    let testingUserByEmail = await usersModel.findOne({
+      email: req.body.email,
+    });
+    let testingUserByUsername = await usersModel.findOne({
+      username: req.body.username,
+    });
+    //error.details[0].message
+    if (testingUserByEmail) {
+      return res.status(400).send("Email already taken");
+    } else if (testingUserByUsername) {
+      return res.status(400).send("Username already taken");
+    }
+    //////////////////////////////
+
+    let newUser = new usersModel(data);
+
+    const salt = await bcrypt.genSalt(10);
+    newUser.password = await bcrypt.hash(newUser.password, salt);
+    await newUser.save();
+    await res.json(newUser);
   }
-  var newUser = new usersModel(data);
-  await newUser.save();
-  // Send back user data with image name
-  res.json({ user: { username: newUser.username, email: newUser.email, gender: newUser.gender, type: newUser.type, orders: newUser.orders, image: newUser.image } });
 };
 
 
 //update
-// let updateUser = async (req, res) => {
-//   try {
-//     // Authenticate user making the request
-//     const user = await User.findById(req.params.id);
-//     if (!user) {
-//       return res.status(404).send();
-//     }
-
-//     // Update user record in the database
-//     updates.forEach((update) => (user[update] = req.body[update]));
-//     await user.save();
-
-//     res.send(user);
-//   } catch (e) {
-//     res.status(400).send(e);
-//   }
-// };
+const updateUser = async (req, res) => {
+  let Id = req.params.id;
+  let data = req.body;
+  // const valid = userValid(data);
+  // if (!valid) res.send("Not Compatible..");
+  // else {
+   
+    await usersModel.updateOne(
+      { _id: Id },
+      {
+        username: req.body.username,
+        email: req.body.email, 
+        image: req.body.image,
+        gender: req.body.gender,
+        type: req.body.type,
+      }
+    );
+    await res.send("updated successfully");
+  // }
+};
 
 
 
@@ -96,36 +104,28 @@ let addNewUser = async (req, res) => {
 let login = async (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
-  console.log(email, password);
-  try {
-    let user = await usersModel.findOne({email: email, password: password});
-    console.log(user);
-    if (!user) {
-      res.status(401).json({
-        message: "Login not successful",
-        error: "User not found",
-      });
-    } else {
-      res.status(200).json({
-        message: "Login successful",
-      });
-    }
-  } catch (error) {
-    res.status(400).json({
-      message: "An error occurred",
-      error: error.message,
-    });
-  }
-  // console.log("user: " + user);
-  // if (!user) {
-  //   console.log("Invalid Credentials");
-  //   res.json({ message: "Invalid Credentials" });
-  // } else {
-  //   console.log("in");
-  //   res.json(user);
-  // }
+  // console.log(email, password);
 
-  // res.json(user);
+  let user = await usersModel.findOne({ email: email });
+
+  if (!user) {
+    return res.status(400).send("Invalid email or password");
+  }
+  let checkPassword = await bcrypt.compare(password, user.password);
+  if (!checkPassword) {
+    return res.status(400).send("Invalid email or password");
+  }
+
+  let Token = jwt.sign(
+    {
+      userId: user._id,
+      userType: user.type,
+    },
+    "thistokensecret"
+  );
+
+  res.header("x-auth-token", Token);
+  return res.status(200).json({user:user ,token: Token});
 };
 
 

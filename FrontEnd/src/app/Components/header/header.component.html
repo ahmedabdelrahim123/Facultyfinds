@@ -42,27 +42,15 @@
             >Login</a
           >
           <li *ngIf="isAuthenticated()" class="nav-item dropdown">
-            <a
-              style="font-size: 20px"
-              id="navbarDropdown"
-              class="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-              v-pre
-            >
-              ahmed
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ username }}
             </a>
-            <div
-              class="dropdown-menu dropdown-menu-end"
-              aria-labelledby="navbarDropdown"
-            >
-              <a class="dropdown-item" href="#">Profile</a>
-              <a class="dropdown-item" href="#">logout</a>
-            </div>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" (click)="logout()" >Logout</a></li>
+            </ul>
           </li>
+
         </ul>
       </div>
     </div>
@@ -148,33 +136,17 @@
               </div>
 
               <div class="md-form form-sm mb-4">
-                <label
-                  data-error="wrong"
-                  data-success="right"
-                  for="modalLRInput7"
-                  >Your password</label
+                <label>Your password</label
                 >
                 <div class="d-flex">
-                  <i
-                    class="fas fa-lock prefix mt-2"
-                    style="font-size: 20px"
-                  ></i>
-                  <input
-                    type="password"
-                    id="modalLRInput7"
-                    name="password"
-                    #password
-                    placeholder="enter your password"
-                    class="form-control form-control-sm validate custom-border-bottom"
-                  />
+                  <i  class="fas fa-lock prefix mt-2"  style="font-size: 20px" ></i>
+                  <input  type="password" name="password"  #password placeholder="enter your password"
+                    class="form-control form-control-sm validate custom-border-bottom" />
                 </div>
               </div>
+              <p class="error">{{loginerror}}</p>
               <div class="text-center mt-5">
-                <button
-                  type="submit"
-                  class="btn btn-info waves-effect waves-light fs-5"
-                >
-                  Log in <i class="fas fa-sign-in ml-1"></i>
+                <button type="submit" class="btn btn-info waves-effect waves-light fs-5"> Log in <i class="fas fa-sign-in ml-1"></i>
                 </button>
               </div>
             </form>
@@ -192,130 +164,64 @@
         <!--/.Panel 2-->
         <div class="tab-pane fade active show" id="panel2" role="tabpanel">
           <!--Body-->
-          <form
-            class="modal-body"
-            (ngSubmit)="
+          <form  class="modal-body" (ngSubmit)="
               AddUser(
                 username.value,
                 email.value,
                 password.value,
-                maleRadio.checked ? 'male' : 'female',
-                imageInput)"
-          >
-            <div class="md-form form-sm mb-5">
+                repasword.value,
+                maleRadio.checked ? 'male' : 'female')"  >
+          <div class="md-form form-sm mb-5">
               <h3 class="text-center m-4 welcome" style="font-family: cursive">
-                Hi Dear <i class="fas fa-star star"></i>, We are glad you joined
-                us
+                Hi Dear <i class="fas fa-star star"></i>, We are glad you joined us
               </h3>
-              <label
-                data-error="wrong"
-                data-success="right"
-                for="modalLRInput10"
-                >Username</label
-              >
+              <label>Username</label>
               <div class="d-flex">
                 <i class="fas fa-user prefix mt-2" style="font-size: 20px"></i>
-                <input
-                  type="email"
-                  id="modalLRInput10"
-                  class="form-control form-control-sm validate custom-border-bottom"
-                  placeholder="enter a username"
-                  name="username"
-                  #username
-                />
+                <input type="email" class="form-control form-control-sm validate custom-border-bottom" placeholder="enter a username"  name="username" #username/>
               </div>
+              <p class="error">{{usernameerrormessage}}</p>
             </div>
             <div class="md-form form-sm mb-5">
-              <label
-                data-error="wrong"
-                data-success="right"
-                for="modalLRInput10"
-                >Your email</label
-              >
+              <label>Your email</label>
               <div class="d-flex">
-                <i
-                  class="fas fa-envelope prefix mt-2"
-                  style="font-size: 20px"
-                ></i>
-                <input
-                  type="email"
-                  id="modalLRInput10"
-                  class="form-control form-control-sm custom-border-bottom"
-                  placeholder="enter your email address"
-                  name="email"
-                  #email
-                />
+                <i class="fas fa-envelope prefix mt-2"  style="font-size: 20px" ></i>
+                <input type="email" class="form-control form-control-sm custom-border-bottom"  placeholder="enter your email address"  name="email" #email/>
               </div>
             </div>
+            <p class="error">{{emailerrormessage}}</p>
 
             <div class="md-form form-sm mb-5">
-              <label data-error="wrong" data-success="right" for="modalLRInput8"
-                >Your password</label
-              >
+              <label>Your password</label>
               <div class="d-flex">
                 <i class="fas fa-lock prefix mt-2" style="font-size: 20px"></i>
-                <input
-                  type="password"
-                  id="modalLRInput8"
-                  class="form-control form-control-sm custom-border-bottom"
-                  placeholder="enter a strong password"
-                  name="password"
-                  #password
-                />
+                <input type="password" class="form-control form-control-sm custom-border-bottom" placeholder="enter a strong password" name="password"  #password/>
               </div>
             </div>
 
             <div class="md-form form-sm mb-4">
-              <label data-error="wrong" data-success="right" for="modalLRInput9"
-                >Repeat password</label
-              >
+              <label>Repeat password</label >
               <div class="d-flex">
                 <i class="fas fa-lock prefix mt-2" style="font-size: 20px"></i>
-                <input
-                  type="password"
-                  id="modalLRInput9"
-                  class="form-control form-control-sm custom-border-bottom"
-                  placeholder="repeat the previous password"
-                />
+                <input type="password" class="form-control form-control-sm custom-border-bottom" placeholder="repeat the previous password" name="repassword" #repasword/>
               </div>
             </div>
-
-            <div class="md-form form-sm mb-5">
-              <label for="imageInput">Profile Image</label>
-              <input type="file" id="imageInput" accept="image/*" #imageInput>
-            </div>
+            <p class="error">{{repassworderror}}</p>
 
             <i class="fas fa-users prefix mt-2" style="font-size: 20px"></i>
             <label>Gender:</label><br />
             <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gender"
-                id="male"
-                value="male"
-                #maleRadio
-              />
+              <input class="form-check-input" type="radio" name="gender" value="male" #maleRadio/>
               <label class="form-check-label" for="male">Male</label>
             </div>
 
             <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gender"
-                id="female"
-                value="female"
-                #femaleRadio
-              />
+              <input class="form-check-input" type="radio" name="gender" value="female" #femaleRadio/>
               <label class="form-check-label" for="female">Female</label>
             </div>
+            <p class="error">{{fieldsRequired}}</p>
             <div class="text-center form-sm mt-2">
-              <button
-                class="btn btn-info waves-effect waves-light fs-5"
-                type="submit"
-              >
-                Sign up <i class="fas fa-sign-in ml-1"></i>
+              <button class="btn btn-info waves-effect waves-light fs-5" type="submit">Sign up <i class="fas fa-sign-in ml-1"></i>
               </button>
             </div>
           </form>

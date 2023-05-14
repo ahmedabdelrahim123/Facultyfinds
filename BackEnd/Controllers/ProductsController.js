@@ -8,7 +8,7 @@ const productsModel = require("../Model/productsModel");
 
 let getAllProducts = async (req, res) => {
   const college = req.query.college;
-  console.log(college);
+  // console.log(college);
   let data = [];
 
   if (college) {
