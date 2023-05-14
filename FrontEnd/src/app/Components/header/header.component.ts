@@ -27,6 +27,7 @@ export class HeaderComponent {
   fieldsRequired='';
   loginerror='';
   username='';
+  repassworderror='';
 
 
   // selectedFile: File;
@@ -45,9 +46,16 @@ export class HeaderComponent {
   }
 
   //////for register user
-  AddUser(username: any, email: any, password: any, genderRadio: any) {
+  AddUser(username: any, email: any, password: any, repassword: any,gender: any) {
+    if(password !== repassword){
+      this.repassworderror="your password doesn't match the previous one";
+      return;
+    }
+    else{
+      this.repassworderror='';
+    }
     // this.image_name=image.files[0].name;
-    const gender = genderRadio.value === 'male' ? 'male' : 'female';
+    // const gender = genderRadio.value == 'male' ? 'male' : 'female';
     let newUser = {
       username,
       email,
