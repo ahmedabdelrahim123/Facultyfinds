@@ -6,6 +6,8 @@ import { CartComponent } from './Components/cart/cart.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { HomeComponent } from './Components/home/home.component';
 import { StripComponent } from './Components/strip/strip.component';
+import { ContactusComponent } from './Components/contactus/contactus.component';
+import { AboutComponent } from './Components/about/about.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -15,7 +17,9 @@ const routes: Routes = [
   // {path:'addproducts', component:Add},
   {path:'cart', component: CartComponent},
   {path:'checkout', component: CheckoutComponent},
-  {path:'strip', component: StripComponent}
+  {path:'strip', component: StripComponent},
+  {path:'about', component: AboutComponent},
+  {path:'contactus', component: ContactusComponent}
 
 ];
 

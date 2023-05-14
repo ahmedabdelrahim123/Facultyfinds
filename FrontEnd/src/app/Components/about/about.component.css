@@ -1,0 +1,66 @@
+
+/* div of about us title */
+.about_us_div{
+    width: 100%;
+    position: center;
+    margin-top: 60px;
+}
+
+/* about us title */
+.my-title{
+    font-size: 45px;
+    font-weight: bold;
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+} 
+
+/* parent div of all cards */
+.parent_div{
+    width: 90%;
+    position: center;
+}
+
+/* some edits in cards items */
+.card_img{
+    width: 250px;
+}
+
+.col-md-4{
+    text-align: center;
+}
+
+.right_img{
+    float: right !important;
+}
+
+/* media of pc page size */
+@media(min-width : 1000px){
+    .my-col-9{
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+}
+
+/* media of mob page size */
+@media(max-width:767.5px){
+    .card .row > .col-md-8 {
+        order: 2;
+      }
+      .card .row > .col-md-4 {
+        order: 1;
+      }
+}
+
+/* media of reducing page size */
+@media(max-width : 990px){
+
+    .empty_col{
+        display: none;
+    }
+
+    .right_img{
+        float: none !important;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
