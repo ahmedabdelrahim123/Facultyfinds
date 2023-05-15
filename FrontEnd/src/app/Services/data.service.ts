@@ -42,6 +42,12 @@ export class DataService {
   }
 
   updateUser(user: any) {
-    return this.http.post(`${this.Base_URL}/api/user/users/:id`, user);
+    return this.http.post(`${this.Base_URL}/api/user/user/:id`, user);
+  }
+  deleteUser(user: any) {
+    return this.http.post(`${this.Base_URL}/api/user/delete/:id`, user);
+  }
+  getUserbyid(user: any) {
+    return this.http.post(`${this.Base_URL}/api/user/:id`, user);
   }
 }
