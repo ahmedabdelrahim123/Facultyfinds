@@ -24,10 +24,25 @@ export class ProductsComponent implements OnInit {
       this.searchKey = val;
     })
   }
-  addtocart(item: any){
-    this.cartService.addtoCart(item);
-
+  addToCart(item: any) {
+    const cartItem = { ...item }; // create a copy of the item
+    cartItem.quantity = item.quantity || 1; // set the quantity to 1 if not specified
+    this.cartService.addtoCart(cartItem); // add the item to the cart
+    // item.quantity = null; // reset the quantity selector after adding to cart
   }
+  
+  
+  updateTotalPrice(item: any) {
+    item.totalPrice = item.price * item.quantity;
+  }
+  getTotalPrice(item: any) {
+    if (item.totalPrice) {
+      return item.totalPrice.toFixed(2);
+    } else {
+      return (item.price * item.quantity).toFixed(2);
+    }
+  }
+  
   getMyProducts(college?: string): void {
     this.selectedCollege = college;
     this.api.getMyProducts(this.selectedCollege)

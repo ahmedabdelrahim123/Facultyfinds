@@ -60,6 +60,16 @@
                 <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
                 <p style="color:rgb(30, 128, 143)"><strong>Price:</strong> ${{item.price}}</p>
               </a>
-                <button class="btn4 btn-primary" (click)=addtocart(item)>Add to cart</button>
+                  <!-- Quantity Selector -->
+            <div>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" [(ngModel)]="item.quantity" min="1" max="100" (change)="updateTotalPrice(item)">
+              </div>
+              
+              <!-- Total Price -->
+              <p style="color:rgb(30, 128, 143)"><strong>Total Price:</strong> ${{getTotalPrice(item)}}</p>
+              
+              <!-- Add to Cart Button -->
+              <button class="btn4 btn-primary" (click)="addToCart(item)">Add to Cart</button>
             </div>
 </div>
