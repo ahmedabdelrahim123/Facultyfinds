@@ -18,6 +18,7 @@ import { CartComponent } from './Components/cart/cart.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { StripComponent } from './Components/strip/strip.component';
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContactusComponent } from './Components/contactus/contactus.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ErrorComponent,
     CartComponent,
     CheckoutComponent,
-    StripComponent
+    StripComponent,
+    ContactusComponent,
   ],
   imports: [
     BrowserModule,

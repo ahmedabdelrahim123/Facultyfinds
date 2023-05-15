@@ -1,13 +1,13 @@
 const express = require("express");
-const multer = require("multer");
-const path = require("path");
+// const multer = require("multer");
+// const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 const bodyParser = require("body-parser");
 const productRouter = require("./Routes/productsRoutes");
 const orderRouter = require("./Routes/ordersRoutes");
-const userRouter = require("./Routes/usersRoutes");
+const userRouter = require("./Routes/UsersRoutes");
 const cors = require("cors");
 
 // middlewares
@@ -31,6 +31,7 @@ app.use((req, res, next) => {
 app.use("/api/product", productRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/user", userRouter);
+app.use("/uploads", express.static("uploads"));
 
 //start server
 app.listen(PORT, () => {
