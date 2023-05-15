@@ -48,6 +48,6 @@ export class DataService {
     return this.http.delete(`${this.Base_URL}/api/user/delete/:id`, user);
   }
   getUserbyid(user: any) {
-    return this.http.post(`${this.Base_URL}/api/user/:id`, user);
+    return this.http.get(`${this.Base_URL}/api/user/:id`, user);
   }
 }
