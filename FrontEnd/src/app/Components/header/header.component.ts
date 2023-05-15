@@ -45,17 +45,12 @@ export class HeaderComponent {
     this.panel1 = true;
     this.panel2 = false;
   }
-//   selectFile(event: Event){
-//     if(event.target){
 
-//   }
-//      const file= (event.target as HTMLInputElement).files[0];
-// this.image_name = file.name;}t
   //////for register user
   AddUser(username: any, email: any, password: any, repassword: any,image:any,gender: any) {
 
     if (image.files && image.files.length > 0){
-      this.imageFile=image.files[0];
+    this.imageFile=image.files[0];
     const formData= new FormData();
     formData.append('image', image.files[0]);
     formData.append('username', username);
@@ -99,9 +94,6 @@ export class HeaderComponent {
       }
     );
   }}
-
-  ////////////////for upload image in register
-
   //////////////for login
   isAuthenticated(){
     const token = localStorage.getItem('token');
