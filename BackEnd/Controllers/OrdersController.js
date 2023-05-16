@@ -38,10 +38,10 @@ let updateOrder = async (req, res) => {
 let deleteOrder = async (req, res) => {
   var ID = req.params.id;
 
-  var order = await ordersModel.find({ _id: ID });
+  var order = await ordersModel.findOne({ _id: ID });
   console.log(order.statue);
 
-
+  
   if (order.statue !='accepted')
   {
     await ordersModel.deleteOne({ _id: ID });
