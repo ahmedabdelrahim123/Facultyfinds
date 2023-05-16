@@ -8,10 +8,6 @@ connection.once('open', () => {
 });
 
 const ordersSchema = new mongoose.Schema({
-  _id: {
-    type: "number",
-    required: true,
-  },
   date: {
     type: Date,
     required: true,
@@ -22,13 +18,13 @@ const ordersSchema = new mongoose.Schema({
   },
   statue: {
     type: "string",
+    enum: ['pending', 'accepted', 'rejected'],
+    default: 'pending',
     required: true,
   },
   userID: {
     type: "number",
     required: true,
-  }
-},
-    {timestamps: true }
-  );
+  },
+});
 module.exports = mongoose.model('Order', ordersSchema);

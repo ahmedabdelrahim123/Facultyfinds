@@ -12,6 +12,11 @@ export class DataService {
   // getMyProducts(): Observable<any> {
   //   return this.http.get(`${this.Base_URL}/api/product/products`);
   // }
+/////////////////////////////
+ // product
+  getProductById(_id: Number): Observable<any> {
+    return this.http.get(`${this.Base_URL}/api/product/${_id}`);
+  }
   getMyProducts(college?: string): Observable<any> {
     let url = `${this.Base_URL}/api/product/products`;
 
@@ -21,14 +26,8 @@ export class DataService {
 
     return this.http.get(url);
   }
-
-  getProductById(_id: Number): Observable<any> {
-    return this.http.get(`${this.Base_URL}/api/product/${_id}`);
-  }
-
-  getMyOrders(): Observable<any> {
-    return this.http.get(`${this.Base_URL}/api/order/orders`);
-  }
+////////////////////////////////
+  // user
   getMyUsers(): Observable<any> {
     return this.http.get(`${this.Base_URL}/api/user/users`);
   }
@@ -50,4 +49,26 @@ export class DataService {
   getUserbyid(user: any) {
     return this.http.get(`${this.Base_URL}/api/user/:id`, user);
   }
+//////////////////////////////////
+  // order
+  createorder(user: any) {
+    return this.http.post(`${this.Base_URL}/api/order/create`, user);
+  }
+
+  updateOrder(user: any) {
+    return this.http.put(`${this.Base_URL}/api/order/order/:id`, user);
+  }
+
+  deleteOrder(user: any) {
+    return this.http.delete(`${this.Base_URL}/api/order/delete/:id`, user);
+  }
+
+  getOrderbyid(user: any) {
+    return this.http.get(`${this.Base_URL}/api/order/:id`, user);
+  }
+  getMyOrders(): Observable<any> {
+    return this.http.get(`${this.Base_URL}/api/order/orders`);
+  }
+
+
 }
