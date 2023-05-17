@@ -9,7 +9,7 @@
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav">
           <li class="nav-item" style="margin-left: 150px">
-            <a class="text-decoration-none text-dark" href="">Home</a>
+            <a class="text-decoration-none text-dark"routerLink="/home">Home</a>
           </li>
           <li class="nav-item" style="margin-left: 150px">
             <a routerLink="/products" class="text-decoration-none text-dark">Products</a>
@@ -18,7 +18,10 @@
             <a routerLink="/products" class="text-decoration-none text-dark" >Add Product</a>
           </li>
           <li class="nav-item" style="margin-left: 150px">
-            <a class="text-decoration-none text-dark" href="">About</a>
+            <a class="text-decoration-none text-dark" routerLink="/about">About</a>
+          </li>
+          <li class="nav-item" style="margin-left: 150px">
+            <a class="text-decoration-none text-dark" routerLink="/contactus">Contact US</a>
           </li>
         </ul>
 
@@ -47,7 +50,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><a class="dropdown-item" (click)="logout()" >Logout</a></li>
+              <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
             </ul>
           </li>
 

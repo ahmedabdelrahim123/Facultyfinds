@@ -1,5 +1,6 @@
 const validate = require("../Utils/userSchema");
-const usersModel = require("../Model/usersModel");
+const usersModel = require("../Model/UsersModel");
+const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -53,6 +54,66 @@ let addNewUser = async (req, res) => {
   }
 };
 
+
+//update
+const updateUser = async (req, res) => {
+  let Id = req.params.id;
+  // const valid = userValid(data);
+  // if (!valid) res.send("Not Compatible..");
+  // else {
+   
+    await usersModel.updateOne(
+      { _id: Id },
+      {
+        username: req.body.username,
+        email: req.body.email, 
+        image: req.body.image,
+        gender: req.body.gender,
+        type: req.body.type,
+      }
+    );
+    await res.send("updated successfully");
+  // }
+};
+
+
+
+// let updateUser = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const update = req.body;
+//     const user = await usersModel.findByIdAndUpdate(id, update, { new: true });
+//     res.json(user);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: 'Internal server error' });
+//   }
+// };
+
+
+  // let addNewUser = async (req, res) => {
+  //   var data = req.body;
+  //   if(req.file){
+  //     data.image = req.file.path;
+  //   }else{
+  //     data.image = 'assets/products/avatar.png';
+  //   }
+  //   var newUser = new usersModel(data);
+  //   await newUser.save();
+  //   const { _id, username, email, gender, type, orders } = newUser;
+  //   res.json({ user: { _id, username, email, gender, type, orders, image: data.image } });
+  // };
+  
+
+
+
+
+
+
+
+
+
+
 let login = async (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
@@ -81,8 +142,33 @@ let login = async (req, res) => {
   return res.status(200).json({ user: user, token: Token });
 };
 
+//delete
+let DeleteUser = async (req, res) => {
+  var ID = req.params.id;
+  var UserToDelete = await usersModel.find({ _id: ID });
+  await usersModel.deleteOne({ _id: ID });
+  res.json(UserToDelete || "Not Found");
+};
+
+//get user by id
+let getUserById = async (req, res) => {
+  // console.log("in controller",req);
+  let id = req.params.id;
+  // console.log("in controller",req.params.id);
+  let user = await usersModel.findById({_id: id});
+  // console.log("in controller",product);
+  res.json(user);
+};
+
+
+
+
+
 module.exports = {
   getAllUsers,
   addNewUser,
   login,
+  updateUser,
+  DeleteUser,
+  getUserById
 };

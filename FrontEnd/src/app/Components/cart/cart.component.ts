@@ -13,7 +13,10 @@ export class CartComponent {
   public totalItem : number = 0;
 
   constructor(private cartService : CartService) { }
-
+  addtoCart(product: any) {
+    this.cartService.addtoCart(product);
+    // window.alert('Your product has been added to the cart!');
+  }
   ngOnInit(): void {
     // When the observable emits a value, the products property of the component is set to the emitted value,
     //  and the grandTotal property is set to the total price of all items in the cart, calculated by 

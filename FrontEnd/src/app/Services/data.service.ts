@@ -40,4 +40,14 @@ export class DataService {
   loginUser(user: any) {
     return this.http.post(`${this.Base_URL}/api/user/login`, user);
   }
+
+  updateUser(user: any) {
+    return this.http.put(`${this.Base_URL}/api/user/user/:id`, user);
+  }
+  deleteUser(user: any) {
+    return this.http.delete(`${this.Base_URL}/api/user/delete/:id`, user);
+  }
+  getUserbyid(user: any) {
+    return this.http.get(`${this.Base_URL}/api/user/:id`, user);
+  }
 }

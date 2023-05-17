@@ -2,47 +2,53 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-
-  public cartItemList : any =[]
+  public cartItemList: any = [];
   public productList = new BehaviorSubject<any>([]);
-  public search = new BehaviorSubject<string>("");
+  public search = new BehaviorSubject<string>('');
 
-  constructor() { }
-  getProducts(){
+  constructor() {}
+  getProducts() {
     return this.productList.asObservable();
   }
 
-  setProduct(product : any){
+  setProduct(product: any) {
     this.cartItemList.push(...product);
     this.productList.next(product);
   }
-  addtoCart(product : any){
+
+  addtoCart(product: any) {
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
-    console.log(this.cartItemList)
+    console.log(this.cartItemList);
   }
-  getTotalPrice() : number{
-    let grandTotal = 0;
-    this.cartItemList.map((a:any)=>{
-      grandTotal += a.total;
-    })
-    return grandTotal;
+  getTotalPrice(): number {
+    let total = 0;
+    for (let item of this.cartItemList) {
+      item.total = item.quantity * item.price;
+      total += item.total;
+    }
+    return total;
   }
 
-  removeCartItem(product: any){
-    this.cartItemList.map((a:any, index:any)=>{
-      if(product.id=== a.id){
-        this.cartItemList.splice(index,1);
+  removeCartItem(product: any) {
+    console.log(product);
+
+    this.cartItemList.map((a: any, index: any) => {
+      console.log(a);
+      if (product._id === a._id) {
+        this.cartItemList.splice(index, 1);
+        // console.log(index);
+        // console.log(a);
       }
-    })
+    });
     this.productList.next(this.cartItemList);
   }
-  removeAllCart(){
-    this.cartItemList = []
+  removeAllCart() {
+    this.cartItemList = [];
     this.productList.next(this.cartItemList);
   }
 }
