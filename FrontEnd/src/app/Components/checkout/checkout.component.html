@@ -26,15 +26,15 @@
       <div class="fullname">
 
         <div>
-          <input  style="   margin-top: 2%;
-          float: left;
+          <input style="   margin-top: 2%;
+         
                 padding: 2%;
                     font-weight: 500;
                     height: 42px;
                     border-radius: 5px;
                     border: 1px solid #cbc6c6;
-                    width: 40%;
-      " type="text" id="firstName" name="firstName" placeholder="firstName" formControlName="firstName" required>
+                    width: 90%;
+      " type="text" id="firstName" name="firstName" placeholder="firstName" formControlName="firstName" required  >
       <div class="error-message"   *ngIf=" myForm.controls['firstName'].invalid && (myForm.controls['firstName'].dirty || myForm.controls['firstName'].touched)">
         firstname is required.
       </div>
@@ -44,14 +44,14 @@
 
     <div>
       <input  style="   margin-top: 2%;
-      float: right;
+     
             padding: 2%;
                 font-weight: 500;
                margin-right: 10%;
                 height: 42px;
                 border-radius: 5px;
                 border: 1px solid #cbc6c6;
-                width: 40%;
+                width: 90%;
   " type="text" id="lastName" name="lastName" placeholder="lastName" formControlName="lastName" required>
   <div class="error-message"*ngIf=" myForm.controls['lastName'].invalid && (myForm.controls['lastName'].dirty || myForm.controls['lastName'].touched)">
   

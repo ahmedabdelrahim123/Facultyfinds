@@ -1,14 +1,10 @@
 // const validate = require("../Utils/coursesValidation");
 const productsModel = require("../Model/productsModel");
 
-// let getAllProducts = async (req, res) => {
-//   let data = await productsModel.find({});
-//   res.json(data);
-// };
 
 let getAllProducts = async (req, res) => {
   const college = req.query.college;
-  console.log(college);
+  // console.log(college);
   let data = [];
 
   if (college) {

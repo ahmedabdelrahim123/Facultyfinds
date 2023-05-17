@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
+import {
+  NgbModal,
+  ModalDismissReasons,
+  NgbDropdown,
+  NgbModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/Services/data.service';
 import { CartService } from 'src/app/Services/cart.service';
@@ -25,7 +31,10 @@ export class HeaderComponent {
   emailerrormessage = '';
   usernameerrormessage = '';
   fieldsRequired = '';
-  // image = 'assets/products/avatar.png';
+  loginerror = '';
+  username = '';
+  repassworderror = '';
+  imageFile = '';
 
   // selectedFile: File;
   imagePath: string = '';
@@ -41,66 +50,100 @@ export class HeaderComponent {
     this.panel1 = true;
     this.panel2 = false;
   }
+  //   selectFile(event: Event){
+  //     if(event.target){
 
+  //   }
+  //      const file= (event.target as HTMLInputElement).files[0];
+  // this.image_name = file.name;}t
   //////for register user
-  AddUser(username: any, email: any, password: any, genderRadio: any) {
-    // this.image_name=image.files[0].name;
-    const gender = genderRadio.value === 'male' ? 'male' : 'female';
-    let newUser = {
-      username,
-      email,
-      password,
-      gender,
-      type: this.type,
-      image: this.image_name,
-      orders: this.orders,
-    };
-    this.myService.addNewUser(newUser).subscribe(
-      () => {
-        this.modalService.dismissAll();
-        this.router.navigate(['/']);
-      },
-      (err) => {
-        this.errormessage = err.error;
-        if (this.errormessage.includes('Email already taken')) {
-          this.emailerrormessage = err.error;
-        } else {
-          this.emailerrormessage = '';
-        }
-        if (this.errormessage.includes('Username already taken')) {
-          this.usernameerrormessage = err.error;
-        } else {
-          this.usernameerrormessage = '';
-        }
-        if (this.errormessage.includes('is not allowed to be empty')) {
-          this.fieldsRequired = 'there are fields required still empty';
-        } else {
-          this.fieldsRequired = '';
-        }
+  AddUser(
+    username: any,
+    email: any,
+    password: any,
+    repassword: any,
+    image: any,
+    gender: any
+  ) {
+    if (image.files && image.files.length > 0) {
+      this.imageFile = image.files[0];
+      const formData = new FormData();
+      formData.append('image', image.files[0]);
+      formData.append('username', username);
+      formData.append('email', email);
+      formData.append('password', password);
+      formData.append('gender', gender);
+      formData.append('type', this.type);
+      formData.append('orders', JSON.stringify(this.orders));
+      console.log(formData.get('image'));
+
+      // const imageFile: File = image.files[0];
+      if (password !== repassword) {
+        this.repassworderror = "your password doesn't match the previous one";
+        return;
+      } else {
+        this.repassworderror = '';
       }
-    );
+      this.myService.addNewUser(formData).subscribe(
+        () => {
+          this.modalService.dismissAll();
+          this.router.navigate(['/']);
+        },
+        (err) => {
+          this.errormessage = err.error;
+          if (this.errormessage.includes('Email already taken')) {
+            this.emailerrormessage = err.error;
+          } else {
+            this.emailerrormessage = '';
+          }
+          if (this.errormessage.includes('Username already taken')) {
+            this.usernameerrormessage = err.error;
+          } else {
+            this.usernameerrormessage = '';
+          }
+          if (this.errormessage.includes('is not allowed to be empty')) {
+            this.fieldsRequired = 'there are fields required still empty';
+          } else {
+            this.fieldsRequired = '';
+          }
+        }
+      );
+    }
   }
 
   ////////////////for upload image in register
 
   //////////////for login
+  isAuthenticated() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      // user is logged in
+      return true;
+    } else {
+      // user is not logged in
+      return false;
+    }
+  }
   loginUser(email: any, password: any) {
-    let user = {
-      email,
-      password,
-    };
-
+    let user = { email, password };
     this.myService.loginUser(user).subscribe(
-      (response) => {
+      (response: { [key: string]: any }) => {
+        console.log(response);
+
+        this.username = response['user']['username'];
+        localStorage.setItem('token', response['token']);
+        // localStorage.setItem('username', response['user']['username']);
         this.modalService.dismissAll();
         this.router.navigate(['/']);
-        console.log(response);
+
+        // console.log(response['user']['username']);
+        console.log(response['token']);
+        // const token = response['headers'].get("x-auth-token");
+        // console.log(token);
       },
       (err) => {
-        // console.error('Error occurred:', error);
-        console.log('error');
-        console.log(err.error);
-        // You could also show a toast message or display the error message in the UI
+        console.log(err);
+        this.loginerror = err.error;
       }
     );
   }
@@ -144,10 +187,9 @@ export class HeaderComponent {
 
   public totalItem: number = 0;
 
-  isAuthenticated() {
-    return false;
+  logout() {
+    localStorage.setItem('token', '');
   }
-  logout() {}
 
   ngOnInit(): void {
     this.cartService.getProducts().subscribe((res) => {
