@@ -8,6 +8,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { StripComponent } from './Components/strip/strip.component';
 import { ContactusComponent } from './Components/contactus/contactus.component';
 import { AboutComponent } from './Components/about/about.component';
+import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:'checkout', component: CheckoutComponent},
   {path:'strip', component: StripComponent},
   {path:'about', component: AboutComponent},
-  {path:'contactus', component: ContactusComponent}
+  {path:'contactus', component: ContactusComponent},
+  {path:'profile', component:UserProfileComponent}
 
 ];
 

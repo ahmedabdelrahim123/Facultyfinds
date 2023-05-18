@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-
 let getAllUsers = async (req, res) => {
   let data = await usersModel.find({});
   res.json(data);
@@ -13,11 +12,11 @@ let getAllUsers = async (req, res) => {
 let addNewUser = async (req, res) => {
   email = req.body.email;
   password = req.body.password;
-  gender= req.body.gender;
+  gender = req.body.gender;
   type = req.body.type;
   username = req.body.username;
   orders = JSON.parse(req.body.orders);
-  image= req.file.filename;
+  image = req.file.filename;
   let data = req.body;
   console.log(data);
   console.log(image);
@@ -36,7 +35,15 @@ let addNewUser = async (req, res) => {
     } else if (testingUserByUsername) {
       return res.status(400).send("Username already taken");
     }
-    let newUser = new usersModel({username: username, email: email, password: password, gender: gender, image: image ,type: type, orders: orders});
+    let newUser = new usersModel({
+      username: username,
+      email: email,
+      password: password,
+      gender: gender,
+      image: image,
+      type: type,
+      orders: orders,
+    });
     const salt = await bcrypt.genSalt(10);
     newUser.password = await bcrypt.hash(newUser.password, salt);
     await newUser.save();
@@ -131,7 +138,8 @@ let login = async (req, res) => {
   );
 
   res.header("x-auth-token", Token);
-  return res.status(200).json({user:user ,token: Token});
+
+  return res.status(200).json({ user: user, token: Token });
 };
 
 //delete

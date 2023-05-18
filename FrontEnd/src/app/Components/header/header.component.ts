@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { NgbModal, ModalDismissReasons,NgbDropdown,NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbModal,
+  ModalDismissReasons,
+  NgbDropdown,
+  NgbModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/Services/data.service';
 import { CartService } from 'src/app/Services/cart.service';
@@ -19,15 +24,15 @@ export class HeaderComponent {
   activePanel = 'panel1';
   public showModal = false;
   type = 'user';
-  orders=[];
-  errormessage='';
-  emailerrormessage='';
-  usernameerrormessage='';
-  fieldsRequired='';
-  loginerror='';
-  username='';
-  repassworderror='';
-  imageFile='';
+  orders = [];
+  errormessage = '';
+  emailerrormessage = '';
+  usernameerrormessage = '';
+  fieldsRequired = '';
+  loginerror = '';
+  username = '';
+  repassworderror = '';
+  imageFile = '';
 
   imagePath: string = '';
   constructor(
@@ -38,93 +43,95 @@ export class HeaderComponent {
     private http: HttpClient
   ) {
     this.type = 'user';
-    this.orders= [];
+    this.orders = [];
     this.panel1 = true;
     this.panel2 = false;
   }
 
   //////for register user
-  AddUser(username: any, email: any, password: any, repassword: any,image:any,gender: any) {
+  AddUser(
+    username: any,
+    email: any,
+    password: any,
+    repassword: any,
+    image: any,
+    gender: any
+  ) {
+    if (image.files && image.files.length > 0) {
+      this.imageFile = image.files[0];
+      const formData = new FormData();
+      formData.append('image', image.files[0]);
+      formData.append('username', username);
+      formData.append('email', email);
+      formData.append('password', password);
+      formData.append('gender', gender);
+      formData.append('type', this.type);
+      formData.append('orders', JSON.stringify(this.orders));
+      console.log(formData.get('image'));
 
-    if (image.files && image.files.length > 0){
-    this.imageFile=image.files[0];
-    const formData= new FormData();
-    formData.append('image', image.files[0]);
-    formData.append('username', username);
-    formData.append('email', email);
-    formData.append('password', password);
-    formData.append('gender', gender);
-    formData.append('type', this.type);
-    formData.append('orders', JSON.stringify(this.orders));
-    console.log(formData.get('image'));
-
-
-      if(password !== repassword){
-      this.repassworderror="your password doesn't match the previous one";
-      return;
-    }
-    else{
-      this.repassworderror='';
-    }
-    this.myService.addNewUser(formData).subscribe(
-      () => {
-        this.modalService.dismissAll();
-        this.router.navigate(['/']);
-      },
-      (err) => {
-        this.errormessage = err.error;
-        if (this.errormessage.includes('Email already taken')) {
-          this.emailerrormessage = err.error;
-        } else {
-          this.emailerrormessage = '';
-        }
-        if (this.errormessage.includes('Username already taken')) {
-          this.usernameerrormessage = err.error;
-        } else {
-          this.usernameerrormessage = '';
-        }
-        if (this.errormessage.includes('is not allowed to be empty')) {
-          this.fieldsRequired = 'there are fields required still empty';
-        } else {
-          this.fieldsRequired = '';
-        }
+      if (password !== repassword) {
+        this.repassworderror = "your password doesn't match the previous one";
+        return;
+      } else {
+        this.repassworderror = '';
       }
-    );
-  }}
-  //////////////for login
-  isAuthenticated(){
-    const token = localStorage.getItem('token');
-    if (token){
-    // user is logged in
-    return true;
-  } else {
-    // user is not logged in
-    return false;
+      this.myService.addNewUser(formData).subscribe(
+        () => {
+          this.modalService.dismissAll();
+          this.router.navigate(['/']);
+        },
+        (err) => {
+          this.errormessage = err.error;
+          if (this.errormessage.includes('Email already taken')) {
+            this.emailerrormessage = err.error;
+          } else {
+            this.emailerrormessage = '';
+          }
+          if (this.errormessage.includes('Username already taken')) {
+            this.usernameerrormessage = err.error;
+          } else {
+            this.usernameerrormessage = '';
+          }
+          if (this.errormessage.includes('is not allowed to be empty')) {
+            this.fieldsRequired = 'there are fields required still empty';
+          } else {
+            this.fieldsRequired = '';
+          }
+        }
+      );
+    }
   }
+  //////////////for login
+  isAuthenticated() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      // user is logged in
+      return true;
+    } else {
+      // user is not logged in
+      return false;
+    }
   }
   loginUser(email: any, password: any) {
-    let user = { email, password};
+    let user = { email, password };
     this.myService.loginUser(user).subscribe(
       (response: { [key: string]: any }) => {
-        this.username = response['user']['username'];
+        // this.username = response['user']['username'];
         localStorage.setItem('token', response['token']);
-        const decodedToken: any = jwt_decode(response['token']);
-        const userId = decodedToken.userId;
-        const userType = decodedToken.userType;
-        console.log('User ID:', userId);
-        console.log('User Type:', userType);
-        // localStorage.setItem('username', response['user']['username']);
+        user=response['user'];
+        localStorage.setItem('user', JSON.stringify(user));
+        const userData= localStorage.getItem('user')
+    if(userData){
+    const user = JSON.parse(userData);
+            this.username = user.username;
+            console.log(this.username);
+        }
         this.modalService.dismissAll();
         this.router.navigate(['/']);
-
-        // console.log(response['user']['username']);
-        // console.log(response['token']);
-        // const token = response['headers'].get("x-auth-token");
-        // console.log(token);
       },
       (err) => {
         console.log(err);
-        this.loginerror=err.error;
+        this.loginerror = err.error;
       }
     );
   }
@@ -168,9 +175,9 @@ export class HeaderComponent {
 
   public totalItem: number = 0;
 
-
   logout() {
-    localStorage.setItem('token',"");
+    localStorage.clear();
+    this.router.navigate(['/']);
   }
 
   ngOnInit(): void {
