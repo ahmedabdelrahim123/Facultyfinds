@@ -5,7 +5,7 @@ import { DataService } from 'src/app/Services/data.service';
 import { CartService } from 'src/app/Services/cart.service';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import jwt_decode from 'jwt-decode';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -20,7 +20,6 @@ export class HeaderComponent {
   public showModal = false;
   type = 'user';
   orders=[];
-  image_name='assets';
   errormessage='';
   emailerrormessage='';
   usernameerrormessage='';
@@ -30,8 +29,6 @@ export class HeaderComponent {
   repassworderror='';
   imageFile='';
 
-
-  // selectedFile: File;
   imagePath: string = '';
   constructor(
     private cartService: CartService,
@@ -61,7 +58,7 @@ export class HeaderComponent {
     formData.append('orders', JSON.stringify(this.orders));
     console.log(formData.get('image'));
 
-    // const imageFile: File = image.files[0];
+
       if(password !== repassword){
       this.repassworderror="your password doesn't match the previous one";
       return;
@@ -111,6 +108,11 @@ export class HeaderComponent {
       (response: { [key: string]: any }) => {
         this.username = response['user']['username'];
         localStorage.setItem('token', response['token']);
+        const decodedToken: any = jwt_decode(response['token']);
+        const userId = decodedToken.userId;
+        const userType = decodedToken.userType;
+        console.log('User ID:', userId);
+        console.log('User Type:', userType);
         // localStorage.setItem('username', response['user']['username']);
         this.modalService.dismissAll();
         this.router.navigate(['/']);

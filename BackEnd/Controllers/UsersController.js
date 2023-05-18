@@ -3,33 +3,6 @@ const usersModel = require("../Model/UsersModel");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-// const multer=require("multer");
-// const upload = multer({ dest: '../uploads/' });
-
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, 'uploads/');
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, new Date().toISOString() + '-' + file.originalname);
-//   }
-// });
-
-// const fileFilter = (req, file, cb) => {
-//   if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-//     cb(null, true);
-//   } else {
-//     cb(new Error('Invalid file type. Only JPEG and PNG image files are allowed.'), false);
-//   }
-// };
-
-// const upload = multer({
-//   storage: storage,
-//   limits: {
-//     fileSize: 1024 * 1024 * 5 // 5MB file size limit
-//   },
-//   fileFilter: fileFilter
-// });
 
 
 let getAllUsers = async (req, res) => {
