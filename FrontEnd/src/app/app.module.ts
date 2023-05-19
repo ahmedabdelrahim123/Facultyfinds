@@ -20,6 +20,7 @@ import { StripComponent } from './Components/strip/strip.component';
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactusComponent } from './Components/contactus/contactus.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+import { DashboradComponent } from './Components/dashborad/dashborad.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { UserProfileComponent } from './Components/user-profile/user-profile.com
     StripComponent,
     ContactusComponent,
     UserProfileComponent,
+    DashboradComponent,
   ],
   imports: [
     BrowserModule,

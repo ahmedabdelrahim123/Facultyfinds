@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../Services/auth.service'
 import {
   NgbModal,
   ModalDismissReasons,
@@ -40,7 +41,8 @@ export class HeaderComponent {
     private modalService: NgbModal,
     private myService: DataService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService
   ) {
     this.type = 'user';
     this.orders = [];
@@ -101,33 +103,26 @@ export class HeaderComponent {
       );
     }
   }
-  //////////////for login
-  isAuthenticated() {
-    const token = localStorage.getItem('token');
-    if (token) {
-      // user is logged in
-      return true;
-    } else {
-      // user is not logged in
-      return false;
-    }
-  }
+
   loginUser(email: any, password: any) {
     let user = { email, password };
-    this.myService.loginUser(user).subscribe(
+    this.authService.loginUser(user).subscribe(
       (response: { [key: string]: any }) => {
-        // this.username = response['user']['username'];
+        this.username = response['user']['username'];
         localStorage.setItem('token', response['token']);
-        user=response['user'];
-        localStorage.setItem('user', JSON.stringify(user));
-        const userData= localStorage.getItem('user')
-    if(userData){
-    const user = JSON.parse(userData);
-            this.username = user.username;
-            console.log(this.username);
+        const token= localStorage.getItem('token')
+        if(token){
+            const decodedToken: any = jwt_decode(token);
+            const userType = decodedToken.userType;
+            if (userType === 'admin'){
+              this.modalService.dismissAll();
+              this.router.navigate(['/dashboard']);
+            }
+            else if (userType === 'user'){
+              this.modalService.dismissAll();
+              this.router.navigate(['/']);
+            }
         }
-        this.modalService.dismissAll();
-        this.router.navigate(['/']);
       },
       (err) => {
         console.log(err);
@@ -175,8 +170,12 @@ export class HeaderComponent {
 
   public totalItem: number = 0;
 
-  logout() {
-    localStorage.clear();
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  logout(): void {
+    this.authService.logout();
     this.router.navigate(['/']);
   }
 

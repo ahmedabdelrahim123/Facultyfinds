@@ -9,11 +9,14 @@ import { StripComponent } from './Components/strip/strip.component';
 import { ContactusComponent } from './Components/contactus/contactus.component';
 import { AboutComponent } from './Components/about/about.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+import { AuthGuardService } from './Services/auth-guard.service';
+import { AdminGuardService } from './Services/admin-guard.service';
+import { DashboradComponent } from './Components/dashborad/dashborad.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
   {path:'home', component:HomeComponent},
-  {path:'products', component:ProductsComponent},
+  {path:'products', component:ProductsComponent, canActivate: [AuthGuardService]},
   {path:'products/:id', component:ProductsDetailsComponent},
   // {path:'addproducts', component:Add},
   {path:'cart', component: CartComponent},
@@ -21,8 +24,8 @@ const routes: Routes = [
   {path:'strip', component: StripComponent},
   {path:'about', component: AboutComponent},
   {path:'contactus', component: ContactusComponent},
-  {path:'profile', component:UserProfileComponent}
-
+  {path:'profile', component:UserProfileComponent, canActivate: [AuthGuardService]},
+  {path:'dashboard', component:DashboradComponent, canActivate: [AdminGuardService]}
 ];
 
 @NgModule({
