@@ -27,10 +27,9 @@ let updateOrder = async (req, res) => {
     await ordersModel.updateOne(
       { _id: Id },
       {
-         date: data.date,
-         pID: pids ,
+
         statue: data.statue,
-        userID: data.userID
+
       }
     );
     await res.send("updated successfully");
