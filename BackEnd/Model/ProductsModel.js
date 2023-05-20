@@ -8,10 +8,6 @@ connection.once('open', () => {
 });
 
 const productsSchema = new mongoose.Schema({
-  _id: {
-    type: "number",
-    required: true,
-  },
   title: {
     type: "string",
     required: true,
@@ -22,7 +18,7 @@ const productsSchema = new mongoose.Schema({
   },
   image: {
     type: "string",
-    required: true,
+    // required: true,
   },
   details: {
     type: "string",
@@ -31,7 +27,11 @@ const productsSchema = new mongoose.Schema({
   college: {
     type: "string",
     required: true,
-  }
+  },
+  userID: {
+    type: "number",
+    required: true,
+  },
 });
 module.exports = mongoose.model('Product', productsSchema);
 
