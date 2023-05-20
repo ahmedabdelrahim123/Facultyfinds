@@ -11,6 +11,7 @@ const ordersSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: true,
+    default:new Date()
   },
   pID: {
     type: "array",

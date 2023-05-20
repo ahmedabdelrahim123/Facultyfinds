@@ -9,11 +9,8 @@ let getAllOrders = async (req, res) => {
 let createOrder = async (req, res) => {
 data=req.body;
 pids=JSON.parse(req.body.pID);
-console.log(pids);
 let neworder= new ordersModel({
-  date: data.date,
   pID: pids ,
-  // statue: data.statue,
   userID: data.userID
 })
 await neworder.save();
@@ -27,9 +24,7 @@ let updateOrder = async (req, res) => {
     await ordersModel.updateOne(
       { _id: Id },
       {
-
         statue: data.statue,
-
       }
     );
     await res.send("updated successfully");
