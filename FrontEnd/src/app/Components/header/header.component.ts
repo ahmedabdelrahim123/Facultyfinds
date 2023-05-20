@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
-import {
-  NgbModal,
-  ModalDismissReasons,
-  NgbDropdown,
-  NgbModule,
-} from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from '../../Services/auth.service'
+import { NgbModal,ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/Services/data.service';
 import { CartService } from 'src/app/Services/cart.service';
-import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import jwt_decode from 'jwt-decode';
+import { ThemeService } from '../../Services/theme.service';
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
+
 export class HeaderComponent {
   title = 'appBootstrap';
   closeResult: string = '';
@@ -34,13 +33,15 @@ export class HeaderComponent {
   repassworderror = '';
   imageFile = '';
 
-  imagePath: string = '';
+  // imagePath: string = '';
   constructor(
     private cartService: CartService,
     private modalService: NgbModal,
     private myService: DataService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService,
+    private theme: ThemeService
   ) {
     this.type = 'user';
     this.orders = [];
@@ -48,15 +49,12 @@ export class HeaderComponent {
     this.panel2 = false;
   }
 
+  
+  toggleTheme(){
+    this.theme.toggleTheme();
+   }
   //////for register user
-  AddUser(
-    username: any,
-    email: any,
-    password: any,
-    repassword: any,
-    image: any,
-    gender: any
-  ) {
+  AddUser(username: any, email: any, password: any, repassword: any, image: any, gender: any) {
     if (image.files && image.files.length > 0) {
       this.imageFile = image.files[0];
       const formData = new FormData();
@@ -101,36 +99,26 @@ export class HeaderComponent {
       );
     }
   }
-  //////////////for login
-  isAuthenticated() {
-    const token = localStorage.getItem('token');
-    if (token) {
-      // user is logged in
-      return true;
-    } else {
-      // user is not logged in
-      return false;
-    }
-  }
+
   loginUser(email: any, password: any) {
     let user = { email, password };
-    this.myService.loginUser(user).subscribe(
+    this.authService.loginUser(user).subscribe(
       (response: { [key: string]: any }) => {
         this.username = response['user']['username'];
         localStorage.setItem('token', response['token']);
-        const decodedToken: any = jwt_decode(response['token']);
-        const userId = decodedToken.userId;
-        const userType = decodedToken.userType;
-        console.log('User ID:', userId);
-        console.log('User Type:', userType);
-        // localStorage.setItem('username', response['user']['username']);
-        this.modalService.dismissAll();
-        this.router.navigate(['/']);
-
-        // console.log(response['user']['username']);
-        // console.log(response['token']);
-        // const token = response['headers'].get("x-auth-token");
-        // console.log(token);
+        const token= localStorage.getItem('token')
+        if(token){
+            const decodedToken: any = jwt_decode(token);
+            const userType = decodedToken.userType;
+            if (userType === 'admin'){
+              this.modalService.dismissAll();
+              this.router.navigate(['/dashboard']);
+            }
+            else if (userType === 'user'){
+              this.modalService.dismissAll();
+              this.router.navigate(['/']);
+            }
+        }
       },
       (err) => {
         console.log(err);
@@ -178,8 +166,13 @@ export class HeaderComponent {
 
   public totalItem: number = 0;
 
-  logout() {
-    localStorage.setItem('token', '');
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/']);
   }
 
   ngOnInit(): void {

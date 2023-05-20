@@ -103,10 +103,7 @@ const updateUser = async (req, res) => {
 let login = async (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
-  // console.log(email, password);
-
   let user = await usersModel.findOne({ email: email });
-
   if (!user) {
     return res.status(400).send("Invalid email or password");
   }
@@ -128,7 +125,6 @@ let login = async (req, res) => {
   return res.status(200).json({ user: user, token: Token });
 };
 
-//delete
 let DeleteUser = async (req, res) => {
   var ID = req.params.id;
   var UserToDelete = await usersModel.find({ _id: ID });

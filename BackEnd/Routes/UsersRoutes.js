@@ -25,7 +25,7 @@ router.post(
   [validator(userSchema)],
   usersController.addNewUser
 );
-router.post("/login", usersController.login);
+router.post("/login",usersController.login);
 router.put("/user/:id", usersController.updateUser);
 router.delete("/delete/:id", usersController.DeleteUser);
 router.get("/:id", usersController.getUserById);

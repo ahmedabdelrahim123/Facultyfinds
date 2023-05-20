@@ -1,2 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import '~@fortawesome/fontawesome-free/css/all.min.css'; */
+.dark-theme{
+  background-color: #191919;
+  color:rgb(167, 162, 162);
+}
