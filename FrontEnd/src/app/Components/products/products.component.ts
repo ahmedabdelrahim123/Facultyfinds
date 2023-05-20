@@ -30,8 +30,8 @@ export class ProductsComponent implements OnInit {
     this.cartService.addtoCart(cartItem); // add the item to the cart
     // item.quantity = null; // reset the quantity selector after adding to cart
   }
-  
-  
+
+
   updateTotalPrice(item: any) {
     item.totalPrice = item.price * item.quantity;
   }
@@ -42,7 +42,7 @@ export class ProductsComponent implements OnInit {
       return (item.price * item.quantity).toFixed(2);
     }
   }
-  
+
   getMyProducts(college?: string): void {
     this.selectedCollege = college;
     this.api.getMyProducts(this.selectedCollege)
@@ -54,5 +54,25 @@ export class ProductsComponent implements OnInit {
         });
       });
   }
+
+searchProductsByTitle(searchTerm: any): void {
+  const searchText = searchTerm?.target?.value?.trim();
+  console.log('searchTerm:', searchTerm);
+  if (!searchText) {
+    // Reset the productList to the original list when the search text is empty
+    this.getMyProducts(this.selectedCollege);
+    return;
+  }
+  //at all products
+  if (this.selectedCollege == null){
+    this.productList = this.productList.filter((p: { title: string }) => p.title.toLowerCase().includes(searchText.toLowerCase())
+    );
+  } else {
+    this.productList = this.productList.filter(
+      (p: { title: string; college: any }) =>
+        p.title.toLowerCase().includes(searchText.toLowerCase()) && p.college === this.selectedCollege );
+  }
+}
+
 
 }

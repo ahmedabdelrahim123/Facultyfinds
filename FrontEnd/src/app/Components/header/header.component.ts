@@ -1,22 +1,20 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../Services/auth.service'
-import {
-  NgbModal,
-  ModalDismissReasons,
-  NgbDropdown,
-  NgbModule,
-} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal,ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/Services/data.service';
 import { CartService } from 'src/app/Services/cart.service';
-import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import jwt_decode from 'jwt-decode';
+import { ThemeService } from '../../Services/theme.service';
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
+
 export class HeaderComponent {
   title = 'appBootstrap';
   closeResult: string = '';
@@ -35,14 +33,15 @@ export class HeaderComponent {
   repassworderror = '';
   imageFile = '';
 
-  imagePath: string = '';
+  // imagePath: string = '';
   constructor(
     private cartService: CartService,
     private modalService: NgbModal,
     private myService: DataService,
     private router: Router,
     private http: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private theme: ThemeService
   ) {
     this.type = 'user';
     this.orders = [];
@@ -50,15 +49,12 @@ export class HeaderComponent {
     this.panel2 = false;
   }
 
+  
+  toggleTheme(){
+    this.theme.toggleTheme();
+   }
   //////for register user
-  AddUser(
-    username: any,
-    email: any,
-    password: any,
-    repassword: any,
-    image: any,
-    gender: any
-  ) {
+  AddUser(username: any, email: any, password: any, repassword: any, image: any, gender: any) {
     if (image.files && image.files.length > 0) {
       this.imageFile = image.files[0];
       const formData = new FormData();

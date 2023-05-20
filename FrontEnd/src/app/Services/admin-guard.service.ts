@@ -13,7 +13,7 @@ export class AdminGuardService implements CanActivate {
       // User is authenticated and an admin
       return true;
     } else {
-      // User is not authenticated or not an admin, redirect to login page
+      alert('you must be logged in as a administrator to access this page');
       this.router.navigate(['/']);
       return false;
     }
