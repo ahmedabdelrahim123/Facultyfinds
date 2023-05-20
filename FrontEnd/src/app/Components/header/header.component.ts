@@ -1,16 +1,20 @@
 import { Component } from '@angular/core';
-import { NgbModal, ModalDismissReasons,NgbDropdown,NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from '../../Services/auth.service'
+import { NgbModal,ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/Services/data.service';
 import { CartService } from 'src/app/Services/cart.service';
-import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import jwt_decode from 'jwt-decode';
+import { ThemeService } from '../../Services/theme.service';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
+
 export class HeaderComponent {
   title = 'appBootstrap';
   closeResult: string = '';
@@ -19,110 +23,106 @@ export class HeaderComponent {
   activePanel = 'panel1';
   public showModal = false;
   type = 'user';
-  orders=[];
-  image_name='assets';
-  errormessage='';
-  emailerrormessage='';
-  usernameerrormessage='';
-  fieldsRequired='';
-  loginerror='';
-  username='';
-  repassworderror='';
-  imageFile='';
+  orders = [];
+  errormessage = '';
+  emailerrormessage = '';
+  usernameerrormessage = '';
+  fieldsRequired = '';
+  loginerror = '';
+  username = '';
+  repassworderror = '';
+  imageFile = '';
 
-
-  // selectedFile: File;
-  imagePath: string = '';
+  // imagePath: string = '';
   constructor(
     private cartService: CartService,
     private modalService: NgbModal,
     private myService: DataService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService,
+    private theme: ThemeService
   ) {
     this.type = 'user';
-    this.orders= [];
+    this.orders = [];
     this.panel1 = true;
     this.panel2 = false;
   }
 
+  
+  toggleTheme(){
+    this.theme.toggleTheme();
+   }
   //////for register user
-  AddUser(username: any, email: any, password: any, repassword: any,image:any,gender: any) {
+  AddUser(username: any, email: any, password: any, repassword: any, image: any, gender: any) {
+    if (image.files && image.files.length > 0) {
+      this.imageFile = image.files[0];
+      const formData = new FormData();
+      formData.append('image', image.files[0]);
+      formData.append('username', username);
+      formData.append('email', email);
+      formData.append('password', password);
+      formData.append('gender', gender);
+      formData.append('type', this.type);
+      formData.append('orders', JSON.stringify(this.orders));
+      console.log(formData.get('image'));
 
-    if (image.files && image.files.length > 0){
-    this.imageFile=image.files[0];
-    const formData= new FormData();
-    formData.append('image', image.files[0]);
-    formData.append('username', username);
-    formData.append('email', email);
-    formData.append('password', password);
-    formData.append('gender', gender);
-    formData.append('type', this.type);
-    formData.append('orders', JSON.stringify(this.orders));
-    console.log(formData.get('image'));
-
-    // const imageFile: File = image.files[0];
-      if(password !== repassword){
-      this.repassworderror="your password doesn't match the previous one";
-      return;
-    }
-    else{
-      this.repassworderror='';
-    }
-    this.myService.addNewUser(formData).subscribe(
-      () => {
-        this.modalService.dismissAll();
-        this.router.navigate(['/']);
-      },
-      (err) => {
-        this.errormessage = err.error;
-        if (this.errormessage.includes('Email already taken')) {
-          this.emailerrormessage = err.error;
-        } else {
-          this.emailerrormessage = '';
-        }
-        if (this.errormessage.includes('Username already taken')) {
-          this.usernameerrormessage = err.error;
-        } else {
-          this.usernameerrormessage = '';
-        }
-        if (this.errormessage.includes('is not allowed to be empty')) {
-          this.fieldsRequired = 'there are fields required still empty';
-        } else {
-          this.fieldsRequired = '';
-        }
+      if (password !== repassword) {
+        this.repassworderror = "your password doesn't match the previous one";
+        return;
+      } else {
+        this.repassworderror = '';
       }
-    );
-  }}
-  //////////////for login
-  isAuthenticated(){
-    const token = localStorage.getItem('token');
-    if (token){
-    // user is logged in
-    return true;
-  } else {
-    // user is not logged in
-    return false;
+      this.myService.addNewUser(formData).subscribe(
+        () => {
+          this.modalService.dismissAll();
+          this.router.navigate(['/']);
+        },
+        (err) => {
+          this.errormessage = err.error;
+          if (this.errormessage.includes('Email already taken')) {
+            this.emailerrormessage = err.error;
+          } else {
+            this.emailerrormessage = '';
+          }
+          if (this.errormessage.includes('Username already taken')) {
+            this.usernameerrormessage = err.error;
+          } else {
+            this.usernameerrormessage = '';
+          }
+          if (this.errormessage.includes('is not allowed to be empty')) {
+            this.fieldsRequired = 'there are fields required still empty';
+          } else {
+            this.fieldsRequired = '';
+          }
+        }
+      );
+    }
   }
-  }
+
   loginUser(email: any, password: any) {
-    let user = { email, password};
-    this.myService.loginUser(user).subscribe(
+    let user = { email, password };
+    this.authService.loginUser(user).subscribe(
       (response: { [key: string]: any }) => {
         this.username = response['user']['username'];
         localStorage.setItem('token', response['token']);
-        // localStorage.setItem('username', response['user']['username']);
-        this.modalService.dismissAll();
-        this.router.navigate(['/']);
-
-        // console.log(response['user']['username']);
-        // console.log(response['token']);
-        // const token = response['headers'].get("x-auth-token");
-        // console.log(token);
+        const token= localStorage.getItem('token')
+        if(token){
+            const decodedToken: any = jwt_decode(token);
+            const userType = decodedToken.userType;
+            if (userType === 'admin'){
+              this.modalService.dismissAll();
+              this.router.navigate(['/dashboard']);
+            }
+            else if (userType === 'user'){
+              this.modalService.dismissAll();
+              this.router.navigate(['/']);
+            }
+        }
       },
       (err) => {
         console.log(err);
-        this.loginerror=err.error;
+        this.loginerror = err.error;
       }
     );
   }
@@ -166,9 +166,13 @@ export class HeaderComponent {
 
   public totalItem: number = 0;
 
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
 
-  logout() {
-    localStorage.setItem('token',"");
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/']);
   }
 
   ngOnInit(): void {

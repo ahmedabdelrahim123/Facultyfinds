@@ -12,8 +12,8 @@ export class DataService {
   // getMyProducts(): Observable<any> {
   //   return this.http.get(`${this.Base_URL}/api/product/products`);
   // }
-/////////////////////////////
- // product
+  /////////////////////////////
+  // product
   getProductById(_id: Number): Observable<any> {
     return this.http.get(`${this.Base_URL}/api/product/${_id}`);
   }
@@ -26,7 +26,7 @@ export class DataService {
 
     return this.http.get(url);
   }
-////////////////////////////////
+  ////////////////////////////////
   // user
   getMyUsers(): Observable<any> {
     return this.http.get(`${this.Base_URL}/api/user/users`);
@@ -46,10 +46,10 @@ export class DataService {
   deleteUser(user: any) {
     return this.http.delete(`${this.Base_URL}/api/user/delete/:id`, user);
   }
-  getUserbyid(user: any) {
-    return this.http.get(`${this.Base_URL}/api/user/:id`, user);
+  getUserbyid(id: any) {
+    return this.http.get(`${this.Base_URL}/api/user/${id}`);
   }
-//////////////////////////////////
+  //////////////////////////////////
   // order
   createorder(user: any) {
     return this.http.post(`${this.Base_URL}/api/order/create`, user);
@@ -70,5 +70,9 @@ export class DataService {
     return this.http.get(`${this.Base_URL}/api/order/orders`);
   }
 
-
+  makePayment(stripeToken: any): Observable<any> {
+    return this.http.post<any>(`${this.Base_URL}/api/payment/checkout`, {
+      token: stripeToken,
+    });
+  }
 }

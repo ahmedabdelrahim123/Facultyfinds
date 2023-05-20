@@ -3,34 +3,6 @@ const usersModel = require("../Model/UsersModel");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-// const multer=require("multer");
-// const upload = multer({ dest: '../uploads/' });
-
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, 'uploads/');
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, new Date().toISOString() + '-' + file.originalname);
-//   }
-// });
-
-// const fileFilter = (req, file, cb) => {
-//   if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-//     cb(null, true);
-//   } else {
-//     cb(new Error('Invalid file type. Only JPEG and PNG image files are allowed.'), false);
-//   }
-// };
-
-// const upload = multer({
-//   storage: storage,
-//   limits: {
-//     fileSize: 1024 * 1024 * 5 // 5MB file size limit
-//   },
-//   fileFilter: fileFilter
-// });
-
 
 let getAllUsers = async (req, res) => {
   let data = await usersModel.find({});
@@ -40,11 +12,11 @@ let getAllUsers = async (req, res) => {
 let addNewUser = async (req, res) => {
   email = req.body.email;
   password = req.body.password;
-  gender= req.body.gender;
+  gender = req.body.gender;
   type = req.body.type;
   username = req.body.username;
   orders = JSON.parse(req.body.orders);
-  image= req.file.filename;
+  image = req.file.filename;
   let data = req.body;
   console.log(data);
   console.log(image);
@@ -63,7 +35,15 @@ let addNewUser = async (req, res) => {
     } else if (testingUserByUsername) {
       return res.status(400).send("Username already taken");
     }
-    let newUser = new usersModel({username: username, email: email, password: password, gender: gender, image: image ,type: type, orders: orders});
+    let newUser = new usersModel({
+      username: username,
+      email: email,
+      password: password,
+      gender: gender,
+      image: image,
+      type: type,
+      orders: orders,
+    });
     const salt = await bcrypt.genSalt(10);
     newUser.password = await bcrypt.hash(newUser.password, salt);
     await newUser.save();
@@ -74,29 +54,26 @@ let addNewUser = async (req, res) => {
   }
 };
 
-
 //update
 const updateUser = async (req, res) => {
   let Id = req.params.id;
   // const valid = userValid(data);
   // if (!valid) res.send("Not Compatible..");
   // else {
-   
-    await usersModel.updateOne(
-      { _id: Id },
-      {
-        username: req.body.username,
-        email: req.body.email, 
-        image: req.body.image,
-        gender: req.body.gender,
-        type: req.body.type,
-      }
-    );
-    await res.send("updated successfully");
+
+  await usersModel.updateOne(
+    { _id: Id },
+    {
+      username: req.body.username,
+      email: req.body.email,
+      image: req.body.image,
+      gender: req.body.gender,
+      type: req.body.type,
+    }
+  );
+  await res.send("updated successfully");
   // }
 };
-
-
 
 // let updateUser = async (req, res) => {
 //   try {
@@ -110,37 +87,23 @@ const updateUser = async (req, res) => {
 //   }
 // };
 
-
-  // let addNewUser = async (req, res) => {
-  //   var data = req.body;
-  //   if(req.file){
-  //     data.image = req.file.path;
-  //   }else{
-  //     data.image = 'assets/products/avatar.png';
-  //   }
-  //   var newUser = new usersModel(data);
-  //   await newUser.save();
-  //   const { _id, username, email, gender, type, orders } = newUser;
-  //   res.json({ user: { _id, username, email, gender, type, orders, image: data.image } });
-  // };
-  
-
-
-
-
-
-
-
-
-
+// let addNewUser = async (req, res) => {
+//   var data = req.body;
+//   if(req.file){
+//     data.image = req.file.path;
+//   }else{
+//     data.image = 'assets/products/avatar.png';
+//   }
+//   var newUser = new usersModel(data);
+//   await newUser.save();
+//   const { _id, username, email, gender, type, orders } = newUser;
+//   res.json({ user: { _id, username, email, gender, type, orders, image: data.image } });
+// };
 
 let login = async (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
-  // console.log(email, password);
-
   let user = await usersModel.findOne({ email: email });
-
   if (!user) {
     return res.status(400).send("Invalid email or password");
   }
@@ -158,10 +121,10 @@ let login = async (req, res) => {
   );
 
   res.header("x-auth-token", Token);
-  return res.status(200).json({user:user ,token: Token});
+
+  return res.status(200).json({ user: user, token: Token });
 };
 
-//delete
 let DeleteUser = async (req, res) => {
   var ID = req.params.id;
   var UserToDelete = await usersModel.find({ _id: ID });
@@ -174,14 +137,10 @@ let getUserById = async (req, res) => {
   // console.log("in controller",req);
   let id = req.params.id;
   // console.log("in controller",req.params.id);
-  let user = await usersModel.findById({_id: id});
+  let user = await usersModel.findById({ _id: id });
   // console.log("in controller",product);
   res.json(user);
 };
-
-
-
-
 
 module.exports = {
   getAllUsers,
@@ -189,5 +148,5 @@ module.exports = {
   login,
   updateUser,
   DeleteUser,
-  getUserById
+  getUserById,
 };
