@@ -33,13 +33,11 @@ export class HeaderComponent {
   repassworderror = '';
   imageFile = '';
 
-  // imagePath: string = '';
   constructor(
     private cartService: CartService,
     private modalService: NgbModal,
     private myService: DataService,
     private router: Router,
-    private http: HttpClient,
     private authService: AuthService,
     private theme: ThemeService
   ) {
@@ -49,7 +47,7 @@ export class HeaderComponent {
     this.panel2 = false;
   }
 
-  
+
   toggleTheme(){
     this.theme.toggleTheme();
    }
