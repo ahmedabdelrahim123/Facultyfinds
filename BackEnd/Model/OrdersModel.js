@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-var DB_URL = "mongodb://127.0.0.1:27017/E-Commerce";
+var DB_URL = "mongodb+srv://samarsamy484:samar@cluster0.yvo61fo.mongodb.net/E-Commerce";
 
 mongoose.connect(DB_URL, { useNewUrlParser: true });
 const connection = mongoose.connection;
