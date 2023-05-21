@@ -18,26 +18,38 @@ import { UpdateProductComponent } from './Components/update-product/update-produ
 import { DashboardProductsComponent } from './Components/dashboard-products/dashboard-products.component';
 
 const routes: Routes = [
-  {path:'', component:HomeComponent},
-  {path:'home', component:HomeComponent},
-  {path:'products', component:ProductsComponent, canActivate: [AuthGuardService]},
-  {path:'products/:id', component:ProductsDetailsComponent},
-  {path:'cart', component: CartComponent},
-  {path:'checkout', component: CheckoutComponent},
-  {path:'strip', component: StripComponent},
-  {path:'about', component: AboutComponent},
-  {path:'contactus', component: ContactusComponent},
-  {path:'adminproducts', component: DashboardProductsComponent},
-  {path:'createproduct', component: CreateProductComponent},
-  {path:'updateproduct', component:UpdateProductComponent },
-  {path:'profile', component:UserProfileComponent, canActivate: [AuthGuardService]},
-  {path:'dashboard', component:DashboradComponent, canActivate: [AdminGuardService]},
-  {path:'**',component:ErrorComponent}
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  {
+    path: 'products',
+    component: ProductsComponent,
+    canActivate: [AuthGuardService],
+  },
+  { path: 'products/:id', component: ProductsDetailsComponent },
 
+  { path: 'cart', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'strip', component: StripComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contactus', component: ContactusComponent },
+  { path: 'adminproducts', component: DashboardProductsComponent },
+  { path: 'createproduct', component: CreateProductComponent },
+  { path: 'updateproduct/:id', component: UpdateProductComponent },
+  {
+    path: 'profile',
+    component: UserProfileComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'dashboard',
+    component: DashboradComponent,
+    canActivate: [AdminGuardService],
+  },
+  { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

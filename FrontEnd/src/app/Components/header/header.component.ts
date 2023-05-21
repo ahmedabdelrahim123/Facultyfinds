@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../Services/auth.service'
-import { NgbModal,ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from '../../Services/auth.service';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/Services/data.service';
 import { CartService } from 'src/app/Services/cart.service';
@@ -8,13 +8,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import jwt_decode from 'jwt-decode';
 import { ThemeService } from '../../Services/theme.service';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-
 export class HeaderComponent {
   title = 'appBootstrap';
   closeResult: string = '';
@@ -47,12 +45,18 @@ export class HeaderComponent {
     this.panel2 = false;
   }
 
-
-  toggleTheme(){
+  toggleTheme() {
     this.theme.toggleTheme();
-   }
+  }
   //////for register user
-  AddUser(username: any, email: any, password: any, repassword: any, image: any, gender: any) {
+  AddUser(
+    username: any,
+    email: any,
+    password: any,
+    repassword: any,
+    image: any,
+    gender: any
+  ) {
     if (image.files && image.files.length > 0) {
       this.imageFile = image.files[0];
       const formData = new FormData();
@@ -104,18 +108,17 @@ export class HeaderComponent {
       (response: { [key: string]: any }) => {
         this.username = response['user']['username'];
         localStorage.setItem('token', response['token']);
-        const token= localStorage.getItem('token')
-        if(token){
-            const decodedToken: any = jwt_decode(token);
-            const userType = decodedToken.userType;
-            if (userType === 'admin'){
-              this.modalService.dismissAll();
-              this.router.navigate(['/dashboard']);
-            }
-            else if (userType === 'user'){
-              this.modalService.dismissAll();
-              this.router.navigate(['/']);
-            }
+        const token = localStorage.getItem('token');
+        if (token) {
+          const decodedToken: any = jwt_decode(token);
+          const userType = decodedToken.userType;
+          if (userType === 'admin') {
+            this.modalService.dismissAll();
+            this.router.navigate(['/dashboard']);
+          } else if (userType === 'user') {
+            this.modalService.dismissAll();
+            this.router.navigate(['/']);
+          }
         }
       },
       (err) => {

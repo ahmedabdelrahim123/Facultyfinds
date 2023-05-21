@@ -9,9 +9,8 @@ export class DataService {
   constructor(private readonly http: HttpClient) {}
   private readonly Base_URL = 'http://localhost:3000';
 
-
- ///////////////////////////////
- //// product
+  ///////////////////////////////
+  //// product
   getProductById(_id: Number): Observable<any> {
     return this.http.get(`${this.Base_URL}/api/product/${_id}`);
   }
@@ -24,9 +23,21 @@ export class DataService {
     return this.http.get(url);
   }
 
-  updateProduct(productId: string, product: any) {
-    return this.http.put(`${this.Base_URL}/api/product/product/${productId}`, product);
+  addNewProduct(newProduct: any) {
+    return this.http.post(`${this.Base_URL}/api/product/create`, newProduct);
   }
+
+  updateProduct(productId: string, product: any) {
+    return this.http.put(
+      `${this.Base_URL}/api/product/product/${productId}`,
+      product
+    );
+  }
+
+  deleteProduct(productId: string) {
+    return this.http.delete(`${this.Base_URL}/api/product/delete/${productId}`);
+  }
+
   ////////////////////////////////
   // user
   getMyUsers(): Observable<any> {
@@ -36,7 +47,6 @@ export class DataService {
   addNewUser(newUser: any) {
     return this.http.post(`${this.Base_URL}/api/user/create`, newUser);
   }
-
 
   updateUser(userId: string, user: any) {
     return this.http.put(`${this.Base_URL}/api/user/user/${userId}`, user);
@@ -74,9 +84,4 @@ export class DataService {
       token: stripeToken,
     });
   }
-
-  addNewProduct(newProduct: any) {
-    return this.http.post(`${this.Base_URL}/api/product/create`, newProduct);
-  }
-
 }
