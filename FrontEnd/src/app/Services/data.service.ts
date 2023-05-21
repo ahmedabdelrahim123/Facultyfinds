@@ -12,8 +12,8 @@ export class DataService {
   // getMyProducts(): Observable<any> {
   //   return this.http.get(`${this.Base_URL}/api/product/products`);
   // }
-  /////////////////////////////
-  // product
+/////////////////////////////
+ // product
   getProductById(_id: Number): Observable<any> {
     return this.http.get(`${this.Base_URL}/api/product/${_id}`);
   }
@@ -36,9 +36,6 @@ export class DataService {
     return this.http.post(`${this.Base_URL}/api/user/create`, newUser);
   }
 
-  loginUser(user: any) {
-    return this.http.post(`${this.Base_URL}/api/user/login`, user);
-  }
 
   updateUser(user: any) {
     return this.http.put(`${this.Base_URL}/api/user/user/:id`, user);
