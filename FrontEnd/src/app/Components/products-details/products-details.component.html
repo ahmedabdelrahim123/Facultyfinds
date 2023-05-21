@@ -7,15 +7,15 @@
 <body>
   <div class="wrapper">
     <div class="product-img">
-        <img [src]="product?.image" width="100%" height="518px" id="main_product_image" >
-    </div>
+      <img src="http://localhost:3000/products/{{product.image}}" width="100%" height="518px" id="main_product_image">
+     </div>
     <div class="product-info">
       <div class="product-text">
         <h1 class="title ">{{product?.title}}</h1>
-  
-       
+
+
         <h2>{{product?.college}}</h2>
- 
+
            <span style="color: #deaf77;
            font-size: 34px;
            font-family: 'Playfair Display';
@@ -25,20 +25,20 @@
            <p>{{product?.details}}</p>
            </div>
 
-           <div class="price"> 
+           <div class="price">
             <p style="float: left;">price:</p>
            <h3  class="mt-3">{{product?.price}}</h3>
           </div>
            <div class="product-price-btn">
             <div class="buttons d-flex flex-row mt-2 gap-9">
-            
+
               <button >Buy Now</button>
                 <button>Add to Cart</button>
                 </div>
               </div>
        </div>
-          
- 
+
+
   </div>
 
 </body>

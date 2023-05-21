@@ -29,6 +29,9 @@ let getProductById = async (req, res) => {
   res.json(product);
 };
 
+
+
+
 let createProduct = async (req, res) =>{
   data = req.body;
   image = req.file.filename;

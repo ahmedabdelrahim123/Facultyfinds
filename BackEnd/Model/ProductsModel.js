@@ -16,11 +16,11 @@ const productsSchema = new mongoose.Schema({
   },
   price: {
     type: "number",
-    // required: true,
+    required: true,
   },
   image: {
     type: "string",
-    // required: true,
+    required: true,
   },
   details: {
     type: "string",
@@ -29,7 +29,7 @@ const productsSchema = new mongoose.Schema({
   college: {
     type: "string",
     required: true,
-  },
+  }
   // userID: {
   //   type: "number",
   //   required: true,

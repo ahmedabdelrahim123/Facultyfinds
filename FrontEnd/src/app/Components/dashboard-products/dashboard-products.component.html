@@ -1,0 +1,84 @@
+<div style="background-color:#eaf1f4;">
+  <div class="card-top container-fluid" >
+      <div class="container d-flex">
+          <div class="item">
+              <a (click)="getMyProducts()">
+                  <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="">
+                  <h6>All products</h6>
+              </a>
+          </div>
+          <div class="item">
+              <a (click)="getMyProducts('engineering')">
+                  <img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100" alt="">
+                  <h6>Engineering</h6>
+              </a>
+          </div>
+
+        <div class="item">
+              <a (click)="getMyProducts('science')">
+                  <img src="https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100" alt="">
+                  <h6>Science</h6>
+              </a>
+          </div>
+          <div class="item">
+              <a (click)="getMyProducts('Pharmacy')">
+                  <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
+                  <h6>Pharmacy</h6>
+              </a>
+          </div>
+
+          <div class="item">
+              <a (click)="getMyProducts('Medicine')">
+                  <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
+                  <h6>Medicine</h6>
+              </a>
+          </div>
+
+
+          <div class="item">
+              <a (click)="getMyProducts('Dentistry')">
+                  <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
+                  <h6>Dentistry</h6>
+              </a>
+          </div>
+
+
+          <div class="item">
+              <a (click)="getMyProducts('Arts')">
+                  <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
+                  <h6>Arts</h6>
+              </a>
+          </div>
+      </div>
+  </div>
+
+  <input type="search" id="search" name="search" placeholder="Search...." autocomplete="off" (input)="searchProductsByTitle($event)">
+
+  <div class="products">
+              <div class="card "  *ngFor="let item of productList">
+                <a [routerLink]="['/products', item._id]" style="text-decoration: none;">
+                  <div class="imgg">
+                  <img  src="http://localhost:3000/products/{{item.image}}" alt="">
+              </div>
+                  <h5 style="
+                      margin-top: 8%;
+                      /* margin-left: 10%; */
+                      font-family: math;
+                      text-align: center;
+                      white-space: nowrap;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      max-width: 100ch;
+                      font-weight: 600;
+                      letter-spacing: 0.1rem;
+                      color: #10458d;
+                  ">{{item.title}}</h5>
+                  <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+                  <p style="font-family: monospace;
+                  font-size: 18px;
+                  text-align: center;
+                  font-weight: 300;
+                  color: rgb(120 131 133);"><strong>Price:</strong> ${{item.price}}</p>
+                </a>
+              </div></div>
+  </div>

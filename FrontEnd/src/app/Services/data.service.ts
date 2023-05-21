@@ -10,7 +10,8 @@ export class DataService {
   private readonly Base_URL = 'http://localhost:3000';
 
 
- // product
+ ///////////////////////////////
+ //// product
   getProductById(_id: Number): Observable<any> {
     return this.http.get(`${this.Base_URL}/api/product/${_id}`);
   }
@@ -21,6 +22,10 @@ export class DataService {
       url = `${url}?college=${college}`;
     }
     return this.http.get(url);
+  }
+
+  updateProduct(productId: string, product: any) {
+    return this.http.put(`${this.Base_URL}/api/product/product/${productId}`, product);
   }
   ////////////////////////////////
   // user
@@ -73,5 +78,5 @@ export class DataService {
   addNewProduct(newProduct: any) {
     return this.http.post(`${this.Base_URL}/api/product/create`, newProduct);
   }
-  
+
 }
