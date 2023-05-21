@@ -21,6 +21,9 @@ import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactusComponent } from './Components/contactus/contactus.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { DashboradComponent } from './Components/dashborad/dashborad.component';
+import { CreateProductComponent } from './Components/create-product/create-product.component';
+import { UpdateProductComponent } from './Components/update-product/update-product.component';
+import { DashboardProductsComponent } from './Components/dashboard-products/dashboard-products.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { DashboradComponent } from './Components/dashborad/dashborad.component';
     ContactusComponent,
     UserProfileComponent,
     DashboradComponent,
+    CreateProductComponent,
+    UpdateProductComponent,
+    DashboardProductsComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,6 @@ const ordersController = require("../Controllers/OrdersController");
 const cors = require("cors");
 
 router.get("/orders", ordersController.getAllOrders);
-
 router.post("/create", ordersController.createOrder);
 router.put("/order/:id", ordersController.updateOrder);
 router.delete("/delete/:id", ordersController.deleteOrder);

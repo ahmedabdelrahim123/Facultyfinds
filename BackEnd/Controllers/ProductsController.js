@@ -1,5 +1,8 @@
 // const validate = require("../Utils/coursesValidation");
 const productsModel = require("../Model/productsModel");
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 
 let getAllProducts = async (req, res) => {
@@ -26,7 +29,52 @@ let getProductById = async (req, res) => {
   res.json(product);
 };
 
+
+
+
+let createProduct = async (req, res) =>{
+  data = req.body;
+  image = req.file.filename;
+  let newProduct= new productsModel({
+    title: data.title,
+    price: data.price,
+    image: image,
+    details: data.details,
+    college: data.college,
+    // userID: data.userID
+  })
+  await newProduct.save();
+  await res.json(newProduct);
+};
+
+let updateProduct = async (req, res) =>{
+  let Id = req.params.id; 
+  data=req.body;
+    await productsModel.updateOne(
+      { _id: Id },
+      {
+        title: data.title,
+        price: data.price,
+        image: image,
+        details: data.details,
+        college: data.college
+      }
+    );
+    await res.send("updated successfully");
+};
+
+let deleteProduct = async (req, res) =>{
+  var ID = req.params.id;
+  var ProductToDelete = await productsModel.find({ _id: ID });
+  await productsModel.deleteOne({ _id: ID });
+  res.json(ProductToDelete || "Not Found");
+};
+
 module.exports = {
   getAllProducts,
-  getProductById
+  getProductById,
+  createProduct,
+  updateProduct,
+  deleteProduct,
 };
+
