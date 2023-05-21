@@ -57,9 +57,7 @@ let addNewUser = async (req, res) => {
 //update
 const updateUser = async (req, res) => {
   let Id = req.params.id;
-  // const valid = userValid(data);
-  // if (!valid) res.send("Not Compatible..");
-  // else {
+  console.log(Id);
 
   await usersModel.updateOne(
     { _id: Id },
@@ -72,33 +70,9 @@ const updateUser = async (req, res) => {
     }
   );
   await res.send("updated successfully");
-  // }
 };
 
-// let updateUser = async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const update = req.body;
-//     const user = await usersModel.findByIdAndUpdate(id, update, { new: true });
-//     res.json(user);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: 'Internal server error' });
-//   }
-// };
 
-// let addNewUser = async (req, res) => {
-//   var data = req.body;
-//   if(req.file){
-//     data.image = req.file.path;
-//   }else{
-//     data.image = 'assets/products/avatar.png';
-//   }
-//   var newUser = new usersModel(data);
-//   await newUser.save();
-//   const { _id, username, email, gender, type, orders } = newUser;
-//   res.json({ user: { _id, username, email, gender, type, orders, image: data.image } });
-// };
 
 let login = async (req, res) => {
   let email = req.body.email;
