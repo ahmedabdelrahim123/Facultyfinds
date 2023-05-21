@@ -69,4 +69,9 @@ export class DataService {
       token: stripeToken,
     });
   }
+
+  addNewProduct(newProduct: any) {
+    return this.http.post(`${this.Base_URL}/api/product/create`, newProduct);
+  }
+  
 }

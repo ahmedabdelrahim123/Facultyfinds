@@ -101,9 +101,14 @@ let login = async (req, res) => {
 
 let DeleteUser = async (req, res) => {
   var ID = req.params.id;
-  var UserToDelete = await usersModel.find({ _id: ID });
-  await usersModel.deleteOne({ _id: ID });
-  res.json(UserToDelete || "Not Found");
+  var UserToDelete = await usersModel.findOne({ _id: ID });
+  if (UserToDelete.orders){
+    res.json("can't delete, you have unfinished orders");
+  }
+  else{
+    await usersModel.deleteOne({ _id: ID });
+    res.json(UserToDelete || "Not Found");
+  }
 };
 
 //get user by id
