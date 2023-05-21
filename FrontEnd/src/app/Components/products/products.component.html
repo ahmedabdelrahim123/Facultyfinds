@@ -1,4 +1,5 @@
-<div class="card-top container-fluid">
+<div style="background-color:#eaf1f4;">
+<div class="card-top container-fluid" >
     <div class="container d-flex">
         <div class="item">
             <a (click)="getMyProducts()">
@@ -52,24 +53,47 @@
 </div>
 
 <input type="search" id="search" name="search" placeholder="Search...." autocomplete="off" (input)="searchProductsByTitle($event)">
+
 <div class="products">
             <div class="card "  *ngFor="let item of productList">
               <a [routerLink]="['/products', item._id]" style="text-decoration: none;">
-                <img src="{{item.image}}" alt="">
-                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch; font-weight: 600;">{{item.title}}</h5>
+                <div class="imgg">
+                <img  src="{{item.image}}" alt="">
+            </div>
+                <h5 style="
+                    margin-top: 8%;
+    /* margin-left: 10%; */
+    font-family: math;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100ch;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    color: #10458d;
+                ">{{item.title}}</h5>
                 <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
-                <p style="color:rgb(30, 128, 143)"><strong>Price:</strong> ${{item.price}}</p>
+                <p style="font-family: monospace;
+                font-size: 18px;
+                text-align: center;
+                font-weight: 300;
+                color: rgb(120 131 133);"><strong>Price:</strong> ${{item.price}}</p>
               </a>
                   <!-- Quantity Selector -->
-            <div>
+            <div class="quan"> 
                 <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" [(ngModel)]="item.quantity" min="1" max="100" (change)="updateTotalPrice(item)">
+                <input style="
+                    border:1px solid rgb(6, 65, 93);
+                    text-align: center;
+                    width: 10%;
+                    background-color: #ffffff;" type="number" id="quantity" name="quantity" [(ngModel)]="item.quantity" min="1" max="100" (change)="updateTotalPrice(item)">
               </div>
 
               <!-- Total Price -->
-              <p style="color:rgb(30, 128, 143)"><strong>Total Price:</strong> ${{getTotalPrice(item)}}</p>
+             
 
               <!-- Add to Cart Button -->
               <button class="btn4 btn-primary" (click)="addToCart(item)">Add to Cart</button>
-            </div>
+            </div></div>
 </div>

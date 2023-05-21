@@ -1,9 +1,5 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
-.form-control {
-  border-radius: 3px;
-  width: 600px;
-  margin-left: 20px;
-}
+
 
 .search-icon {
   position: absolute;
@@ -25,27 +21,125 @@ label{
   font-family: monospace ;
 }
 
+
 .welcome{
   animation-name: welcome;
   animation-duration: 3s;
   animation-iteration-count: 3;
+  color: #9f840c;
 }
 @keyframes welcome {
     50% {
       font-style: italic;
-      color:#FEA1A1;
+      color:#f4e9e9;
       transform: translate(0px, 8px);
   }
 }
-.star{
-  color:gold
-}
 .hand{
-  color:silver;
+  color:rgb(62, 134, 170);
 }
 
 .error{
   color:red;
   text-align: center;
   font-weight: bold;
+}
+
+
+.card{
+  margin-bottom:20px;
+  border:none;
+
+}
+
+.modal-content { 
+  width: 450px;
+  background-color: #0a2956;
+}
+.modal-content  form{
+  text-align: center;
+  width: 450px;
+  padding: 20px;
+  position: absolute;
+  transition: 0.25s;
+}
+.form-check{
+  color: white;
+    font-size: 20px;
+    /* margin-right: 10%; */
+    margin-left: 37%;
+    display: flex;
+    gap: 20px;
+
+}
+
+
+.box input[type="email"],
+.box input[type="password"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 10px 10px;
+  width: 250px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s
+}
+
+.box input[type="email"]:focus,
+.box input[type="password"]:focus {
+    width: 300px;
+    border-color: #2ecc71
+}
+
+.btnn{
+  border: none;
+  margin-top: 3%;
+  height: 40px;
+
+  width: 40%;
+  
+}
+
+.btnn:hover{
+  box-shadow: 0 2px 4px rgba(255, 250, 250, 0.922);
+  color: white;
+  background-color: #0a2956;
+  border: 1px solid white;
+
+}
+
+
+.btnnn{
+  border: none;
+  height: 40px;
+  width: 40%;
+  
+}
+
+.btnnn:hover{
+  box-shadow: 0 2px 4px rgba(255, 250, 250, 0.922);
+  color: white;
+  background-color: #0a2956;
+  border: 1px solid white;
+
+}
+
+.nav-link:hover{
+  box-shadow: 0 2px 4px rgba(60, 62, 62, 0.922);
+color: rgb(28, 26, 26);
+border: none;
+}
+ .nav-link{
+  background-color: rgb(255, 255, 255);
+                    color: rgb(227, 158, 54);
+                     border: 1px solid black;
+}
+
+.imgg{
+  margin-bottom: 3%;
 }

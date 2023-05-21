@@ -1,37 +1,28 @@
-import { Component } from '@angular/core';
-import { loadStripe } from '@stripe/stripe-js';
-@Component({
-  selector: 'app-strip',
-  templateUrl: './strip.component.html',
-  styleUrls: ['./strip.component.css']
-})
-export class StripComponent {
-  totalPrice: any;
-  async handlePayment() {
-    const stripe: any  = await loadStripe('YOUR_PUBLISHABLE_KEY');
+// import { Component } from '@angular/core';
 
-    // Create a Stripe session or payment intent on your server
-    const response = await fetch('/create-stripe-session', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ totalAmount: this.totalPrice }),
-    });
+// @Component({
+//   selector: 'app-strip',
+//   templateUrl: './strip.component.html',
+//   styleUrls: ['./strip.component.css'],
+// })
+// export class StripComponent {
 
-    const session = await response.json();
-
-    // Redirect the user to the Stripe Checkout page
-    const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
-
-    if (result.error) {
-      // Handle error
-    } else {
-      // Payment success
-    }
-  }
-
-
-}
+//   invokeStripe() {
+//     if (!window.document.getElementById('stripe-script')) {
+//       const script = window.document.createElement('script');
+//       script.id = 'stripe-script';
+//       script.type = 'text/javascript';
+//       script.src = 'https://checkout.stripe.com/checkout.js';
+//       script.onload = () => {
+//         this.paymentHandler = (<any>window).StripeCheckout.configure({
+//           key: 'pk_test_51N9oXiBdZrRVeTEh7Cws3ejgvEa5a1zidnFHlazWgx8uYgVd1OGIMEBgJessl4PYwBPz7DAz4QXMTAfzFtLpfw5100PV58wbjE',
+//           locale: 'auto',
+//           token: function (stripeToken: any) {
+//             console.log(stripeToken);
+//           },
+//         });
+//       };
+//       window.document.body.appendChild(script);
+//     }
+//   }
+// }

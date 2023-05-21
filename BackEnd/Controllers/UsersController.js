@@ -54,29 +54,26 @@ let addNewUser = async (req, res) => {
   }
 };
 
-
 //update
 const updateUser = async (req, res) => {
   let Id = req.params.id;
   // const valid = userValid(data);
   // if (!valid) res.send("Not Compatible..");
   // else {
-   
-    await usersModel.updateOne(
-      { _id: Id },
-      {
-        username: req.body.username,
-        email: req.body.email, 
-        image: req.body.image,
-        gender: req.body.gender,
-        type: req.body.type,
-      }
-    );
-    await res.send("updated successfully");
+
+  await usersModel.updateOne(
+    { _id: Id },
+    {
+      username: req.body.username,
+      email: req.body.email,
+      image: req.body.image,
+      gender: req.body.gender,
+      type: req.body.type,
+    }
+  );
+  await res.send("updated successfully");
   // }
 };
-
-
 
 // let updateUser = async (req, res) => {
 //   try {
@@ -90,29 +87,18 @@ const updateUser = async (req, res) => {
 //   }
 // };
 
-
-  // let addNewUser = async (req, res) => {
-  //   var data = req.body;
-  //   if(req.file){
-  //     data.image = req.file.path;
-  //   }else{
-  //     data.image = 'assets/products/avatar.png';
-  //   }
-  //   var newUser = new usersModel(data);
-  //   await newUser.save();
-  //   const { _id, username, email, gender, type, orders } = newUser;
-  //   res.json({ user: { _id, username, email, gender, type, orders, image: data.image } });
-  // };
-  
-
-
-
-
-
-
-
-
-
+// let addNewUser = async (req, res) => {
+//   var data = req.body;
+//   if(req.file){
+//     data.image = req.file.path;
+//   }else{
+//     data.image = 'assets/products/avatar.png';
+//   }
+//   var newUser = new usersModel(data);
+//   await newUser.save();
+//   const { _id, username, email, gender, type, orders } = newUser;
+//   res.json({ user: { _id, username, email, gender, type, orders, image: data.image } });
+// };
 
 let login = async (req, res) => {
   let email = req.body.email;
@@ -151,14 +137,10 @@ let getUserById = async (req, res) => {
   // console.log("in controller",req);
   let id = req.params.id;
   // console.log("in controller",req.params.id);
-  let user = await usersModel.findById({_id: id});
+  let user = await usersModel.findById({ _id: id });
   // console.log("in controller",product);
   res.json(user);
 };
-
-
-
-
 
 module.exports = {
   getAllUsers,
@@ -166,5 +148,5 @@ module.exports = {
   login,
   updateUser,
   DeleteUser,
-  getUserById
+  getUserById,
 };
