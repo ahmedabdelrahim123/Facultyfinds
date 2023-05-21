@@ -31,14 +31,14 @@ let getProductById = async (req, res) => {
 
 let createProduct = async (req, res) =>{
   data = req.body;
-  // image = req.file.filename;
+  image = req.file.filename;
   let newProduct= new productsModel({
     title: data.title,
     price: data.price,
-    // image: image,
+    image: image,
     details: data.details,
     college: data.college,
-    userID: data.userID
+    // userID: data.userID
   })
   await newProduct.save();
   await res.json(newProduct);
@@ -52,7 +52,7 @@ let updateProduct = async (req, res) =>{
       {
         title: data.title,
         price: data.price,
-        // image: image,
+        image: image,
         details: data.details,
         college: data.college
       }

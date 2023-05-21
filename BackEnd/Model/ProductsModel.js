@@ -16,7 +16,7 @@ const productsSchema = new mongoose.Schema({
   },
   price: {
     type: "number",
-    required: true,
+    // required: true,
   },
   image: {
     type: "string",
@@ -30,10 +30,10 @@ const productsSchema = new mongoose.Schema({
     type: "string",
     required: true,
   },
-  userID: {
-    type: "number",
-    required: true,
-  },
+  // userID: {
+  //   type: "number",
+  //   required: true,
+  // },
 });
 module.exports = mongoose.model('Product', productsSchema);
 

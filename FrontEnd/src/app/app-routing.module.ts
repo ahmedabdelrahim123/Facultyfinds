@@ -11,6 +11,7 @@ import { AboutComponent } from './Components/about/about.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { AuthGuardService } from './Services/auth-guard.service';
 import { AdminGuardService } from './Services/admin-guard.service';
+import { CreateProductComponent } from './Components/create-product/create-product.component';
 import { DashboradComponent } from './Components/dashborad/dashborad.component';
 import { ErrorComponent } from './Components/error/error.component';
 
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:'strip', component: StripComponent},
   {path:'about', component: AboutComponent},
   {path:'contactus', component: ContactusComponent},
+  {path:'createproduct', component: CreateProductComponent},
   {path:'profile', component:UserProfileComponent, canActivate: [AuthGuardService]},
   {path:'dashboard', component:DashboradComponent, canActivate: [AdminGuardService]},
   {path:'**',component:ErrorComponent}
