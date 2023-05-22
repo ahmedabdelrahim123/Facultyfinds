@@ -7,6 +7,7 @@ const cors = require("cors");
 const multer = require("multer");
 const userPermissions = require("../middlewares/userMWPermissions");
 
+
 // const upload = multer({ dest: 'uploads/' });
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -16,15 +17,11 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + "-" + file.originalname);
   },
 });
-
 const upload = multer({ storage: storage });
+
+
 router.get("/users", userPermissions, usersController.getAllUsers);
-router.post(
-  "/create",
-  upload.single("image"),
-  [validator(userSchema)],
-  usersController.addNewUser
-);
+router.post("/create", upload.single("image"), [validator(userSchema)], usersController.addNewUser);
 router.post("/login",usersController.login);
 router.put("/user/:id", usersController.updateUser);
 router.delete("/delete/:id", usersController.DeleteUser);

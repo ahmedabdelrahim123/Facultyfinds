@@ -1,5 +1,5 @@
 const stripe = require("stripe")(
-  "sk_test_51N9oXiBdZrRVeTEh9NtjlOnxC82MXrwgTkUy9xK0GAf1e5KWjA8R9Mc96OqB9KpvGDWDhWfg1uneD9VXbShBlUIx00T8Sbf4l6"
+  "sk_test_51NAZ0oLFO565T4TG6OUvSaRgq4SleKSa69SDGRU8xt95gh49gVfvW8bIW9S6wsi6YieS7Y1tFOTDUg7zJlfJwFAh00Pu3LRI1m"
 );
 
 const createCheckoutSession = async (req, res) => {

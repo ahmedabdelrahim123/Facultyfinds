@@ -9,11 +9,8 @@ export class DataService {
   constructor(private readonly http: HttpClient) {}
   private readonly Base_URL = 'http://localhost:3000';
 
-  // getMyProducts(): Observable<any> {
-  //   return this.http.get(`${this.Base_URL}/api/product/products`);
-  // }
-/////////////////////////////
- // product
+  ///////////////////////////////
+  //// product
   getProductById(_id: Number): Observable<any> {
     return this.http.get(`${this.Base_URL}/api/product/${_id}`);
   }
@@ -23,9 +20,24 @@ export class DataService {
     if (college) {
       url = `${url}?college=${college}`;
     }
-
     return this.http.get(url);
   }
+
+  addNewProduct(newProduct: any) {
+    return this.http.post(`${this.Base_URL}/api/product/create`, newProduct);
+  }
+
+  updateProduct(productId: string, product: any) {
+    return this.http.put(
+      `${this.Base_URL}/api/product/product/${productId}`,
+      product
+    );
+  }
+
+  deleteProduct(productId: string) {
+    return this.http.delete(`${this.Base_URL}/api/product/delete/${productId}`);
+  }
+
   ////////////////////////////////
   // user
   getMyUsers(): Observable<any> {
@@ -36,13 +48,15 @@ export class DataService {
     return this.http.post(`${this.Base_URL}/api/user/create`, newUser);
   }
 
+  updateUser(userId: string, user: any) {
+    return this.http.put(`${this.Base_URL}/api/user/user/${userId}`, user);
+  }
 
-  updateUser(user: any) {
-    return this.http.put(`${this.Base_URL}/api/user/user/:id`, user);
+
+  deleteUser(userId: any) {
+    return this.http.delete(`${this.Base_URL}/api/user/delete/${userId}`);
   }
-  deleteUser(user: any) {
-    return this.http.delete(`${this.Base_URL}/api/user/delete/:id`, user);
-  }
+  
   getUserbyid(id: any) {
     return this.http.get(`${this.Base_URL}/api/user/${id}`);
   }

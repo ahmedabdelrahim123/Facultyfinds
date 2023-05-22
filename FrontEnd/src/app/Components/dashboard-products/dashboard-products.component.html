@@ -1,0 +1,85 @@
+<div>
+  <div class="card-top container-fluid">
+    <div class="container d-flex">
+      <!-- Add a button for adding a new product -->
+      <div class="item">
+        <a (click)="getMyProducts()">
+          <h6>All</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="getMyProducts('engineering')">
+          <h6>Engineering</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="getMyProducts('science')">
+          <h6>Science</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="getMyProducts('pharmacy')">
+          <h6>Pharmacy</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="getMyProducts('medicine')">
+          <h6>Medicine</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="getMyProducts('dentistry')">
+          <h6>Dentistry</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="getMyProducts('arts')">
+          <h6>Arts</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <input
+    type="search"
+    id="search"
+    name="search"
+    placeholder="Search...."
+    autocomplete="off"
+    (input)="searchProductsByTitle($event)"
+  />
+
+  <div class="products">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>College</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of productList">
+          <td>{{ item.title }}</td>
+          <td style="width: 30%">{{ item.details }}</td>
+          <td>{{ item.price }} EGP</td>
+          <td>{{ item.college }}</td>
+          <img
+            src="http://localhost:3000/products/{{ item.image }}"
+            alt=""
+            style="width: 75px; height: 75px; border-radius: 37.5px"
+          />
+          <td>
+            <!-- Add buttons for show, update, and delete functionality -->
+            <button [routerLink]="['/products', item._id]" class="button bg-success">Show</button>
+            <button [routerLink]="['/updateproduct', item._id]"  class="button bg-info">Update</button>
+            <button (click)="deleteProduct(item._id)"  class="button bg-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

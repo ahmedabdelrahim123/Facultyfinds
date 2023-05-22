@@ -58,20 +58,20 @@
             <div class="card "  *ngFor="let item of productList">
               <a [routerLink]="['/products', item._id]" style="text-decoration: none;">
                 <div class="imgg">
-                <img  src="{{item.image}}" alt="">
+                <img  src="http://localhost:3000/products/{{item.image}}" alt="">
             </div>
                 <h5 style="
                     margin-top: 8%;
-    /* margin-left: 10%; */
-    font-family: math;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100ch;
-    font-weight: 600;
-    letter-spacing: 0.1rem;
-    color: #10458d;
+                    /* margin-left: 10%; */
+                    font-family: math;
+                    text-align: center;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 100ch;
+                    font-weight: 600;
+                    letter-spacing: 0.1rem;
+                    color: #10458d;
                 ">{{item.title}}</h5>
                 <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
                 <p style="font-family: monospace;

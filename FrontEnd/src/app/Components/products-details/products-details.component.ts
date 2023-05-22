@@ -26,6 +26,4 @@ export class ProductsDetailsComponent implements OnInit{
       }
     );
   }
-
-
 }

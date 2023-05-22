@@ -1,0 +1,72 @@
+<form
+  class="box"
+  enctype="multipart/form-data"
+  (ngSubmit)="
+    UpdateProduct(title.value, price.value, details.value, college.value, image)
+  "
+>
+  <h2 style="text-align: center;">Update your product</h2>
+  <div class="md-form form-sm mb-15" style="width: 50%; margin: auto">
+    <div class="frm" style="margin-top: 10%">
+      <label for="title">Title</label>
+      <input
+        value="{{ product?.title }}"
+        type="text"
+        class="form-control form-control-sm validate custom-border-bottom"
+        placeholder="enter a title"
+        name="title"
+        #title
+      />
+    </div>
+
+    <div class="md-form form-sm mb-5">
+      <label for="price">Price</label>
+      <input
+        value="{{ product?.price }}"
+        type="number"
+        class="form-control form-control-sm custom-border-bottom"
+        placeholder="enter price"
+        name="price"
+        #price
+      />
+      <label for="details">Details</label>
+      <input
+        value="{{ product?.details }}"
+        type="text"
+        class="form-control form-control-sm custom-border-bottom"
+        placeholder="enter details"
+        name="details"
+        #details
+      />
+      <label for="college">College</label>
+      <input
+        value="{{ product?.college }}"
+        type="text"
+        class="form-control form-control-sm custom-border-bottom"
+        placeholder="enter college"
+        name="college"
+        #college
+      />
+    </div>
+
+    <div class="imgg">
+      <label for="image">Image</label>
+      <input
+        style="background-color: #9da5a2"
+        type="file"
+        name="image"
+        #image
+      />
+    </div>
+    <i
+      class="fas fa-users prefix mt-2"
+      style="font-size: 20px; color: white; margin-bottom: 2%"
+    ></i>
+
+    <div class="text-center form-sm mt-2">
+      <button class="btnnn" type="submit">
+        Update product 
+      </button>
+    </div>
+  </div>
+</form>
