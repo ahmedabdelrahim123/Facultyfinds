@@ -52,9 +52,11 @@ export class DataService {
     return this.http.put(`${this.Base_URL}/api/user/user/${userId}`, user);
   }
 
-  deleteUser(user: any) {
-    return this.http.delete(`${this.Base_URL}/api/user/delete/:id`, user);
+
+  deleteUser(userId: any) {
+    return this.http.delete(`${this.Base_URL}/api/user/delete/${userId}`);
   }
+  
   getUserbyid(id: any) {
     return this.http.get(`${this.Base_URL}/api/user/${id}`);
   }
