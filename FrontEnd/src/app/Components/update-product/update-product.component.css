@@ -1,0 +1,25 @@
+.box{
+  border: 1px solid black;
+  width: 60%;
+  margin: auto;
+  padding: 2%;
+  border-radius: 30px;
+}
+
+label{
+  margin: 5px 0px;
+}
+input{
+  height: 40px;
+  border-radius: 20px;
+}
+h2{
+  color: #526D82
+}
+
+.btnnn{
+    border: none;
+    background-color:  #526D82;
+    border-radius: 20px;
+    padding: 10px;
+}

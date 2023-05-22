@@ -20,16 +20,11 @@
             <a routerLink="/products" class="text-decoration-none text-dark">Products</a>
           </li>
           <li class="nav-item" style="margin-left: 150px">
-            <a routerLink="/products" class="text-decoration-none text-dark" >Add Product</a>
-          </li>
-          <li class="nav-item" style="margin-left: 150px">
             <a class="text-decoration-none text-dark" routerLink="/about">About</a>
           </li>
           <li class="nav-item" style="margin-left: 150px">
             <a class="text-decoration-none text-dark" routerLink="/contactus">Contact US</a>
           </li>
-
-
 
 
         </ul>
@@ -74,16 +69,16 @@
 <!-- /////////////////////////////////////////////////  -->
 <ng-template #mymodal let-modal>
   <!--Content-->
-  
+
   <div class="modal-content" style="height: 77vh; overflow: auto">
     <!--Modal cascading tabs-->
     <div class="modal-c-tabs">
       <!-- Nav tabs -->
       <!-- Template code -->
         <div class="row">
-         <div class="col-md-12"> 
+         <div class="col-md-12">
             <div class="card">
-             
+
 
               <ul class="nav nav-tabs md-tabs nav-justified" role="tablist">
 
@@ -99,7 +94,7 @@
                   >
                 </li>
                 <li class="nav-item waves-effect waves-light fs-5">
-                  <a 
+                  <a
                     class="nav-link"
                     [ngClass]="{ active: activePanel === 'panel2' }"
                     data-toggle="tab"
@@ -117,23 +112,23 @@
           <!--Panel 1-->
           <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
             <!--Body-->
-          
+
             <form  class="box"
             (ngSubmit)="loginUser(email.value, password.value)"
           >
           <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
-          
+
     <div class="md-form form-sm mb-15">
       <h3
       class="text-center m-4 welcome"
-      
+
     >
                   Hi <i class="fas fa-hand-sparkles hand"></i>, Welcome Back
                 </h3>
               </div>
               <div class="d-flex">
-        
-                
+
+
                 <input
                   type="email"
                   id="modalLRInput6"
@@ -142,13 +137,13 @@
                   placeholder="enter your email address"
                   class="form-control form-control-sm validate custom-border-bottom"
                 />
-          
+
             </div>
 
 
-              
+
             <div class="d-flex">
-                 
+
               <input
                 type="password"
                 id="modalLRInput7"
@@ -157,14 +152,14 @@
                 placeholder="enter your password"
                 class="form-control form-control-sm validate custom-border-bottom"
               />
-           
+
           </div>
 
 
               <p class="error">{{loginerror}}</p>
-             
+
               <button class="btnn">Login
-                       
+
                 <i class="fas fa-sign-in ml-1"></i>
         </button>
             </form>
@@ -197,37 +192,37 @@
                 us
               </h3>
 
-             
-                
+
+
                <div class="frm" style="margin-top: 10%;">
                 <input type="email" class="form-control form-control-sm validate custom-border-bottom" placeholder="enter a username"  name="username" #username/>
-             
+
               <p class="error">{{usernameerrormessage}}</p>
             </div>
 
-             
+
             <div class="md-form form-sm mb-5">
-            
+
                 <input type="email" class="form-control form-control-sm custom-border-bottom"  placeholder="enter your email address"  name="email" #email/>
                 <p class="error">{{emailerrormessage}}</p>
 
 
                 <input type="password" class="form-control form-control-sm custom-border-bottom" placeholder="enter a strong password" name="password"  #password/>
-             
-               
+
+
                 <input type="password" class="form-control form-control-sm custom-border-bottom" placeholder="repeat the previous password" name="repassword" #repasword/>
-              
+
             <p class="error">{{repassworderror}}</p>
-            
+
             </div>
-      
-              
+
+
 
           <div class="imgg">
             <input style="background-color: #9da5a2;" type="file" name="image"  #image>
           </div>
           <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: white; margin-bottom: 2%;" ></i>
-           
+
             <div class="form-check">
               <input class="form-check-input" type="radio" name="gender" value="male" #maleRadio/>
               <label class="form-check-label" for="male">Male</label>
@@ -247,7 +242,7 @@
                 Sign up <i class="fas fa-sign-in ml-1"></i>
               </button>
             </div>
-          
+
           </div>
           </form>
         </div>
