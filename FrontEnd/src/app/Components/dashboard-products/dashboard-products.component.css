@@ -1,0 +1,43 @@
+.card-top {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  word-wrap: break-word;
+  background: #faf8f8;
+  background-clip: border-box;
+  border-radius: .25rem;
+  width: 70%;
+  padding: 10px
+}
+
+.products{
+  display: grid;
+  width: 70%;
+  margin: 3% auto;
+}
+
+.container{
+  margin: 0px 15%;
+}
+.item {
+    font-family: 'Mogra', cursive;
+    margin: 0.5rem 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.item a:hover {
+    color:#526D82;
+}
+.button{
+  border:none;
+  margin: 0.25rem;
+  padding:0.5rem;
+  border-radius: 5px;
+}
+#search{
+  width:40%;
+  margin: 1% 30%;
+  border-radius: 25px;
+  padding: 4px 30px
+}
