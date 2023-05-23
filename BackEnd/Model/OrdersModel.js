@@ -24,9 +24,6 @@ const ordersSchema = new mongoose.Schema({
     default: 'pending',
     required: true,
   },
-  userID: {
-    type: "number",
-    required: true,
-  },
+  userID: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
 });
 module.exports = mongoose.model('Order', ordersSchema);

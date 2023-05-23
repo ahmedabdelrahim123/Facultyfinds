@@ -74,7 +74,7 @@ this.cartService.getProducts()
   this.grandTotal = this.cartService.getTotalPrice();
   this.Total = this.cartService.getTotalPrice()+40;
     this.totalItem = res.length;
-  
+
 })
 }
 Pay() {

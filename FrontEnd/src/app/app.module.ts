@@ -24,6 +24,7 @@ import { DashboradComponent } from './Components/dashborad/dashborad.component';
 import { CreateProductComponent } from './Components/create-product/create-product.component';
 import { UpdateProductComponent } from './Components/update-product/update-product.component';
 import { DashboardProductsComponent } from './Components/dashboard-products/dashboard-products.component';
+import { OrdersdetailsComponent } from './ordersdetails/ordersdetails.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { DashboardProductsComponent } from './Components/dashboard-products/dash
     CreateProductComponent,
     UpdateProductComponent,
     DashboardProductsComponent,
+    OrdersdetailsComponent,
   ],
   imports: [
     BrowserModule,

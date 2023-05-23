@@ -16,6 +16,7 @@ import { DashboradComponent } from './Components/dashborad/dashborad.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { UpdateProductComponent } from './Components/update-product/update-product.component';
 import { DashboardProductsComponent } from './Components/dashboard-products/dashboard-products.component';
+import { OrdersdetailsComponent } from './ordersdetails/ordersdetails.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,7 +27,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },
   { path: 'products/:id', component: ProductsDetailsComponent },
-
+  { path: 'orders', component: OrdersdetailsComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'strip', component: StripComponent },

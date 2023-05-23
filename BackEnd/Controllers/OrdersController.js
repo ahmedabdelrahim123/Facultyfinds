@@ -1,20 +1,29 @@
 // const validate = require("../Utils/coursesValidation");
 const ordersModel = require("../Model/OrdersModel");
 const jwt = require("jsonwebtoken");
+// const session = require("../middlewares/session");
+
 
 let getAllOrders = async (req, res) => {
   let data = await ordersModel.find({});
   res.json(data);
 };
+
+
 let createOrder = async (req, res) => {
-data=req.body;
-pids=JSON.parse(req.body.pID);
-let neworder= new ordersModel({
-  pID: pids ,
-  userID: data.userID
-})
-await neworder.save();
-await res.json(neworder);
+if (req.session.userId){
+  data=req.body;
+  pids=JSON.parse(req.body.pID);
+  let neworder= new ordersModel({
+    pID: pids ,
+    userID: req.session.userId  // Get user id from session
+  })
+  await neworder.save();
+  await res.json(neworder);
+}
+else{
+  await res.json("please login first");
+}
 };
 
 let updateOrder = async (req, res) => {
