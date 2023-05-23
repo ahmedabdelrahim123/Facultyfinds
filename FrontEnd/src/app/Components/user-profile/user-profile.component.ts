@@ -10,7 +10,7 @@ import jwt_decode from 'jwt-decode';
 export class UserProfileComponent implements OnInit {
   user:any;
   id:any;
-  constructor( private api : DataService) { }
+  constructor( private api : DataService ) { }
 
   ngOnInit(): void {
     const token= localStorage.getItem('token')
@@ -22,5 +22,19 @@ export class UserProfileComponent implements OnInit {
     this.api.getUserbyid(userId).subscribe((response)=>{
       this.user = response;
     })
-}}}
+}}
+onSaveChanges(): void {
+  // Call UserService to update user information
+  // console.log(this.user._id);
+  // console.log(this.user);
+  this.api.updateUser(this.user._id, this.user)
+    .subscribe((response) => {
+      if (response) {
+        //console.log(response);
+        // Displaya success message or perform other actions after the user information is updated
+      } else {
+        console.log('Error updating user information');
+      }
+    });
+}}
 

@@ -19,10 +19,10 @@
                                                               ">{{user.username}}
 
                                                                   </span>
-                                                                
+
                                                                     <p style="margin-top: 2%;">Feel free to edit any of your details below so your SOCIO account is totally up to date. (* Indicates a required field).</p>
                                                               </div>
-                                          
+
                                                               <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                                           </div>
                                                       </div>
@@ -31,33 +31,38 @@
                                                               <h6 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-bottom: 5%; font-size: 22px; color: rgb(15, 86, 111);">My Information</h6>
                                                               <div class="row">
                                                                   <div class="col-sm-6">
-                                                                      
+
                                                                       <div class="col-md-6">
                                                                         <label class="labels">username</label><input type="text" class="form-control" placeholder="user name" value={{user.username}}></div>
                                                                   </div>
                                                                   <div class="col-sm-6">
-                                                                     
+
                                                                       <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" value={{user.email}}></div>
                                                                   </div>
                                                               </div>
                                                               <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">More details</h6>
                                                               <div class="row">
                                                                   <div class="col-sm-6">
-                                                                      
+
                                                                       <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" value={{user.gender}}></div>
                                                                   </div>
                                                                   <div class="col-sm-6">
-                                                                     
+
                                                                       <div class="col-md-12"><label class="labels">Orders</label><input type="text" class="form-control" value={{user.orders}}></div>
                                                                   </div>
                                                               </div>
-                                                          
+
                                                           </div>
                                                       </div>
                                                   </div>
                                               </div>
                                           </div>
                                            </div>
+                                              </div>
+                                              <div class="card-block">
+                                                <!-- User profile form inputs -->
+                                                ...
+                                                <button [routerLink]="['/updateuser', user._id]">Update</button>
                                               </div>
                                           </div>
 
