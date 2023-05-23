@@ -3,17 +3,8 @@
     <div class="container d-flex">
       <!-- Add a button for adding a new product -->
       <div class="item">
-        <a href="/add-product">
-          <img src="https://your-add-product-icon-url.png" alt="" />
-          <h6>Add Product</h6>
-        </a>
-      </div>
-      <!-- Add other dashboard options as needed -->
-
-      <!-- Example: Show products based on categories -->
-      <div class="item">
         <a (click)="getMyProducts()">
-          <h6>all</h6>
+          <h6>All</h6>
         </a>
       </div>
       <div class="item">
@@ -22,7 +13,7 @@
         </a>
       </div>
       <div class="item">
-        <a (click)="getMyProducts('Science')">
+        <a (click)="getMyProducts('science')">
           <h6>Science</h6>
         </a>
       </div>
@@ -46,7 +37,6 @@
           <h6>Arts</h6>
         </a>
       </div>
-      <!-- Repeat the above pattern for other categories -->
     </div>
   </div>
 
@@ -75,7 +65,7 @@
         <tr *ngFor="let item of productList">
           <td>{{ item.title }}</td>
           <td style="width: 30%">{{ item.details }}</td>
-          <td>${{ item.price }}</td>
+          <td>{{ item.price }} EGP</td>
           <td>{{ item.college }}</td>
           <img
             src="http://localhost:3000/products/{{ item.image }}"
@@ -84,9 +74,9 @@
           />
           <td>
             <!-- Add buttons for show, update, and delete functionality -->
-            <button [routerLink]="['/products', item._id]">Show</button>
-            <button [routerLink]="['/updateproduct', item._id]">Update</button>
-            <button (click)="deleteProduct(item._id)">Delete</button>
+            <button [routerLink]="['/products', item._id]" class="button bg-success">Show</button>
+            <button [routerLink]="['/updateproduct', item._id]"  class="button bg-info">Update</button>
+            <button (click)="deleteProduct(item._id)"  class="button bg-danger">Delete</button>
           </td>
         </tr>
       </tbody>
