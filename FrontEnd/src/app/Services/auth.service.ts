@@ -4,11 +4,13 @@ import { DataService } from './data.service';
 import { Observable } from 'rxjs';
 import jwt_decode from 'jwt-decode';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 user:any;
+userRole:any;
   private readonly Base_URL = 'http://localhost:3000';
   constructor(private http: HttpClient,private api : DataService) { }
 
@@ -21,8 +23,8 @@ user:any;
     if(token){
       const decodedToken: any = jwt_decode(token);
       const userId = decodedToken.userId;
-      const userType = decodedToken.userType;
-      if (userType === "admin"){
+      this.userRole = decodedToken.userType;
+      if (this.userRole === "admin"){
         return true;
       }
       else{
@@ -37,5 +39,6 @@ user:any;
   }
   logout(): void {
     localStorage.clear();
+    this.userRole= undefined;
   }
 }

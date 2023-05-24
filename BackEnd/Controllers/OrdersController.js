@@ -17,8 +17,6 @@ let getAllOrders = async (req, res) => {
 
 
 let createOrder = async (req, res) => {
-  console.log("in order create ");
-  console.log(req.body);
   let products = req.body.products.map(product => {
     return {
       pID: product.pID,
@@ -30,7 +28,6 @@ let createOrder = async (req, res) => {
     userID: req.body.userID,
     Total: req.body.Total
   });
-  console.log("order created successfully");
   await neworder.save();
   await res.json(neworder);
 };
@@ -39,9 +36,7 @@ let createOrder = async (req, res) => {
 
 let updateOrder = async (req, res) => {
   let Id = req.params.id; 
-  console.log(Id);
   data=req.body;
-  console.log(data);
     await ordersModel.updateOne(
       { _id: Id },
       {
@@ -55,8 +50,6 @@ let deleteOrder = async (req, res) => {
   var ID = req.params.id;
 
   var order = await ordersModel.findOne({ _id: ID });
-  console.log(order.statue);
-
   
   if (order.statue !='accepted')
   {
