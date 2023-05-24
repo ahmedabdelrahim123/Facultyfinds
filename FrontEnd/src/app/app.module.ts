@@ -31,6 +31,7 @@ import { UpdateUserComponent } from './Components/update-user/update-user.compon
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorInterceptor } from './Services/auth-interceptor.interceptor';
+import { UserProductsComponent } from './Components/user-products/user-products.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { AuthInterceptorInterceptor } from './Services/auth-interceptor.intercep
     AdminOrdersComponent,
     UpdateUserComponent,
     SidebarComponent,
+    UserProductsComponent,
   ],
   imports: [
     BrowserModule,

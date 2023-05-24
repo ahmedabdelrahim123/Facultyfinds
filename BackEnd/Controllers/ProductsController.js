@@ -30,7 +30,6 @@ let getProductById = async (req, res) => {
 let createProduct = async (req, res) => {
   data = req.body;
   image = req.file.filename;
-  console.log(data);
   let newProduct = new productsModel({
     title: data.title,
     price: data.price,

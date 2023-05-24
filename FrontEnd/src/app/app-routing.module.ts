@@ -19,6 +19,7 @@ import { DashboardProductsComponent } from './Components/dashboard-products/dash
 import { OrdersdetailsComponent } from './ordersdetails/ordersdetails.component';
 import { AdminOrdersComponent } from './Components/admin-orders/admin-orders.component';
 import { UpdateUserComponent } from './Components/update-user/update-user.component';
+import { UserProductsComponent } from './Components/user-products/user-products.component';
 
 
 const routes: Routes = [
@@ -51,6 +52,7 @@ const routes: Routes = [
   },
   { path: 'adminorders', component: AdminOrdersComponent },
   { path: 'updateuser/:id', component: UpdateUserComponent },
+  { path: 'user-products', component: UserProductsComponent},
   { path: '**', component: ErrorComponent },
 ];
 
