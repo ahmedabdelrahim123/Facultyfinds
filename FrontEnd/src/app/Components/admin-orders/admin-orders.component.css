@@ -1,0 +1,51 @@
+.orders{
+  display: grid;
+  width: 70%;
+  margin: 3% auto;
+}
+
+.button{
+  border:none;
+  margin: 0.25rem;
+  padding:0.5rem;
+  border-radius: 5px;
+}
+
+.button:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #526D82;
+  color: white;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: larger;
+}
+
+.table tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+.rejected {
+  background: red;
+
+}
+
+.pending {
+  background: yellow;
+}
+
+.accepted {
+  background: green;
+}
+
+.rejected,.pending ,.accepted{
+ padding: 2px 5px;
+ border-radius: 15px
+
+}

@@ -27,7 +27,7 @@ export class HeaderComponent {
   usernameerrormessage = '';
   fieldsRequired = '';
   loginerror = '';
-  username = '';
+  username: any = '';
   repassworderror = '';
   imageFile = '';
 
@@ -106,7 +106,8 @@ export class HeaderComponent {
     let user = { email, password };
     this.authService.loginUser(user).subscribe(
       (response: { [key: string]: any }) => {
-        this.username = response['user']['username'];
+        localStorage.setItem('username', response['user']['username']);
+        this.username = localStorage.getItem('username');
         localStorage.setItem('token', response['token']);
         const token = localStorage.getItem('token');
         if (token) {
@@ -114,7 +115,7 @@ export class HeaderComponent {
           const userType = decodedToken.userType;
           if (userType === 'admin') {
             this.modalService.dismissAll();
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/adminproducts']);
           } else if (userType === 'user') {
             this.modalService.dismissAll();
             this.router.navigate(['/']);
