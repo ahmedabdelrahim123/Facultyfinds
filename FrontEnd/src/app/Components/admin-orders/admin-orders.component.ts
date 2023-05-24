@@ -12,7 +12,7 @@ export class AdminOrdersComponent implements OnInit {
     this.api.getMyOrders().subscribe(
       {
         next:(data)=>{
-          this.orders = data;
+          this.orders = data.data;
         },
         error:(err)=>{console.log(err)}
       }

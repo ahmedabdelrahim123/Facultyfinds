@@ -28,8 +28,11 @@ ngOnInit(): void {
   })
 }}
 logout(): void {
+  let logout= confirm('Are you sure you want to logout');
+  if( logout){
   this.authService.logout();
   this.router.navigate(['/']);
+  };
 }
 
 }
