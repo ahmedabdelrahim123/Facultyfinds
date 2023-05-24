@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
 import jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-ordersdetails',
@@ -10,7 +12,7 @@ import jwt_decode from 'jwt-decode';
 export class OrdersdetailsComponent implements OnInit {
   orders: any[] = [];
 
-  constructor(private myService: DataService) {}
+  constructor(private myService: DataService,private router: Router) {}
 
   ngOnInit(): void {
     const token = localStorage.getItem('token');
@@ -38,4 +40,13 @@ export class OrdersdetailsComponent implements OnInit {
       );
     }
   }
+delete_order(id: any){
+  this.myService.deleteOrder(id).subscribe(() => {
+    this.router.navigate(['/orders']);
+    location.reload();
+
+  });
+
+}
+
 }
