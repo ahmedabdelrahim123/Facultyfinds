@@ -58,8 +58,7 @@
             <div class="card "  *ngFor="let item of productList">
               <a [routerLink]="['/products', item._id]" style="text-decoration: none;">
                 <div class="imgg">
-                <img  src="http://localhost:3000/products/{{item.image}}" alt="">
-            </div>
+                  <img  src="http://localhost:3000/products/{{item.image}}" alt="">            </div>
                 <h5 style="
                     margin-top: 8%;
                     /* margin-left: 10%; */
@@ -81,7 +80,7 @@
                 color: rgb(120 131 133);"><strong>Price:</strong> ${{item.price}}</p>
               </a>
                   <!-- Quantity Selector -->
-            <div class="quan"> 
+            <div class="quan">
                 <label for="quantity">Quantity:</label>
                 <input style="
                     border:1px solid rgb(6, 65, 93);
@@ -91,7 +90,7 @@
               </div>
 
               <!-- Total Price -->
-             
+
 
               <!-- Add to Cart Button -->
               <button class="btn4 btn-primary" (click)="addToCart(item)">Add to Cart</button>

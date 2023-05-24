@@ -1,0 +1,10 @@
+<div class="fixed-sidebar">
+  <img src="http://localhost:3000/uploads/{{user.image}}" style="width:100px ;height: 100px; border-radius: 50px; "/>
+  <h3>{{username}}</h3>
+  <p routerLink="/dashboard">Dashboard</p>
+  <p  routerLink="/adminproducts">Products</p>
+  <p routerLink="/adminorders">Orders</p>
+  <p routerLink="/profile">Profile</p>
+  <li><a (click)="logout()">Logout</a></li>
+</div>
+
