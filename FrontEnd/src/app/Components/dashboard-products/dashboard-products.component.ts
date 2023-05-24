@@ -13,6 +13,7 @@ export class DashboardProductsComponent implements OnInit {
   public filterCategory: any;
   searchKey: string = '';
   selectedCollege: any;
+  productsNumbers: any;
 
   constructor(
     private api: DataService,
@@ -38,7 +39,7 @@ export class DashboardProductsComponent implements OnInit {
       });
     });
   }
-
+// this.productsNumbers= getMyProducts().lenght;
   searchProductsByTitle(searchTerm: any): void {
     const searchText = searchTerm?.target?.value?.trim();
     console.log('searchTerm:', searchTerm);

@@ -21,7 +21,7 @@ export class OrdersdetailsComponent implements OnInit {
       this.myService.getMyOrders().subscribe(
         (data) => {
           console.log(data);
-          for (const order of data) {
+          for (const order of data.data) {
             console.log(order);
             console.log(userId);
             console.log(order.userID._id);

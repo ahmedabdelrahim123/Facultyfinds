@@ -6,3 +6,24 @@
   height: 100%;
   background-color: #f0f0f0;
 }
+h2{
+  font-family: 'Satisfy', cursive;
+  text-align: center;
+  margin-top: 15px;
+}
+.user{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.dashboard{
+margin-left: .5rem;
+}
+
+.logout{
+  border: none;
+  font-weight:bold;
+  font-size: larger;
+}
+/* .dashboard p{
+  border-bottom: 1px solid grey;
+} */

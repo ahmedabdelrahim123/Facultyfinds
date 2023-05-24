@@ -1,10 +1,14 @@
 .card {
     height: 60vh;
     margin: 30px;
-    padding: 18px;
-    
+    padding: 18px;  
 
 }
+
+body {
+   
+    min-height: 100vh;
+  }
 
 .center img {
     text-decoration: none;
@@ -49,16 +53,6 @@ h6 {
     border-radius: 3px !important;
 }
 
-.total{
-    font-weight: 600;
-    /* font-family: unset; */
-    margin-bottom: 4%;
-    font-family: cursive;
-    margin-top: 5%;
-    font-size: 28px;
-    margin-left: 3%;
-
-}
 
 .whatever{
     display: flex;
@@ -68,7 +62,7 @@ h6 {
 }
 .btnn{
     color: white;
-    background-color: black;
+    background-color: #000000;
     width: 20%;
     margin-right: 15%;
     margin-top: 3%;
@@ -79,14 +73,14 @@ h6 {
 .btnn:hover{
     background-color: rgb(255, 255, 255);
     border: 1px solid black;
-    color: rgb(152, 90, 9);
+    color: rgb(0, 0, 0);
 }
 
 
 
 .btn1{
-    color: white;
-    background-color: black;
+    color: rgb(255, 255, 255);
+    background-color: #000000;
     width: 20%;
     margin-right: 15%;
     margin-top: 3%;
@@ -94,7 +88,7 @@ h6 {
     height: 40px;
 }
 .btn1:hover{
-    border: 1px solid black;
+    border: 1px solid rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     color: rgb(152, 90, 9);
 }
@@ -136,4 +130,23 @@ h6 {
     background-color:rgb(205, 139, 52);;
     color: white;
     border: 1px solid rgb(255, 255, 255);
+}
+
+.btn6{
+
+    border: white;
+    color: white;
+    background-color: #e0d393;
+    width: 40%;
+}
+.btn6:hover{
+    background-color: #ffffff;
+    border: 1px solid #e0d393;
+    color: #e0d393;
+}
+.btn0{
+    color: #ffffff;
+    border: white;
+  
+    background-color: #d5c887;
 }

@@ -10,7 +10,10 @@ export class CartComponent {
 
   public products : any = [];
   public grandTotal !: number;
+  public TotalPrice !: number;
   public totalItem : number = 0;
+  public totalQuantity: number = 0;
+ 
 
   constructor(private cartService : CartService) { }
   addtoCart(product: any) {
@@ -25,7 +28,9 @@ export class CartComponent {
     .subscribe(res=>{
       this.products = res;
       this.grandTotal = this.cartService.getTotalPrice();
-        this.totalItem = res.length;
+      this.totalQuantity = this.getTotalQuantity();
+      this.totalItem = this.products.length + this.totalQuantity;
+     
       //to get the total of items after shipping
     })
   }
@@ -38,6 +43,13 @@ export class CartComponent {
     this.cartService.removeAllCart();
   }
 
+  getTotalQuantity(): number {
+    let totalQuantity = 0;
+    for (const item of this.products) {
+      totalQuantity += item.quantity;
+    }
+    return totalQuantity;
+  }
 //   quantity(value:string){
 //     if(this.item.quantity <8 && value=="max"){
 //       this.item.quantity +=1;
