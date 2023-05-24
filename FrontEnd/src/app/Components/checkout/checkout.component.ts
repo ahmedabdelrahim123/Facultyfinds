@@ -15,7 +15,7 @@ export class CheckoutComponent {
   myForm: FormGroup;
   // zip: string = '';
   public products : any = [];
-  public pID : any = [];
+  public product_details : any = [];
   public grandTotal !: number;
   public Total !: number;
   public totalItem : number = 0;
@@ -150,14 +150,12 @@ ordercreate(){
     const decodedToken: any = jwt_decode(token);
     const userID = decodedToken.userId;
     console.log(userID);
-  for (let i = 0; i < this.products.length; i++) {
-    console.log('product id:',this.products[i]._id);
-    this.pID.push(this.products[i]._id);
-  }
-  let order={ pID:this.pID,userID,Total:this.Total} ;
+    const products = this.products.map((product:any) => {
+      return { pID: product._id, quantity: product.quantity };
+    });
+    const order = { products, userID, Total: this.Total };
 
   this.myService.createorder(order).subscribe(res=>{
-
 });
 }
 

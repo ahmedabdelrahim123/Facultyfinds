@@ -39,9 +39,9 @@ export class OrdersdetailsComponent implements OnInit {
       );
     }
   }
-delete_order(){
-  this.myService.getMyOrders().subscribe(
-    
+delete_order(id: any){
+  this.myService.deleteOrder(id).subscribe(
+
     )
 }
 

@@ -35,7 +35,7 @@ const usersSchema = new mongoose.Schema({
   },
   orders: {
     type: "array",
-    // required: true,O
+    required: true,
   },
 });
 module.exports = mongoose.model('User', usersSchema);

@@ -1,32 +1,36 @@
 // const validate = require("../Utils/coursesValidation");
 const ordersModel = require("../Model/OrdersModel");
 const jwt = require("jsonwebtoken");
+
 // const session = require("../middlewares/session");
 
 
 let getAllOrders = async (req, res) => {
-  let data = await ordersModel.find({}).populate('userID', 'username').populate('pID', 'title price');
+  let data = await ordersModel.find({}).populate('userID', 'username').populate('product.pID', 'title price');
   res.json(data);
 };
 
 
 let createOrder = async (req, res) => {
   console.log("in order create ");
-  data=req.body;
   console.log(req.body);
-  // pids=JSON.parse(req.body.pID);
-  console.log(req.body.pID);
-  let neworder= new ordersModel({
-    pID: req.body.pID ,
-    userID: req.body.userID,  // Get user id from session
-    Total:req.body.Total,
-  })
-  console.log("order created sucessfully");
-
+  let products = req.body.products.map(product => {
+    return {
+      pID: product.pID,
+      quantity: product.quantity
+    };
+  });
+  let neworder = new ordersModel({
+    product: products,
+    userID: req.body.userID,
+    Total: req.body.Total
+  });
+  console.log("order created successfully");
   await neworder.save();
   await res.json(neworder);
-
 };
+
+
 
 let updateOrder = async (req, res) => {
   let Id = req.params.id; 
