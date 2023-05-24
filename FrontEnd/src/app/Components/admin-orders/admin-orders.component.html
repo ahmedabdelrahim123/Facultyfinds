@@ -7,13 +7,14 @@
         <th>statue</th>
         <th>username</th>
         <th>Products</th>
+        <th>Change </th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let order of orders" >
         <td>{{ order.date }}</td>
         <td >
-         <span [ngClass]="{ 'rejected': order.statue === 'rejected', 'pending': order.statue === 'pending', 'accepted': order.statue === 'accepted' }">{{ order.statue }}</span>
+          <span [ngClass]="{ 'rejected': order.statue === 'rejected', 'pending': order.statue === 'pending', 'accepted': order.statue === 'accepted' }">{{ order.statue }}</span>
         </td>
         <td>{{ order.userID.username }}</td>
         <td>
@@ -22,6 +23,13 @@
               Title: {{ product.title }} - Price: {{ product.price }}
             </li>
           </ul>
+        </td>
+        <td>
+          <select [(ngModel)]="order.statue" (change)="updateOrderStatue(order.statue,order._id)">
+            <option value="pending">Pending</option>
+            <option value="accepted">Accepted</option>
+            <option value="rejected">Rejected</option>
+          </select>
         </td>
       </tr>
     </tbody>

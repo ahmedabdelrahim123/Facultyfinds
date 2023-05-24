@@ -3,6 +3,7 @@ const router = express.Router();
 const productsController = require("../Controllers/ProductsController");
 const cors = require("cors");
 const multer = require("multer");
+const auth= require("../middlewares/auth"); 
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {

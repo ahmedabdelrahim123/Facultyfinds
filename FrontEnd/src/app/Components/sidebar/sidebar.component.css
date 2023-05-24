@@ -24,6 +24,6 @@ margin-left: .5rem;
   font-weight:bold;
   font-size: larger;
 }
-/* .dashboard p{
-  border-bottom: 1px solid grey;
-} */
+.dashboard p{
+  cursor: pointer;
+}

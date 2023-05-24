@@ -10,6 +10,7 @@ export class DashboradComponent {
   orders: any;
   totalOrdersCount: any;
   pendingOrders: any ;
+  rejectedOrders: any
   constructor(private api : DataService) { }
   ngOnInit(): void {
     this.api.getMyOrders().subscribe(
@@ -18,9 +19,10 @@ export class DashboradComponent {
           this.orders = data.data;
           this.totalOrdersCount = data.totalOrdersCount;
           this.pendingOrders = data.pendingOrders;
-          console.log(this.orders);
-          console.log(this.totalOrdersCount);
-          console.log(this.pendingOrders);
+          this.rejectedOrders = data.rejectedOrders;
+          // console.log(this.orders);
+          // console.log(this.totalOrdersCount);
+          // console.log(this.pendingOrders);
         },
         error:(err)=>{console.log(err)}
       }
