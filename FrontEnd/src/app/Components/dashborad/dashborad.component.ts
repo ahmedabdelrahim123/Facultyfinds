@@ -8,15 +8,19 @@ import { DataService } from 'src/app/Services/data.service';
 })
 export class DashboradComponent {
   orders: any;
-  totalOrdersCount: number=0;
-  pendingOrders: any[]=[];
+  totalOrdersCount: any;
+  pendingOrders: any ;
   constructor(private api : DataService) { }
   ngOnInit(): void {
     this.api.getMyOrders().subscribe(
       {
         next:(data)=>{
-          this.orders = data;
+          this.orders = data.data;
+          this.totalOrdersCount = data.totalOrdersCount;
+          this.pendingOrders = data.pendingOrders;
           console.log(this.orders);
+          console.log(this.totalOrdersCount);
+          console.log(this.pendingOrders);
         },
         error:(err)=>{console.log(err)}
       }

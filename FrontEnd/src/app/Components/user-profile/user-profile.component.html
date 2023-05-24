@@ -48,7 +48,7 @@
                                                                   </div>
                                                                   <div class="col-sm-6">
 
-                                                                      <div class="col-md-12"><label class="labels">Orders</label><input type="text" class="form-control" value={{user.orders}}></div>
+                                                                      <div class="col-md-12"><label class="labels">Orders</label><button class="form-control mt-4" routerLink="/orders">Order Details</button></div>
                                                                   </div>
                                                               </div>
 
@@ -62,7 +62,7 @@
                                               <div class="card-block">
                                                 <!-- User profile form inputs -->
                                                 ...
-                                                <button [routerLink]="['/updateuser', user._id]">Update</button>
+                                                <button [routerLink]="['/updateuser', user?._id]">Update</button>
                                               </div>
                                           </div>
 
