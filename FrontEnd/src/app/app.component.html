@@ -1,9 +1,9 @@
-<ng-container *ngIf="userROLE === 'user'">
+<ng-container>
   <app-header></app-header>
 </ng-container>
 
 <router-outlet></router-outlet>
 
 <ng-container *ngIf="userROLE === 'user'">
-<app-footer></app-footer>
+  <app-footer></app-footer>
 </ng-container>
