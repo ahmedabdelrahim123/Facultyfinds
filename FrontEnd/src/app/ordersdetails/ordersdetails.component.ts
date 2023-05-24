@@ -43,6 +43,8 @@ export class OrdersdetailsComponent implements OnInit {
 delete_order(id: any){
   this.myService.deleteOrder(id).subscribe(() => {
     this.router.navigate(['/orders']);
+    location.reload();
+
   });
 
 }
