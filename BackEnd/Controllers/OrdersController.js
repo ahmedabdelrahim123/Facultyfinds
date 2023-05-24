@@ -4,7 +4,9 @@ const jwt = require("jsonwebtoken");
 
 let getAllOrders = async (req, res) => {
   let data = await ordersModel.find({}).populate('userID', 'username').populate('pID', 'title price');
-  res.json(data);
+  const totalOrdersCount = await ordersModel.countDocuments();
+  const pendingOrders = await ordersModel.find({ statue: 'pending' }).countDocuments();
+  res.json(data, totalOrdersCount, pendingOrders);
 };
 let createOrder = async (req, res) => {
 data=req.body;
