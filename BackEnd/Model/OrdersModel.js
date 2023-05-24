@@ -26,6 +26,10 @@ const ordersSchema = new mongoose.Schema({
     default: 'pending',
     required: true,
   },
+  Total: {
+    type: "number",
+    required: true,
+  },
   userID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

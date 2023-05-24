@@ -154,7 +154,7 @@ ordercreate(){
     console.log('product id:',this.products[i]._id);
     this.pID.push(this.products[i]._id);
   }
-  let order={ pID:this.pID,userID} ;
+  let order={ pID:this.pID,userID,Total:this.Total} ;
 
   this.myService.createorder(order).subscribe(res=>{
 

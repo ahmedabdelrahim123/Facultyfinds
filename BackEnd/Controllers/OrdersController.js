@@ -18,7 +18,8 @@ let createOrder = async (req, res) => {
   console.log(req.body.pID);
   let neworder= new ordersModel({
     pID: req.body.pID ,
-    userID: req.body.userID  // Get user id from session
+    userID: req.body.userID,  // Get user id from session
+    Total:req.body.Total,
   })
   console.log("order created sucessfully");
 
