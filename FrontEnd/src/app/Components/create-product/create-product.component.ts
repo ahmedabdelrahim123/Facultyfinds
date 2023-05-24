@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
+import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 
 @Component({
@@ -12,7 +13,7 @@ export class CreateProductComponent implements OnInit {
   user: any;
   userId: any;
 
-  constructor(private dataservice: DataService) {}
+  constructor(private dataservice: DataService, private router:Router) {}
   ngOnInit(): void {
     const token = localStorage.getItem('token');
     if (token) {
@@ -31,15 +32,17 @@ export class CreateProductComponent implements OnInit {
       formData.append('college', college);
       formData.append('userID', this.userId);
       formData.append('price', price);
-      // console.log(formData.get('image'));
       console.log(formData);
 
       this.dataservice.addNewProduct(formData).subscribe(
         () => {
-          console.log('bakbok');
+
         },
         (err) => {}
       );
+      this.router.navigate(['/home']);
     }
   }
+
+
 }
