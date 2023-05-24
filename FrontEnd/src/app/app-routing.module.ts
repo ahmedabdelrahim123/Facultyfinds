@@ -20,6 +20,7 @@ import { OrdersdetailsComponent } from './ordersdetails/ordersdetails.component'
 import { AdminOrdersComponent } from './Components/admin-orders/admin-orders.component';
 import { UpdateUserComponent } from './Components/update-user/update-user.component';
 
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
@@ -36,11 +37,19 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'adminproducts', component: DashboardProductsComponent },
-  { path: 'createproduct', component: CreateProductComponent},
-  { path: 'updateproduct/:id', component: UpdateProductComponent},
-  { path: 'profile', component: UserProfileComponent,canActivate: [AuthGuardService]},
-  { path: 'dashboard',component: DashboradComponent, canActivate: [AdminGuardService]},
-  {path: 'adminorders', component: AdminOrdersComponent},
+  { path: 'createproduct', component: CreateProductComponent },
+  { path: 'updateproduct/:id', component: UpdateProductComponent },
+  {
+    path: 'profile',
+    component: UserProfileComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'dashboard',
+    component: DashboradComponent,
+    canActivate: [AdminGuardService],
+  },
+  { path: 'adminorders', component: AdminOrdersComponent },
   { path: 'updateuser/:id', component: UpdateUserComponent },
   { path: '**', component: ErrorComponent },
 ];
