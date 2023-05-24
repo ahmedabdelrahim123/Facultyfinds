@@ -55,18 +55,19 @@ let addNewUser = async (req, res) => {
 };
 
 //update
-const updateUser = async (req, res) => {
+let updateUser = async (req, res) => {
   let Id = req.params.id;
-  console.log(Id);
+  //console.log(Id);
+  console.log(req.body);
 
   await usersModel.updateOne(
     { _id: Id },
     {
       username: req.body.username,
+      password: req.body.password,
       email: req.body.email,
-      image: req.body.image,
+      image:  req.file.filename,
       gender: req.body.gender,
-      type: req.body.type,
     }
   );
   await res.send("updated successfully");

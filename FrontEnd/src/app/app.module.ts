@@ -25,6 +25,10 @@ import { CreateProductComponent } from './Components/create-product/create-produ
 import { UpdateProductComponent } from './Components/update-product/update-product.component';
 import { DashboardProductsComponent } from './Components/dashboard-products/dashboard-products.component';
 import { OrdersdetailsComponent } from './ordersdetails/ordersdetails.component';
+import { AdminHeaderComponent } from './Components/admin-header/admin-header.component';
+import { AdminOrdersComponent } from './Components/admin-orders/admin-orders.component';
+import { UpdateUserComponent } from './Components/update-user/update-user.component';
+import { SidebarComponent } from './Components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +52,10 @@ import { OrdersdetailsComponent } from './ordersdetails/ordersdetails.component'
     UpdateProductComponent,
     DashboardProductsComponent,
     OrdersdetailsComponent,
+    AdminHeaderComponent,
+    AdminOrdersComponent,
+    UpdateUserComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

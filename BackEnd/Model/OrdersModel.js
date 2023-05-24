@@ -8,6 +8,7 @@ connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
 });
 
+
 const ordersSchema = new mongoose.Schema({
   date: {
     type: Date,
@@ -25,6 +26,12 @@ const ordersSchema = new mongoose.Schema({
     default: 'pending',
     required: true,
   },
-  userID: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  userID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 });
+
+
 module.exports = mongoose.model('Order', ordersSchema);
