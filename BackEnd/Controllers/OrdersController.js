@@ -6,8 +6,13 @@ const jwt = require("jsonwebtoken");
 
 
 let getAllOrders = async (req, res) => {
+  // let data = await ordersModel.find({}).populate('userID', 'username').populate('product.pID', 'title price');
+  // res.json(data);
   let data = await ordersModel.find({}).populate('userID', 'username').populate('product.pID', 'title price');
-  res.json(data);
+  const totalOrdersCount = await ordersModel.countDocuments();
+  const pendingOrders = await ordersModel.find({ statue: 'pending' }).countDocuments();
+  const rejectedOrders = await ordersModel.find({ statue: 'rejected' }).countDocuments();
+  res.json({data, totalOrdersCount, pendingOrders, rejectedOrders});
 };
 
 
@@ -34,8 +39,9 @@ let createOrder = async (req, res) => {
 
 let updateOrder = async (req, res) => {
   let Id = req.params.id; 
-  pids=JSON.parse(req.body.pID);
+  console.log(Id);
   data=req.body;
+  console.log(data);
     await ordersModel.updateOne(
       { _id: Id },
       {
@@ -44,6 +50,7 @@ let updateOrder = async (req, res) => {
     );
     await res.send("updated successfully");
 };
+
 let deleteOrder = async (req, res) => {
   var ID = req.params.id;
 

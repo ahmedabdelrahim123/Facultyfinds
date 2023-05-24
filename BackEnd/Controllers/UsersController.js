@@ -66,14 +66,12 @@ let updateUser = async (req, res) => {
       username: req.body.username,
       password: req.body.password,
       email: req.body.email,
-      image:  req.file.filename,
+      image: req.file.filename,
       gender: req.body.gender,
     }
   );
   await res.send("updated successfully");
 };
-
-
 
 let login = async (req, res) => {
   let email = req.body.email;
@@ -96,6 +94,7 @@ let login = async (req, res) => {
   );
 
   res.header("x-auth-token", Token);
+  // res.set("x-auth-token", Token);
 
   return res.status(200).json({ user: user, token: Token });
 };
@@ -103,10 +102,9 @@ let login = async (req, res) => {
 let DeleteUser = async (req, res) => {
   var ID = req.params.id;
   var UserToDelete = await usersModel.findOne({ _id: ID });
-  if (UserToDelete.orders){
+  if (UserToDelete.orders) {
     res.json("can't delete, you have unfinished orders");
-  }
-  else{
+  } else {
     await usersModel.deleteOne({ _id: ID });
     res.json(UserToDelete || "Not Found");
   }

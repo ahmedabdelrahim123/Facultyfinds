@@ -1,18 +1,18 @@
-
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
 import jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-ordersdetails',
   templateUrl: './ordersdetails.component.html',
-  styleUrls: ['./ordersdetails.component.css']
+  styleUrls: ['./ordersdetails.component.css'],
 })
 export class OrdersdetailsComponent implements OnInit {
-
   orders: any[] = [];
 
-  constructor(private myService: DataService) {}
+  constructor(private myService: DataService,private router: Router) {}
 
   ngOnInit(): void {
     const token = localStorage.getItem('token');
@@ -22,16 +22,17 @@ export class OrdersdetailsComponent implements OnInit {
       // console.log('User ID:', userId);
       this.myService.getMyOrders().subscribe(
         (data) => {
-          for (const order of data) {
+          console.log(data);
+          for (const order of data.data) {
             console.log(order);
             console.log(userId);
             console.log(order.userID._id);
             if (order.userID._id === userId) {
               this.orders.push(order);
-              console.log("hi");
+              console.log('hi');
             }
           }
-        console.log(this.orders);
+          console.log(this.orders);
         },
         (error) => {
           console.log(error);
@@ -40,9 +41,10 @@ export class OrdersdetailsComponent implements OnInit {
     }
   }
 delete_order(id: any){
-  this.myService.deleteOrder(id).subscribe(
+  this.myService.deleteOrder(id).subscribe(() => {
+    this.router.navigate(['/orders']);
+  });
 
-    )
 }
 
 }

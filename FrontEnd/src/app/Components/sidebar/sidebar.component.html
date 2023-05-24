@@ -1,10 +1,21 @@
 <div class="fixed-sidebar">
-  <img src="http://localhost:3000/uploads/{{user.image}}" style="width:100px ;height: 100px; border-radius: 50px; "/>
+  <div>
+    <h2>E-Commerce</h2>
+  </div>
+  <hr/>
+
+    <div class="user">
+  <img src="http://localhost:3000/uploads/{{user?.image}}" style="width:100px ;height: 100px; border-radius: 50px; "/>
   <h3>{{username}}</h3>
+</div>
+<div class="dashboard">
   <p routerLink="/dashboard">Dashboard</p>
+  <hr/>
   <p  routerLink="/adminproducts">Products</p>
+  <hr/>
   <p routerLink="/adminorders">Orders</p>
-  <p routerLink="/profile">Profile</p>
-  <li><a (click)="logout()">Logout</a></li>
+  <hr/>
+  <button (click)="logout()" class="logout">Logout </button><i class="fas fa-sign-in ml-1"></i>
+</div>
 </div>
 

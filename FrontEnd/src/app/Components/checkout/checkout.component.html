@@ -1,204 +1,337 @@
 <div class="main">
-  <form (ngSubmit)="Pay()" (ngSubmit)="ordercreate()" [formGroup]="myForm" >
-
+  <form (ngSubmit)="Pay()" [formGroup]="myForm" (ngSubmit)="ordercreate()">
     <div>
-
       <P class="par"> contact</P>
-      <input  style="
-      padding: 2%;
+      <input
+        style="
+          padding: 2%;
           font-weight: 500;
           height: 42px;
           border-radius: 5px;
           border: 1px solid #cbc6c6;
-          width: 90%;"  type="email" id="email" name="email" placeholder="Email" formControlName="email" required>
+          width: 90%;
+        "
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email"
+        formControlName="email"
+        required
+      />
 
-      <div *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)">
+      <div
+        *ngIf="
+          myForm.controls['email'].invalid &&
+          (myForm.controls['email'].dirty || myForm.controls['email'].touched)
+        "
+      >
+        <div
+          class="error-message"
+          *ngIf="myForm.controls['email']?.errors?.['required']"
+        >
+          Email is required.
+        </div>
 
-        <div class="error-message" *ngIf="myForm.controls['email']?.errors?.['required']">Email is required.</div>
-
-        <div class="error-message" *ngIf="myForm.controls['email'].errors?.['email']">Please enter a valid email address.</div>
+        <div
+          class="error-message"
+          *ngIf="myForm.controls['email'].errors?.['email']"
+        >
+          Please enter a valid email address.
+        </div>
       </div>
     </div>
 
-
     <div>
-      <p  class="para">shipping address</p>
+      <p class="para">shipping address</p>
       <div class="fullname">
-
         <div>
-          <input style="   margin-top: 2%;
+          <input
+            style="
+              margin-top: 2%;
 
-                padding: 2%;
-                    font-weight: 500;
-                    height: 42px;
-                    border-radius: 5px;
-                    border: 1px solid #cbc6c6;
-                    width: 90%;
-      " type="text" id="firstName" name="firstName" placeholder="firstName" formControlName="firstName" required  >
-      <div class="error-message"   *ngIf=" myForm.controls['firstName'].invalid && (myForm.controls['firstName'].dirty || myForm.controls['firstName'].touched)">
-        firstname is required.
+              padding: 2%;
+              font-weight: 500;
+              height: 42px;
+              border-radius: 5px;
+              border: 1px solid #cbc6c6;
+              width: 90%;
+            "
+            type="text"
+            id="firstName"
+            name="firstName"
+            placeholder="firstName"
+            formControlName="firstName"
+            required
+          />
+          <div
+            class="error-message"
+            *ngIf="
+              myForm.controls['firstName'].invalid &&
+              (myForm.controls['firstName'].dirty ||
+                myForm.controls['firstName'].touched)
+            "
+          >
+            firstname is required.
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-
-    <div>
-      <input  style="   margin-top: 2%;
+      <div>
+        <input
+          style="
+            margin-top: 2%;
 
             padding: 2%;
-                font-weight: 500;
-               margin-right: 10%;
-                height: 42px;
-                border-radius: 5px;
-                border: 1px solid #cbc6c6;
-                width: 90%;
-  " type="text" id="lastName" name="lastName" placeholder="lastName" formControlName="lastName" required>
-  <div class="error-message"*ngIf=" myForm.controls['lastName'].invalid && (myForm.controls['lastName'].dirty || myForm.controls['lastName'].touched)">
-
-    lastName is required.
-  </div>
-  </div>
-  </div>
-
-
-      <div>
-        <input style="
-        padding: 2%;
             font-weight: 500;
-            height: 42px;
-            border-radius: 5px;
-            margin-top: 2%;
-            border: 1px solid #cbc6c6;
-            width: 90%;" type="text" id="address" name="address" placeholder="Address" formControlName="address" required>
-        <div class="error-message" *ngIf="myForm.controls['address'].invalid && (myForm.controls['address'].dirty || myForm.controls['address'].touched)">
-
-          Address is required.
-        </div>
-      </div>
-
-
-      <div>
-        <input style="
-        margin-top: 2%;
-        padding: 2%;
-            font-weight: 500;
+            margin-right: 10%;
             height: 42px;
             border-radius: 5px;
             border: 1px solid #cbc6c6;
-            width: 90%;" type="text" id="apartment" name="apartment" placeholder="Apartment" formControlName="apartment" required>
-        <div class="error-message" *ngIf=" myForm.controls['apartment'].invalid && (myForm.controls['apartment'].dirty || myForm.controls['apartment'].touched)">
-
-          Apartment is required.
+            width: 90%;
+          "
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="lastName"
+          formControlName="lastName"
+          required
+        />
+        <div
+          class="error-message"
+          *ngIf="
+            myForm.controls['lastName'].invalid &&
+            (myForm.controls['lastName'].dirty ||
+              myForm.controls['lastName'].touched)
+          "
+        >
+          lastName is required.
         </div>
       </div>
+    </div>
 
+    <div>
+      <input
+        style="
+          padding: 2%;
+          font-weight: 500;
+          height: 42px;
+          border-radius: 5px;
+          margin-top: 2%;
+          border: 1px solid #cbc6c6;
+          width: 90%;
+        "
+        type="text"
+        id="address"
+        name="address"
+        placeholder="Address"
+        formControlName="address"
+        required
+      />
+      <div
+        class="error-message"
+        *ngIf="
+          myForm.controls['address'].invalid &&
+          (myForm.controls['address'].dirty ||
+            myForm.controls['address'].touched)
+        "
+      >
+        Address is required.
+      </div>
+    </div>
 
-      <div class="drop">
-        <div>
-            <input  style="float: left;
-              border-radius: 5px;
-              margin-top: 6%;
+    <div>
+      <input
+        style="
+          margin-top: 2%;
+          padding: 2%;
+          font-weight: 500;
+          height: 42px;
+          border-radius: 5px;
+          border: 1px solid #cbc6c6;
+          width: 90%;
+        "
+        type="text"
+        id="apartment"
+        name="apartment"
+        placeholder="Apartment"
+        formControlName="apartment"
+        required
+      />
+      <div
+        class="error-message"
+        *ngIf="
+          myForm.controls['apartment'].invalid &&
+          (myForm.controls['apartment'].dirty ||
+            myForm.controls['apartment'].touched)
+        "
+      >
+        Apartment is required.
+      </div>
+    </div>
+
+    <div class="drop">
+      <div>
+        <input
+          style="
+            float: left;
+            border-radius: 5px;
+            margin-top: 6%;
             border: 1px solid #cbc6c6;
             width: 400px;
             padding: 2%;
-        font-weight: 500;
+            font-weight: 500;
             height: 40px;
-        " type="text" id="city" name="city" placeholder="city" formControlName="city" required>
-        <div class="error-message" *ngIf=" myForm.controls['city'].invalid && (myForm.controls['city'].dirty || myForm.controls['city'].touched)">
-
+          "
+          type="text"
+          id="city"
+          name="city"
+          placeholder="city"
+          formControlName="city"
+          required
+        />
+        <div
+          class="error-message"
+          *ngIf="
+            myForm.controls['city'].invalid &&
+            (myForm.controls['city'].dirty || myForm.controls['city'].touched)
+          "
+        >
           city is required.
         </div>
       </div>
 
-
       <div>
-
-        <input  style="float: right;
-          border-radius: 5px;
-          margin-top: 5%;
-        border: 1px solid #cbc6c6;
-        width: 400px;
-        padding: 2%;
-    font-weight: 500;
-    margin-left: 90px;
-        height: 40px;
-    " type="text" id="zip" name="zip" placeholder="zip/postal code" formControlName="zip" required>
-    <div class="error-message" style="margin-left: 100px;" *ngIf=" myForm.controls['zip'].invalid && (myForm.controls['zip'].dirty || myForm.controls['zip'].touched)">
-
-      zip code is required.
+        <input
+          style="
+            float: right;
+            border-radius: 5px;
+            margin-top: 5%;
+            border: 1px solid #cbc6c6;
+            width: 400px;
+            padding: 2%;
+            font-weight: 500;
+            margin-left: 90px;
+            height: 40px;
+          "
+          type="text"
+          id="zip"
+          name="zip"
+          placeholder="zip/postal code"
+          formControlName="zip"
+          required
+        />
+        <div
+          class="error-message"
+          style="margin-left: 100px"
+          *ngIf="
+            myForm.controls['zip'].invalid &&
+            (myForm.controls['zip'].dirty || myForm.controls['zip'].touched)
+          "
+        >
+          zip code is required.
+        </div>
+      </div>
     </div>
-   </div>
-  </div>
 
-
-  <div>
-    <input  style="
-    padding: 2%;
-        font-weight: 500;
-        height: 42px;
-        font-weight: 500;
+    <div>
+      <input
+        style="
+          padding: 2%;
+          font-weight: 500;
+          height: 42px;
+          font-weight: 500;
           margin-top: 3%;
-        border-radius: 5px;
-        border: 1px solid #cbc6c6;
-        width: 90%;" type="tel" id="phone" placeholder="phone number" name="phone" formControlName="phone"  required>
-            <div class="error-message" *ngIf=" myForm.controls['phone'].invalid && (myForm.controls['phone'].dirty || myForm.controls['phone'].touched)">
-              phone is required
-            </div>
-            </div>
+          border-radius: 5px;
+          border: 1px solid #cbc6c6;
+          width: 90%;
+        "
+        type="tel"
+        id="phone"
+        placeholder="phone number"
+        name="phone"
+        formControlName="phone"
+        required
+      />
+      <div
+        class="error-message"
+        *ngIf="
+          myForm.controls['phone'].invalid &&
+          (myForm.controls['phone'].dirty || myForm.controls['phone'].touched)
+        "
+      >
+        phone is required
+      </div>
+    </div>
 
-  <button class="btnn" type="submit" >
-    Continue shipping
-  </button>
+    <button class="btnn" type="submit">Continue shipping</button>
 
-
-
-  <button routerLink="/cart" style="margin-right: 40%;width: 20%;" class="btnn" type="submit"> <i style="padding-right: 5%;" class="fa fa-toggle-left"></i>back</button>
+    <button
+      routerLink="/cart"
+      style="margin-right: 40%; width: 20%"
+      class="btnn"
+      type="submit"
+    >
+      <i style="padding-right: 5%" class="fa-regular fa-backward"></i>back
+    </button>
   </form>
 
+  <!-- -------------------------------------------- -->
 
-        <!-- -------------------------------------------- -->
+  <div class="vertical-line"></div>
 
+  <div class="check">
+    <tbody>
+      <tr *ngFor="let item of products; let i = index">
+        <td>
+          <img
+            style="width: 50px; border-radius: 10%"
+            src="{{ item.image }}"
+            alt=""
+          />
+        </td>
 
-        <div class="vertical-line"></div>
+        <td>{{ item.title }}</td>
+        <th style="width: 12%; color: rgb(53, 159, 175)">
+          {{ item.price * item.quantity }}$
+        </th>
+        <br />
+      </tr>
+    </tbody>
 
-      <div class="check">
-        <tbody >
-          <tr *ngFor="let item of products; let i = index">
-              <td><img style="width: 50px; border-radius: 10%; " src="{{item.image}}"  alt=""></td>
+    <hr style="color: #c09e21; width: 70%; margin-left: 10%" />
 
-              <td>{{item.title}} </td>
-                <th style="width: 12%; color: rgb(53, 159, 175);">{{item.price*item.quantity}}</th> <br>
-          </tr>
-      </tbody>
+    <p
+      style="
+        margin-bottom: 1%;
+        margin-top: 5%;
+        margin-left: 10%;
+        font-weight: 600;
+      "
+    >
+      ITEMS ({{ totalQuantity }})
+    </p>
 
+    <hr style="color: #c09e21; width: 70%; margin-top: 15%; margin-left: 10%" />
 
-      <hr style="
-      color: #8b8989;
-          width: 80%;
-          margin-left: 10%;">
-
-          <p style="margin-bottom: 1%; margin-top: 5%; margin-left: 10%;font-weight: 600;">
-      ITEMS    ({{totalItem}})
+    <div>
+      <p style="float: left; margin-left: 12%" class="strng">SUBTOTAL</p>
+      <p style="float: right; margin-right: 15%" class="strng">
+        {{ grandTotal }}$
       </p>
+      <br /><br />
+    </div>
 
-      <hr style="color: #8b8989;
-      width: 80%;
-      margin-top: 15%;
-      margin-left: 10%;">
+    <div>
+      <p style="float: left; margin-left: 12%" class="strng">SHIPPING</p>
+      <p style="float: right; margin-right: 15%" class="strng">40$</p>
+      <br /><br />
+    </div>
 
-      <div>
-        <p style="float: left; margin-left: 12%;" class="strng">SUBTOTAL</p>
-      <p style="float: right; margin-right: 15%;" class="strng">  ${{grandTotal}}   </p> <br><br>
-      </div>
-
-      <div>
-          <p style="float: left;margin-left: 12%;" class="strng">SHIPPING </p>
-        <p style="float: right; margin-right: 15%;" class="strng">40$</p><br><br>
-      </div>
-
-      <div>
-          <strong style="float: left;margin-left: 12%;"  class="strng">TOTAL</strong>
-        <strong style="float: right; margin-right: 15%;"  class="strng"> ${{Total}}</strong>
-      </div>
-      </div></div>
-
+    <div>
+      <strong style="float: left; margin-left: 12%" class="strng">TOTAL</strong>
+      <strong style="float: right; margin-right: 15%" class="strng">
+        ${{ Total }}</strong
+      >
+    </div>
+  </div>
+</div>
