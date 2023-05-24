@@ -54,14 +54,26 @@
                           <tr *ngFor="let item of products; let i = index">
                           <th scope="row" class="border-0">
                             <div class="p-2">
-                              <img style="width: 120px;" src="http://localhost:3000/products/{{item.image}}" alt="">
+                              <img style="width: 120px; margin-right:7%;" src="http://localhost:3000/products/{{item.image}}" alt="">
                               <div class="ml-3 d-inline-block align-middle">
                                 <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">  {{item.title}} </a></h5><span class="text-muted font-weight-normal font-italic d-block">{{item.description}}</span>
                               </div>
                             </div>
                           </th>
                           <td class="border-0 align-middle"><strong>{{item.price}}</strong></td>
-                          <td class="border-0 align-middle"><strong>{{item.quantity}}</strong></td>
+                          <td class="border-0 align-middle">
+                            <div class="d-flex align-items-center">
+                              <button  style="
+                              border: none;
+                              background-color: #d5c887;" (click)="decrementQuantity(item)" class="btn btn-sm btn-primary me-2">-</button>
+                              <span>{{ item.quantity }}</span>
+                              <button  style="
+                              border: none;
+                              background-color: #d5c887;" (click)="incrementQuantity(item)" class="btn btn-sm btn-primary ms-2">+</button>
+                            </div>
+                          </td>
+
+                          
                           <td class="border-0 align-middle"><strong>{{item.total}}</strong></td>
                           <td class="border-0 align-middle"> <button (click)="removeItem(item)" class="btn0 btn-dark"><i class="fa fa-times-rectangle"></i></button></td>
                         </tr>
@@ -86,8 +98,18 @@
           <div class="p-4">
             <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
             <ul class="list-unstyled mb-4">
-                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">ITEMS</strong><strong>({{totalQuantity}})</strong></li>
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">TOTAL COST </strong><strong> {{grandTotal}}$</strong></li>
+
+              
+              <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">ITEMS</strong>
+                <strong>({{ getTotalQuantity() }})</strong>
+              </li>
+              <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">TOTAL COST</strong>
+                <strong>{{ grandTotal | currency }}</strong>
+              </li>
+
+
               <p style="    color: #8f8b85;
               letter-spacing: 0.1rem;
           ">execluding delievry</p>

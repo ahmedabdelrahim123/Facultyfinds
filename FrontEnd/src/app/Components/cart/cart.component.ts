@@ -9,7 +9,7 @@ import { CartService } from 'src/app/Services/cart.service';
 export class CartComponent {
 
   public products : any = [];
-  public grandTotal !: number;
+  public grandTotal: number = 0;
   public TotalPrice !: number;
   public totalItem : number = 0;
   public totalQuantity: number = 0;
@@ -30,10 +30,32 @@ export class CartComponent {
       this.grandTotal = this.cartService.getTotalPrice();
       this.totalQuantity = this.getTotalQuantity();
       this.totalItem = this.products.length + this.totalQuantity;
+      this.calculateGrandTotal();
      
       //to get the total of items after shipping
     })
   }
+
+  incrementQuantity(item: any): void {
+    item.quantity++;
+    item.total = item.price * item.quantity; // Update the total based on the new quantity(in the table)
+    this.calculateGrandTotal();
+  }
+  
+  decrementQuantity(item: any): void {
+    if (item.quantity > 1) {
+      item.quantity--;
+      item.total = item.price * item.quantity; // Update the total based on the new quantity
+      this.calculateGrandTotal();
+    }
+  }
+  
+  calculateGrandTotal(): void {
+    this.grandTotal = this.products.reduce((total: number, item: any) => {
+      return total + (item.price * item.quantity);
+    }, 0);
+  }
+
   removeItem(item: any){
     //It calls the removeCartItem method of the CartService with the item to be removed as an argument.
     this.cartService.removeCartItem(item);
@@ -43,6 +65,7 @@ export class CartComponent {
     this.cartService.removeAllCart();
   }
 
+ 
   getTotalQuantity(): number {
     let totalQuantity = 0;
     for (const item of this.products) {
@@ -50,13 +73,13 @@ export class CartComponent {
     }
     return totalQuantity;
   }
-//   quantity(value:string){
-//     if(this.item.quantity <8 && value=="max"){
-//       this.item.quantity +=1;
-//     }
-//     else   if(this.item.quantity>1 && value=="min"){
-//       this.item.quantity -=1;
-//   }
-// }
+  
+
+
+  updateCartItem(item: any) {
+    this.cartService.updateCartItem(item);
+    this.grandTotal = this.cartService.getTotalPrice();
+  }
+  
  
 }

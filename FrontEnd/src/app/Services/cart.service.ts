@@ -8,6 +8,7 @@ export class CartService {
   public cartItemList: any = [];
   public productList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>('');
+  private products: any[] = []; 
 
   constructor() {}
   getProducts() {
@@ -27,13 +28,19 @@ export class CartService {
   }
   getTotalPrice(): number {
     let total = 0;
-    for (let item of this.cartItemList) {
-      item.total = item.quantity * item.price;
-      total += item.total;
+    for (const item of this.products) {
+      total += item.price * item.quantity;
     }
     return total;
   }
-
+  
+  updateCartItem(item: any) {
+    const index = this.products.findIndex((p: any) => p.id === item.id);
+    if (index !== -1) {
+      this.products[index].quantity = item.quantity;
+    }
+  }
+  
   removeCartItem(product: any) {
     console.log(product);
 
@@ -51,4 +58,13 @@ export class CartService {
     this.cartItemList = [];
     this.productList.next(this.cartItemList);
   }
+
+
+  getTotalPriceWithShipping(): number {
+    const totalPrice = this.cartItemList.reduce((total: number, item: any) => {
+      return total + (item.price * item.quantity);
+    }, 0);
+    return totalPrice + 40; // Assuming the shipping cost is $40
+  }
+  
 }

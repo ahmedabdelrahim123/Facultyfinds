@@ -19,6 +19,7 @@ export class CheckoutComponent {
   public products: any = [];
   public grandTotal!: number;
   public Total!: number;
+  public subtotal!: number;
   public totalItem: number = 0;
   public totalQuantity: number = 0;
 
@@ -73,10 +74,10 @@ export class CheckoutComponent {
     this.cartService.getProducts().subscribe((res) => {
       this.products = res;
       this.grandTotal = this.cartService.getTotalPrice();
-      this.Total = this.cartService.getTotalPrice() + 40;
-
+      this.Total = this.cartService.getTotalPriceWithShipping(); // Update Total with shipping cost
       this.totalQuantity = this.getTotalQuantity();
       this.totalItem = this.products.length + this.totalQuantity;
+      this.subtotal = this.calculateSubtotal();
     });
   }
   getTotalQuantity(): number {
@@ -85,6 +86,14 @@ export class CheckoutComponent {
       totalQuantity += item.quantity;
     }
     return totalQuantity;
+  }
+
+  calculateSubtotal(): number {
+    let subtotal = 0;
+    for (const item of this.products) {
+      subtotal += item.price * item.quantity;
+    }
+    return subtotal;
   }
   Pay() {
     const formValues = this.myForm.value;

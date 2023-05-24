@@ -31,18 +31,6 @@ export class ProductsComponent implements OnInit {
     // item.quantity = null; // reset the quantity selector after adding to cart
   }
 
-
-  updateTotalPrice(item: any) {
-    item.totalPrice = item.price * item.quantity;
-  }
-  getTotalPrice(item: any) {
-    if (item.totalPrice) {
-      return item.totalPrice.toFixed(2);
-    } else {
-      return (item.price * item.quantity).toFixed(2);
-    }
-  }
-
   getMyProducts(college?: string): void {
     this.selectedCollege = college;
     this.api.getMyProducts(this.selectedCollege)

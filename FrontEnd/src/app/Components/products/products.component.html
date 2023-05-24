@@ -81,14 +81,7 @@
                 color: rgb(120 131 133);"><strong>Price:</strong> ${{item.price}}</p>
               </a>
                   <!-- Quantity Selector -->
-            <div class="quan">
-                <label for="quantity">Quantity:</label>
-                <input style="
-                    border:1px solid rgb(6, 65, 93);
-                    text-align: center;
-                    width: 10%;
-                    background-color: #ffffff;" type="number" id="quantity" name="quantity" [(ngModel)]="item.quantity" min="1" max="100" (change)="updateTotalPrice(item)">
-              </div>
+           
 
               <!-- Total Price -->
 
