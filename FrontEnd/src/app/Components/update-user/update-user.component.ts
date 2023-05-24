@@ -39,6 +39,12 @@ export class UpdateUserComponent {
     gender: any,
     image: any
   ) {
+
+    // if (!image) {
+    //   // If no new image was selected, reuse the existing image in the user's profile data
+    //   image = this.user.image;
+    // }
+
     if (image.files && image.files.length > 0) {
       this.imageFile = image.files[0];
       const formData = new FormData();
