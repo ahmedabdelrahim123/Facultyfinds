@@ -20,7 +20,6 @@
       </div>
     </div>
   
-  
     <div>
       <p  class="para">shipping address</p>
       <div class="fullname">
@@ -150,12 +149,10 @@
     Continue shipping
   </button>
   
-  
-  
-  <button routerLink="/cart" style="margin-right: 40%;width: 20%;" class="btnn" type="submit"> <i style="padding-right: 5%;" class="fa fa-toggle-left"></i>back</button>
+
+  <button routerLink="/cart" style="margin-right: 40%;width: 20%;" class="btnn" type="submit"> <i style="padding-right: 5%;"class="fa-regular fa-backward"></i>back</button>
   </form>
      
-   
         <!-- -------------------------------------------- -->
       
 
@@ -167,28 +164,29 @@
               <td><img style="width: 50px; border-radius: 10%; " src="{{item.image}}"  alt=""></td>
              
               <td>{{item.title}} </td>
-                <th style="width: 12%; color: rgb(53, 159, 175);">{{item.price}}</th> <br>
+                <th style="width: 12%; color: rgb(53, 159, 175);">{{item.price * item.quantity}}$</th> <br>
           </tr>
       </tbody>
       
       
       <hr style="
-      color: #8b8989;
-          width: 80%;
-          margin-left: 10%;">
+    color: #c09e21;
+        width: 70%;
+        margin-left: 10%;">
 
           <p style="margin-bottom: 1%; margin-top: 5%; margin-left: 10%;font-weight: 600;"> 
-      ITEMS    ({{totalItem}})
+      ITEMS    ({{totalQuantity}})
       </p>
         
-      <hr style="color: #8b8989;
-      width: 80%;
+   
+      <hr style="color:#c09e21; 
+      width: 70%;
       margin-top: 15%;
       margin-left: 10%;">
 
       <div>
         <p style="float: left; margin-left: 12%;" class="strng">SUBTOTAL</p> 
-      <p style="float: right; margin-right: 15%;" class="strng">  ${{grandTotal}}   </p> <br><br>
+      <p style="float: right; margin-right: 15%;" class="strng">  {{grandTotal}}$  </p> <br><br>
       </div>
       
       <div>

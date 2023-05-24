@@ -3,8 +3,6 @@ import { CartService } from 'src/app/Services/cart.service';
 import { Validators } from '@angular/forms';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DataService } from 'src/app/Services/data.service';
-import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-checkout',
@@ -15,14 +13,14 @@ export class CheckoutComponent {
   myForm: FormGroup;
   // zip: string = '';
   public products : any = [];
-  public pID : any = [];
   public grandTotal !: number;
   public Total !: number;
   public totalItem : number = 0;
-  public errormessage = '';
+  public totalQuantity: number = 0;
 
 
-constructor(private cartService : CartService,private formBuilder: FormBuilder, private router: Router,private myService: DataService) {
+
+constructor(private cartService : CartService,private formBuilder: FormBuilder, private router: Router) {
   this.myForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     firstName: ['', Validators.required],
@@ -77,9 +75,18 @@ this.cartService.getProducts()
   this.products = res;
   this.grandTotal = this.cartService.getTotalPrice();
   this.Total = this.cartService.getTotalPrice()+40;
-    this.totalItem = res.length;
 
+    this.totalQuantity = this.getTotalQuantity();
+    this.totalItem = this.products.length + this.totalQuantity;
+  
 })
+}
+getTotalQuantity(): number {
+  let totalQuantity = 0;
+  for (const item of this.products) {
+    totalQuantity += item.quantity;
+  }
+  return totalQuantity;
 }
 Pay() {
   const formValues = this.myForm.value;
@@ -143,23 +150,4 @@ Pay() {
   }
 }
 
-ordercreate(){
-  // const formData = new FormData();
-  const token = localStorage.getItem('token');
-  if (token) {
-    const decodedToken: any = jwt_decode(token);
-    const userID = decodedToken.userId;
-    console.log(userID);
-  for (let i = 0; i < this.products.length; i++) {
-    console.log('product id:',this.products[i]._id);
-    this.pID.push(this.products[i]._id);
-  }
-  let order={ pID:this.pID,userID} ;
-
-  this.myService.createorder(order).subscribe(res=>{
-
-});
-}
-
-}
 }
