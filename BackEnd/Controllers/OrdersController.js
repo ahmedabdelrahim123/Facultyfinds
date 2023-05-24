@@ -6,24 +6,26 @@ const jwt = require("jsonwebtoken");
 
 let getAllOrders = async (req, res) => {
   let data = await ordersModel.find({});
+  console.log("in getorders");
   res.json(data);
 };
 
 
 let createOrder = async (req, res) => {
-if (req.session.userId){
+  console.log("in order create ");
   data=req.body;
-  pids=JSON.parse(req.body.pID);
+  console.log(req.body);
+  // pids=JSON.parse(req.body.pID);
+  console.log(req.body.pID);
   let neworder= new ordersModel({
-    pID: pids ,
-    userID: req.session.userId  // Get user id from session
+    pID: req.body.pID ,
+    userID: req.body.userID  // Get user id from session
   })
+  console.log("order created sucessfully");
+
   await neworder.save();
   await res.json(neworder);
-}
-else{
-  await res.json("please login first");
-}
+
 };
 
 let updateOrder = async (req, res) => {

@@ -14,10 +14,11 @@ const ordersSchema = new mongoose.Schema({
     required: true,
     default:new Date()
   },
-  pID: {
-    type: "array",
+  pID: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Product',
     required: true,
-  },
+  }],
   statue: {
     type: "string",
     enum: ['pending', 'accepted', 'rejected'],
