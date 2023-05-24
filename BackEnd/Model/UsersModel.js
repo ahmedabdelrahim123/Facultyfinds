@@ -1,11 +1,11 @@
-const config = require('config');
-const mongoose = require('mongoose');
-var DB_URL= config.get('mongo.uri');
-const mongoOptions = config.get('mongo.options');
+const config = require("config");
+const mongoose = require("mongoose");
+var DB_URL = config.get("mongo.uri");
+const mongoOptions = config.get("mongo.options");
 mongoose.connect(DB_URL, mongoOptions);
 const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log('MongoDB database connection established successfully');
+connection.once("open", () => {
+  console.log("MongoDB database connection established successfully");
 });
 
 const usersSchema = new mongoose.Schema({
@@ -38,4 +38,4 @@ const usersSchema = new mongoose.Schema({
     // required: true,
   },
 });
-module.exports = mongoose.model('User', usersSchema);
+module.exports = mongoose.model("User", usersSchema);
