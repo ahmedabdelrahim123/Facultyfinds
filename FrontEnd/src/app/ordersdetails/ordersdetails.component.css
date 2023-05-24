@@ -1,0 +1,34 @@
+body {
+  background-color: #f8f9fa;
+}
+body {
+  background-color: #f8f9fa;
+}
+.container {
+  margin-top: 50px;
+}
+.card {
+  margin-bottom: 20px;
+}
+.card-header {
+  background-color: #007bff;
+}
+.card-header h4 {
+  color: #fff;
+  margin-bottom: 0;
+}
+.card-body {
+  padding: 20px;
+}
+.order-details {
+  margin-bottom: 20px;
+}
+.order-details dt {
+  font-weight: bold;
+}
+.order-details dd {
+  margin-left: 0;
+}
+.btn-back {
+  margin-bottom: 20px;
+}

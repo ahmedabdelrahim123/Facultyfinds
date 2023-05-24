@@ -1,0 +1,30 @@
+<app-sidebar></app-sidebar>
+<div class="orders">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>date</th>
+        <th>statue</th>
+        <th>username</th>
+        <th>Products</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders" >
+        <td>{{ order.date }}</td>
+        <td >
+         <span [ngClass]="{ 'rejected': order.statue === 'rejected', 'pending': order.statue === 'pending', 'accepted': order.statue === 'accepted' }">{{ order.statue }}</span>
+        </td>
+        <td>{{ order.userID.username }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let product of order.pID">
+              Title: {{ product.title }} - Price: {{ product.price }}
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

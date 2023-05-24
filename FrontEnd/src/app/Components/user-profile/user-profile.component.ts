@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/Services/data.service';
 import jwt_decode from 'jwt-decode';
 @Component({

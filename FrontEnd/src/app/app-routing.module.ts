@@ -16,6 +16,8 @@ import { DashboradComponent } from './Components/dashborad/dashborad.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { UpdateProductComponent } from './Components/update-product/update-product.component';
 import { DashboardProductsComponent } from './Components/dashboard-products/dashboard-products.component';
+import { OrdersdetailsComponent } from './ordersdetails/ordersdetails.component';
+import { AdminOrdersComponent } from './Components/admin-orders/admin-orders.component';
 import { UpdateUserComponent } from './Components/update-user/update-user.component';
 
 const routes: Routes = [
@@ -27,26 +29,19 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },
   { path: 'products/:id', component: ProductsDetailsComponent },
-
+  { path: 'orders', component: OrdersdetailsComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'strip', component: StripComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'adminproducts', component: DashboardProductsComponent },
-  { path: 'createproduct', component: CreateProductComponent },
-  { path: 'updateproduct/:id', component: UpdateProductComponent },
+  { path: 'createproduct', component: CreateProductComponent},
+  { path: 'updateproduct/:id', component: UpdateProductComponent},
+  { path: 'profile', component: UserProfileComponent,canActivate: [AuthGuardService]},
+  { path: 'dashboard',component: DashboradComponent, canActivate: [AdminGuardService]},
+  {path: 'adminorders', component: AdminOrdersComponent},
   { path: 'updateuser/:id', component: UpdateUserComponent },
-  {
-    path: 'profile',
-    component: UserProfileComponent,
-    canActivate: [AuthGuardService],
-  },
-  {
-    path: 'dashboard',
-    component: DashboradComponent,
-    canActivate: [AdminGuardService],
-  },
   { path: '**', component: ErrorComponent },
 ];
 
