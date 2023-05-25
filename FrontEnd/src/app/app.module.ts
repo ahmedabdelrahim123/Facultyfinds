@@ -34,6 +34,7 @@ import { AuthInterceptorInterceptor } from './Services/auth-interceptor.intercep
 import { UserProductsComponent } from './Components/user-products/user-products.component';
 import { TermsOfServiceComponent } from './Components/terms-of-service/terms-of-service.component';
 import { RefundPolicyComponent } from './Components/refund-policy/refund-policy.component';
+import { ProductAddedComponent } from './Components/product-added/product-added.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { RefundPolicyComponent } from './Components/refund-policy/refund-policy.
     UserProductsComponent,
     TermsOfServiceComponent,
     RefundPolicyComponent,
+    ProductAddedComponent,
   ],
   imports: [
     BrowserModule,

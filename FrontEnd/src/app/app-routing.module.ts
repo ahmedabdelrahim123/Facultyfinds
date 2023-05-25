@@ -22,6 +22,7 @@ import { UpdateUserComponent } from './Components/update-user/update-user.compon
 import { UserProductsComponent } from './Components/user-products/user-products.component';
 import { TermsOfServiceComponent } from './Components/terms-of-service/terms-of-service.component';
 import { RefundPolicyComponent } from './Components/refund-policy/refund-policy.component';
+import { ProductAddedComponent } from './Components/product-added/product-added.component';
 
 
 const routes: Routes = [
@@ -59,6 +60,7 @@ const routes: Routes = [
   { path: 'adminorders', component: AdminOrdersComponent, canActivate: [AdminGuardService] },
   { path: 'updateuser/:id', component: UpdateUserComponent, canActivate: [AuthGuardService] },
   { path: 'user-products', component: UserProductsComponent, canActivate: [AuthGuardService]},
+  {path: 'productadded', component: ProductAddedComponent, canActivate: [AuthGuardService]},
   { path: '**', component: ErrorComponent },
 ];
 
