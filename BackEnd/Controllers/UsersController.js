@@ -51,20 +51,39 @@ let addNewUser = async (req, res) => {
 
 //update
 let updateUser = async (req, res) => {
-  let Id = req.params.id;
+  try {
+    let id = req.params.id;
+    let user = await usersModel.findById({ _id: id });
+    const { email, username, password, gender } = req.body;
+    let image = user.image;
 
-  await usersModel.updateOne(
-    { _id: Id },
-    {
-      username: req.body.username,
-      password: req.body.password,
-      email: req.body.email,
-      image: req.file.filename,
-      gender: req.body.gender,
+    // Check if a new image was uploaded
+    if (req.file) {
+      // If a new image was uploaded, set the image variable to the filename of the new image
+      image = req.file.filename;
+
+      if (user.image && user.image !== image) {
+        // If the existing image is different from the new image, delete the old image file
+        fs.unlinkSync(`uploads/${user.image}`);
+      }
+    } else if (!req.body.image) {
+      // If no new image was uploaded and no image field was passed in the form data,
+      // reuse the existing image in the user's profile data
+      image = user.image;
     }
-  );
-  await res.send("updated successfully");
-};
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password , salt);
+    console.log(hashedPassword);
+    await usersModel.updateOne(
+      { _id: req.params.id },
+      { email, username,password: hashedPassword, gender, image },
+      { new: true }
+    );
+    res.status(200).json({ message: "User updated successfully" });
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 let login = async (req, res) => {
   let email = req.body.email;

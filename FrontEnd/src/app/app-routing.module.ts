@@ -20,6 +20,8 @@ import { OrdersdetailsComponent } from './ordersdetails/ordersdetails.component'
 import { AdminOrdersComponent } from './Components/admin-orders/admin-orders.component';
 import { UpdateUserComponent } from './Components/update-user/update-user.component';
 import { UserProductsComponent } from './Components/user-products/user-products.component';
+import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
+import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
 
 
 const routes: Routes = [
@@ -36,6 +38,10 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService] },
   { path: 'strip', component: StripComponent },
   { path: 'about', component: AboutComponent },
+
+  { path: 'terms_of_service', component: TermsOfServiceComponent },
+  { path: 'refund_policy', component: RefundPolicyComponent },
+
   { path: 'contactus', component: ContactusComponent },
   { path: 'adminproducts', component: DashboardProductsComponent, canActivate: [AdminGuardService] },
   { path: 'createproduct', component: CreateProductComponent, canActivate: [AuthGuardService] },
