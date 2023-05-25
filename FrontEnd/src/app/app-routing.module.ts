@@ -16,12 +16,12 @@ import { DashboradComponent } from './Components/dashborad/dashborad.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { UpdateProductComponent } from './Components/update-product/update-product.component';
 import { DashboardProductsComponent } from './Components/dashboard-products/dashboard-products.component';
-import { OrdersdetailsComponent } from './ordersdetails/ordersdetails.component';
+import { OrdersdetailsComponent } from './Components/ordersdetails/ordersdetails.component';
 import { AdminOrdersComponent } from './Components/admin-orders/admin-orders.component';
 import { UpdateUserComponent } from './Components/update-user/update-user.component';
 import { UserProductsComponent } from './Components/user-products/user-products.component';
-import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
-import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
+import { TermsOfServiceComponent } from './Components/terms-of-service/terms-of-service.component';
+import { RefundPolicyComponent } from './Components/refund-policy/refund-policy.component';
 
 
 const routes: Routes = [
