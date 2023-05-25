@@ -87,92 +87,12 @@
   </div>
 </form>
 
-<!-- <form
-  class="box"
-  enctype="multipart/form-data"
-  (ngSubmit)="
-    AddProduct(
-      title.value,
-      price.value,
-      details.value,
-      college.value,
-      image
-    )
-  "
->
-  <div class="md-form form-sm mb-15">
-    
-    <div class="frm" style="margin-top: 10%">
-      <input
-        type="text"
-        class="form-control form-control-sm validate custom-border-bottom"
-        placeholder="enter a title"
-        name="title"
-        #title
-      />
-    </div>
 
-    <div class="md-form form-sm mb-5">
-      <input
-        type="number"
-        class="form-control form-control-sm custom-border-bottom"
-        placeholder="enter price"
-        name="price"
-        #price
-      />
-
-      <input
-        type="text"
-        class="form-control form-control-sm custom-border-bottom"
-        placeholder="enter details"
-        name="details"
-        #details
-      />
-
-      <input
-        type="text"
-        class="form-control form-control-sm custom-border-bottom"
-        placeholder="enter college"
-        name="college"
-        #college
-      />
-
-      <input
-        type="text"
-        class="form-control form-control-sm custom-border-bottom"
-        placeholder="enter userid"
-        name="userID"
-        #userID
-      />
-    </div>
-
-    <div class="imgg">
-      <input
-        style="background-color: #9da5a2"
-        type="file"
-        name="image"
-        #image
-      />
-    </div>
-    <i
-      class="fas fa-users prefix mt-2"
-      style="font-size: 20px; color: white; margin-bottom: 2%"
-    ></i>
-
-    <div class="text-center form-sm mt-2">
-      <button class="btnnn" type="submit">
-        Create product <i class="fas fa-sign-in ml-1"></i>
-      </button>
-    </div>
-  
-  </div>
-</form> -->
-
-  <script>
-    const imagePreview = document.getElementById('image-preview');
-    imagePreview.addEventListener('click', function() {
-      const imageUpload = document.getElementById('image-upload');
-      imageUpload.click();
-    });
-  </script>
+<script>
+  const imagePreview = document.getElementById('image-preview');
+  imagePreview.addEventListener('click', function() {
+    const imageUpload = document.getElementById('image-upload');
+    imageUpload.click();
+  });
+</script>
 
