@@ -6,7 +6,9 @@
   height: 500px;
   margin: 0 auto;
 }
-
+.navbar-collapse {
+  overflow: visible !important;
+}
 /* Media query for smaller screens */
 @media (max-width: 576px) {
   .modal-content {
