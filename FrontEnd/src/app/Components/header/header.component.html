@@ -1,32 +1,82 @@
 <div id="app">
-  <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: whitesmoke; height: 75px; ">
+  <nav
+    class="navbar navbar-expand-md navbar-light shadow-sm"
+    style="background-color: whitesmoke; height: 75px"
+  >
     <button (click)="toggleTheme()" style="border: none">
-      <span style="font-size: 30px; cursor: pointer;" class="fa fa-moon"></span>
+      <span style="font-size: 30px; cursor: pointer" class="fa fa-moon"></span>
     </button>
     <div class="container">
-      <a class="navbar-brand fw-bold" > E-Commerce </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand fw-bold"> E-Commerce </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="container" style="background-color: whitesmoke;  position: relative;">
-      <div class=" collapse navbar-collapse " id="navbarSupportedContent" >
-        <!-- Left Side Of Navbar -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link text-decoration-none text-dark" style="margin-left: 150px;background-color: whitesmoke; border:none" routerLink="/home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-decoration-none text-dark" style="margin-left: 150px;background-color: whitesmoke; border:none" routerLink="/products">Products</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-decoration-none text-dark" style="margin-left: 150px;background-color: whitesmoke; border:none" routerLink="/about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-decoration-none text-dark" style="margin-left: 150px;background-color: whitesmoke; border:none" routerLink="/contactus">Contact US</a>
-          </li>
-        </ul>
-           <!-- Right Side Of Navbar -->
-           <ul class="navbar-nav ms-auto">
+      <div
+        class="container"
+        style="background-color: whitesmoke; position: relative"
+      >
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Left Side Of Navbar -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link text-decoration-none text-dark"
+                style="
+                  margin-left: 150px;
+                  background-color: whitesmoke;
+                  border: none;
+                "
+                routerLink="/home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-decoration-none text-dark"
+                style="
+                  margin-left: 150px;
+                  background-color: whitesmoke;
+                  border: none;
+                "
+                routerLink="/products"
+                >Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-decoration-none text-dark"
+                style="
+                  margin-left: 150px;
+                  background-color: whitesmoke;
+                  border: none;
+                "
+                routerLink="/about"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-decoration-none text-dark"
+                style="
+                  margin-left: 150px;
+                  background-color: whitesmoke;
+                  border: none;
+                "
+                routerLink="/contactus"
+                >Contact US</a
+              >
+            </li>
+          </ul>
+          <!-- Right Side Of Navbar -->
+          <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <button style="border: none" routerLink="cart">
                 <i style="font-size: 30px" class="fa fa-cart-plus"></i>
@@ -36,21 +86,37 @@
               </button>
             </li>
             <!-- Authentication Links -->
-            <a *ngIf="!isAuthenticated()" class="auth-modal-toggle btn btn-primary ms-2 me-1" data-auth-modal-tab="sign-in" (click)="open(mymodal)">Login</a>
+            <a
+              *ngIf="!isAuthenticated()"
+              class="auth-modal-toggle btn btn-primary ms-2 me-1"
+              data-auth-modal-tab="sign-in"
+              (click)="open(mymodal)"
+              >Login</a
+            >
             <li *ngIf="isAuthenticated()" class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 {{ username }}
               </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="navbarDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" routerLink="/profile">Profile</a>
+                </li>
                 <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
               </ul>
             </li>
           </ul>
         </div>
       </div>
-
-
     </div>
   </nav>
 
@@ -58,8 +124,7 @@
 </div>
 
 <!-- /////////////////////////////////////////////////  -->
-<ng-template #mymodal let-modal style="">
-
+<ng-template #mymodal let-modal >
   <!--Content-->
 
   <div class="modal-content" style="height: 77vh; overflow: auto">
@@ -67,181 +132,234 @@
     <div class="modal-c-tabs">
       <!-- Nav tabs -->
       <!-- Template code -->
-        <div class="row">
-         <div class="col-md-12">
-            <div class="card">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <ul class="nav nav-tabs md-tabs nav-justified" role="tablist">
+              <li
+                class="nav-item waves-effect waves-light fs-5"
+                style="width: 50%"
+              >
+                <a
+                  class="nav-link"
+                  [ngClass]="{ active: activePanel === 'panel1' }"
+                  data-toggle="tab"
+                  href="#panel1"
+                  role="tab"
+                  (click)="showPanel1()"
+                  ><i class="fas fa-user mr-1"></i> Login</a
+                >
+              </li>
+              <li
+                class="nav-item waves-effect waves-light fs-5"
+                style="width: 50%"
+              >
+                <a
+                  class="nav-link"
+                  [ngClass]="{ active: activePanel === 'panel2' }"
+                  data-toggle="tab"
+                  href="#panel2"
+                  role="tab"
+                  (click)="showPanel2()"
+                  ><i class="fas fa-user-plus mr-1"></i> Register</a
+                >
+              </li>
+            </ul>
 
+            <!-- Tab panels -->
+            <div class="tab-content">
+              <div *ngIf="panel1">
+                <!--Panel 1-->
+                <div
+                  class="tab-pane fade in show active"
+                  id="panel1"
+                  role="tabpanel"
+                >
+                  <!--Body-->
 
-              <ul class="nav nav-tabs md-tabs nav-justified" role="tablist">
-
-                <li class="nav-item waves-effect waves-light fs-5" style="width: 50%;">
-                  <a
-                    class="nav-link"
-                    [ngClass]="{ active: activePanel === 'panel1' }"
-                    data-toggle="tab"
-                    href="#panel1"
-                    role="tab"
-                    (click)="showPanel1()"
-                    ><i class="fas fa-user mr-1"></i> Login</a
+                  <form
+                    class="box"
+                    (ngSubmit)="loginUser(email.value, password.value)"
                   >
-                </li>
-                <li class="nav-item waves-effect waves-light fs-5" style="width: 50%;">
-                  <a
-                    class="nav-link"
-                    [ngClass]="{ active: activePanel === 'panel2' }"
-                    data-toggle="tab"
-                    href="#panel2"
-                    role="tab"
-                    (click)="showPanel2()"
-                    ><i class="fas fa-user-plus mr-1" ></i> Register</a
-                  >
-                </li>
-              </ul>
+                    <img
+                      class="user"
+                      src="https://i.ibb.co/yVGxFPR/2.png"
+                      height="100px"
+                      width="100px"
+                    />
 
-      <!-- Tab panels -->
-      <div class="tab-content">
-        <div *ngIf="panel1">
-          <!--Panel 1-->
-          <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
-            <!--Body-->
+                    <div class="md-form form-sm mb-15">
+                      <h3 class="text-center m-4 welcome">
+                        Hi <i class="fas fa-hand-sparkles hand"></i>, Welcome
+                        Back
+                      </h3>
+                    </div>
+                    <div class="d-flex">
+                      <input
+                        type="email"
+                        id="modalLRInput6"
+                        name="email"
+                        #email
+                        placeholder="enter your email address"
+                        class="form-control form-control-sm validate custom-border-bottom"
+                      />
+                    </div>
 
-            <form  class="box"
-            (ngSubmit)="loginUser(email.value, password.value)"
-          >
-          <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+                    <div class="d-flex">
+                      <input
+                        type="password"
+                        id="modalLRInput7"
+                        name="password"
+                        #password
+                        placeholder="enter your password"
+                        class="form-control form-control-sm validate custom-border-bottom"
+                      />
+                    </div>
 
-    <div class="md-form form-sm mb-15">
-      <h3
-      class="text-center m-4 welcome"
+                    <p class="error">{{ loginerror }}</p>
 
-    >
-                  Hi <i class="fas fa-hand-sparkles hand"></i>, Welcome Back
-                </h3>
-              </div>
-              <div class="d-flex">
+                    <button class="btnn">
+                      Login
 
-
-                <input
-                  type="email"
-                  id="modalLRInput6"
-                  name="email"
-                  #email
-                  placeholder="enter your email address"
-                  class="form-control form-control-sm validate custom-border-bottom"
-                />
-
-            </div>
-
-
-
-            <div class="d-flex">
-
-              <input
-                type="password"
-                id="modalLRInput7"
-                name="password"
-                #password
-                placeholder="enter your password"
-                class="form-control form-control-sm validate custom-border-bottom"
-              />
-
-          </div>
-
-
-              <p class="error">{{loginerror}}</p>
-
-              <button class="btnn">Login
-
-                <i class="fas fa-sign-in ml-1"></i>
-        </button>
-            </form>
-            <!--Footer-->
-            <!-- <div class="modal-footer display-footer">
+                      <i class="fas fa-sign-in ml-1"></i>
+                    </button>
+                  </form>
+                  <!--Footer-->
+                  <!-- <div class="modal-footer display-footer">
 
             </div> -->
-          </div>
-          <!--/.Panel 1-->
+                </div>
+                <!--/.Panel 1-->
 
-          <!--Panel 2-->
-        </div>
-      </div>
-      <div *ngIf="panel2">
-        <!--/.Panel 2-->
-        <div class="tab-pane fade active show" id="panel2" role="tabpanel">
-          <!--Body-->
-          <form  class="box" enctype="multipart/form-data" (ngSubmit)="
-              AddUser(
-                username.value,
-                email.value,
-                password.value,
-                repasword.value,
-                image,
-                maleRadio.checked ? 'male' : 'female')">
-                <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
-            <div class="md-form form-sm mb-15">
-              <h3 class="text-center m-4 welcome" >
-                Hi Dear<i class="fas fa-hand-sparkles hand"></i>, We are glad you joined
-                us
-              </h3>
-
-
-
-               <div class="frm" style="margin-top: 10%;">
-                <input type="email" class="form-control form-control-sm validate custom-border-bottom" placeholder="enter a username"  name="username" #username/>
-
-              <p class="error">{{usernameerrormessage}}</p>
+                <!--Panel 2-->
+              </div>
             </div>
-
-
-            <div class="md-form form-sm mb-5">
-
-                <input type="email" class="form-control form-control-sm custom-border-bottom"  placeholder="enter your email address"  name="email" #email/>
-                <p class="error">{{emailerrormessage}}</p>
-
-
-                <input type="password" class="form-control form-control-sm custom-border-bottom" placeholder="enter a strong password" name="password"  #password/>
-
-
-                <input type="password" class="form-control form-control-sm custom-border-bottom" placeholder="repeat the previous password" name="repassword" #repasword/>
-
-            <p class="error">{{repassworderror}}</p>
-
-            </div>
-
-
-
-          <div class="imgg">
-            <input style="background-color: #9da5a2;" type="file" name="image"  #image>
-          </div>
-          <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: white; margin-bottom: 2%;" ></i>
-
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" value="male" #maleRadio/>
-              <label class="form-check-label" for="male">Male</label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" value="female" #femaleRadio/>
-              <label class="form-check-label" for="female">Female</label>
-            </div>
-            <p class="error">{{fieldsRequired}}</p>
-
-            <div class="text-center form-sm mt-2">
-              <button
-                class="btnnn"
-                type="submit"
+            <div *ngIf="panel2">
+              <!--/.Panel 2-->
+              <div
+                class="tab-pane fade active show"
+                id="panel2"
+                role="tabpanel"
               >
-                Sign up <i class="fas fa-sign-in ml-1"></i>
-              </button>
-            </div>
+                <!--Body-->
+                <form
+                  class="box"
+                  enctype="multipart/form-data"
+                  (ngSubmit)="
+                    AddUser(
+                      username.value,
+                      email.value,
+                      password.value,
+                      repasword.value,
+                      image,
+                      maleRadio.checked ? 'male' : 'female'
+                    )
+                  "
+                >
+                  <img
+                    class="user"
+                    src="https://i.ibb.co/yVGxFPR/2.png"
+                    height="100px"
+                    width="100px"
+                  />
+                  <div class="md-form form-sm mb-15">
+                    <h3 class="text-center m-4 welcome">
+                      Hi Dear<i class="fas fa-hand-sparkles hand"></i>, We are
+                      glad you joined us
+                    </h3>
 
+                    <div class="frm" style="margin-top: 10%">
+                      <input
+                        type="email"
+                        class="form-control form-control-sm validate custom-border-bottom"
+                        placeholder="enter a username"
+                        name="username"
+                        #username
+                      />
+
+                      <p class="error">{{ usernameerrormessage }}</p>
+                    </div>
+
+                    <div class="md-form form-sm mb-5">
+                      <input
+                        type="email"
+                        class="form-control form-control-sm custom-border-bottom"
+                        placeholder="enter your email address"
+                        name="email"
+                        #email
+                      />
+                      <p class="error">{{ emailerrormessage }}</p>
+
+                      <input
+                        type="password"
+                        class="form-control form-control-sm custom-border-bottom"
+                        placeholder="enter a strong password"
+                        name="password"
+                        #password
+                      />
+
+                      <input
+                        type="password"
+                        class="form-control form-control-sm custom-border-bottom"
+                        placeholder="repeat the previous password"
+                        name="repassword"
+                        #repasword
+                      />
+
+                      <p class="error">{{ repassworderror }}</p>
+                    </div>
+
+                    <div class="imgg">
+                      <input
+                        style="background-color: #9da5a2"
+                        type="file"
+                        name="image"
+                        #image
+                      />
+                    </div>
+                    <i
+                      class="fas fa-users prefix mt-2"
+                      style="font-size: 20px; color: white; margin-bottom: 2%"
+                    ></i>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        value="male"
+                        #maleRadio
+                      />
+                      <label class="form-check-label" for="male">Male</label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        value="female"
+                        #femaleRadio
+                      />
+                      <label class="form-check-label" for="female"
+                        >Female</label
+                      >
+                    </div>
+                    <p class="error">{{ fieldsRequired }}</p>
+
+                    <div class="text-center form-sm mt-2">
+                      <button class="btnnn" type="submit">
+                        Sign up <i class="fas fa-sign-in ml-1"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
-          </form>
         </div>
       </div>
-    </div> </div>
-  </div>
-</div>
+    </div>
   </div>
 
   <!--/.Content-->
