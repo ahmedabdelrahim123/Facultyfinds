@@ -1,8 +1,12 @@
 const validate = require("../Utils/userSchema");
 const usersModel = require("../Model/UsersModel");
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+// import * as bcrypt from 'bcryptjs';
+// const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
+//import * as bcrypt from 'bcrypt';
 const jwt = require("jsonwebtoken");
+const { Console } = require("console");
 
 let getAllUsers = async (req, res) => {
   let data = await usersModel.find({});
@@ -56,22 +60,53 @@ let addNewUser = async (req, res) => {
 
 //update
 let updateUser = async (req, res) => {
-  let Id = req.params.id;
-  //console.log(Id);
-  console.log(req.body);
+  try {
+    //const user = await usersModel.findById(req.params.id);
+    //console.log(user.image);
+    let id = req.params.id;
+  // console.log("in controller",req.params.id);
+    let user = await usersModel.findById({ _id: id });
 
-  await usersModel.updateOne(
-    { _id: Id },
-    {
-      username: req.body.username,
-      password: req.body.password,
-      email: req.body.email,
-      image:  req.file.filename,
-      gender: req.body.gender,
+    const { email, username, password, gender } = req.body;
+    let image = user.image;
+
+    // Check if a new image was uploaded
+    if (req.file) {
+      // If a new image was uploaded, set the image variable to the filename of the new image
+      image = req.file.filename;
+
+      if (user.image && user.image !== image) {
+        // If the existing image is different from the new image, delete the old image file
+        fs.unlinkSync(`uploads/${user.image}`);
+      }
+    } else if (!req.body.image) {
+      // If no new image was uploaded and no image field was passed in the form data,
+      // reuse the existing image in the user's profile data
+      image = user.image;
     }
-  );
-  await res.send("updated successfully");
-};
+    //var salt = await bcrypt.genSalt(10);
+    //var hashedPassword = await bcrypt.hash(data.password, salt);
+    //const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+
+    // const salt = await bcrypt.genSalt(10);
+    // req.body.password = await bcrypt.hash(req.body.password, salt);
+    // console.log(req.body.password );
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password , salt);
+    console.log(hashedPassword);
+    await usersModel.updateOne(
+      { _id: req.params.id },
+      { email, username,password: hashedPassword, gender, image },
+      { new: true }
+    );
+
+
+    // Send a success response to the client
+    res.status(200).json({ message: "User updated successfully" });
+  } catch (error) {
+    console.error(error);
+  }}
+
 
 
 
