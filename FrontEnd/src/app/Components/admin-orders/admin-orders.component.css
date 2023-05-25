@@ -1,7 +1,9 @@
 .orders{
   display: grid;
   width: 70%;
-  margin: 3% auto;
+  /* margin: 3% auto; */
+  margin-left: 20%;
+  margin-top: 3%;
 }
 
 .button{
@@ -45,7 +47,6 @@
 }
 
 .rejected,.pending ,.accepted{
- padding: 2px 5px;
- border-radius: 15px
-
+  padding: 2px 5px;
+  border-radius: 15px
 }

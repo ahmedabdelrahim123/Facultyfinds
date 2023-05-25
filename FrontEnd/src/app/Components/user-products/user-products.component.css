@@ -1,0 +1,18 @@
+.card{
+  margin: 2%
+}
+.card-title{
+  font-family: 'Kalam', cursive;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-card img{
+  width: 90%;
+  height: 50vh;
+  margin-left: 5%;
+}
+
+span{
+ font-family:'Courgette', cursive;
+}

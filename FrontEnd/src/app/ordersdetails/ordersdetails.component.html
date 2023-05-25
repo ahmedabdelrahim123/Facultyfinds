@@ -28,14 +28,17 @@
                 </thead>
                 <tbody>
                   <!-- Loop through the order items and create a row for each item -->
-                  <tr *ngFor="let item of order.pID">
-                    <td>{{ item.title }}</td>
-                    <td>{{ item.price }}</td>
+                  <tr *ngFor="let item of order.product">
+                    <td>{{ item.pID.title }}</td>
+                    <td>{{ item.pID.price }}</td>
                     <td>{{ item.quantity }}</td>
-                    <td>{{ item.total }}</td>
+                    <td>{{ item.pID.price * item.quantity }}</td>
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <div *ngIf="order.statue !== 'accepted'">
+              <button (click)="delete_order(order._id)" class="rounded-3 btn4">Delete</button>
             </div>
           </div>
         </div>

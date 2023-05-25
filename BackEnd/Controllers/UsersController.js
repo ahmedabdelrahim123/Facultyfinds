@@ -18,8 +18,6 @@ let addNewUser = async (req, res) => {
   orders = JSON.parse(req.body.orders);
   image = req.file.filename;
   let data = req.body;
-  console.log(data);
-  console.log(image);
   const valid = true;
   if (!valid) {
     return res.status(400).send("invalid data" + error.details[0].message);
@@ -48,17 +46,12 @@ let addNewUser = async (req, res) => {
     newUser.password = await bcrypt.hash(newUser.password, salt);
     await newUser.save();
     await res.json(newUser);
-    // const imagePath = `${req.protocol}://${req.hostname}:${process.env.PORT || 3000}/${req.file.path}`;
-    // console.log(imagePath);
-    // res.json({ newUser, imagePath });
   }
 };
 
 //update
 let updateUser = async (req, res) => {
   let Id = req.params.id;
-  //console.log(Id);
-  console.log(req.body);
 
   await usersModel.updateOne(
     { _id: Id },
@@ -66,14 +59,12 @@ let updateUser = async (req, res) => {
       username: req.body.username,
       password: req.body.password,
       email: req.body.email,
-      image:  req.file.filename,
+      image: req.file.filename,
       gender: req.body.gender,
     }
   );
   await res.send("updated successfully");
 };
-
-
 
 let login = async (req, res) => {
   let email = req.body.email;
@@ -96,17 +87,15 @@ let login = async (req, res) => {
   );
 
   res.header("x-auth-token", Token);
-
   return res.status(200).json({ user: user, token: Token });
 };
 
 let DeleteUser = async (req, res) => {
   var ID = req.params.id;
   var UserToDelete = await usersModel.findOne({ _id: ID });
-  if (UserToDelete.orders){
+  if (UserToDelete.orders) {
     res.json("can't delete, you have unfinished orders");
-  }
-  else{
+  } else {
     await usersModel.deleteOne({ _id: ID });
     res.json(UserToDelete || "Not Found");
   }

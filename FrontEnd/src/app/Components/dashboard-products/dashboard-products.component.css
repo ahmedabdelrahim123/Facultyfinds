@@ -6,14 +6,16 @@
   background: #faf8f8;
   background-clip: border-box;
   border-radius: .25rem;
-  width: 70%;
-  padding: 10px
+  width: 80%;
+  padding: 10px;
+  margin-top: 3%;
+  margin-left:15%;
 }
 
 .products{
   display: grid;
-  width: 70%;
-  margin: 3% auto;
+  width: 80%;
+  margin-left:15%;
 }
 
 .container{
@@ -61,4 +63,12 @@
 
 .table tr:nth-child(even){
   background-color: #f2f2f2;
+}
+
+.add{
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  background: green;
+  
 }
