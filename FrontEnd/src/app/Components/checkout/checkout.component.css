@@ -47,15 +47,16 @@ form{
   padding-top: 5%;
 }
 
-.vertical-line {
-  border-left: 1px solid #ccc;
-  height: 790px; 
+.check {
+  border-top: 3px solid rgb(216, 168, 12);
+  height: 500px; 
+  margin-top: 9%;
 }
 
 .btnn{
   font-weight: 600;
   border: white;
-  background: #79bdda;
+  background: #e0d393;
   height: 50px;
   margin-bottom: 10%;
   float: right;
@@ -66,17 +67,17 @@ form{
 }
 
 .btn{
-  border:1px solid#79bdda;
+  border:1px solid#e0d393;
   width: 270px;
   height: 40px;
   background-color: white;
-  color: #79bdda;
+  color: #e0d393;
 
 }
 
 
 .btnn:hover{
   background-color: white;
-  border: 1px solid #79bdda;
-  color: #79bdda;
+  border: 1px solid #e0d393;
+  color: #d2c378;
 }

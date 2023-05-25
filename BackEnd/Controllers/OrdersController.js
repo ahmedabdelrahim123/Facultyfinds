@@ -2,45 +2,54 @@
 const ordersModel = require("../Model/OrdersModel");
 const jwt = require("jsonwebtoken");
 
+// const session = require("../middlewares/session");
+
+
 let getAllOrders = async (req, res) => {
-  let data = await ordersModel.find({});
-  res.json(data);
+  // let data = await ordersModel.find({}).populate('userID', 'username').populate('product.pID', 'title price');
+  // res.json(data);
+  let data = await ordersModel.find({}).populate('userID', 'username').populate('product.pID', 'title price');
+  const totalOrdersCount = await ordersModel.countDocuments();
+  const pendingOrders = await ordersModel.find({ statue: 'pending' }).countDocuments();
+  const rejectedOrders = await ordersModel.find({ statue: 'rejected' }).countDocuments();
+  res.json({data, totalOrdersCount, pendingOrders, rejectedOrders});
 };
+
+
 let createOrder = async (req, res) => {
-data=req.body;
-pids=JSON.parse(req.body.pID);
-console.log(pids);
-let neworder= new ordersModel({
-  date: data.date,
-  pID: pids ,
-  // statue: data.statue,
-  userID: data.userID
-})
-await neworder.save();
-await res.json(neworder);
+  let products = req.body.products.map(product => {
+    return {
+      pID: product.pID,
+      quantity: product.quantity
+    };
+  });
+  let neworder = new ordersModel({
+    product: products,
+    userID: req.body.userID,
+    Total: req.body.Total
+  });
+  await neworder.save();
+  await res.json(neworder);
 };
+
+
 
 let updateOrder = async (req, res) => {
   let Id = req.params.id; 
-  pids=JSON.parse(req.body.pID);
   data=req.body;
     await ordersModel.updateOne(
       { _id: Id },
       {
-         date: data.date,
-         pID: pids ,
         statue: data.statue,
-        userID: data.userID
       }
     );
     await res.send("updated successfully");
 };
+
 let deleteOrder = async (req, res) => {
   var ID = req.params.id;
 
   var order = await ordersModel.findOne({ _id: ID });
-  console.log(order.statue);
-
   
   if (order.statue !='accepted')
   {

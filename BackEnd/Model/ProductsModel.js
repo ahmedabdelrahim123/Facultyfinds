@@ -1,12 +1,12 @@
-const config = require('config');
-const mongoose = require('mongoose');
-var DB_URL= config.get('mongo.uri');
-const mongoOptions = config.get('mongo.options');
+const config = require("config");
+const mongoose = require("mongoose");
+var DB_URL = config.get("mongo.uri");
+const mongoOptions = config.get("mongo.options");
 mongoose.connect(DB_URL, mongoOptions);
 
 const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log('MongoDB database connection established successfully');
+connection.once("open", () => {
+  console.log("MongoDB database connection established successfully");
 });
 
 const productsSchema = new mongoose.Schema({
@@ -30,10 +30,10 @@ const productsSchema = new mongoose.Schema({
     type: "string",
     required: true,
   }
-  // userID: {
-  //   type: "number",
-  //   required: true,
-  // },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
-module.exports = mongoose.model('Product', productsSchema);
-
+module.exports = mongoose.model("Product", productsSchema);

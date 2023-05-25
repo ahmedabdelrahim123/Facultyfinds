@@ -1,0 +1,52 @@
+body {
+  background-color: #f8f9fa;
+}
+body {
+  background-color: #f8f9fa;
+}
+.container {
+  margin-top: 50px;
+}
+.card {
+  margin-bottom: 20px;
+}
+.card-header {
+  background-color: #007bff;
+}
+.card-header h4 {
+  color: #fff;
+  margin-bottom: 0;
+}
+.card-body {
+  padding: 20px;
+}
+.order-details {
+  margin-bottom: 20px;
+}
+.order-details dt {
+  font-weight: bold;
+}
+.order-details dd {
+  margin-left: 0;
+}
+.btn-back {
+  margin-bottom: 20px;
+}
+.btn4{
+  text-align: center;
+  margin: 0 auto;
+    font-weight: 600;
+  font-family: system-ui;
+  font-size: 17px;
+  width: 50%;
+  border: 1px solid #163396;
+  background-color: #ffffff;
+  color: #d9a655;
+  height: 41px;
+  display: block;
+}
+.btn4:hover{
+  border: 1px solid white;
+  background-color: rgb(211, 152, 57);
+  color: white;
+}

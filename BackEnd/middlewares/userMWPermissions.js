@@ -1,8 +1,9 @@
 var jwt = require("jsonwebtoken");
 
 module.exports = (req, res, next) => {
-  var token = req.header("x-auth-token");
-  console.log(token);
+  // var token = req.header("x-auth-token");
+  var token = req.headers.authorization;
+
   if (!token) return res.status(401).send("login first please...");
 
   var decodedPayload = jwt.verify(token, "thistokensecret");

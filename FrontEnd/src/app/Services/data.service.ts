@@ -56,26 +56,27 @@ export class DataService {
   deleteUser(userId: any) {
     return this.http.delete(`${this.Base_URL}/api/user/delete/${userId}`);
   }
-  
+
   getUserbyid(id: any) {
     return this.http.get(`${this.Base_URL}/api/user/${id}`);
   }
   //////////////////////////////////
   // order
-  createorder(user: any) {
-    return this.http.post(`${this.Base_URL}/api/order/create`, user);
+  createorder(order: any) {
+    return this.http.post(`${this.Base_URL}/api/order/create`, order);
   }
 
-  updateOrder(user: any) {
-    return this.http.put(`${this.Base_URL}/api/order/order/:id`, user);
+
+  updateOrder(order: any,id: any) {
+    return this.http.put(`${this.Base_URL}/api/order/order/${id}`, order);
   }
 
-  deleteOrder(user: any) {
-    return this.http.delete(`${this.Base_URL}/api/order/delete/:id`, user);
+  deleteOrder(id: any) {
+    return this.http.delete(`${this.Base_URL}/api/order/delete/${id}`);
   }
 
-  getOrderbyid(user: any) {
-    return this.http.get(`${this.Base_URL}/api/order/:id`, user);
+  getOrderbyid(order: any,id: any) {
+    return this.http.get(`${this.Base_URL}/api/order/${id}`, order);
   }
   getMyOrders(): Observable<any> {
     return this.http.get(`${this.Base_URL}/api/order/orders`);

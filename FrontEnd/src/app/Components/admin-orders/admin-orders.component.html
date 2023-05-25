@@ -1,0 +1,38 @@
+<app-sidebar></app-sidebar>
+<div class="orders">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>date</th>
+        <th>statue</th>
+        <th>username</th>
+        <th>Products</th>
+        <th>Change </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders" >
+        <td>{{ order.date }}</td>
+        <td >
+          <span [ngClass]="{ 'rejected': order.statue === 'rejected', 'pending': order.statue === 'pending', 'accepted': order.statue === 'accepted' }">{{ order.statue }}</span>
+        </td>
+        <td>{{ order.userID.username }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let p of order.product">
+              Title: {{ p.pID.title }}- Price: {{ p.pID.price }}
+            </li>
+          </ul>
+        </td>
+        <td>
+          <select [(ngModel)]="order.statue" (change)="updateOrderStatue(order.statue,order._id)">
+            <option value="pending">Pending</option>
+            <option value="accepted">Accepted</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

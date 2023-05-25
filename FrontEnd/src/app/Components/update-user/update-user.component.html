@@ -1,0 +1,62 @@
+<form  class="box" enctype="multipart/form-data" (ngSubmit)="
+              UpdateUser(
+                email.value,
+                username.value,
+                password.value,
+                maleRadio.checked ? 'male' : 'female',
+                image)">
+
+
+
+
+               <div class="frm" style="margin-top: 10%;">
+                <input type="text" class="form-control form-control-sm validate custom-border-bottom" placeholder="enter a username" value={{user.username}} name="username" #username/>
+
+
+            </div>
+
+
+            <div class="md-form form-sm mb-5">
+
+                <input type="email" class="form-control form-control-sm custom-border-bottom"  placeholder="enter your email address" value={{user.email}}  name="email" #email/>
+
+
+
+                <input type="password" class="form-control form-control-sm custom-border-bottom" placeholder="enter a strong password" name="password" value={{user.password}}  #password/>
+
+
+            </div>
+
+
+
+          <div class="imgg">
+            <input style="background-color: #9da5a2;" type="file" name="image"  value={{user.image}} #image>
+          </div>
+          <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: white; margin-bottom: 2%;" ></i>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" value="male" #maleRadio [checked]="user.gender === 'male'">
+              <label class="form-check-label" for="male">Male</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" value="female" #femaleRadio [checked]="user.gender === 'female'">
+              <label class="form-check-label" for="female">Female</label>
+            </div>
+
+
+            <div class="text-center form-sm mt-2">
+              <button
+                class="btnnn"
+                type="submit"
+              >
+                update <i class="fas fa-sign-in ml-1"></i>
+              </button>
+            </div>
+
+          </form>
+
+
+
+
+

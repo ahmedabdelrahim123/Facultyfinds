@@ -1,5 +1,8 @@
-<div>
+<app-sidebar></app-sidebar>
+<div style="margin-left: 3%;">
+
   <div class="card-top container-fluid">
+
     <div class="container d-flex">
       <!-- Add a button for adding a new product -->
       <div class="item">
@@ -39,7 +42,7 @@
       </div>
     </div>
   </div>
-
+<div style="display: flex;">
   <input
     type="search"
     id="search"
@@ -48,7 +51,8 @@
     autocomplete="off"
     (input)="searchProductsByTitle($event)"
   />
-
+  <button style="margin-right: 8%;" class="add" routerLink="/createproduct">Add Product </button>
+</div>
   <div class="products">
     <table class="table">
       <thead>

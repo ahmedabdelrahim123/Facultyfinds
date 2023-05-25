@@ -18,8 +18,6 @@ let addNewUser = async (req, res) => {
   orders = JSON.parse(req.body.orders);
   image = req.file.filename;
   let data = req.body;
-  console.log(data);
-  console.log(image);
   const valid = true;
   if (!valid) {
     return res.status(400).send("invalid data" + error.details[0].message);
@@ -48,31 +46,44 @@ let addNewUser = async (req, res) => {
     newUser.password = await bcrypt.hash(newUser.password, salt);
     await newUser.save();
     await res.json(newUser);
-    // const imagePath = `${req.protocol}://${req.hostname}:${process.env.PORT || 3000}/${req.file.path}`;
-    // console.log(imagePath);
-    // res.json({ newUser, imagePath });
   }
 };
 
 //update
-const updateUser = async (req, res) => {
-  let Id = req.params.id;
-  console.log(Id);
+let updateUser = async (req, res) => {
+  try {
+    let id = req.params.id;
+    let user = await usersModel.findById({ _id: id });
+    const { email, username, password, gender } = req.body;
+    let image = user.image;
 
-  await usersModel.updateOne(
-    { _id: Id },
-    {
-      username: req.body.username,
-      email: req.body.email,
-      image: req.body.image,
-      gender: req.body.gender,
-      type: req.body.type,
+    // Check if a new image was uploaded
+    if (req.file) {
+      // If a new image was uploaded, set the image variable to the filename of the new image
+      image = req.file.filename;
+
+      if (user.image && user.image !== image) {
+        // If the existing image is different from the new image, delete the old image file
+        fs.unlinkSync(`uploads/${user.image}`);
+      }
+    } else if (!req.body.image) {
+      // If no new image was uploaded and no image field was passed in the form data,
+      // reuse the existing image in the user's profile data
+      image = user.image;
     }
-  );
-  await res.send("updated successfully");
-};
-
-
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password , salt);
+    console.log(hashedPassword);
+    await usersModel.updateOne(
+      { _id: req.params.id },
+      { email, username,password: hashedPassword, gender, image },
+      { new: true }
+    );
+    res.status(200).json({ message: "User updated successfully" });
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 let login = async (req, res) => {
   let email = req.body.email;
@@ -95,17 +106,15 @@ let login = async (req, res) => {
   );
 
   res.header("x-auth-token", Token);
-
   return res.status(200).json({ user: user, token: Token });
 };
 
 let DeleteUser = async (req, res) => {
   var ID = req.params.id;
   var UserToDelete = await usersModel.findOne({ _id: ID });
-  if (UserToDelete.orders){
+  if (UserToDelete.orders) {
     res.json("can't delete, you have unfinished orders");
-  }
-  else{
+  } else {
     await usersModel.deleteOne({ _id: ID });
     res.json(UserToDelete || "Not Found");
   }

@@ -36,28 +36,37 @@ let createProduct = async (req, res) => {
     details: data.details,
     college: data.college,
     image: image,
-    // userID: data.userID
+    userId: data.userID,
   });
   await newProduct.save();
   await res.json(newProduct);
 };
 
 let updateProduct = async (req, res) => {
-  let Id = req.params.id;
-  data = req.body;
+  try {
+    let id = req.params.id;
+    let product = await productsModel.findById({ _id: id });
+    const { title, price, details, college } = req.body;
+    let image = product.image;
+    if (req.file) {
+        image = req.file.filename;
 
-  // console.log(`data : ${data}`);
-  await productsModel.updateOne(
-    { _id: Id },
-    {
-      title: data.title,
-      price: data.price,
-      image: req.file.filename,
-      details: data.details,
-      college: data.college,
+      if (product.image && product.image !== image) {
+        // If the existing image is different from the new image, delete the old image file
+        fs.unlinkSync(`products/${product.image}`);
+      }
+    } else if (!req.body.image) {
+      image = product.image;
     }
-  );
-  await res.send("updated successfully");
+    await productsModel.updateOne(
+      { _id: req.params.id },
+      { title, price,details, college, image },
+      { new: true }
+    );
+    res.status(200).json({ message: "product updated successfully" });
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 let deleteProduct = async (req, res) => {

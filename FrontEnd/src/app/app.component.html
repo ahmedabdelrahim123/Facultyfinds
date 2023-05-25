@@ -1,3 +1,4 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+  <app-header *ngIf="userROLE !== 'admin'"></app-header>
+  <router-outlet></router-outlet>
+  <app-footer *ngIf="userROLE !== 'admin'"></app-footer>
+
