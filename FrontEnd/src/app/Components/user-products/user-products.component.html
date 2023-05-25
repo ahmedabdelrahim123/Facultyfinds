@@ -1,0 +1,26 @@
+<div class="container w-50">
+  <div *ngFor="let product of products" class="product-card">
+    <div class="card">
+      <div class="card-body">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h3 class="card-title">{{product.title}}</h3>
+          <div>
+            <button style="border:none" [routerLink]="['/updateproduct', product._id]">
+            <i class="fa-solid fa-pencil me-2"></i>
+          </button>
+          <button style="border:none"  (click)="deleteProduct(product._id)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          </div>
+        </div>
+        <p class="card-price"><span>Price: </span>{{product.price}} EGP</p>
+        <p class="card-details"><span>Details: </span>{{product.details}}</p>
+        <p class="card-college"><span>College: </span>{{product.college}}</p>
+        <img src="http://localhost:3000/products/{{product.image}}" class="card-image"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

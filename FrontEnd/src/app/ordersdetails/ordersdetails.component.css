@@ -32,3 +32,21 @@ body {
 .btn-back {
   margin-bottom: 20px;
 }
+.btn4{
+  text-align: center;
+  margin: 0 auto;
+    font-weight: 600;
+  font-family: system-ui;
+  font-size: 17px;
+  width: 50%;
+  border: 1px solid #163396;
+  background-color: #ffffff;
+  color: #d9a655;
+  height: 41px;
+  display: block;
+}
+.btn4:hover{
+  border: 1px solid white;
+  background-color: rgb(211, 152, 57);
+  color: white;
+}

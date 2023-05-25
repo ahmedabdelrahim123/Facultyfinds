@@ -12,7 +12,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { HomeComponent } from './Components/home/home.component';
 import { AboutComponent } from './Components/about/about.component';
 import { ErrorComponent } from './Components/error/error.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CartComponent } from './Components/cart/cart.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
@@ -29,6 +29,9 @@ import { AdminHeaderComponent } from './Components/admin-header/admin-header.com
 import { AdminOrdersComponent } from './Components/admin-orders/admin-orders.component';
 import { UpdateUserComponent } from './Components/update-user/update-user.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorInterceptor } from './Services/auth-interceptor.interceptor';
+import { UserProductsComponent } from './Components/user-products/user-products.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,8 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
     AdminHeaderComponent,
     AdminOrdersComponent,
     UpdateUserComponent,
-    SidebarComponent
+    SidebarComponent,
+    UserProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,9 +68,15 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    NgbDropdownModule
+    NgbDropdownModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

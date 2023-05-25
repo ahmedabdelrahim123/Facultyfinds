@@ -2,14 +2,7 @@
   class="box"
   enctype="multipart/form-data"
   (ngSubmit)="
-    AddProduct(
-      title.value,
-      price.value,
-      details.value,
-      college.value,
-      image,
-      userID.value
-    )
+    AddProduct(title.value, price.value, details.value, college.value, image)
   "
 >
   <div class="md-form form-sm mb-15">
@@ -46,14 +39,6 @@
         placeholder="enter college"
         name="college"
         #college
-      />
-
-      <input
-        type="text"
-        class="form-control form-control-sm custom-border-bottom"
-        placeholder="enter userid"
-        name="userID"
-        #userID
       />
     </div>
 

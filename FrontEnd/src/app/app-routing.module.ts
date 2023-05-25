@@ -19,6 +19,8 @@ import { DashboardProductsComponent } from './Components/dashboard-products/dash
 import { OrdersdetailsComponent } from './ordersdetails/ordersdetails.component';
 import { AdminOrdersComponent } from './Components/admin-orders/admin-orders.component';
 import { UpdateUserComponent } from './Components/update-user/update-user.component';
+import { UserProductsComponent } from './Components/user-products/user-products.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,20 +30,29 @@ const routes: Routes = [
     component: ProductsComponent,
     canActivate: [AuthGuardService],
   },
-  { path: 'products/:id', component: ProductsDetailsComponent },
-  { path: 'orders', component: OrdersdetailsComponent },
+  { path: 'products/:id', component: ProductsDetailsComponent, canActivate: [AuthGuardService] },
+  { path: 'orders', component: OrdersdetailsComponent, canActivate: [AuthGuardService] },
   { path: 'cart', component: CartComponent },
-  { path: 'checkout', component: CheckoutComponent },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService] },
   { path: 'strip', component: StripComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contactus', component: ContactusComponent },
-  { path: 'adminproducts', component: DashboardProductsComponent },
-  { path: 'createproduct', component: CreateProductComponent},
-  { path: 'updateproduct/:id', component: UpdateProductComponent},
-  { path: 'profile', component: UserProfileComponent,canActivate: [AuthGuardService]},
-  { path: 'dashboard',component: DashboradComponent, canActivate: [AdminGuardService]},
-  {path: 'adminorders', component: AdminOrdersComponent},
-  { path: 'updateuser/:id', component: UpdateUserComponent },
+  { path: 'adminproducts', component: DashboardProductsComponent, canActivate: [AdminGuardService] },
+  { path: 'createproduct', component: CreateProductComponent, canActivate: [AuthGuardService] },
+  { path: 'updateproduct/:id', component: UpdateProductComponent, canActivate: [AuthGuardService] },
+  {
+    path: 'profile',
+    component: UserProfileComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'dashboard',
+    component: DashboradComponent,
+    canActivate: [AdminGuardService],
+  },
+  { path: 'adminorders', component: AdminOrdersComponent, canActivate: [AdminGuardService] },
+  { path: 'updateuser/:id', component: UpdateUserComponent, canActivate: [AuthGuardService] },
+  { path: 'user-products', component: UserProductsComponent, canActivate: [AuthGuardService]},
   { path: '**', component: ErrorComponent },
 ];
 

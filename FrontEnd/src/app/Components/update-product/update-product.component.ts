@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { AuthService} from '../../Services/auth.service'
 @Component({
   selector: 'app-update-product',
   templateUrl: './update-product.component.html',
@@ -14,7 +15,8 @@ export class UpdateProductComponent {
   constructor(
     private dataservice: DataService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private auth:AuthService
   ) {
     this.ID = route.snapshot.params['id'];
     console.log('in component', this.ID);
@@ -52,7 +54,12 @@ export class UpdateProductComponent {
         // alert('Product Updated Successfully');
         // // Reload the current URL
       });
+      if(this.auth.isAdmin()){
       this.router.navigate(['/adminproducts']);
+      }
+      else{
+        this.router.navigate(['/user-products']);
+      }
     }
   }
 }

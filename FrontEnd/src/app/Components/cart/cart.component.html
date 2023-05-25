@@ -1,114 +1,160 @@
 
+<body>
 
-     
+  <ng-container *ngIf="products.length !=0">
+   <div style="background-color: black; height: 50px; text-align: center; color: white; font-weight: 400; ">
+     <p style="padding-top: 1%;">Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer</p>
+  </div>
+    <div style="height: 120px; background-color:#F3EAD8;">
+      <p style="
+      padding-top: 1%;
+      margin-top: 2;
+      color: black;
 
-<ng-container *ngIf="products.length !=0">
-    <div>
-        <h3 class="total">
-             Shopping Cart
-        </h3>
+      font-size: 22px;
+      text-align: center;
+      font-weight: 700;">Shopping Cart</p>
+
+      <p style="text-align: center; color: #7f7b75; padding-bottom: 1.5%;">Home | cart</p>
+
     </div>
-<div class="main">
-  
-    <div style="width: 70%;" class="container" >
-        <div class="card-table">
-            <div class="cart-product">
-                <table class="table table-responsive">
-                    <thead style="border: 1px solid rgb(255, 255, 255);">
 
-                        <tr style="border: 1px solid rgb(255, 255, 255);">
-                            <th>Item <br>
-                            
-                            <th style="visibility: hidden;">Product Name
+      <div class="px-4 px-lg-0">
+
+
+          <div  class="pb-5">
+            <div class="container">
+              <div  class="row">
+                <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-10" >
+
+                  <!-- Shopping cart table -->
+                  <div  class="table-responsive">
+                    <table class="table">
+                      <thead >
+                        <tr>
+                          <th scope="col" class="border-0 bg-light">
+                            <div class="p-2 px-3 text-uppercase">Product</div>
+                          </th>
+                          <th scope="col" class="border-0 bg-light">
+                            <div class="py-2 text-uppercase">Price</div>
+                          </th>
+                          <th scope="col" class="border-0 bg-light">
+                            <div class="py-2 text-uppercase">Quantity</div>
+                          </th>
+                          <th scope="col" class="border-0 bg-light">
+                              <div class="py-2 text-uppercase">total</div>
                             </th>
+                          <th scope="col" class="border-0 bg-light">
+                            <div class="py-2 text-uppercase">Remove</div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                          <tr *ngFor="let item of products; let i = index">
+                          <th scope="row" class="border-0">
+                            <div class="p-2">
+                              <img style="width: 120px; margin-right:7%;" src="http://localhost:3000/products/{{item.image}}" alt="">
+                              <div class="ml-3 d-inline-block align-middle">
+                                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">  {{item.title}} </a></h5><span class="text-muted font-weight-normal font-italic d-block">{{item.description}}</span>
+                              </div>
+                            </div>
+                          </th>
+                          <td class="border-0 align-middle"><strong>{{item.price}}</strong></td>
+                          <td class="border-0 align-middle">
+                            <div class="d-flex align-items-center">
+                              <button  style="
+                              border: none;
+                              font-weight: 700;
+                              font-size: 15px;
+
+                              background-color: #d5c887;" (click)="decrementQuantity(item)" class="btn btn-sm btn-primary me-2">-</button>
+                              <span>{{ item.quantity }}</span>
+                              <button  style="
+                              border: none;
+                             font-weight: 700;
+                              font-size: 15px;
+
+                              background-color: #d5c887;" (click)="incrementQuantity(item)" class="btn btn-sm btn-primary ms-2">+</button>
+                            </div>
+                          </td>
+
                           
-                            
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Action</th>
-                            
+                          <td class="border-0 align-middle"><strong>{{item.total}}</strong></td>
+                          <td class="border-0 align-middle"> <button (click)="removeItem(item)" class="btn0 btn-dark"><i class="fa fa-times-rectangle"></i></button></td>
                         </tr>
-                    </thead>
-                    <tbody style="border: 1px solid rgb(255, 255, 255);">
-                        <tr *ngFor="let item of products; let i = index">
-                          <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
-                      
-                          <td>{{item.title}} <br> <br>
-                            <p style="width: 80%;">{{item.description}}</p>
-                          </td>
-                      
-                          <th style="width: 12%; color: rgb(53, 159, 175);">{{item.price}}</th>
-                          <td style="width: 12%;">{{item.quantity}}</td>
-                          <td style="width: 12%; color: rgb(53, 159, 175);">{{item.total}}</td>
-                          <td>
-                            <button (click)="removeItem(item)" class="btn btn-dark"><i class="fa fa-times-rectangle"></i></button>
-                          </td>
-                        </tr>
-<!--                       
-                        <p>Total Price: ${{getTotalPrice()}}</p>
-                        <p>Grand Total: ${{grandTotal}}</p> -->
+
+
                       </tbody>
-                </table>
-                
-            </div>
+                    </table>
+                  </div>
+                  <!-- End -->
+                </div>
+              </div>
+
+
+                  </div>
+
+          </div>
+
         </div>
-    </div>
 
-<div class="check">
-  
-<p style="font-weight: 600;
-text-align: center;
-font-size: 24px;
-font-family: cursive;">
-   order summary
-</p>
-<hr style="
-color: #8b8989;
-    width: 80%;
-    margin-left: 10%;">
-    <p style="margin-bottom: 5%; font-weight: 600;"> 
-ITEMS   ({{totalItem}})
+        <div style="margin-left: 7%; width: 35%;" class="col-lg-6">
+          <div  class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+          <div class="p-4">
+            <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
+            <ul class="list-unstyled mb-4">
 
-</p>
+              
+              <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">ITEMS</strong>
+                <strong>({{ getTotalQuantity() }})</strong>
+              </li>
+              <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">TOTAL COST</strong>
+                <strong>{{ grandTotal | currency }}</strong>
+              </li>
 
 
- 
-<hr style="color: #8b8989;
-width: 80%;
-margin-top: 15%;
-margin-left: 10%;">
-  <strong class="strng"> TOTAL COST : ${{grandTotal}} </strong>
-  <p>execluding delievry</p>
-  <button routerLink="/checkout" class="btn2 btn-success">Checkout</button>
-
-
-</div>
-
-
-
-</div>
-    <div class="whatever">
-        <button style="margin-right: 18%;margin-left: 10%;" (click)="emptycart()" class="btnn">Remove All</button>
-        <button routerLink="/products" class="btn1 btn-primary">Shop More</button>
-      
-    </div>
-</ng-container>
-
-
-<ng-container *ngIf="products.length ==0">
-    <div class="container">
-        <div class="card">
-            <h5 class="card-title">My Cart <i class="fa fa-cart-plus"></i></h5>
+              <p style="    color: #8f8b85;
+              letter-spacing: 0.1rem;
+          ">execluding delievry</p>
+            </ul>
+            <button routerLink="/checkout" class="btn6 btn-dark rounded-pill py-2 btn-block">Checkout</button>
+          </div>
         </div>
-        <div class="center">
-            <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
-            <h4>Your cart is empty!</h4>
-            <h6>Add item to it now</h6>
-            <button routerLink="/products" class="btn5 btn-primary">Shop Now</button>
-        </div>
-    </div>
 
-  
-    
-</ng-container>
+
+
+        <div class="whatever">
+          <button style="    margin-right: 18%;
+          margin-left: 22%;
+      " (click)="emptycart()" class="btnn">Remove All</button>
+          <button routerLink="/products" class="btn1 btn-primary">Shop More</button>
+
+      </div>
+
+
+      </ng-container>
+
+
+
+
+
+      <ng-container *ngIf="products.length ==0">
+          <div class="container">
+              <div class="card">
+                  <h5 class="card-title">My Cart <i class="fa fa-cart-plus"></i></h5>
+              </div>
+              <div class="center">
+                  <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+                  <h4>Your cart is empty!</h4>
+                  <h6>Add item to it now</h6>
+                  <button routerLink="/products" class="btn5 btn-primary">Shop Now</button>
+              </div>
+          </div>
+
+
+
+      </ng-container>
+      </body>
