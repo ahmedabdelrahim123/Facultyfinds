@@ -114,9 +114,11 @@ export class HeaderComponent {
           const decodedToken: any = jwt_decode(token);
           const userType = decodedToken.userType;
           if (userType === 'admin') {
+            this.authService.setUserRole('admin');
             this.modalService.dismissAll();
             this.router.navigate(['/adminproducts']);
           } else if (userType === 'user') {
+            this.authService.setUserRole('user');
             this.modalService.dismissAll();
             this.router.navigate(['/']);
           }
@@ -174,7 +176,6 @@ export class HeaderComponent {
 
   logout(): void {
     this.authService.logout();
-    this.router.navigate(['/']);
   }
 
   ngOnInit(): void {

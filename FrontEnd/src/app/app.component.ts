@@ -10,11 +10,14 @@ export class AppComponent implements OnInit{
   userROLE: any;
   constructor(private authService: AuthService){}
 ngOnInit(): void {
-  if(this.authService.isAdmin()){
-      this.userROLE = "admin"
-  }
-  else{
-      this.userROLE = "user"
+  this.authService.getUserRole().subscribe(role => {
+    this.userROLE = role;
+  });
+
+  if (this.authService.isAdmin()) {
+    this.authService.setUserRole('admin');
+  } else {
+    this.authService.setUserRole('user');
   }
 }
 }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from './data.service';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable, BehaviorSubject } from 'rxjs';
 import jwt_decode from 'jwt-decode';
 
 
@@ -12,7 +13,8 @@ export class AuthService {
 user:any;
 userRole:any;
   private readonly Base_URL = 'http://localhost:3000';
-  constructor(private http: HttpClient,private api : DataService) { }
+  private userRoleSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  constructor(private http: HttpClient,private api : DataService, private router: Router,) { }
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
@@ -22,7 +24,6 @@ userRole:any;
     const token = localStorage.getItem('token');
     if(token){
       const decodedToken: any = jwt_decode(token);
-      const userId = decodedToken.userId;
       this.userRole = decodedToken.userType;
       if (this.userRole === "admin"){
         return true;
@@ -39,6 +40,15 @@ userRole:any;
   }
   logout(): void {
     localStorage.clear();
-    this.userRole= undefined;
+    this.userRoleSubject.next('');
+    this.router.navigate(['/']);
+  }
+
+  getUserRole(): Observable<string> {
+    return this.userRoleSubject.asObservable();
+  }
+
+  setUserRole(role: string) {
+    this.userRoleSubject.next(role);
   }
 }
