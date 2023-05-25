@@ -14,9 +14,12 @@
   <div class="body-div center-divs">
     <div class="card mb-3" style="width: 60%;">
       <div class="row g-0">
-
         <span class="sell-text">Create Product</span>
         <hr class="hr-center">
+
+        <div id="error-message" class="alert alert-danger" role="alert" style="display: none; width: 90%; margin-left: 5%;">
+          You have to fill all product data
+        </div>
 
         <div class="col-md-4">
           <label for="image-upload">
@@ -29,7 +32,7 @@
                               imagePreview.src = reader.result;
                             }
                             reader.readAsDataURL(event.target.files[0]);"
-                  style="display: none;" name="image"  #image>
+                  style="display: none;" name="image" required  #image>
         </div>
         <div class="col-md-8 center-divs">
           <div class="card-3 body" style="width:80%">
@@ -40,6 +43,7 @@
                 type="text"
                 class="form-control form-control-sm validate custom-border-bottom"
                 name="title"
+                required
                 #title
               />
             </div>
@@ -51,6 +55,7 @@
                 type="number"
                 class="form-control form-control-sm custom-border-bottom"
                 name="price"
+                required
                 #price
               />
               
@@ -59,11 +64,12 @@
                 type="text"
                 class="form-control form-control-sm custom-border-bottom"
                 name="details"
+                required
                 #details
               />
         
               <label class="product-text">College: </label>
-              <select class="form-select form-control-sm custom-border-bottom" aria-label="Default select example" name="college" #college>
+              <select class="form-select form-control-sm custom-border-bottom" aria-label="Default select example" name="college" required #college>
                 <option selected></option>
                 <option value="science">Science</option>
                 <option value="engineering">Engineering</option>
