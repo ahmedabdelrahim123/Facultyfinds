@@ -22,14 +22,20 @@ export class ProductsComponent implements OnInit {
 
     this.cartService.search.subscribe((val:any)=>{
       this.searchKey = val;
+      
     })
   }
   addToCart(item: any) {
     const cartItem = { ...item }; // create a copy of the item
     cartItem.quantity = item.quantity || 1; // set the quantity to 1 if not specified
     this.cartService.addtoCart(cartItem); // add the item to the cart
-    // item.quantity = null; // reset the quantity selector after adding to cart
+    this.showAddToCartAlert(item.title);
   }
+  
+  showAddToCartAlert(itemTitle: string) {
+    alert(`"${itemTitle}" Item is added to cart successfully!`);
+  }
+
 
   getMyProducts(college?: string): void {
     this.selectedCollege = college;

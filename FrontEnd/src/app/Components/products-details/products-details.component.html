@@ -1,44 +1,44 @@
 
-
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
-</head>
-
-<body>
-  <div class="wrapper">
-    <div class="product-img">
-      <img src="http://localhost:3000/products/{{product.image}}" width="100%" height="518px" id="main_product_image">
-     </div>
-    <div class="product-info">
-      <div class="product-text">
-        <h1 class="title ">{{product?.title}}</h1>
-
-
-        <h2>{{product?.college}}</h2>
-
-           <span style="color: #deaf77;
-           font-size: 34px;
-           font-family: 'Playfair Display';
-           margin-left: 53%;" >Description</span>
-
-           <hr style="margin-left: 60%;">
-           <p>{{product?.details}}</p>
-           </div>
-
-           <div class="price">
-            <p style="float: left;">price:</p>
-           <h3  class="mt-3">{{product?.price}}</h3>
-          </div>
-           <div class="product-price-btn">
-            <div class="buttons d-flex flex-row mt-2 gap-9">
-
-              <button >Buy Now</button>
-                <button>Add to Cart</button>
+     <div class="container" style="margin-top: 3%; background-color: rgb(245, 245, 245);padding: 3%; border-left: 2px solid rgb(198, 146, 51);">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="testimonial-slider" class="owl-carousel">
+                    <div class="testimonial">
+                        <div class="pic">
+                            <img src="http://localhost:3000/products/{{product.image}}"  alt="">
+                        </div>
+                        <div class="testimonial-content">
+                            <h3 class="testimonial-title"> {{product?.title}}
+                              <br>
+                              <br>
+                             
+                              <i style="color: rgb(221, 199, 28);margin-left: 2%;"  class="fa-solid fa-star"></i>
+                              <i style="color: rgb(221, 199, 28);"  class="fa-solid fa-star"></i>
+                              <i style="color: rgb(221, 199, 28);"  class="fa-solid fa-star"></i>
+                              <i style="color: rgb(221, 199, 28);"  class="fa-solid fa-star"></i>
+                              <i style="color: rgb(221, 199, 28);"  class="fa-solid fa-star"></i>
+                               
+                            </h3>
+                            <p class="post"> Recommended by the Faculty of {{product?.college}} department.</p>
+                            <p class="description">
+                                {{product?.details}}
+                        
+                            
+                            </p>
+                            <p class="price">
+                                {{product?.price}}$
+                            </p>
+                           
+                        </div>
+                        <div class="buttons d-flex flex-row mt-2 gap-9">
+  
+                            <button class="btn1">Buy Now</button>
+                              <button class="btn2">Add to Cart</button>
+                              </div>
+                    </div>
+     
+                  
                 </div>
-              </div>
-       </div>
-
-
-  </div>
-
-</body>
+            </div>
+        </div>
+    </div>
