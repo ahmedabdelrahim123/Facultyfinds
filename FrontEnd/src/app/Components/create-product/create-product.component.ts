@@ -32,6 +32,7 @@ export class CreateProductComponent implements OnInit {
       formData.append('college', college);
       formData.append('userID', this.userId);
       formData.append('price', price);
+      (document.getElementById("error-message") as HTMLElement).style.display = "none";
       console.log(formData);
 
       this.dataservice.addNewProduct(formData).subscribe(
@@ -40,7 +41,10 @@ export class CreateProductComponent implements OnInit {
         },
         (err) => {}
       );
-      this.router.navigate(['/home']);
+      this.router.navigate(['/productadded']);
+    }
+    else{
+      (document.getElementById("error-message") as HTMLElement).style.display = "block"; // show error message
     }
   }
 
