@@ -33,9 +33,9 @@ let createProduct = async (req, res) => {
   let newProduct = new productsModel({
     title: data.title,
     price: data.price,
-    image: image,
     details: data.details,
     college: data.college,
+    image: image,
     // userID: data.userID
   });
   await newProduct.save();

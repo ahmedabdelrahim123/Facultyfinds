@@ -12,20 +12,20 @@ export class CreateProductComponent {
   constructor (private dataservice: DataService){
 
   }
-  AddProduct(title: any, price: any, details: any, college: any, image: any, userID: any) {
+  AddProduct(title: any, price: any, details: any, college: any, image: any) {
     if (image.files && image.files.length > 0) {
       this.imageFile = image.files[0];
       const formData = new FormData();
       formData.append('image', image.files[0]);
       formData.append('title', title);
+      formData.append('price', price);
       formData.append('details', details);
       formData.append('college', college);
-      formData.append('userID', userID);
       console.log(formData.get('image'));
 
       this.dataservice.addNewProduct(formData).subscribe(
         () => {
-          console.log("bakbok");
+          console.log('bakbok')
         },
         (err) => {
         }
@@ -33,3 +33,4 @@ export class CreateProductComponent {
     }
   }
 }
+

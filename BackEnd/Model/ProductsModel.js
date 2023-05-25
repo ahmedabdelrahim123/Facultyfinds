@@ -18,15 +18,15 @@ const productsSchema = new mongoose.Schema({
     type: "number",
     required: true,
   },
-  image: {
-    type: "string",
-    required: true,
-  },
   details: {
     type: "string",
     required: true,
   },
   college: {
+    type: "string",
+    required: true,
+  },
+  image: {
     type: "string",
     required: true,
   }
