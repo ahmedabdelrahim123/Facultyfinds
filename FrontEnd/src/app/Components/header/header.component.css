@@ -1,5 +1,20 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
+.modal-content {
+  overflow-x: hidden;
+  max-width: 90%;
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+}
 
+/* Media query for smaller screens */
+@media (max-width: 576px) {
+  .modal-content {
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+}
 
 .search-icon {
   position: absolute;
@@ -52,7 +67,7 @@ label{
 
 }
 
-.modal-content { 
+.modal-content {
   width: 450px;
   background-color: #0a2956;
 }
@@ -102,7 +117,7 @@ label{
   height: 40px;
 
   width: 40%;
-  
+
 }
 
 .btnn:hover{
@@ -118,7 +133,7 @@ label{
   border: none;
   height: 40px;
   width: 40%;
-  
+
 }
 
 .btnnn:hover{

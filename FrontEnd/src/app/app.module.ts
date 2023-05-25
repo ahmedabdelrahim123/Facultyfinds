@@ -32,6 +32,8 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorInterceptor } from './Services/auth-interceptor.interceptor';
 import { UserProductsComponent } from './Components/user-products/user-products.component';
+import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
+import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { UserProductsComponent } from './Components/user-products/user-products.
     UpdateUserComponent,
     SidebarComponent,
     UserProductsComponent,
+    TermsOfServiceComponent,
+    RefundPolicyComponent,
   ],
   imports: [
     BrowserModule,

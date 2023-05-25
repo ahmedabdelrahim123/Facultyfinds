@@ -1,0 +1,15 @@
+@media (max-width: 767px) {
+  /* Adjust the styling for screens smaller than 768px in width */
+  .col-footer {
+    margin-bottom: 20px;
+  }
+  .footer-top {
+    padding-top: 30px;
+  }
+  .foot-title {
+    margin-bottom: 20px;
+  }
+  .foot-link {
+    font-size: 14px;
+  }
+}
