@@ -8,11 +8,12 @@ import { CartService } from 'src/app/Services/cart.service';
 })
 export class CartComponent {
 
-  public products : any = [];
+
   public grandTotal: number = 0;
   public TotalPrice !: number;
   public totalItem : number = 0;
   public totalQuantity: number = 0;
+  public products : any = [];
  
 
   constructor(private cartService : CartService) { }
@@ -80,7 +81,6 @@ export class CartComponent {
     this.cartService.updateCartItem(item);
     this.grandTotal = this.cartService.getTotalPrice();
   }
-  
   
  
 }

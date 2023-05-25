@@ -7,7 +7,7 @@ import { CartService } from 'src/app/Services/cart.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import jwt_decode from 'jwt-decode';
 import { ThemeService } from '../../Services/theme.service';
-import { ChangeDetectorRef } from '@angular/core';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -37,8 +37,7 @@ export class HeaderComponent {
     private myService: DataService,
     private router: Router,
     private authService: AuthService,
-    private theme: ThemeService,
-    private changeDetectorRef: ChangeDetectorRef
+    private theme: ThemeService
   ) {
     this.type = 'user';
     this.orders = [];
@@ -114,7 +113,6 @@ export class HeaderComponent {
         if (token) {
           const decodedToken: any = jwt_decode(token);
           const userType = decodedToken.userType;
-          this.changeDetectorRef.detectChanges();
           if (userType === 'admin') {
             this.modalService.dismissAll();
             this.router.navigate(['/adminproducts']);
