@@ -1,15 +1,11 @@
-
-<div  *ngIf="user" class="container mt-5" >
-
-
-  <div class="row d-flex justify-content-center" style="background-color: rgb(246, 246, 246);">
-
+<h1 class="d-flex align-items-center justify-content-center">My Profile</h1>
+<div  *ngIf="user" class="container mt-2" >
+  <div class="row d-flex justify-content-center">
       <div class="col-md-7" style="margin-top: 1%;">
-
           <div class="card p-3 py-4" >
 
               <div class="text-center">
-                  <img src="http://localhost:3000/uploads/{{user.image}}" width="200" class="rounded-circle">
+                  <img src="http://localhost:3000/uploads/{{user.image}}" width="200" height="200" class="rounded-circle">
               </div>
 
 
@@ -24,35 +20,43 @@
 
                   <div class="col-sm-8">
                       <div class="card-block">
-                          <h6 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-bottom: 5%; font-size: 22px; color: rgb(15, 86, 111);">My Information</h6>
-                          <div class="row">
-                              <div class="col-sm-6">
-
-                                  <div class="col-md-6">
-                                    <label style="margin-left: 7%;" class="labels">username</label><input style="margin-left: 7%;" type="text" class="form-control" placeholder="user name" value={{user.username}} name="username"></div>
+                          <h6 class="d-flex align-items-center justify-content-center" style="margin-left: 45%; font-size: 22px; color: rgb(15, 86, 111);">My Information</h6>
+                            <hr style="width:187px; margin-left: 250px;">
+                          <div class="row" style="width: 800px;">
+                              <div class="col-6">
+                                    <label style="margin-left: 5%; display: inline;" class="labels">username:</label>
+                                    <span style="margin-left: 7%;" >{{user.username}}</span>
                               </div>
-                              <div class="col-sm-6">
 
-                                  <div class="col-md-12"><label style="margin-left: 70%;" class="labels">Email</label><input type="text" style="margin-left: 70%;" class="form-control" value={{user.email}}  name="email"></div>
+                                  <div class="col">
+                                    <label style="margin-left: 20%;display: inline;" class="labels">Email:</label>
+                                    <span style="margin-left: 5%;" >{{user.email}}</span>
                               </div>
                           </div>
-                          <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600" style="margin-bottom: 5%; margin-top: 2%; font-size: 22px; color: rgb(7, 70, 125);">More details</h6>
+                          <br>
+                          <div class="row" style="width: 800px;">
+                            <div class="col-6">
+                                  <label style="margin-left: 5%; display: inline;" class="labels">Gender:</label>
+                                  <span style="margin-left: 7%;" >{{user.gender}}</span>
+                            </div>
+                        </div>
+                        <br>
+                          <h6 class="d-flex align-items-center justify-content-center" style="margin-left: 45%; font-size: 22px; color: rgb(15, 86, 111);">More details</h6>
+                          <hr style="width:187px; margin-left: 250px;">
                           <div class="row">
 
                                   <div class="col-sm-6">
 
-                                      <div class="col-md-12"><label style="margin-left: 7%;" class="labels">Gender</label><input style="margin-left: 7%;" type="text" class="form-control" value={{user.gender}}></div>
+                                    <div class="col-md-12"><label style="margin-left: 70%; "class="labels">Products</label>
+                                      <button style="margin-left: 40%;margin-top: 10%;" class="btnn" routerLink="/user-products">Products</button></div>
                                   </div>
 
 
                               <div class="col-sm-6">
 
-                                <div class="col-md-12"><label style="margin-left: 70%; "class="labels">Orders</label><button style="margin-left: 70%;margin-top: 10%;" class="btnn" routerLink="/orders">Order Details</button></div>
+                                <div class="col-md-12"><label style="margin-left: 110%; "class="labels">Orders</label>
+                                  <button style="margin-left: 80%;margin-top: 10%;" class="btnn" routerLink="/orders">Order Details</button></div>
                             </div>
-
-                            <div class="col-sm-6">
-                              <div class="col-md-12"><label style="margin-left: 70%; "class="labels">Products</label><button style="margin-left: 70%;margin-top: 10%;" class="btnn" routerLink="/user-products">Products</button></div>
-                          </div>
 
                           </div>
 
@@ -63,7 +67,7 @@
 
                   <div class="buttons">
 
-                      <button class="btn" [routerLink]="['/updateuser', user?._id]"> <i class="far fa-edit"> </i>Edit profile</button>
+                      <button class="btn" style="margin-left: 33%;" [routerLink]="['/updateuser', user?._id]"> <i class="far fa-edit"> </i>Edit profile</button>
 
                   </div>
 
