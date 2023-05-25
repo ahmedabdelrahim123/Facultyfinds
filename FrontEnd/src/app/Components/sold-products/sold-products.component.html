@@ -1,0 +1,18 @@
+<h1>Sold Products</h1>
+<!-- let order of orders -->
+
+<div *ngIf="hasSoldProduct">
+  <!-- <p>{{ hasSoldProduct }}</p> -->
+  <p>Hey! This is your sold products:</p>
+  <div *ngFor="let order of orders; let i = index">
+    <span>the buyer: </span>
+    <span>{{ order.userID.username }}</span>
+    <span>product:</span>
+    <span>{{ soldProduct[i].title }}</span>
+    <br />
+    <br />
+  </div>
+</div>
+<div *ngIf="!hasSoldProduct">
+  <p>There are no sold products yet</p>
+</div>
