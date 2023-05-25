@@ -16,6 +16,7 @@ import { DashboradComponent } from './Components/dashborad/dashborad.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { UpdateProductComponent } from './Components/update-product/update-product.component';
 import { DashboardProductsComponent } from './Components/dashboard-products/dashboard-products.component';
+import { ProductAddedComponent } from './Components/product-added/product-added.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'contactus', component: ContactusComponent },
   { path: 'adminproducts', component: DashboardProductsComponent },
   { path: 'createproduct', component: CreateProductComponent },
+  { path: 'productadded', component: ProductAddedComponent },
   { path: 'updateproduct/:id', component: UpdateProductComponent },
   {
     path: 'profile',
