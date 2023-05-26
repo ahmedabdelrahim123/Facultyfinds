@@ -24,6 +24,7 @@ import { TermsOfServiceComponent } from './Components/terms-of-service/terms-of-
 import { RefundPolicyComponent } from './Components/refund-policy/refund-policy.component';
 import { ProductAddedComponent } from './Components/product-added/product-added.component';
 import { SoldProductsComponent } from './Components/sold-products/sold-products.component';
+import { OrderCreatedComponent } from './Components/order-created/order-created.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -53,6 +54,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
 
   { path: 'terms_of_service', component: TermsOfServiceComponent },
+  { path: 'ordercreated', component: OrderCreatedComponent },
   { path: 'refund_policy', component: RefundPolicyComponent },
 
   { path: 'contactus', component: ContactusComponent },

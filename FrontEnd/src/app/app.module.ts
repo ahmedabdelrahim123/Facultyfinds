@@ -36,6 +36,7 @@ import { TermsOfServiceComponent } from './Components/terms-of-service/terms-of-
 import { RefundPolicyComponent } from './Components/refund-policy/refund-policy.component';
 import { ProductAddedComponent } from './Components/product-added/product-added.component';
 import { SoldProductsComponent } from './Components/sold-products/sold-products.component';
+import { OrderCreatedComponent } from './Components/order-created/order-created.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { SoldProductsComponent } from './Components/sold-products/sold-products.
     RefundPolicyComponent,
     ProductAddedComponent,
     SoldProductsComponent,
+    OrderCreatedComponent,
   ],
   imports: [
     BrowserModule,

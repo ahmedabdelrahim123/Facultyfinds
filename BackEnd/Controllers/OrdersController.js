@@ -2,14 +2,11 @@
 const ordersModel = require("../Model/OrdersModel");
 const jwt = require("jsonwebtoken");
 
-// const session = require("../middlewares/session");
 
 let getAllOrders = async (req, res) => {
-  // let data = await ordersModel.find({}).populate('userID', 'username').populate('product.pID', 'title price');
-  // res.json(data);
   let data = await ordersModel
     .find({})
-    .populate("userID", "username")
+    .populate("userID", "username email")
     .populate("product.pID", "title price userId ");
   const totalOrdersCount = await ordersModel.countDocuments();
   const pendingOrders = await ordersModel

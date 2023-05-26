@@ -70,40 +70,39 @@
 
 
      <div class="products">
-                 <div class="card "  *ngFor="let item of productList" style="background-color: #ffffff;">
-                   <a [routerLink]="['/products', item._id]" style="text-decoration: none;">
-                     <div class="card-image">
-                         <img
-                             src="http://localhost:3000/products/{{item.image}}"  style="width: 100%;"/>
-                     </div>
-                     <h5 style="
+      <div class="card" *ngFor="let item of productList" [ngClass]="{ 'disabled-card': item.statue === 'sold' }" style="background-color: #ffffff;">
+        <a [routerLink]="['/products', item._id]" style="text-decoration: none;">
+          <div class="card-image">
+            <img src="http://localhost:3000/products/{{item.image}}" style="width: 100%;" />
+          </div>
+          <h5 style="
+              margin-top: 8%;
+              /* margin-left: 10%; */
+              font-family: math;
+              text-align: center;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 100ch;
+              font-weight: 600;
+              letter-spacing: 0.1rem;
+              color: #10458d;
+          ">{{item.title}}</h5>
 
-                         margin-top: 8%;
-                         /* margin-left: 10%; */
-                         font-family: math;
-                         text-align: center;
-                         white-space: nowrap;
-                         overflow: hidden;
-                         text-overflow: ellipsis;
-                         max-width: 100ch;
-                         font-weight: 600;
-                         letter-spacing: 0.1rem;
-                         color: #10458d;
-                     ">{{item.title}}</h5>
+          <p style="font-family: monospace;
+              font-size: 18px;
+              text-align: center;
+              font-weight: 300;
+              color: rgb(120 131 133);"><strong>Price:</strong> ${{item.price}}</p>
+        </a>
 
-                     <p style="font-family: monospace;
-                     font-size: 18px;
-                     text-align: center;
-                     font-weight: 300;
-                     color: rgb(120 131 133);"><strong>Price:</strong> ${{item.price}}</p>
-                   </a>
-                       <!-- Quantity Selector -->
-
-                   <!-- Total Price -->
+        <button class="card-button" [disabled]="item.statue === 'sold'"
+        [ngStyle]="{'background-color': item.statue === 'sold' ? 'red' : ''}"
+        (click)="addToCart(item)">
+          {{ item.statue === 'sold' ? 'Sold Out' : 'Add to Cart' }}
+        </button>
+      </div>
 
 
-                   <!-- Add to Cart Button -->
-                   <button class="card-button"  (click)="addToCart(item)">Add to Cart</button>
-
-                 </div></div>
+      </div>
      </div></div>

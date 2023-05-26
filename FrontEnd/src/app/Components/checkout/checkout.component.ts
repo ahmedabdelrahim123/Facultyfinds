@@ -157,7 +157,7 @@ export class CheckoutComponent {
       }
       // alert(errorMsg);
     } else if (this.myForm.valid) {
-      this.router.navigate(['/strip']);
+      this.router.navigate(['/ordercreated']);
     } else {
       alert('Invalid data');
     }
