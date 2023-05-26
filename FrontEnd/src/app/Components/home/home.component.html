@@ -1,8 +1,11 @@
+<div class="alert alert-danger" role="alert"*ngIf="alertVisible">
+  Please Login First
+</div>
 <!--background image-->
 <div class="bg-image container">
   <div class="cover-items">
-    <button class="background_btn" routerLink="/products">BUY</button>
-    <button class="background_btn" routerLink="/createproduct">SELL</button>
+    <button class="background_btn me-2" routerLink="/products"(click)="showAlert()">BUY</button>
+    <button class="background_btn" routerLink="/createproduct"(click)="showAlert()">SELL</button>
   </div>
 </div>
 <br />

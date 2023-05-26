@@ -2,41 +2,40 @@
 /* at pc */
 @media (min-width: 600px){
 
-    /* bg image */
-    .bg-image {
-        background-image: url('../../../assets/home/background_pc.jpeg');
-        background-repeat: no-repeat;
-        background-position: top center;
-        display: flex;
-        height: 70vh;
-        background-size: cover;
-        width: 100%;
-    }
+  .bg-image {
+    position: relative;
+    background-image: url('../../../assets/home/background_pc.jpeg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    display: flex;
+    height: 70vh;
+    background-size: cover;
+    width: 100%;
+}
 
-    /* cover items */
-    .cover-items {
-        position: absolute;
-        top: 23%;
-        left: 55%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: #fff;
-    }
+/* cover items */
+.cover-items {
+    position: absolute;
+    top: 23%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
 
-    /* bg buttons */
-    .background_btn {
-        width: 100px;
-        height: 40px;
-    }
-
+/* bg buttons */
+.background_btn {
+    width: 100px;
+    height: 40px;
+}
     /* shop by category h1 */
     .h_category{
         font-size: xx-large;
         font-weight: bold;
         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         text-align: center;
-    }  
-    
+    }
+
     /* parent div of cards */
     .card_div{
         margin-right: 20px;
@@ -76,7 +75,7 @@
         width: 100px;
         height: 40px;
     }
-    
+
 
     /* shop by category h1 */
     .h_category{
@@ -136,13 +135,13 @@
         background-position: left bottom;
     }
     }
-    
+
     .background_btn:hover {
         animation-name: color-mix;
         animation-duration: 1.5s;
         animation-fill-mode: forwards;
     }
-    
+
     @keyframes color-mix {
     0% {
         background-position: left bottom;
