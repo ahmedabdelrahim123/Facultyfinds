@@ -163,21 +163,32 @@ export class CheckoutComponent {
     }
   }
 
-  ordercreate(){
+  ordercreate() {
     // const formData = new FormData();
     const token = localStorage.getItem('token');
     if (token) {
       const decodedToken: any = jwt_decode(token);
       const userID = decodedToken.userId;
-      console.log(userID);
-      const products = this.products.map((product:any) => {
+      // console.log(userID);
+      this.products = this.products.map((product: any) => {
         return { pID: product._id, quantity: product.quantity };
       });
-      const order = { products, userID, Total: this.Total };
+      // console.log(this.products);
 
-    this.myService.createorder(order).subscribe(res=>{
-  });
+      const order = { products: this.products, userID, Total: this.Total };
+
+      this.myService.createorder(order).subscribe((res) => {});
+    }
   }
-
+  updateProduct() {
+    // console.log(this.products);
+    let products = this.products;
+    console.log('this is products: ', products);
+    for (let product of products) {
+      console.log(product.pID);
+      this.myService
+        .updateProduct(product.pID, { quantity: product.quantity })
+        .subscribe((res) => {});
+    }
   }
 }
