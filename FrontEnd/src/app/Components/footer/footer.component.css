@@ -13,3 +13,13 @@
     font-size: 14px;
   }
 }
+.site-footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+

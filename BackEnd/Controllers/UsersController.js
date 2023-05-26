@@ -1,8 +1,12 @@
 const validate = require("../Utils/userSchema");
 const usersModel = require("../Model/UsersModel");
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+// import * as bcrypt from 'bcryptjs';
+// const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
+//import * as bcrypt from 'bcrypt';
 const jwt = require("jsonwebtoken");
+const { Console } = require("console");
 
 let getAllUsers = async (req, res) => {
   let data = await usersModel.find({});

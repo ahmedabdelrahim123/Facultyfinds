@@ -1,18 +1,17 @@
-<h1>Sold Products</h1>
-<!-- let order of orders -->
+<div style="text-align: center;">
+<h1 >Sold Products</h1>
 
-<div *ngIf="hasSoldProduct">
-  <!-- <p>{{ hasSoldProduct }}</p> -->
-  <p>Hey! This is your sold products:</p>
-  <div *ngFor="let order of orders; let i = index">
-    <span>the buyer: </span>
-    <span>{{ order.userID.username }}</span>
-    <span>product:</span>
-    <span>{{ soldProduct[i].title }}</span>
-    <br />
-    <br />
+</div>
+
+<div *ngIf="hasSoldProduct" class ="notify">
+  <p style="text-align: center;" id="welcome">Hello! This is your sold products:</p>
+  <div *ngFor="let order of orders; let i = index" class="orders">
+    <p>The <span>{{ soldProduct[i].title }} </span>product that you offered for sale was purchased by the user <span>[{{ order.userID.username }}] </span>
+      at date <span>{{order.date}}</span>, his email address is <span>[{{ order.userID.email}}]</span>, so please contact him to complete the sale process.
+    </p>
+<hr/>
   </div>
 </div>
-<div *ngIf="!hasSoldProduct">
-  <p>There are no sold products yet</p>
+<div *ngIf="!hasSoldProduct" class="notSold">
+  <p class="sorry">Sorry <i class="fa-solid fa-face-sad-tear sad" ></i>, There are no sold products yet</p>
 </div>

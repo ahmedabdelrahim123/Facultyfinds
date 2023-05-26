@@ -68,7 +68,7 @@
   display: block;
   padding-top: 1%;
 
-  
+
   transition: 0.3s ease-in-out;
 }
 
@@ -99,3 +99,4 @@
 h6:hover{
   color: #d9a655;
 }
+
