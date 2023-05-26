@@ -33,6 +33,7 @@ let createProduct = async (req, res) => {
   let newProduct = new productsModel({
     title: data.title,
     price: data.price,
+    quantity: data.quantity,
     image: image,
     details: data.details,
     college: data.college,
@@ -45,11 +46,12 @@ let createProduct = async (req, res) => {
 let updateProduct = async (req, res) => {
   try {
     let id = req.params.id;
-    let product = await productsModel.findById({ _id: id });
-    const { title, price, details, college } = req.body;
+    let product = await productsModel.findById(id);
+    const { title, price, quantity, details, college } = req.body;
     let image = product.image;
+
     if (req.file) {
-        image = req.file.filename;
+      image = req.file.filename;
 
       if (product.image && product.image !== image) {
         // If the existing image is different from the new image, delete the old image file
@@ -58,14 +60,30 @@ let updateProduct = async (req, res) => {
     } else if (!req.body.image) {
       image = product.image;
     }
-    await productsModel.updateOne(
-      { _id: req.params.id },
-      { title, price,details, college, image },
-      { new: true }
-    );
-    res.status(200).json({ message: "product updated successfully" });
+
+    // Update only the properties that are provided in the request body
+    product.title = title || product.title;
+    product.price = price || product.price;
+    product.details = details || product.details;
+    product.college = college || product.college;
+
+    if (quantity) {
+      product.quantity = Math.max(0, product.quantity - quantity);
+      if (product.quantity === 0) {
+        product.statue = "sold";
+        console.log(product.statue);
+      }
+    }
+
+    product.image = image;
+
+    await product.save(); // Save the updated product
+    res.status(200).json({ message: "Product updated successfully" });
   } catch (error) {
     console.error(error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while updating the product" });
   }
 };
 
