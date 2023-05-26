@@ -6,68 +6,43 @@
 
 
     <div style="display: flex; flex-direction: row;">
-
-     <div style="
-
-     width: 20%;
-     margin-top: 7%;
-     height: 50%;
-     margin-left: 2%;
-
-     padding: 2%;
-     border-left: 2px solid rgb(209, 169, 58);
-     background-color: #ffffff;
-
-     ">
-
-
- <a (click)="getMyProducts()">
-
-     <h6 style="font-size: 24px;
-     letter-spacing: 0.3rem;
-     color: rgb(209, 169, 58);
-  ;
- ">All products</h6>
- </a>
-
- <div class="input-group">
-     <div class="form-outline" style="width: 100%; margin-top: 7%; height: 35px;">
-       <input type="search"  type="search" id="search" name="search" autocomplete="off"  (input)="searchProductsByTitle($event)" placeholder="search..." />
-
-     </div>
-
-   </div>
- <a (click)="getMyProducts('engineering')">
-
-     <h6 style="font-size: 18px; margin-top: 60px;">Engineering</h6>
- </a>
- <hr>
- <a (click)="getMyProducts('science')">
-
-     <h6 style="font-size: 18px; margin-top: 40px">Science</h6>
- </a>
- <hr>
- <a (click)="getMyProducts('Pharmacy')">
-
-     <h6 style="font-size: 18px;margin-top: 40px">Pharmacy</h6>
- </a>
- <hr>
- <a (click)="getMyProducts('Medicine')">
-
-     <h6 style="font-size: 18px;margin-top: 40px">Medicine</h6>
- </a><hr>
-
- <a (click)="getMyProducts('Arts')">
-
-     <h6 style="font-size: 18px;margin-top: 40px">Arts</h6>
- </a>
- <hr>
- <a (click)="getMyProducts('Dentistry')">
-
-     <h6 style="font-size: 18px;margin-top: 40px">Dentistry</h6>
- </a>
-     </div>
-
+   <div class="sidebar">
+      <div class="container">
+        <div class="row">
+            <a (click)="getMyProducts()">
+              <h6 style="font-size: 24px; letter-spacing: 0.3rem; color: rgb(209, 169, 58);">All products</h6>
+            </a>
+            <div class="input-group" style="margin-top: 7%; height: 35px;">
+              <div class="form-outline" style="width: 100%;">
+                <input type="search" type="search" id="search" name="search" autocomplete="off" (input)="searchProductsByTitle($event)" placeholder="search..." />
+              </div>
+            </div>
+            <a (click)="getMyProducts('engineering')">
+              <h6 style="font-size: 18px; margin-top: 3vh;">Engineering</h6>
+            </a>
+            <hr>
+            <a (click)="getMyProducts('science')">
+              <h6 style="font-size: 18px; margin-top:3vh;">Science</h6>
+            </a>
+            <hr>
+            <a (click)="getMyProducts('Pharmacy')">
+              <h6 style="font-size: 18px; margin-top: 3vh;">Pharmacy</h6>
+            </a>
+            <hr>
+            <a (click)="getMyProducts('Medicine')">
+              <h6 style="font-size: 18px; margin-top: 3vh;">Medicine</h6>
+            </a>
+            <hr>
+            <a (click)="getMyProducts('Arts')">
+              <h6 style="font-size: 18px; margin-top: 3vh;">Arts</h6>
+            </a>
+            <hr>
+            <a (click)="getMyProducts('Dentistry')">
+              <h6 style="font-size: 18px; margin-top: 3vh;">Dentistry</h6>
+            </a>
+        </div>
+      </div>
+    </div>
 
      <div class="products">
       <div class="card" *ngFor="let item of productList" [ngClass]="{ 'disabled-card': item.statue === 'sold' }" style="background-color: #ffffff;">
