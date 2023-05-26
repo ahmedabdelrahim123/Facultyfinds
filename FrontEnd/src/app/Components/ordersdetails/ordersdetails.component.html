@@ -1,8 +1,8 @@
     <div class="container">
       <h1>Orders List</h1>
       <a routerLink="/profile" class="btn btn-back" style="background-color: #cfb341; color:white;">Back to Orders</a>
-      <div class="row">
-        <div class="col-md-4" *ngFor="let order of orders">
+      <div class="row" *ngIf="hasOrders">
+        <div class="col-md-4" *ngFor="let order of orders" >
           <div class="card">
             <div class="card-header"style="background-color: #cfb341;">
               <h4>Order Details</h4>
@@ -42,6 +42,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div *ngIf="!hasOrders"  class="noOrders">
+        <p class="sorry">you have not placed any order from our site yet, you can order now.</p>
       </div>
     </div>
 
