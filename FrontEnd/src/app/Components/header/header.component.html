@@ -22,23 +22,23 @@
         font-weight: 500;
         ">
           <li class="nav-item4" style="margin-left: 130px">
-            <a class="text-decoration-none text-dark" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/home">Home</a>
+            <span  [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/home">Home</span>
           </li>
           <li class="nav-item1" style="margin-left: 130px">
-            <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/products" class="text-decoration-none text-dark"(click)="showAlert()">Products</a>
+            <span [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/products" class="text-decoration-none text-dark"(click)="showAlert()">Products</span>
           </li>
           <li class="nav-item5" style="margin-left: 130px">
-            <a class="text-decoration-none text-dark" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/about">About</a>
+            <span [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/about">About</span>
           </li>
           <li class="nav-item6" style="margin-left: 100px">
-            <a class="text-decoration-none text-dark" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/contactus">Contact US</a>
+            <span [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/contactus">Contact US</span>
           </li>
 
         </ul>
            <!-- Right Side Of Navbar -->
            <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <button style="border: none; background-color: white;" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="cart">
+              <button style="border: none; background-color: white;"  routerLink="cart">
                 <i style="font-size: 30px" class="fa fa-cart-plus"></i>
                 <div style="font-size: 10px" class="badge bg-danger">
                   {{ totalItem }}

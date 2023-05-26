@@ -5,5 +5,13 @@
   color:rgb(167, 162, 162);
 }
 
+.active{
+  color: #edd375;
+  text-decoration: underline;
+}
+
+.active:hover{
+  color: black;
+}
 
 

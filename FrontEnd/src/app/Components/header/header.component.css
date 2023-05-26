@@ -2,7 +2,9 @@
 
 
 
-
+.nav-item4, .nav-item1, .nav-item5 ,.nav-item6{
+  cursor: pointer;
+}
 .modal-content {
   overflow-x: hidden;
   max-width: 90%;
@@ -13,6 +15,7 @@
 .navbar-collapse {
   overflow: visible !important;
 }
+
 /* Media query for smaller screens */
 @media (max-width: 576px) {
   .modal-content {
