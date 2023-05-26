@@ -58,8 +58,8 @@ export class UpdateUserComponent {
 
       this.dataservice.updateUser(this.ID, formData).subscribe((res) => {
         this.router.navigate(['/profile']).then(() => {
-          location.reload();
-        });
+        location.reload();
+      });
       });
 
 
