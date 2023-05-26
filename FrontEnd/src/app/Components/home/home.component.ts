@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
       this.alertVisible=true;
       setTimeout(() => {
         this.alertVisible = false;
-      }, 1000);
+      }, 3000);
     }
   }
   isAuthenticated(): boolean {
