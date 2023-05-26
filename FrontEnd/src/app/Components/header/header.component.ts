@@ -175,7 +175,7 @@ export class HeaderComponent {
       this.alertVisible=true;
       setTimeout(() => {
         this.alertVisible = false;
-      }, 1000);
+      }, 3000);
     }
   }
   isAuthenticated(): boolean {
