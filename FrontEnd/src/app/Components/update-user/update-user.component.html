@@ -1,4 +1,24 @@
-<form  class="box" enctype="multipart/form-data" (ngSubmit)="
+<div class="d-flex align-items-center justify-content-center">
+          <div class="container">
+            <h1>Edit Profile</h1>
+            <hr>
+          <div class="row align-items-center justify-content-center">
+              <!-- left column -->
+              <div class="col-md-3 ">
+                <div class="text-center">
+                  <img src="http://localhost:3000/uploads/{{user.image}}" width="300" height="300" class="avatar img-circle" alt="profile">
+
+                  <h6 class="mt-3">Upload a different photo...</h6>
+
+                  <input type="file" class="form-control" name="image"  value={{user.image}} #image>
+                </div>
+              </div>
+
+              <!-- edit form column -->
+              <div class="col-md-3 personal-info">
+                <h3>Personal info</h3>
+
+                <form  class="form-horizontal" role="form" enctype="multipart/form-data" (ngSubmit)="
               UpdateUser(
                 email.value,
                 username.value,
@@ -6,33 +26,31 @@
                 maleRadio.checked ? 'male' : 'female',
                 image)">
 
-
-
-
-               <div class="frm" style="margin-top: 10%;">
-                <input type="text" class="form-control form-control-sm validate custom-border-bottom" placeholder="enter a username" value={{user.username}} name="username" #username/>
-
-
-            </div>
-
-
-            <div class="md-form form-sm mb-5">
-
-                <input type="email" class="form-control form-control-sm custom-border-bottom"  placeholder="enter your email address" value={{user.email}}  name="email" #email/>
-
-
-
-                <input type="password" class="form-control form-control-sm custom-border-bottom" placeholder="enter a strong password" name="password" value={{user.password}}  #password/>
-
-
-            </div>
-
-
-
-          <div class="imgg">
-            <input style="background-color: #9da5a2;" type="file" name="image"  value={{user.image}} #image>
-          </div>
-          <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: white; margin-bottom: 2%;" ></i>
+                  <div class="form-group">
+                    <label class="col-lg-4 control-label">User name:</label>
+                    <div class="col-lg-8 mt-2">
+                      <input class="form-control" type="text" class="field" value={{user.username}} name="username" #username>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label class="col-lg-3 control-label">Email:</label>
+                    <div class="col-lg-3 mt-2">
+                      <input class="form-control" type="email" class="field" value={{user.email}}  name="email" #email>
+                    </div>
+                    <br>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label">Password:</label>
+                    <div class="col-md-3 mt-2">
+                      <input class="form-control" type="password" class="field" name="password" value={{user.password}}  #password>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label">Gender:</label>
+                    <div class="col-md-3 mt-3">
+                      <!-- <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: white; margin-bottom: 2%;" ></i> -->
 
             <div class="form-check">
               <input class="form-check-input" type="radio" name="gender" value="male" #maleRadio [checked]="user.gender === 'male'">
@@ -44,17 +62,22 @@
               <label class="form-check-label" for="female">Female</label>
             </div>
 
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-15">
+                      <input class="btnn" type="submit"  value="Save Changes">
+                      <span></span>
+                      <input type="reset" class="btnn2" value="Cancel">
+                    </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+        </div>
+</div>
 
-            <div class="text-center form-sm mt-2">
-              <button
-                class="btnnn"
-                type="submit"
-              >
-                update <i class="fas fa-sign-in ml-1"></i>
-              </button>
-            </div>
-
-          </form>
 
 
 
