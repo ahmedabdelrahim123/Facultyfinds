@@ -1,4 +1,8 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+
+
+
 .modal-content {
   overflow-x: hidden;
   max-width: 90%;
@@ -6,7 +10,9 @@
   height: 500px;
   margin: 0 auto;
 }
-
+.navbar-collapse {
+  overflow: visible !important;
+}
 /* Media query for smaller screens */
 @media (max-width: 576px) {
   .modal-content {
@@ -15,6 +21,91 @@
     margin: 0;
   }
 }
+.nav-item4{
+  color:#999;
+  background:rgba(255, 255, 255, 0.5);
+  padding:10px 20px;
+  font-size:12px;
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  /* box-shadow: 2px 2px 2px rgba(230, 229, 229, 0.8) */
+  
+}
+.nav-item4:hover{
+  border:none;
+  background:rgba(0, 0, 0, 0.4);
+  background:#edd375;
+  /* padding:10px 20px; */
+  color:black;
+  box-shadow: 2px 2px 4px rgba(182, 178, 178, 0.4)
+}
+.nav-item5{
+  color:#999;
+  background:rgba(255, 255, 255, 0.5);
+  padding:10px 20px;
+  font-size:12px;
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  /* box-shadow: 2px 2px 2px rgba(230, 229, 229, 0.8) */
+  
+}
+.nav-item5:hover{
+  border:none;
+  background:rgba(0, 0, 0, 0.4);
+  background:#edd375;
+  /* padding:10px 20px; */
+  color:black;
+  
+}
+
+.nav-item6{
+  color:#999;
+  background:rgba(255, 255, 255, 0.5);
+  padding:10px 20px;
+  font-size:12px;
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  /* box-shadow: 2px 2px 2px rgba(230, 229, 229, 0.8) */
+  
+}
+.nav-item6:hover{
+  border:none;
+  background:rgba(0, 0, 0, 0.4);
+  background:#edd375;
+  /* padding:10px 20px; */
+  color:black;
+ 
+}
+.nav-item1{
+  color:#999;
+  background:rgba(255, 255, 255, 0.5);
+  padding:10px 20px;
+  font-size:12px;
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  /* box-shadow: 2px 2px 2px rgba(230, 229, 229, 0.8) */
+  
+}
+.nav-item1:hover{
+  border:none;
+  background:rgba(0, 0, 0, 0.4);
+  background:#edd375;
+  /* padding:10px 20px; */
+  color:black;
+
+}
+.nav-link3{
+  border: none;
+padding: 10px;
+padding-top: 7px;
+  color: #d6b212;
+}
+
+
 
 .search-icon {
   position: absolute;
@@ -43,6 +134,44 @@ label{
   animation-iteration-count: 3;
   color: #9f840c;
 }
+
+@media (width:500px){
+.nav-item1:hover{
+
+background-color: white;
+
+
+}
+.nav-item1{
+  background-color: white;
+}
+.nav-item4{
+
+padding-right: 400px;
+background-color: white;
+}
+
+.nav-item4:hover{
+  background-color: white;
+  
+
+}
+.nav-item5{
+  background-color: white;
+  margin-right: 30px;
+}
+
+.nav-item5:hover{
+  background-color: white;
+}
+.nav-item6{
+  background-color: white;
+  padding-left: 30px;
+}
+.nav-item6:hover{
+  background-color: white;
+}
+}
 @keyframes welcome {
     50% {
       font-style: italic;
@@ -68,18 +197,20 @@ label{
 }
 
 .modal-content {
+
   width: 450px;
-  background-color: #0a2956;
+  background-color: #ffffff;
+  border: none;
 }
 .modal-content  form{
   text-align: center;
-  width: 450px;
+  width: 100%;
   padding: 20px;
   position: absolute;
   transition: 0.25s;
 }
 .form-check{
-  color: white;
+  color: rgb(0, 0, 0);
     font-size: 20px;
     /* margin-right: 10%; */
     margin-left: 37%;
@@ -100,7 +231,7 @@ label{
   padding: 10px 10px;
   width: 250px;
   outline: none;
-  color: white;
+  color: rgb(0, 0, 0);
   border-radius: 24px;
   transition: 0.25s
 }
@@ -123,7 +254,7 @@ label{
 .btnn:hover{
   box-shadow: 0 2px 4px rgba(255, 250, 250, 0.922);
   color: white;
-  background-color: #0a2956;
+  background-color: #b99609;
   border: 1px solid white;
 
 }
@@ -139,7 +270,7 @@ label{
 .btnnn:hover{
   box-shadow: 0 2px 4px rgba(255, 250, 250, 0.922);
   color: white;
-  background-color: #0a2956;
+  background-color: #b99609;
   border: 1px solid white;
 
 }

@@ -1,5 +1,10 @@
 <div class="main">
-  <form (ngSubmit)="Pay()" [formGroup]="myForm" (ngSubmit)="ordercreate()">
+  <form
+    (ngSubmit)="Pay()"
+    [formGroup]="myForm"
+    (ngSubmit)="ordercreate()"
+    (ngSubmit)="updateProduct()"
+  >
     <div>
       <P class="par"> contact</P>
       <input
@@ -282,13 +287,7 @@
   <div class="check">
     <tbody>
       <tr *ngFor="let item of products; let i = index">
-        <td>
-          <img
-            style="width: 50px; border-radius: 10%"
-            src="{{ item.image }}"
-            alt=""
-          />
-        </td>
+        <td></td>
 
         <td>{{ item.title }}</td>
         <th style="width: 12%; color: rgb(53, 159, 175)">

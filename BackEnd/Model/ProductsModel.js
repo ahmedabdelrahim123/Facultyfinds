@@ -18,6 +18,10 @@ const productsSchema = new mongoose.Schema({
     type: "number",
     required: true,
   },
+  quantity: {
+    type: "number",
+    required: true,
+  },
   image: {
     type: "string",
     required: true,
@@ -27,6 +31,10 @@ const productsSchema = new mongoose.Schema({
     required: true,
   },
   college: {
+    type: "string",
+    required: true,
+  },
+  statue: {
     type: "string",
     required: true,
   },

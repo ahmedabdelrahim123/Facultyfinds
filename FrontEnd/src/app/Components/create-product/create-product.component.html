@@ -2,63 +2,129 @@
   class="box"
   enctype="multipart/form-data"
   (ngSubmit)="
-    AddProduct(title.value, price.value, details.value, college.value, image)
+    AddProduct(
+      title.value,
+      price.value,
+      quantity.value,
+      details.value,
+      college.value,
+      image
+    )
   "
 >
-  <div class="md-form form-sm mb-15">
-    <div class="frm" style="margin-top: 10%">
-      <input
-        type="text"
-        class="form-control form-control-sm validate custom-border-bottom"
-        placeholder="enter a title"
-        name="title"
-        #title
-      />
-    </div>
+  <div class="body-div center-divs">
+    <div class="card mb-3" style="width: 60%">
+      <div class="row g-0">
+        <span class="sell-text">Create Product</span>
+        <hr class="hr-center" />
 
-    <div class="md-form form-sm mb-5">
-      <input
-        type="number"
-        class="form-control form-control-sm custom-border-bottom"
-        placeholder="enter price"
-        name="price"
-        #price
-      />
+        <div
+          id="error-message"
+          class="alert alert-danger"
+          role="alert"
+          style="display: none; width: 90%; margin-left: 5%"
+        >
+          You have to fill all product data
+        </div>
 
-      <input
-        type="text"
-        class="form-control form-control-sm custom-border-bottom"
-        placeholder="enter details"
-        name="details"
-        #details
-      />
+        <div class="col-md-4">
+          <label for="image-upload">
+            <img
+              id="image-preview"
+              src="../../../assets/upload image.png"
+              alt="Image"
+            />
+          </label>
+          <input
+            id="image-upload"
+            type="file"
+            onchange="const reader = new FileReader();
+                            reader.onload = function() {
+                              const imagePreview = document.getElementById('image-preview');
+                              imagePreview.src = reader.result;
+                            }
+                            reader.readAsDataURL(event.target.files[0]);"
+            style="display: none"
+            name="image"
+            required
+            #image
+          />
+        </div>
+        <div class="col-md-8 center-divs">
+          <div class="card-3 body" style="width: 80%">
+            <div class="frm col-" style="margin-top: 5%">
+              <label class="product-text">Title: </label>
+              <input
+                type="text"
+                class="form-control form-control-sm validate custom-border-bottom"
+                name="title"
+                required
+                #title
+              />
+            </div>
 
-      <input
-        type="text"
-        class="form-control form-control-sm custom-border-bottom"
-        placeholder="enter college"
-        name="college"
-        #college
-      />
-    </div>
+            <div class="md-form form-sm mb-5">
+              <label class="product-text">Price: </label>
+              <input
+                type="number"
+                class="form-control form-control-sm custom-border-bottom"
+                name="price"
+                required
+                #price
+              />
 
-    <div class="imgg">
-      <input
-        style="background-color: #9da5a2"
-        type="file"
-        name="image"
-        #image
-      />
-    </div>
-    <i
-      class="fas fa-users prefix mt-2"
-      style="font-size: 20px; color: white; margin-bottom: 2%"
-    ></i>
+              <label class="product-text">Quantity: </label>
+              <input
+                type="number"
+                class="form-control form-control-sm custom-border-bottom"
+                name="quantity"
+                required
+                #quantity
+              />
 
-    <div class="text-center form-sm mt-2">
-      <button class="btnnn" type="submit">
-        Create product <i class="fas fa-sign-in ml-1"></i>
-      </button>
+              <label class="product-text">Details: </label>
+              <input
+                type="text"
+                class="form-control form-control-sm custom-border-bottom"
+                name="details"
+                required
+                #details
+              />
+
+              <label class="product-text">College: </label>
+              <select
+                class="form-select form-control-sm custom-border-bottom"
+                aria-label="Default select example"
+                name="college"
+                required
+                #college
+              >
+                <option selected></option>
+                <option value="science">Science</option>
+                <option value="engineering">Engineering</option>
+                <option value="pharmacy">Pharmacy</option>
+                <option value="medicine">Medicine</option>
+                <option value="dentistry">Dentistry</option>
+                <option value="arts">Arts</option>
+              </select>
+            </div>
+
+            <div class="text-center form-sm mt-2" style="margin-bottom: 10%">
+              <button class="product-price-btn" type="submit">
+                Create product
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </form>
+
+<script>
+  const imagePreview = document.getElementById("image-preview");
+  imagePreview.addEventListener("click", function () {
+    const imageUpload = document.getElementById("image-upload");
+    imageUpload.click();
+  });
+</script>
