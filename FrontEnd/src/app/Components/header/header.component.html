@@ -7,10 +7,10 @@
  margin-left: 3%; margin-right: 5%;border-left: 5px solid rgb(0, 0, 0);
   "
 >
-<button (click)="toggleTheme()" style="border: none ; margin-left: 1%;background-color: rgb(255, 255, 255);">
-  <span style="font-size: 30px; cursor: pointer;" class="fa fa-moon"></span>
-    </button>
     <div class="container">
+      <button (click)="toggleTheme()" style="border: none ; margin-left: 1%;background-color: rgb(255, 255, 255);">
+        <span style="font-size: 30px; cursor: pointer;" class="fa fa-moon"></span>
+          </button>
       <a class="navbar-brand fw-bold" style="color: rgb(199, 171, 12);" > E-Commerce </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -170,7 +170,7 @@
 
               <p class="error">{{loginerror}}</p>
 
-              <button class="btnn">Login
+              <button class="btnn rounded-3">Login
 
                 <i class="fas fa-sign-in ml-1"></i>
         </button>
@@ -230,8 +230,9 @@
 
 
 
-          <div class="imgg">
-            <input style="background-color: #9da5a2;" type="file" name="image"  #image>
+          <div class="imgg ">
+            <input class ="rounded-3" style="background-color: #9da5a2;   border: 1px solid black;
+            " type="file" name="image"  #image>
           </div>
           <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: rgb(0, 0, 0); margin-bottom: 2%;" ></i>
 
@@ -246,9 +247,9 @@
             </div>
             <p class="error">{{fieldsRequired}}</p>
 
-            <div class="text-center form-sm mt-2">
+            <div class="text-center form-sm mt-2 ">
               <button
-                class="btnnn"
+                class="btnn rounded-3"
                 type="submit"
               >
                 Sign up <i class="fas fa-sign-in ml-1"></i>
