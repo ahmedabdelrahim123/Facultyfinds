@@ -17,6 +17,91 @@
     margin: 0;
   }
 }
+.nav-item4{
+  color:#999;
+  background:rgba(255, 255, 255, 0.5);
+  padding:10px 20px;
+  font-size:12px;
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  /* box-shadow: 2px 2px 2px rgba(230, 229, 229, 0.8) */
+  
+}
+.nav-item4:hover{
+  border:none;
+  background:rgba(0, 0, 0, 0.4);
+  background:#edd375;
+  /* padding:10px 20px; */
+  color:black;
+  box-shadow: 2px 2px 4px rgba(182, 178, 178, 0.4)
+}
+.nav-item5{
+  color:#999;
+  background:rgba(255, 255, 255, 0.5);
+  padding:10px 20px;
+  font-size:12px;
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  /* box-shadow: 2px 2px 2px rgba(230, 229, 229, 0.8) */
+  
+}
+.nav-item5:hover{
+  border:none;
+  background:rgba(0, 0, 0, 0.4);
+  background:#edd375;
+  /* padding:10px 20px; */
+  color:black;
+  
+}
+
+.nav-item6{
+  color:#999;
+  background:rgba(255, 255, 255, 0.5);
+  padding:10px 20px;
+  font-size:12px;
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  /* box-shadow: 2px 2px 2px rgba(230, 229, 229, 0.8) */
+  
+}
+.nav-item6:hover{
+  border:none;
+  background:rgba(0, 0, 0, 0.4);
+  background:#edd375;
+  /* padding:10px 20px; */
+  color:black;
+ 
+}
+.nav-item1{
+  color:#999;
+  background:rgba(255, 255, 255, 0.5);
+  padding:10px 20px;
+  font-size:12px;
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  /* box-shadow: 2px 2px 2px rgba(230, 229, 229, 0.8) */
+  
+}
+.nav-item1:hover{
+  border:none;
+  background:rgba(0, 0, 0, 0.4);
+  background:#edd375;
+  /* padding:10px 20px; */
+  color:black;
+
+}
+.nav-link3{
+  border: none;
+padding: 10px;
+padding-top: 7px;
+  color: #d6b212;
+}
+
+
 
 .search-icon {
   position: absolute;
@@ -44,6 +129,44 @@ label{
   animation-duration: 3s;
   animation-iteration-count: 3;
   color: #9f840c;
+}
+
+@media (width:500px){
+.nav-item1:hover{
+
+background-color: white;
+
+
+}
+.nav-item1{
+  background-color: white;
+}
+.nav-item4{
+
+padding-right: 400px;
+background-color: white;
+}
+
+.nav-item4:hover{
+  background-color: white;
+  
+
+}
+.nav-item5{
+  background-color: white;
+  margin-right: 30px;
+}
+
+.nav-item5:hover{
+  background-color: white;
+}
+.nav-item6{
+  background-color: white;
+  padding-left: 30px;
+}
+.nav-item6:hover{
+  background-color: white;
+}
 }
 @keyframes welcome {
     50% {
