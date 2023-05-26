@@ -37,6 +37,7 @@ export class CreateProductComponent implements OnInit {
       formData.append('title', title);
       formData.append('details', details);
       formData.append('college', college);
+      formData.append('statue', "available");
       formData.append('userID', this.userId);
       formData.append('price', price);
       formData.append('quantity', quantity);

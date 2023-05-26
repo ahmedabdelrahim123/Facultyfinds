@@ -37,6 +37,7 @@ let createProduct = async (req, res) => {
     image: image,
     details: data.details,
     college: data.college,
+    statue: data.statue,
     userId: data.userID,
   });
   await newProduct.save();
