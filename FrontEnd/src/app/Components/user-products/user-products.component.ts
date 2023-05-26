@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
-import { RouterModule } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 
 @Component({
