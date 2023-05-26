@@ -5,7 +5,6 @@ import { ProductsComponent } from './Components/products/products.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { HomeComponent } from './Components/home/home.component';
-import { StripComponent } from './Components/strip/strip.component';
 import { ContactusComponent } from './Components/contactus/contactus.component';
 import { AboutComponent } from './Components/about/about.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
@@ -50,7 +49,6 @@ const routes: Routes = [
     component: CheckoutComponent,
     canActivate: [AuthGuardService],
   },
-  { path: 'strip', component: StripComponent },
   { path: 'about', component: AboutComponent },
 
   { path: 'terms_of_service', component: TermsOfServiceComponent },

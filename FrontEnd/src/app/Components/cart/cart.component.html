@@ -79,7 +79,7 @@
                             </div>
                           </td>
 
-                          
+
                           <td class="border-0 align-middle"><strong>{{item.total}}</strong></td>
                           <td class="border-0 align-middle"> <button (click)="removeItem(item)" class="btn0 btn-dark"><i class="fa fa-times-rectangle"></i></button></td>
                         </tr>
@@ -105,7 +105,7 @@
             <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
             <ul class="list-unstyled mb-4">
 
-              
+
               <li class="d-flex justify-content-between py-3 border-bottom">
                 <strong class="text-muted">ITEMS</strong>
                 <strong>({{ getTotalQuantity() }})</strong>
@@ -120,7 +120,7 @@
               letter-spacing: 0.1rem;
           ">execluding delievry</p>
             </ul>
-            <button routerLink="/checkout" class="btn6 btn-dark rounded-pill py-2 btn-block">Checkout</button>
+            <button [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/checkout" class="btn6 btn-dark rounded-pill py-2 btn-block">Checkout</button>
           </div>
         </div>
 
@@ -130,7 +130,7 @@
           <button style="    margin-right: 18%;
           margin-left: 22%;
       " (click)="emptycart()" class="btnn">Remove All</button>
-          <button routerLink="/products" class="btn1 btn-primary">Shop More</button>
+          <button [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/products" class="btn1 btn-primary">Shop More</button>
 
       </div>
 

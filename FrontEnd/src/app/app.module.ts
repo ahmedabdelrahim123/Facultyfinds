@@ -7,8 +7,6 @@ import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { ProductsDetailsComponent } from './Components/products-details/products-details.component';
-import { LoginComponent } from './Components/login/login.component';
-import { RegisterComponent } from './Components/register/register.component';
 import { HomeComponent } from './Components/home/home.component';
 import { AboutComponent } from './Components/about/about.component';
 import { ErrorComponent } from './Components/error/error.component';
@@ -16,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CartComponent } from './Components/cart/cart.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
-import { StripComponent } from './Components/strip/strip.component';
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactusComponent } from './Components/contactus/contactus.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
@@ -25,7 +22,6 @@ import { CreateProductComponent } from './Components/create-product/create-produ
 import { UpdateProductComponent } from './Components/update-product/update-product.component';
 import { DashboardProductsComponent } from './Components/dashboard-products/dashboard-products.component';
 import { OrdersdetailsComponent } from './Components/ordersdetails/ordersdetails.component';
-import { AdminHeaderComponent } from './Components/admin-header/admin-header.component';
 import { AdminOrdersComponent } from './Components/admin-orders/admin-orders.component';
 import { UpdateUserComponent } from './Components/update-user/update-user.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
@@ -45,14 +41,11 @@ import { OrderCreatedComponent } from './Components/order-created/order-created.
     FooterComponent,
     ProductsComponent,
     ProductsDetailsComponent,
-    LoginComponent,
-    RegisterComponent,
     HomeComponent,
     AboutComponent,
     ErrorComponent,
     CartComponent,
     CheckoutComponent,
-    StripComponent,
     ContactusComponent,
     UserProfileComponent,
     DashboradComponent,
@@ -60,7 +53,6 @@ import { OrderCreatedComponent } from './Components/order-created/order-created.
     UpdateProductComponent,
     DashboardProductsComponent,
     OrdersdetailsComponent,
-    AdminHeaderComponent,
     AdminOrdersComponent,
     UpdateUserComponent,
     SidebarComponent,
