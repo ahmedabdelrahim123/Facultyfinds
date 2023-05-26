@@ -13,7 +13,7 @@ export class CreateProductComponent implements OnInit {
   user: any;
   userId: any;
 
-  constructor(private dataservice: DataService, private router:Router) {}
+  constructor(private dataservice: DataService, private router: Router) {}
   ngOnInit(): void {
     const token = localStorage.getItem('token');
     if (token) {
@@ -22,7 +22,14 @@ export class CreateProductComponent implements OnInit {
     }
   }
 
-  AddProduct(title: any, price: any, details: any, college: any, image: any) {
+  AddProduct(
+    title: any,
+    price: any,
+    quantity: any,
+    details: any,
+    college: any,
+    image: any
+  ) {
     if (image.files && image.files.length > 0) {
       this.imageFile = image.files[0];
       const formData = new FormData();
@@ -30,19 +37,22 @@ export class CreateProductComponent implements OnInit {
       formData.append('title', title);
       formData.append('details', details);
       formData.append('college', college);
+      formData.append('statue', "available");
       formData.append('userID', this.userId);
       formData.append('price', price);
+      formData.append('quantity', quantity);
+      (document.getElementById('error-message') as HTMLElement).style.display =
+        'none';
       console.log(formData);
 
       this.dataservice.addNewProduct(formData).subscribe(
-        () => {
-
-        },
+        () => {},
         (err) => {}
       );
-      this.router.navigate(['/home']);
+      this.router.navigate(['/productadded']);
+    } else {
+      (document.getElementById('error-message') as HTMLElement).style.display =
+        'block'; // show error message
     }
   }
-
-
 }

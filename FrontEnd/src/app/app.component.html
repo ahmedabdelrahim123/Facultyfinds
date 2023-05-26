@@ -1,9 +1,3 @@
-<ng-container *ngIf="userROLE !== 'admin'">
-  <app-header></app-header>
-</ng-container>
-
+<app-header *ngIf="userROLE !== 'admin'"></app-header>
 <router-outlet></router-outlet>
-
-<ng-container *ngIf="userROLE !== 'admin'">
-  <app-footer></app-footer>
-</ng-container>
+<app-footer *ngIf="userROLE !== 'admin'"></app-footer>

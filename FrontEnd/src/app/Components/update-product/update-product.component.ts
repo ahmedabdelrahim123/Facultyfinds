@@ -40,15 +40,18 @@ export class UpdateProductComponent {
     college: any,
     image: any
   ) {
-    if (image.files && image.files.length > 0) {
-      this.imageFile = image.files[0];
-      const formData = new FormData();
-      formData.append('image', image.files[0]);
+      let formData = new FormData();
       formData.append('title', title);
       formData.append('details', details);
       formData.append('college', college);
       formData.append('price', price);
-      console.log(formData.get('image'));
+        if (image && image.files && image.files.length > 0) {
+        // If a new image was selected, add it to the form data
+        formData.append('image', image.files[0]);
+      }
+      else {
+        formData.append('image', this.product.image);
+      }
 
       this.dataservice.updateProduct(this.ID, formData).subscribe((res) => {
         // alert('Product Updated Successfully');
@@ -61,5 +64,6 @@ export class UpdateProductComponent {
         this.router.navigate(['/user-products']);
       }
     }
+    
   }
-}
+

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
+import { RouterModule } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 
 @Component({
@@ -9,6 +10,7 @@ import jwt_decode from 'jwt-decode';
 })
 export class UserProductsComponent implements OnInit {
   products: any[] = [];
+  hasProducts: boolean = false;
 
   constructor(private myService: DataService) {}
 
@@ -25,6 +27,7 @@ export class UserProductsComponent implements OnInit {
             console.log(userId);
           if (product.userId === userId) {
               this.products.push(product);
+              this.hasProducts = true;
             }
           }
           console.log(this.products);

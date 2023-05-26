@@ -56,12 +56,8 @@ let addNewUser = async (req, res) => {
 //update
 let updateUser = async (req, res) => {
   try {
-    //const user = await usersModel.findById(req.params.id);
-    //console.log(user.image);
     let id = req.params.id;
-  // console.log("in controller",req.params.id);
     let user = await usersModel.findById({ _id: id });
-
     const { email, username, password, gender } = req.body;
     let image = user.image;
 
@@ -79,13 +75,6 @@ let updateUser = async (req, res) => {
       // reuse the existing image in the user's profile data
       image = user.image;
     }
-    //var salt = await bcrypt.genSalt(10);
-    //var hashedPassword = await bcrypt.hash(data.password, salt);
-    //const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-
-    // const salt = await bcrypt.genSalt(10);
-    // req.body.password = await bcrypt.hash(req.body.password, salt);
-    // console.log(req.body.password );
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password , salt);
     console.log(hashedPassword);
@@ -94,16 +83,11 @@ let updateUser = async (req, res) => {
       { email, username,password: hashedPassword, gender, image },
       { new: true }
     );
-
-
-    // Send a success response to the client
     res.status(200).json({ message: "User updated successfully" });
   } catch (error) {
     console.error(error);
-  }}
-
-
-
+  }
+}
 
 let login = async (req, res) => {
   let email = req.body.email;

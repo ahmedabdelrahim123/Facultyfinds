@@ -19,8 +19,8 @@
         <td>{{ order.userID.username }}</td>
         <td>
           <ul>
-            <li *ngFor="let product of order.pID">
-              Title: {{ product.title }} - Price: {{ product.price }}
+            <li *ngFor="let p of order.product">
+              Title: {{ p.pID.title }}- Price: {{ p.pID.price }}
             </li>
           </ul>
         </td>

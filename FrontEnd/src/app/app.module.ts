@@ -24,7 +24,7 @@ import { DashboradComponent } from './Components/dashborad/dashborad.component';
 import { CreateProductComponent } from './Components/create-product/create-product.component';
 import { UpdateProductComponent } from './Components/update-product/update-product.component';
 import { DashboardProductsComponent } from './Components/dashboard-products/dashboard-products.component';
-import { OrdersdetailsComponent } from './ordersdetails/ordersdetails.component';
+import { OrdersdetailsComponent } from './Components/ordersdetails/ordersdetails.component';
 import { AdminHeaderComponent } from './Components/admin-header/admin-header.component';
 import { AdminOrdersComponent } from './Components/admin-orders/admin-orders.component';
 import { UpdateUserComponent } from './Components/update-user/update-user.component';
@@ -32,6 +32,11 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorInterceptor } from './Services/auth-interceptor.interceptor';
 import { UserProductsComponent } from './Components/user-products/user-products.component';
+import { TermsOfServiceComponent } from './Components/terms-of-service/terms-of-service.component';
+import { RefundPolicyComponent } from './Components/refund-policy/refund-policy.component';
+import { ProductAddedComponent } from './Components/product-added/product-added.component';
+import { SoldProductsComponent } from './Components/sold-products/sold-products.component';
+import { OrderCreatedComponent } from './Components/order-created/order-created.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +65,11 @@ import { UserProductsComponent } from './Components/user-products/user-products.
     UpdateUserComponent,
     SidebarComponent,
     UserProductsComponent,
+    TermsOfServiceComponent,
+    RefundPolicyComponent,
+    ProductAddedComponent,
+    SoldProductsComponent,
+    OrderCreatedComponent,
   ],
   imports: [
     BrowserModule,

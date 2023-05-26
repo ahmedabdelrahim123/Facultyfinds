@@ -42,34 +42,26 @@ export class UpdateUserComponent {
     gender: any,
     image: any
   ) {
+    let formData = new FormData();
+    formData.append('email', email);
+    formData.append('username', username);
+    formData.append('password', password);
+    formData.append('gender', gender);
+    //console.log(formData.get('image'));
+    if (image && image.files && image.files.length > 0) {
+      // If a new image was selected, add it to the form data
+      formData.append('image', image.files[0]);
+    }
+    else {
+      formData.append('image', this.user.image);
+    }
 
-    // if (!image) {
-    //   // If no new image was selected, reuse the existing image in the user's profile data
-    //   image = this.user.image;
-    // }
-
-    // if (image.files && image.files.length > 0) {
-      //this.imageFile = image.files[0];
-      let formData = new FormData();
-      //formData.append('image', image.files[0]);
-      formData.append('email', email);
-      formData.append('username', username);
-      formData.append('password', password);
-      formData.append('gender', gender);
-      //console.log(formData.get('image'));
-      if (image && image.files && image.files.length > 0) {
-        // If a new image was selected, add it to the form data
-        formData.append('image', image.files[0]);
-      }
-      else {
-        // If no new image was selected, reuse the existing image in the user'sprofile data
-        formData.append('image', this.user.image);
-      }
       this.dataservice.updateUser(this.ID, formData).subscribe((res) => {
-        // alert('Product Updated Successfully');
-        // // Reload the current URL
       });
+
       this.router.navigate(['/profile']);
+
+
     }
 
 
