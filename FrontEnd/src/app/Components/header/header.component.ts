@@ -169,7 +169,15 @@ export class HeaderComponent {
   }
 
   public totalItem: number = 0;
-
+  alertVisible = false;
+  showAlert() {
+    if(!this.isAuthenticated()){
+      this.alertVisible=true;
+      setTimeout(() => {
+        this.alertVisible = false;
+      }, 1000);
+    }
+  }
   isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
   }

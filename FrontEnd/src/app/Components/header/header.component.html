@@ -1,4 +1,6 @@
+
 <div id="app" >
+
   <nav
   class="navbar navbar-expand-md navbar-light shadow-sm"
   style="background-color: rgb(255, 255, 255); height: 70px;margin-top: 2%;
@@ -23,7 +25,7 @@
             <a class="text-decoration-none text-dark"routerLink="/home">Home</a>
           </li>
           <li class="nav-item1" style="margin-left: 130px">
-            <a routerLink="/products" class="text-decoration-none text-dark">Products</a>
+            <a routerLink="/products" class="text-decoration-none text-dark"(click)="showAlert()">Products</a>
           </li>
           <li class="nav-item5" style="margin-left: 130px">
             <a class="text-decoration-none text-dark" routerLink="/about">About</a>
@@ -68,6 +70,9 @@
   </nav>
 
   <main class="py-4"></main>
+  <div class="alert alert-danger" role="alert"*ngIf="alertVisible">
+    Please Login First
+  </div>
 </div>
 
 <!-- /////////////////////////////////////////////////  -->
@@ -259,3 +264,4 @@
 
   <!--/.Content-->
 </ng-template>
+
