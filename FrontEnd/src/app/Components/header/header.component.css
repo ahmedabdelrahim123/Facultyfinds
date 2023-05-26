@@ -231,7 +231,7 @@ background-color: white;
   padding: 10px 10px;
   width: 250px;
   outline: none;
-  color: white;
+  color: rgb(0, 0, 0);
   border-radius: 24px;
   transition: 0.25s
 }
@@ -254,7 +254,7 @@ background-color: white;
 .btnn:hover{
   box-shadow: 0 2px 4px rgba(255, 250, 250, 0.922);
   color: white;
-  background-color: #0a2956;
+  background-color: #b99609;
   border: 1px solid white;
 
 }
@@ -270,7 +270,7 @@ background-color: white;
 .btnnn:hover{
   box-shadow: 0 2px 4px rgba(255, 250, 250, 0.922);
   color: white;
-  background-color: #0a2956;
+  background-color: #b99609;
   border: 1px solid white;
 
 }

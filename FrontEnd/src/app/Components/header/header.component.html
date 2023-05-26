@@ -46,7 +46,13 @@
               </button>
             </li>
             <!-- Authentication Links -->
-            <a *ngIf="!isAuthenticated()" class="auth-modal-toggle btn btn-primary ms-2 me-1" data-auth-modal-tab="sign-in" (click)="open(mymodal)">Login</a>
+
+            <a 
+            style="    font-weight: 700;
+            color: white;
+            background-color: #d6ac4d; border: none;"
+
+            *ngIf="!isAuthenticated()" class="auth-modal-toggle btn btn-primary ms-2 me-1" data-auth-modal-tab="sign-in" (click)="open(mymodal)">Login</a>
             <li *ngIf="isAuthenticated()" class="nav-item dropdown">
               <a class="nav-link3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ username }}
@@ -76,7 +82,7 @@
 
   <!--Content-->
 
-  <div class="modal-content" style="height: 77vh; overflow: auto;">
+  <div class="modal-content" style="height: 77vh;">
     <!--Modal cascading tabs-->
     <div class="modal-c-tabs">
       <!-- Nav tabs -->
@@ -227,7 +233,7 @@
           <div class="imgg">
             <input style="background-color: #9da5a2;" type="file" name="image"  #image>
           </div>
-          <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: white; margin-bottom: 2%;" ></i>
+          <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: rgb(0, 0, 0); margin-bottom: 2%;" ></i>
 
             <div class="form-check">
               <input class="form-check-input" type="radio" name="gender" value="male" #maleRadio/>
