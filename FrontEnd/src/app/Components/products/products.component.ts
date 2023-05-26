@@ -13,6 +13,7 @@ export class ProductsComponent implements OnInit {
   public filterCategory: any;
   searchKey: string = '';
   selectedCollege: any;
+  alertVisible = false;
 
   constructor(private api: DataService, private cartService: CartService) {}
 
@@ -28,10 +29,14 @@ export class ProductsComponent implements OnInit {
     cartItem.quantity = item.quantity || 1; // set the quantity to 1 if not specified
     this.cartService.addtoCart(cartItem); // add the item to the cart
     this.showAddToCartAlert(item.title);
+    
   }
 
   showAddToCartAlert(itemTitle: string) {
-    alert(`"${itemTitle}" Item is added to cart successfully!`);
+    this.alertVisible = true;
+    setTimeout(() => {
+      this.alertVisible = false;
+    }, 3000);
   }
 
   getMyProducts(college?: string): void {
@@ -66,4 +71,7 @@ export class ProductsComponent implements OnInit {
       );
     }
   }
+
+
+
 }

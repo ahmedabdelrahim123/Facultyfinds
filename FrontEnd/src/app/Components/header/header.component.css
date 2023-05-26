@@ -197,18 +197,20 @@ background-color: white;
 }
 
 .modal-content {
+
   width: 450px;
-  background-color: #0a2956;
+  background-color: #ffffff;
+  border: none;
 }
 .modal-content  form{
   text-align: center;
-  width: 450px;
+  width: 100%;
   padding: 20px;
   position: absolute;
   transition: 0.25s;
 }
 .form-check{
-  color: white;
+  color: rgb(0, 0, 0);
     font-size: 20px;
     /* margin-right: 10%; */
     margin-left: 37%;

@@ -1,5 +1,4 @@
-
-<div id="app">
+<div id="app" >
   <nav
   class="navbar navbar-expand-md navbar-light shadow-sm"
   style="background-color: rgb(255, 255, 255); height: 70px;margin-top: 2%;
@@ -14,7 +13,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="container" style="background-color: rgb(255, 255, 255);  position: relative;">
+      <div class="container" style="background-color: rgb(255, 255, 255); z-index: 1; position: relative;">
       <div class=" collapse navbar-collapse " id="navbarSupportedContent" >
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav" style="    font-family: sans-serif;
@@ -45,7 +44,12 @@
               </button>
             </li>
             <!-- Authentication Links -->
-            <a *ngIf="!isAuthenticated()" class="auth-modal-toggle btn btn-primary ms-2 me-1" data-auth-modal-tab="sign-in" (click)="open(mymodal)">Login</a>
+            <a 
+            style="    font-weight: 700;
+            color: white;
+            background-color: #d6ac4d;
+        "
+            *ngIf="!isAuthenticated()" class="auth-modal-toggle btn  ms-2 me-1" data-auth-modal-tab="sign-in" (click)="open(mymodal)">Login</a>
             <li *ngIf="isAuthenticated()" class="nav-item dropdown">
               <a class="nav-link3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ username }}
@@ -71,7 +75,7 @@
 
   <!--Content-->
 
-  <div class="modal-content" style="height: 77vh;">
+  <div class="modal-content" style="height: 77vh; background-color: rgb(255, 255, 255); ">
     <!--Modal cascading tabs-->
     <div class="modal-c-tabs">
       <!-- Nav tabs -->
@@ -81,10 +85,10 @@
             <div class="card">
 
 
-              <ul class="nav nav-tabs md-tabs nav-justified" role="tablist">
+              <ul class="nav nav-tabs md-tabs nav-justified" role="tablist" >
 
                 <li class="nav-item waves-effect waves-light fs-5" style="width: 50%;">
-                  <a
+                  <a style=" border: none; background-color: #ffffff; color: rgb(0, 0, 0);"
                     class="nav-link"
                     [ngClass]="{ active: activePanel === 'panel1' }"
                     data-toggle="tab"
@@ -95,7 +99,7 @@
                   >
                 </li>
                 <li class="nav-item waves-effect waves-light fs-5" style="width: 50%;">
-                  <a
+                  <a  style=" border: none; background-color:#ffffff; color: rgb(0, 0, 0); "
                     class="nav-link"
                     [ngClass]="{ active: activePanel === 'panel2' }"
                     data-toggle="tab"
@@ -109,7 +113,7 @@
 
       <!-- Tab panels -->
       <div class="tab-content">
-        <div *ngIf="panel1">
+        <div *ngIf="panel1" >
           <!--Panel 1-->
           <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
             <!--Body-->
@@ -222,7 +226,7 @@
           <div class="imgg">
             <input style="background-color: #9da5a2;" type="file" name="image"  #image>
           </div>
-          <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: white; margin-bottom: 2%;" ></i>
+          <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: rgb(0, 0, 0); margin-bottom: 2%;" ></i>
 
             <div class="form-check">
               <input class="form-check-input" type="radio" name="gender" value="male" #maleRadio/>
