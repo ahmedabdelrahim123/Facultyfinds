@@ -1,0 +1,11 @@
+{
+    "mongo": {
+      "uri": "mongodb+srv://samarsamy484:samar@cluster0.yvo61fo.mongodb.net/E-Commerce",
+      "options": {
+        "useNewUrlParser": true
+        
+      }
+    }
+  }
+
+  
