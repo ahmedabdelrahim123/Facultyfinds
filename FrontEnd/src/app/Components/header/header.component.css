@@ -273,21 +273,6 @@ background-color: white;
 }
 
 
-.btnnn{
-  border: none;
-  height: 40px;
-  width: 40%;
-
-}
-
-.btnnn:hover{
-  box-shadow: 0 2px 4px rgba(255, 250, 250, 0.922);
-  color: white;
-  background-color: #b99609;
-  border: 1px solid white;
-
-}
-
 .nav-link:hover{
   box-shadow: 0 2px 4px rgba(60, 62, 62, 0.922);
 color: rgb(28, 26, 26);
