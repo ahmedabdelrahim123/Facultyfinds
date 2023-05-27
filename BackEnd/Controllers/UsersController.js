@@ -76,7 +76,7 @@ let updateUser = async (req, res) => {
       image = user.image;
     }
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password , salt);
+    const hashedPassword = await bcrypt.hash(user.password , salt);
     console.log(hashedPassword);
     await usersModel.updateOne(
       { _id: req.params.id },

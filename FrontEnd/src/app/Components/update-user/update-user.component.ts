@@ -15,6 +15,12 @@ export class UpdateUserComponent {
   imageFile = '';
   user: any;
   ID: any;
+  isFieldVisible: boolean = false;
+
+  toggleField() {
+    this.isFieldVisible = !this.isFieldVisible;
+  }
+
   constructor(
     private dataservice: DataService,
     private route: ActivatedRoute,
@@ -61,10 +67,9 @@ export class UpdateUserComponent {
         location.reload();
       });
       });
-
-
-
     }
+
+
 
 
   }
