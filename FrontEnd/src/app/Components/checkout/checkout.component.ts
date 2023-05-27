@@ -181,13 +181,12 @@ export class CheckoutComponent {
     }
   }
   updateProduct() {
-    // console.log(this.products);
     let products = this.products;
     console.log('this is products: ', products);
     for (let product of products) {
       console.log(product.pID);
       this.myService
-        .updateProduct(product.pID, { quantity: product.quantity })
+        .updateQuantity(product.pID, { quantity: product.quantity })
         .subscribe((res) => {});
     }
   }

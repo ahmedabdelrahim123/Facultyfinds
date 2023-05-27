@@ -2,7 +2,7 @@
   class="box"
   enctype="multipart/form-data"
   (ngSubmit)="
-    UpdateProduct(title.value, price.value, details.value, college.value, image)
+    UpdateProduct(title.value, price.value, quantity.value, details.value, college.value, image)
   "
 >
   <h2 style="text-align: center;">Update your product</h2>
@@ -25,9 +25,16 @@
         value="{{ product?.price }}"
         type="number"
         class="form-control form-control-sm custom-border-bottom"
-        placeholder="enter price"
         name="price"
         #price
+      />
+      <label for="quantity">Quantity</label>
+      <input
+        value="{{ product?.quantity }}"
+        type="number"
+        class="form-control form-control-sm custom-border-bottom"
+        name="quantity"
+        #quantity
       />
       <label for="details">Details</label>
       <input

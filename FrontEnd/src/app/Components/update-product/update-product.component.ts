@@ -36,6 +36,7 @@ export class UpdateProductComponent {
   UpdateProduct(
     title: any,
     price: any,
+    quantity: any,
     details: any,
     college: any,
     image: any
@@ -45,6 +46,7 @@ export class UpdateProductComponent {
       formData.append('details', details);
       formData.append('college', college);
       formData.append('price', price);
+      formData.append('quantity', quantity);
         if (image && image.files && image.files.length > 0) {
         // If a new image was selected, add it to the form data
         formData.append('image', image.files[0]);
@@ -64,6 +66,6 @@ export class UpdateProductComponent {
         this.router.navigate(['/user-products']);
       }
     }
-    
+
   }
 

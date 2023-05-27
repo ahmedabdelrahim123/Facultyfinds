@@ -61,21 +61,12 @@ let updateProduct = async (req, res) => {
     } else if (!req.body.image) {
       image = product.image;
     }
-
-    // Update only the properties that are provided in the request body
     product.title = title || product.title;
     product.price = price || product.price;
     product.details = details || product.details;
     product.college = college || product.college;
-
-    if (quantity) {
-      product.quantity = Math.max(0, product.quantity - quantity);
-      if (product.quantity === 0) {
-        product.statue = "sold";
-        console.log(product.statue);
-      }
-    }
-
+    product.quantity = quantity || product.quantity;
+ 
     product.image = image;
 
     await product.save(); // Save the updated product
@@ -87,6 +78,29 @@ let updateProduct = async (req, res) => {
       .json({ error: "An error occurred while updating the product" });
   }
 };
+
+let updateQuantityForOrder = async (req, res) => {
+  try {
+    let id = req.params.id;
+    let product = await productsModel.findById(id);
+    const {quantity } = req.body;
+
+    if (quantity) {
+      product.quantity = Math.max(0, product.quantity - quantity);
+      if (product.quantity === 0) {
+        product.statue = "sold";
+        console.log(product.statue);
+      }
+    }
+
+    await product.save(); 
+    res.status(200).json({ message: "Product updated successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "An error occurred while updating the product"});
+  }
+};
+
 
 let deleteProduct = async (req, res) => {
   var ID = req.params.id;
@@ -101,4 +115,5 @@ module.exports = {
   createProduct,
   updateProduct,
   deleteProduct,
+  updateQuantityForOrder
 };
