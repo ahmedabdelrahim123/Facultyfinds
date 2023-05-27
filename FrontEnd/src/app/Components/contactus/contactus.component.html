@@ -23,9 +23,15 @@
         </div>
 
         <div class="form-group" style="margin-bottom: 10px;">
-            <select class="form-select" id="collage" aria-label="Floating label select example">
-              <option selected>Your Collage</option>
-            </select>
+          <select class="form-select" id="collage" aria-label="Floating label select example">
+            <option selected>Your Collage</option>
+            <option value="science">Science</option>
+            <option value="engineering">Engineering</option>
+            <option value="pharmacy">Pharmacy</option>
+            <option value="medicine">Medicine</option>
+            <option value="dentistry">Dentistry</option>
+            <option value="arts">Arts</option>
+          </select>
         </div>
 
         <div class="row g-2" style="margin-bottom: 10px;">
@@ -47,7 +53,7 @@
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary me-md-2 sub-btn" type="button">Send Message</button>
+            <button class="btn btn-primary me-md-2 sub-btn" routerLink='/msgsend' type="button">Send Message</button>
         </div>
         </form>
     </div>
