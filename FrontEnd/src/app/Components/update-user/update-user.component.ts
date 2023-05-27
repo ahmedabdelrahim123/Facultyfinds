@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-// const bcrypt = require("bcrypt");
-//import * as bcrypt from 'bcryptjs';
+
 
 
 @Component({
@@ -44,14 +43,12 @@ export class UpdateUserComponent {
   UpdateUser(
     email: any,
     username: any,
-    password: any,
     gender: any,
     image: any
   ) {
     let formData = new FormData();
     formData.append('email', email);
     formData.append('username', username);
-    formData.append('password', password);
     formData.append('gender', gender);
     //console.log(formData.get('image'));
     if (image && image.files && image.files.length > 0) {

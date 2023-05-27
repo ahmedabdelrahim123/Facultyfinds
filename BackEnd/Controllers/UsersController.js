@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const bcrypt = require('bcryptjs');
 const fs= require('fs');
 const jwt = require("jsonwebtoken");
-const { Console } = require("console");
 
 let getAllUsers = async (req, res) => {
   let data = await usersModel.find({});
@@ -75,7 +74,6 @@ let updateUser = async (req, res) => {
     }
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(user.password , salt);
-    console.log(hashedPassword);
     await usersModel.updateOne(
       { _id: req.params.id },
       { email, username,password: hashedPassword, gender, image },
@@ -83,7 +81,6 @@ let updateUser = async (req, res) => {
     );
     res.status(200).json({ message: "User updated successfully" });
   } catch (error) {
-    console.error(error);
   }
 }
 
@@ -124,11 +121,8 @@ let DeleteUser = async (req, res) => {
 
 //get user by id
 let getUserById = async (req, res) => {
-  // console.log("in controller",req);
   let id = req.params.id;
-  // console.log("in controller",req.params.id);
   let user = await usersModel.findById({ _id: id });
-  // console.log("in controller",product);
   res.json(user);
 };
 

@@ -22,7 +22,6 @@
               UpdateUser(
                 email.value,
                 username.value,
-                password.value,
                 maleRadio.checked ? 'male' : 'female',
                 image)">
 
@@ -39,13 +38,6 @@
                       <input class="form-control" type="email" class="field" value={{user.email}}  name="email" #email>
                     </div>
                     <br>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-3 control-label">Password:</label>
-                    <div class="col-md-3 mt-2">
-                      <input class="form-control"
-                        type="password" class="field" name="password" value={{user.password}}  #password>
-                    </div>
                   </div>
                   <br>
                   <div class="form-group">

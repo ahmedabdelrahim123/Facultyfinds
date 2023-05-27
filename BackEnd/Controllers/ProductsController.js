@@ -7,7 +7,6 @@ const fs = require('fs');
 
 let getAllProducts = async (req, res) => {
   const college = req.query.college;
-  // console.log(college);
   let data = [];
 
   if (college) {
@@ -45,7 +44,6 @@ let createProduct = async (req, res) => {
 let updateProduct = async (req, res) => {
   try {
     let id = req.params.id;
-    console.log(req.body);
     let product = await productsModel.findById(id);
     const { title, price, quantity, details, college } = req.body;
     let image = product.image;
@@ -69,7 +67,6 @@ let updateProduct = async (req, res) => {
     await product.save(); 
     res.status(200).json({ message: "Product updated successfully" });
   } catch (error) {
-    console.error(error);
     res
       .status(500)
       .json({ error: "An error occurred while updating the product" });
@@ -86,14 +83,12 @@ let updateQuantityForOrder = async (req, res) => {
       product.quantity = Math.max(0, product.quantity - quantity);
       if (product.quantity === 0) {
         product.statue = "sold";
-        console.log(product.statue);
       }
     }
 
     await product.save(); 
     res.status(200).json({ message: "Product updated successfully" });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: "An error occurred while updating the product"});
   }
 };

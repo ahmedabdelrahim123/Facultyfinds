@@ -9,11 +9,11 @@
   <h3>{{username}}</h3>
 </div>
 <div class="dashboard">
-  <p [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/dashboard">Dashboard</p>
+  <p [routerLinkActiveOptions]="{exact:true}" routerLinkActive="dash"  routerLink="/dashboard">Dashboard</p>
   <hr/>
-  <p [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/adminproducts">Products</p>
+  <p [routerLinkActiveOptions]="{exact:true}" routerLinkActive="dash"  routerLink="/adminproducts">Products</p>
   <hr/>
-  <p [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/adminorders">Orders</p>
+  <p [routerLinkActiveOptions]="{exact:true}" routerLinkActive="dash" routerLink="/adminorders">Orders</p>
   <hr/>
   <button (click)="logout()" class="logout">Logout </button><i class="fas fa-sign-in ml-1"></i>
 </div>
