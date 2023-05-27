@@ -29,7 +29,7 @@ const productsSchema = new mongoose.Schema({
   image: {
     type: "string",
     required: true,
-  }
+  },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

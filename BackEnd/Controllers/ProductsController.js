@@ -1,5 +1,5 @@
 // const validate = require("../Utils/coursesValidation");
-const productsModel = require("../Model/productsModel");
+const productsModel = require("../Model/ProductsModel");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");

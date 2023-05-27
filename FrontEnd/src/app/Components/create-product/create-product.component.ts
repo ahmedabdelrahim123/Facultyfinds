@@ -32,9 +32,9 @@ export class CreateProductComponent implements OnInit {
       formData.append('price', price);
       formData.append('details', details);
       formData.append('college', college);
+      // formData.append('quantity', quantity);
       (document.getElementById("error-message") as HTMLElement).style.display = "none";
       formData.append('userID', this.userId);
-      formData.append('price', price);
       console.log(formData);
 
       this.dataservice.addNewProduct(formData).subscribe(
