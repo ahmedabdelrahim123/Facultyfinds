@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
   constructor(private readonly http: HttpClient) {}
-  private readonly Base_URL = 'https://backend-i046.onrender.com';
+  private readonly Base_URL = 'http://localhost:3000';
 
   ///////////////////////////////
   //// product
