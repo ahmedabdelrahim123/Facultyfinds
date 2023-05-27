@@ -50,3 +50,15 @@ body {
   background-color: rgb(211, 152, 57);
   color: white;
 }
+
+.noOrders{
+  text-align: center;
+  border: 1px solid black;
+  width: 70%;
+  margin: auto;
+  margin-top: 3%;
+}
+.sorry{
+  margin-top: 2%;
+  font-size: 24px;
+}

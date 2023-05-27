@@ -6,15 +6,18 @@ body{
   padding: 3rem !important;
 
 }
+h1{
+  color: #b4840f;
+}
 
 .card{
-  border:none;
-   width: 100%;
+  border-color: #b4840f;
+  width: 100%;
   position:relative;
   overflow:hidden;
   border-radius:8px;
-  cursor:pointer;
   margin-bottom: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #b4840f;
 }
 
 .card:before{
@@ -52,12 +55,19 @@ body{
 
 .fonts{
   margin-bottom: 7%;
-  color: #a1a196;
+  /* color: #a1a196; */
+  color: #545353;
   font-weight: 500;
   text-align: center;
   /* letter-spacing: 0.1rem; */
-  font-size: 13px;
-  margin-top: 5%;
+  font-size: 15px;
+  margin-top: 3%;
+}
+
+hr{
+  width: 205px;
+  margin-left: 54%;
+  color: rgb(15, 86, 111);
 }
 
 
@@ -66,7 +76,7 @@ body{
      color:#ffffff;
      margin-left: 32%;
      height:40px;
-     width: 30%;
+     width: 50%;
      margin-top: 5%;
      background-color: rgb(201, 159, 69);
 
@@ -113,5 +123,10 @@ line-height: 25px;
   width: 200px;
   border: 2px solid #b4840f;
   background-color: white;
+}
+.labels{
+  color: #2b2a2a;
+  font-size: 18px;
+  font-weight: bold;
 }
 

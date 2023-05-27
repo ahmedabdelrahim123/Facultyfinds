@@ -39,6 +39,7 @@ export class CartService {
     if (index !== -1) {
       this.products[index].quantity = item.quantity;
     }
+  
   }
   
   removeCartItem(product: any) {

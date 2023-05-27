@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+// const bcrypt = require("bcrypt");
+//import * as bcrypt from 'bcryptjs';
+
 
 @Component({
   selector: 'app-update-user',
@@ -54,12 +57,16 @@ export class UpdateUserComponent {
     }
 
       this.dataservice.updateUser(this.ID, formData).subscribe((res) => {
+        this.router.navigate(['/profile']).then(() => {
+        location.reload();
+      });
       });
 
-      this.router.navigate(['/profile']);
 
 
     }
+
+
   }
 
 

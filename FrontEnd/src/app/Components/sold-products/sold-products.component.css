@@ -1,0 +1,32 @@
+.notify{
+  width: 70%;
+  margin: auto;
+
+}
+span{
+  font-weight: bold;
+  font-style: italic;
+}
+
+.orders{
+margin-top: 5%
+}
+#welcome{
+  font-family: 'Playfair', cursive
+}
+
+.notSold{
+  text-align: center;
+  border: 1px solid black;
+  width: 70%;
+  margin: auto;
+  margin-top: 3%;
+}
+.sad{
+  color: rgb(255, 196, 0)
+}
+
+.sorry{
+  margin-top: 2%;
+  font-size: 24px;
+}

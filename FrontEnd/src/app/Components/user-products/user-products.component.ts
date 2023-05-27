@@ -9,6 +9,7 @@ import jwt_decode from 'jwt-decode';
 })
 export class UserProductsComponent implements OnInit {
   products: any[] = [];
+  hasProducts: boolean = false;
 
   constructor(private myService: DataService) {}
 
@@ -25,6 +26,7 @@ export class UserProductsComponent implements OnInit {
             console.log(userId);
           if (product.userId === userId) {
               this.products.push(product);
+              this.hasProducts = true;
             }
           }
           console.log(this.products);

@@ -1,97 +1,150 @@
+ <h1 class="d-flex justify-content-center">My Profile</h1>
+<div *ngIf="user" class="container mt-3">
+  <div
+    class="row d-flex justify-content-center"
+    style="background-color: rgb(246, 246, 246)"
+  >
+    <div class="col-md-7" style="margin-top: 1%; width: 850px;" >
+      <div class="card p-3 py-4" style="width: 850px;">
+        <div class="text-center">
+          <img
+            src="http://localhost:3000/uploads/{{ user.image }}"
+            width="200" height="200"
+            class="rounded-circle"
+          />
+        </div>
 
-<div  *ngIf="user" class="container mt-5" >
+        <div class="px-4 mt-1">
+          <p class="fonts">
+            This is your personal space where you can manage and customize your
+            profile information. From here, you can update your profile picture,
+            edit your information, and edit your orders list. Take control of
+            your online presence and make your profile reflect who you are.
+          </p>
+        </div>
 
-
-  <div class="row d-flex justify-content-center" style="background-color: rgb(246, 246, 246);">
-
-      <div class="col-md-7" style="margin-top: 1%;">
-
-          <div class="card p-3 py-4" >
-
-              <div class="text-center">
-                  <img src="http://localhost:3000/uploads/{{user.image}}" width="200" class="rounded-circle">
+        <div class="col-sm-8">
+          <div class="card-block">
+            <h6
+            class="d-flex justify-content-center"
+              style="
+                font-size: 22px;
+                color: rgb(15, 86, 111);
+                margin-left: 46%;
+              "
+            >
+              My Information
+            </h6>
+            <hr>
+            <div class="row">
+              <div class="col-6">
+                <div class="col-12">
+                  <label style="margin-left: 11%; display: inline;" class="labels">username:</label>
+                  <span style="margin-left: 6%">
+                    {{ user.username }}
+                  </span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="col-12" style="width: 850px;">
+                  <label style="margin-left: 26%; display: inline;" class="labels">Email:</label>
+                  <span style="margin-left: 2%">
+                    {{ user.email }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-6">
+                <div class="col-12">
+                  <label style="margin-left: 11%; display: inline;" class="labels">Gender:</label>
+                  <span style="margin-left: 6%">
+                    {{ user.gender }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <h6
+              class="d-flex justify-content-center"
+              style="
+                margin-bottom: 5%;
+                margin-top: 5%;
+                font-size: 22px;
+                color: rgb(15, 86, 111);
+                margin-left: 46%;
+              "
+            >
+              More details
+            </h6>
+            <hr>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="col-md-12">
+                  <label style="margin-left: 55%" class="labels">Products</label
+                  ><button
+                    style="margin-left: 30%; margin-top: 10%"
+                    class="btnn"
+                    routerLink="/user-products"
+                  >
+                    Products
+                  </button>
+                </div>
               </div>
 
-
-
-                  <div class="px-4 mt-1">
-                      <p class="fonts">This is your personal space where you can manage and customize your profile information.
-                           From here, you can update your profile picture, edit your information, and edit your orders list.
-                           Take control of your online presence and make your profile reflect who you are. </p>
-
-                  </div>
-
-
-                  <div class="col-sm-8">
-                      <div class="card-block">
-                          <h6 class="m-b-20 p-b-5 b-b-default f-w-600" style="margin-bottom: 5%; font-size: 22px; color: rgb(15, 86, 111);">My Information</h6>
-                          <div class="row">
-                              <div class="col-sm-6">
-
-                                  <div class="col-md-6">
-                                    <label style="margin-left: 7%;" class="labels">username</label><input style="margin-left: 7%;" type="text" class="form-control" placeholder="user name" value={{user.username}} name="username"></div>
-                              </div>
-                              <div class="col-sm-6">
-
-                                  <div class="col-md-12"><label style="margin-left: 70%;" class="labels">Email</label><input type="text" style="margin-left: 70%;" class="form-control" value={{user.email}}  name="email"></div>
-                              </div>
-                          </div>
-                          <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600" style="margin-bottom: 5%; margin-top: 2%; font-size: 22px; color: rgb(7, 70, 125);">More details</h6>
-                          <div class="row">
-
-                                  <div class="col-sm-6">
-
-                                      <div class="col-md-12"><label style="margin-left: 7%;" class="labels">Gender</label><input style="margin-left: 7%;" type="text" class="form-control" value={{user.gender}}></div>
-                                  </div>
-
-
-                              <div class="col-sm-6">
-
-                                <div class="col-md-12"><label style="margin-left: 70%; "class="labels">Orders</label><button style="margin-left: 70%;margin-top: 10%;" class="btnn" routerLink="/orders">Order Details</button></div>
-                            </div>
-
-                            <div class="col-sm-6">
-                              <div class="col-md-12"><label style="margin-left: 70%; "class="labels">Products</label><button style="margin-left: 70%;margin-top: 10%;" class="btnn" routerLink="/user-products">Products</button></div>
-                          </div>
-
-                          </div>
-
-
-
-                      </div>
-                  </div>
-
-                  <div class="buttons">
-
-                      <button class="btn" [routerLink]="['/updateuser', user?._id]"> <i class="far fa-edit"> </i>Edit profile</button>
-
-                  </div>
-
-
+              <div class="col-sm-6">
+                <div class="col-md-12">
+                  <label style="margin-left: 115%" class="labels">Orders</label
+                  ><button
+                    style="margin-left: 87%; margin-top: 10%"
+                    class="btnn"
+                    routerLink="/orders"
+                  >
+                    Order Details
+                  </button>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-6" style="margin-left: 2%;">
+              <div class="buttons">
+                <button class="btn" [routerLink]="['/updateuser', user?._id]">
+                  <i class="far fa-edit"> </i>Edit profile
+                </button>
+            </div>
+          </div>
+            <div class="col-6" style="margin-left: -88px;">
+              <div class="buttons">
+                <button class="btn" [routerLink]="['/soldproducts']">
+                  My Sold Products
+                </button>
+              </div>
+            </div>
+        </div>
+
 
       </div>
-
+    </div>
   </div>
-
 </div>
 
-
 <!-- ----------------------------------Footer---------------------------------- -->
-<nav class="navbar navbar-expand-lg" style="background-color: white;">
+<nav class="navbar navbar-expand-lg" style="background-color: white">
   <div class="container-fluid">
     <div class="collapse navbar-collapse ml-5" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" style="margin-left: 150px;">
+        <li class="nav-item" style="margin-left: 150px">
           <a class="nav-link active" href="#">SOCIO Homepage</a>
         </li>
-        <li class="nav-item  ml-2">
+        <li class="nav-item ml-2">
           <a class="nav-link active" href="#">Privacy Policy</a>
         </li>
       </ul>
-      <span class="navbar-text ">
-        © SOCIO 2023
-      </span>
+      <span class="navbar-text"> © SOCIO 2023 </span>
     </div>
   </div>
 </nav>

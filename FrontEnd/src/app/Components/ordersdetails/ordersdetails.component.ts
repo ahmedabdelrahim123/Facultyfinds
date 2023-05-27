@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class OrdersdetailsComponent implements OnInit {
   orders: any[] = [];
-
+  hasOrders: boolean = false;
   constructor(private myService: DataService,private router: Router) {}
 
   ngOnInit(): void {
@@ -29,6 +29,7 @@ export class OrdersdetailsComponent implements OnInit {
             console.log(order.userID._id);
             if (order.userID._id === userId) {
               this.orders.push(order);
+              this.hasOrders=true;
               console.log('hi');
             }
           }

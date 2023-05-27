@@ -1,8 +1,16 @@
+<div class="alert alert-danger" role="alert"*ngIf="alertVisible" style="text-align: center;">
+  Please Login First <i class="fas fa-exclamation-circle"></i>
+</div>
+
 <!--background image-->
 <div class="bg-image container">
   <div class="cover-items">
-    <button routerLink="/products" class="background_btn">BUY</button>
-    <button routerLink="/createproduct" class="background_btn">SELL</button>
+
+    <!-- <button routerLink="/products" class="background_btn">BUY</button>
+    <button routerLink="/createproduct" class="background_btn">SELL</button> -->
+
+    <button class="background_btn me-2" routerLink="/products"(click)="showAlert()">BUY</button>
+    <button class="background_btn" routerLink="/createproduct"(click)="showAlert()">SELL</button>
   </div>
 </div>
 <br />
@@ -27,8 +35,6 @@
           sell the tools that you no longer need.
         </p>
         <div class="container" style="justify-content: center">
-          <!-- <button type="button" routerLink="/products" class="btn btn-warning card_btn">BUY</button>
-          <button type="button" class="btn btn-info card_btn">SELL</button> -->
         </div>
       </div>
     </div>
@@ -43,8 +49,6 @@
         </p>
         <br />
         <div class="container" style="justify-content: center">
-          <!-- <button type="button" class="btn btn-warning card_btn">BUY</button>
-          <button type="button" class="btn btn-info card_btn">SELL</button> -->
         </div>
       </div>
     </div>
@@ -59,8 +63,6 @@
         </p>
         <br />
         <div class="container" style="justify-content: center">
-          <!-- <button type="button" class="btn btn-warning card_btn">BUY</button>
-          <button type="button" class="btn btn-info card_btn">SELL</button> -->
         </div>
       </div>
     </div>
@@ -80,8 +82,6 @@
         </p>
         <br />
         <div class="container" style="justify-content: center">
-          <!-- <button type="button" class="btn btn-warning card_btn">BUY</button>
-          <button type="button" class="btn btn-info card_btn">SELL</button> -->
         </div>
       </div>
     </div>
@@ -95,8 +95,6 @@
           need.
         </p>
         <div class="container" style="justify-content: center">
-          <!-- <button type="button" class="btn btn-warning card_btn">BUY</button>
-          <button type="button" class="btn btn-info card_btn">SELL</button> -->
         </div>
       </div>
     </div>
@@ -110,8 +108,6 @@
           tools that you no longer need.
         </p>
         <div class="container" style="justify-content: center">
-          <!-- <button type="button" class="btn btn-warning card_btn">BUY</button>
-          <button type="button" class="btn btn-info card_btn">SELL</button> -->
         </div>
       </div>
     </div>

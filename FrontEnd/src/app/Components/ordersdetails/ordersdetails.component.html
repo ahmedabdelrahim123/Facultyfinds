@@ -1,14 +1,14 @@
     <div class="container">
       <h1>Orders List</h1>
-      <a routerLink="/profile" class="btn btn-primary btn-back">Back to Orders</a>
-      <div class="row">
-        <div class="col-md-4" *ngFor="let order of orders">
+      <a routerLink="/profile" class="btn btn-back" style="background-color: #cfb341; color:white;">Back to Orders</a>
+      <div class="row" *ngIf="hasOrders">
+        <div class="col-md-4" *ngFor="let order of orders" >
           <div class="card">
-            <div class="card-header">
+            <div class="card-header"style="background-color: #cfb341;">
               <h4>Order Details</h4>
             </div>
             <div class="card-body">
-              <dl class="row order-details">
+              <dl class="row order-details" >
 
                 <dt class="col">Order Date:</dt>
                 <dd class="col">{{ order.date }}</dd>
@@ -38,10 +38,13 @@
               </table>
             </div>
             <div *ngIf="order.statue !== 'accepted'">
-              <button (click)="delete_order(order._id)" class="rounded-3 btn4">Delete</button>
+              <button (click)="delete_order(order._id)" class="rounded-3 btn4 mb-3">Delete</button>
             </div>
           </div>
         </div>
+      </div>
+      <div *ngIf="!hasOrders"  class="noOrders">
+        <p class="sorry">you have not placed any order from our site yet, you can order now.</p>
       </div>
     </div>
 

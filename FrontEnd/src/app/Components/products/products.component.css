@@ -68,7 +68,7 @@
   display: block;
   padding-top: 1%;
 
-  
+
   transition: 0.3s ease-in-out;
 }
 
@@ -96,3 +96,24 @@
 }
 
 
+h6:hover{
+  color: #d9a655;
+}
+
+.sidebar {
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  padding: 2%;
+  border-left: 2px solid rgb(209, 169, 58);
+}
+
+@media (max-width: 750px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-left: none;
+  }
+}

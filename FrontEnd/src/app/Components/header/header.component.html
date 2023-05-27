@@ -1,34 +1,44 @@
-<div id="app">
-  <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: whitesmoke; height: 75px">
-    <button (click)="toggleTheme()" style="border: none">
-      <span style="font-size: 30px; cursor: pointer;" class="fa fa-moon"></span>
-    </button>
+
+<div id="app" >
+
+  <nav
+  class="navbar navbar-expand-md navbar-light shadow-sm"
+  style="background-color: rgb(255, 255, 255); height: 70px;margin-top: 2%;
+ margin-left: 3%; margin-right: 5%;border-left: 5px solid rgb(0, 0, 0);
+  "
+>
     <div class="container">
-      <a class="navbar-brand fw-bold" > E-Commerce </a>
+      <button (click)="toggleTheme()" style="border: none ; margin-left: 1%;background-color: rgb(255, 255, 255);">
+        <span style="font-size: 30px; cursor: pointer;" class="fa fa-moon"></span>
+          </button>
+      <a class="navbar-brand fw-bold" style="color: rgb(199, 171, 12);" > E-Commerce </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="container" style="background-color: whitesmoke;">
-      <div class=" collapse navbar-collapse " id="navbarSupportedContent">
+      <div class="container" style="background-color: rgb(255, 255, 255); z-index: 1; position: relative;">
+      <div class=" collapse navbar-collapse " id="navbarSupportedContent" >
         <!-- Left Side Of Navbar -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link text-decoration-none text-dark" style="margin-left: 150px;background-color: whitesmoke; border:none" routerLink="/home">Home</a>
+        <ul class="navbar-nav" style="    font-family: sans-serif;
+        font-weight: 500;
+        ">
+          <li class="nav-item4" style="margin-left: 130px">
+            <span  [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/home">Home</span>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-decoration-none text-dark" style="margin-left: 150px;background-color: whitesmoke; border:none" routerLink="/products">Products</a>
+          <li class="nav-item1" style="margin-left: 130px">
+            <span [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/products" class="text-decoration-none text-dark"(click)="showAlert()">Products</span>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-decoration-none text-dark" style="margin-left: 150px;background-color: whitesmoke; border:none" routerLink="/about">About</a>
+          <li class="nav-item5" style="margin-left: 130px">
+            <span [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/about">About</span>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-decoration-none text-dark" style="margin-left: 150px;background-color: whitesmoke; border:none" routerLink="/contactus">Contact US</a>
+          <li class="nav-item6" style="margin-left: 100px">
+            <span [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/contactus">Contact US</span>
           </li>
+
         </ul>
            <!-- Right Side Of Navbar -->
            <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <button style="border: none" routerLink="cart">
+              <button style="border: none; background-color: white;"  routerLink="cart">
                 <i style="font-size: 30px" class="fa fa-cart-plus"></i>
                 <div style="font-size: 10px" class="badge bg-danger">
                   {{ totalItem }}
@@ -36,9 +46,15 @@
               </button>
             </li>
             <!-- Authentication Links -->
-            <a *ngIf="!isAuthenticated()" class="auth-modal-toggle btn btn-primary ms-2 me-1" data-auth-modal-tab="sign-in" (click)="open(mymodal)">Login</a>
+
+            <a
+            style="    font-weight: 700;
+            color: white;
+            background-color: #d6ac4d; border: none;"
+
+            *ngIf="!isAuthenticated()" class="auth-modal-toggle btn btn-primary ms-2 me-1" data-auth-modal-tab="sign-in" (click)="open(mymodal)">Login</a>
             <li *ngIf="isAuthenticated()" class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ username }}
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -55,14 +71,18 @@
   </nav>
 
   <main class="py-4"></main>
+  <div class="alert alert-danger" role="alert"*ngIf="alertVisible" style="text-align: center;">
+    Please Login First <i class="bi bi-check-circle-fill me-2"></i>
+  </div>
 </div>
 
+
 <!-- /////////////////////////////////////////////////  -->
-<ng-template #mymodal let-modal>
+<ng-template #mymodal let-modal >
 
   <!--Content-->
 
-  <div class="modal-content" style="height: 77vh; overflow: auto">
+  <div class="modal-content" style="height: 77vh;">
     <!--Modal cascading tabs-->
     <div class="modal-c-tabs">
       <!-- Nav tabs -->
@@ -150,7 +170,7 @@
 
               <p class="error">{{loginerror}}</p>
 
-              <button class="btnn">Login
+              <button class="btnn rounded-3">Login
 
                 <i class="fas fa-sign-in ml-1"></i>
         </button>
@@ -210,10 +230,11 @@
 
 
 
-          <div class="imgg">
-            <input style="background-color: #9da5a2;" type="file" name="image"  #image>
+          <div class="imgg ">
+            <input class ="rounded-3" style="background-color: #9da5a2;   border: 1px solid black;
+            " type="file" name="image"  #image>
           </div>
-          <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: white; margin-bottom: 2%;" ></i>
+          <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: rgb(0, 0, 0); margin-bottom: 2%;" ></i>
 
             <div class="form-check">
               <input class="form-check-input" type="radio" name="gender" value="male" #maleRadio/>
@@ -226,9 +247,9 @@
             </div>
             <p class="error">{{fieldsRequired}}</p>
 
-            <div class="text-center form-sm mt-2">
+            <div class="text-center form-sm mt-2 ">
               <button
-                class="btnnn"
+                class="btnn rounded-3"
                 type="submit"
               >
                 Sign up <i class="fas fa-sign-in ml-1"></i>

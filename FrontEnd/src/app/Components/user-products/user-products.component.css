@@ -16,3 +16,18 @@
 span{
  font-family:'Courgette', cursive;
 }
+.noProducts{
+  text-align: center;
+  border: 1px solid black;
+  width: 70%;
+  margin: auto;
+  margin-top: 3%;
+}
+
+#not{
+  margin-top: 2%;
+  font-size: 24px;
+}
+.hand{
+  color: rgb(255, 196, 0)
+}

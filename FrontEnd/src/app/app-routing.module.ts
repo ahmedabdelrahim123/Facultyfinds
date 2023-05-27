@@ -5,7 +5,6 @@ import { ProductsComponent } from './Components/products/products.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { HomeComponent } from './Components/home/home.component';
-import { StripComponent } from './Components/strip/strip.component';
 import { ContactusComponent } from './Components/contactus/contactus.component';
 import { AboutComponent } from './Components/about/about.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
@@ -23,7 +22,8 @@ import { UpdateUserComponent } from './Components/update-user/update-user.compon
 import { UserProductsComponent } from './Components/user-products/user-products.component';
 import { TermsOfServiceComponent } from './Components/terms-of-service/terms-of-service.component';
 import { RefundPolicyComponent } from './Components/refund-policy/refund-policy.component';
-
+import { SoldProductsComponent } from './Components/sold-products/sold-products.component';
+import { OrderCreatedComponent } from './Components/order-created/order-created.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,19 +33,48 @@ const routes: Routes = [
     component: ProductsComponent,
     canActivate: [AuthGuardService],
   },
-  { path: 'products/:id', component: ProductsDetailsComponent, canActivate: [AuthGuardService] },
-  { path: 'orders', component: OrdersdetailsComponent, canActivate: [AuthGuardService] },
+  {
+    path: 'products/:id',
+    component: ProductsDetailsComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'orders',
+    component: OrdersdetailsComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: 'cart', component: CartComponent },
-  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService] },
-  { path: 'strip', component: StripComponent },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: 'about', component: AboutComponent },
   { path: 'terms_of_service', component: TermsOfServiceComponent },
+  { path: 'ordercreated', component: OrderCreatedComponent },
   { path: 'refund_policy', component: RefundPolicyComponent },
   { path: 'contactus', component: ContactusComponent },
-  { path: 'adminproducts', component: DashboardProductsComponent, canActivate: [AdminGuardService] },
-  { path: 'createproduct', component: CreateProductComponent, canActivate: [AuthGuardService] },
   { path: 'productadded', component: ProductAddedComponent },
-  { path: 'updateproduct/:id', component: UpdateProductComponent, canActivate: [AuthGuardService] },
+  {
+    path: 'adminproducts',
+    component: DashboardProductsComponent,
+    canActivate: [AdminGuardService],
+  },
+  {
+    path: 'createproduct',
+    component: CreateProductComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'updateproduct/:id',
+    component: UpdateProductComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'soldproducts',
+    component: SoldProductsComponent,
+    canActivate: [AuthGuardService],
+  },
   {
     path: 'profile',
     component: UserProfileComponent,
@@ -56,9 +85,26 @@ const routes: Routes = [
     component: DashboradComponent,
     canActivate: [AdminGuardService],
   },
-  { path: 'adminorders', component: AdminOrdersComponent, canActivate: [AdminGuardService] },
-  { path: 'updateuser/:id', component: UpdateUserComponent, canActivate: [AuthGuardService] },
-  { path: 'user-products', component: UserProductsComponent, canActivate: [AuthGuardService]},
+  {
+    path: 'adminorders',
+    component: AdminOrdersComponent,
+    canActivate: [AdminGuardService],
+  },
+  {
+    path: 'updateuser/:id',
+    component: UpdateUserComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'user-products',
+    component: UserProductsComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'productadded',
+    component: ProductAddedComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: '**', component: ErrorComponent },
 ];
 

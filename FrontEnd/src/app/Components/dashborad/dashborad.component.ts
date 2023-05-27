@@ -10,7 +10,10 @@ export class DashboradComponent {
   orders: any;
   totalOrdersCount: any;
   pendingOrders: any ;
-  rejectedOrders: any
+  rejectedOrders: any;
+  totalProductsCount: any;
+  totalUsersCount: any;
+  soldProductsCount: number= 0;
   constructor(private api : DataService) { }
   ngOnInit(): void {
     this.api.getMyOrders().subscribe(
@@ -20,9 +23,28 @@ export class DashboradComponent {
           this.totalOrdersCount = data.totalOrdersCount;
           this.pendingOrders = data.pendingOrders;
           this.rejectedOrders = data.rejectedOrders;
-          // console.log(this.orders);
-          // console.log(this.totalOrdersCount);
-          // console.log(this.pendingOrders);
+        },
+        error:(err)=>{console.log(err)}
+      }
+    )
+    this.api.getMyProducts().subscribe(
+      {
+        next:(data)=>{
+          for( let product of data)
+            {
+              if(product.statue === "sold"){
+                this.soldProductsCount++;
+              }
+            }
+          this.totalProductsCount =data.length;
+        },
+        error:(err)=>{console.log(err)}
+      }
+    )
+    this.api.getMyUsers().subscribe(
+      {
+        next:(data)=>{
+          this.totalUsersCount =data.length;
         },
         error:(err)=>{console.log(err)}
       }
