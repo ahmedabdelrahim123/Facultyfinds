@@ -1,10 +1,8 @@
 const validate = require("../Utils/userSchema");
 const usersModel = require("../Model/UsersModel");
 const mongoose = require("mongoose");
-// import * as bcrypt from 'bcryptjs';
-// const bcrypt = require('bcryptjs');
 const bcrypt = require('bcryptjs');
-//import * as bcrypt from 'bcrypt';
+const fs= require('fs');
 const jwt = require("jsonwebtoken");
 const { Console } = require("console");
 

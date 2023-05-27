@@ -3,6 +3,7 @@ const productsModel = require("../Model/productsModel");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const fs = require('fs');
 
 let getAllProducts = async (req, res) => {
   const college = req.query.college;
@@ -19,11 +20,8 @@ let getAllProducts = async (req, res) => {
 };
 
 let getProductById = async (req, res) => {
-  // console.log("in controller",req);
   let id = req.params.id;
-  // console.log("in controller",req.params.id);
   let product = await productsModel.findById({ _id: id });
-  // console.log("in controller",product);
   res.json(product);
 };
 
@@ -47,6 +45,7 @@ let createProduct = async (req, res) => {
 let updateProduct = async (req, res) => {
   try {
     let id = req.params.id;
+    console.log(req.body);
     let product = await productsModel.findById(id);
     const { title, price, quantity, details, college } = req.body;
     let image = product.image;
@@ -55,7 +54,6 @@ let updateProduct = async (req, res) => {
       image = req.file.filename;
 
       if (product.image && product.image !== image) {
-        // If the existing image is different from the new image, delete the old image file
         fs.unlinkSync(`products/${product.image}`);
       }
     } else if (!req.body.image) {
@@ -66,10 +64,9 @@ let updateProduct = async (req, res) => {
     product.details = details || product.details;
     product.college = college || product.college;
     product.quantity = quantity || product.quantity;
- 
     product.image = image;
 
-    await product.save(); // Save the updated product
+    await product.save(); 
     res.status(200).json({ message: "Product updated successfully" });
   } catch (error) {
     console.error(error);

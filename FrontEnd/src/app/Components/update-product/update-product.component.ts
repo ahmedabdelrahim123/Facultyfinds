@@ -60,10 +60,14 @@ export class UpdateProductComponent {
         // // Reload the current URL
       });
       if(this.auth.isAdmin()){
-      this.router.navigate(['/adminproducts']);
+      this.router.navigate(['/adminproducts']).then(() => {
+        location.reload();
+      });;
       }
       else{
-        this.router.navigate(['/user-products']);
+        this.router.navigate(['/user-products']).then(() => {
+          location.reload();
+        });
       }
     }
 
