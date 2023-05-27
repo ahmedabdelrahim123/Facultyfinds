@@ -8,7 +8,6 @@ const bodyParser = require("body-parser");
 const productRouter = require("./Routes/ProductsRoutes");
 const orderRouter = require("./Routes/OrdersRoutes");
 const userRouter = require("./Routes/UsersRoutes");
-const paymentRouter = require("./Routes/PaymentRoutes");
 const cors = require("cors");
 
 // middlewares

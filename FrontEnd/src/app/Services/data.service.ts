@@ -33,8 +33,13 @@ export class DataService {
       product
     );
   }
+  
+  updateQuantity(productId: string, product: any) {
+    return this.http.put(
+      `${this.Base_URL}/api/product/productquantity/${productId}`,product);
+  }
 
-  deleteProduct(productId: string) {
+    deleteProduct(productId: string) {
     return this.http.delete(`${this.Base_URL}/api/product/delete/${productId}`);
   }
 

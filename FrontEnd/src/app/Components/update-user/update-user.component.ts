@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-// const bcrypt = require("bcrypt");
-//import * as bcrypt from 'bcryptjs';
+
 
 
 @Component({
@@ -15,6 +14,12 @@ export class UpdateUserComponent {
   imageFile = '';
   user: any;
   ID: any;
+  isFieldVisible: boolean = false;
+
+  toggleField() {
+    this.isFieldVisible = !this.isFieldVisible;
+  }
+
   constructor(
     private dataservice: DataService,
     private route: ActivatedRoute,
@@ -38,24 +43,24 @@ export class UpdateUserComponent {
   UpdateUser(
     email: any,
     username: any,
-    password: any,
     gender: any,
     image: any
   ) {
     let formData = new FormData();
+
     if (email) {
       formData.append('email', email);
     }
     if (username) {
       formData.append('username', username);
     }
-    if (password) {
-      formData.append('password', password);
-    }
+    // if (password) {
+    //   formData.append('password', password);
+    // }
     if (gender) {
       formData.append('gender', gender);
     }
-    
+
     //console.log(formData.get('image'));
     if (image && image.files && image.files.length > 0) {
       // If a new image was selected, add it to the form data
@@ -70,10 +75,9 @@ export class UpdateUserComponent {
         location.reload();
       });
       });
-
-
-
     }
+
+
 
 
   }

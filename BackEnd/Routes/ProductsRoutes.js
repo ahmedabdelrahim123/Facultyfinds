@@ -32,5 +32,6 @@ router.put(
   auth,
   productsController.updateProduct
 );
+router.put("/productquantity/:id",auth,productsController.updateQuantityForOrder);
 router.delete("/delete/:id", auth, productsController.deleteProduct);
 module.exports = router;

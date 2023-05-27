@@ -33,6 +33,7 @@ router.put(
   upload.single("image"),
   usersController.updateUser
 );
+
 router.delete("/delete/:id", admin, usersController.DeleteUser);
 router.get("/:id", auth, usersController.getUserById);
 module.exports = router;

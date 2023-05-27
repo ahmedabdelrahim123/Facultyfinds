@@ -14,4 +14,11 @@
   color: black;
 }
 
+.dash{
+  color: #30A2FF;
+}
+
+.dash:hover{
+  color: white;
+}
 

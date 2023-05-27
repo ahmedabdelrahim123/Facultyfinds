@@ -4,7 +4,7 @@
   <nav
   class="navbar navbar-expand-md navbar-light shadow-sm"
   style="background-color: rgb(255, 255, 255); height: 70px;margin-top: 2%;
- margin-left: 3%; margin-right: 5%;border-left: 5px solid rgb(0, 0, 0);
+  margin-left: 3%; margin-right: 5%;border-left: 5px solid rgb(0, 0, 0);
   "
 >
     <div class="container">
@@ -25,7 +25,7 @@
             <span  [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/home">Home</span>
           </li>
           <li class="nav-item1" style="margin-left: 130px">
-            <span [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/products" class="text-decoration-none text-dark"(click)="showAlert()">Products</span>
+            <span routerLinkActive="active"  routerLink="/products" (click)="showAlert()">Products</span>
           </li>
           <li class="nav-item5" style="margin-left: 130px">
             <span [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"  routerLink="/about">About</span>

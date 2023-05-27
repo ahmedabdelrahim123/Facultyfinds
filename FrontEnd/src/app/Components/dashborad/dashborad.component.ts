@@ -14,6 +14,7 @@ export class DashboradComponent {
   totalProductsCount: any;
   totalUsersCount: any;
   soldProductsCount: number= 0;
+  usersCount: number= 0;
   constructor(private api : DataService) { }
   ngOnInit(): void {
     this.api.getMyOrders().subscribe(
@@ -44,7 +45,12 @@ export class DashboradComponent {
     this.api.getMyUsers().subscribe(
       {
         next:(data)=>{
-          this.totalUsersCount =data.length;
+          for( let user of data)
+            {
+              if(user.type === "user"){
+                this.usersCount++;
+              }
+            }
         },
         error:(err)=>{console.log(err)}
       }

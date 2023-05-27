@@ -36,11 +36,13 @@ export class UpdateProductComponent {
   UpdateProduct(
     title: any,
     price: any,
+    quantity: any,
     details: any,
     college: any,
     image: any
   ) {
       let formData = new FormData();
+
       if(title){
         formData.append('title', title);
       }
@@ -52,6 +54,9 @@ export class UpdateProductComponent {
       }
       if(price){
         formData.append('price', price);
+      }
+      if(quantity){
+        formData.append('quantity', price);
       }
 
       if (image && image.files && image.files.length > 0) {
@@ -67,12 +72,16 @@ export class UpdateProductComponent {
         // // Reload the current URL
       });
       if(this.auth.isAdmin()){
-      this.router.navigate(['/adminproducts']);
+      this.router.navigate(['/adminproducts']).then(() => {
+        location.reload();
+      });;
       }
       else{
-        this.router.navigate(['/user-products']);
+        this.router.navigate(['/user-products']).then(() => {
+          location.reload();
+        });
       }
     }
-    
+
   }
 
