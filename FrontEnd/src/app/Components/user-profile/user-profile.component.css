@@ -1,13 +1,42 @@
-body{
-  background:#b6adad;
+.body-div {
+  background-color: #fdf1ec;
 }
 
-.padding {
-  padding: 3rem !important;
-
+.profile-img{
+  text-align: center;
+  margin-top: 10%;
 }
-h1{
-  color: #b4840f;
+
+.center-divs{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.sell-text{
+  color: #deaf77;
+  font-size: 34px;
+  font-family: 'Playfair Display';
+  justify-content: center;
+  display: flex;
+}
+
+.hr-center{
+  width: 50%;
+  margin-left: 25%;
+}
+
+.fonts{
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 7%;
+  /* color: #a1a196; */
+  color: #545353;
+  font-weight: 500;
+  text-align: center;
+  /* letter-spacing: 0.1rem; */
+  font-size: 15px;
+  margin-top: 3%;
 }
 
 .card{
@@ -21,7 +50,6 @@ h1{
 }
 
 .card:before{
-
   content:"";
   position:absolute;
   left:0;
@@ -52,81 +80,49 @@ h1{
   transform:scaleY(1);
 }
 
+@media (max-width: 600px){
+  .h-media{
+    color: #0e6b52; 
+    font-size: large;
+    margin-top: 8%;
+    font-weight: bold;
+  }
 
-.fonts{
-  margin-bottom: 7%;
-  /* color: #a1a196; */
-  color: #545353;
-  font-weight: 500;
-  text-align: center;
-  /* letter-spacing: 0.1rem; */
-  font-size: 15px;
-  margin-top: 3%;
+  .label-media{
+    color: #0e6b52; 
+    font-size: medium;
+    font-weight: 500;
+  }
 }
 
-hr{
-  width: 205px;
-  margin-left: 54%;
-  color: rgb(15, 86, 111);
-}
+@media (min-width: 600px){
+  .h-media{
+    color: #0e6b52;
+    font-size: x-large;
+    font-weight:bold;
+  }
 
-
-.buttons button:nth-child(1){
-     border:1px solid #ffffff !important;
-     color:#ffffff;
-     margin-left: 32%;
-     height:40px;
-     width: 50%;
-     margin-top: 5%;
-     background-color: rgb(201, 159, 69);
-
-}
-
-.buttons button:nth-child(1):hover{
-     border:1px solid #000000 !important;
-     color:#000000;
-     height:40px;
-     background-color:#ffffff;
-
-}
-
-input[type="text"]
-{
-border: 0;
-
-display: block;
-margin: 20px auto;
-text-align: center;
-border: 2px solid #b89019;
-padding: 10px 10px;
-width: 220px;
-outline: none;
-border-radius: 4px;
-
+  .label-media{
+    color: #0e6b52;
+    font-size: large;
+    font-weight: 500;
+  }
 }
 
 
-input[type="text"]:focus {
- border-color: #b27409
-}
-
-h6 {
-font-size: 14px;
-}
-
-.card .card-block p {
-line-height: 25px;
-}
-
-.btnn{
-  height: 40px;
-  width: 200px;
-  border: 2px solid #b4840f;
-  background-color: white;
-}
-.labels{
-  color: #2b2a2a;
-  font-size: 18px;
+.sub-btn {
+  background-color:white;
+  color: rgb(201, 159, 69);
+  border: 2px solid #e0d393;
+  margin-bottom: 100px;
+  padding: 20px;
   font-weight: bold;
+  font-size: small;
 }
+
+.sub-btn:hover{
+  background-color:rgb(201, 159, 69);
+  color: white;
+}
+
 
