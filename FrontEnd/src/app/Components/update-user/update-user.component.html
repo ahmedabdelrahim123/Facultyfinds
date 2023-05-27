@@ -1,85 +1,120 @@
-<div class="d-flex align-items-center justify-content-center">
-          <div class="container">
-            <h1>Edit Profile</h1>
-            <hr>
-          <div class="row align-items-center justify-content-center">
-              <!-- left column -->
-              <div class="col-md-3 ">
-                <div class="text-center">
-                  <img src="http://localhost:3000/uploads/{{user.image}}" width="300" height="300" class="avatar img-circle" alt="profile">
+<form
+  class="box"
+  role="form"
+  enctype="multipart/form-data"
+  (ngSubmit)="
+    UpdateUser(
+      email.value,
+      username.value,
+      password.value,
+      maleRadio.checked ? 'male' : 'female',
+      image
+    )"
+>
+  <div class="body-div center-divs">
+    <div class="card mb-3" style="width: 70%">
+      <div class="row g-0">
 
-                  <h6 class="mt-3">Upload a different photo...</h6>
+      <span class="sell-text">Edit Profile</span>
+        <hr class="hr-center" />
 
-                  <input type="file" class="form-control" name="image"  value={{user.image}} #image>
+          <div class="col-md-4">
+            <label for="image-upload">
+              <img
+                id="image-preview"
+                src="http://localhost:3000/uploads/{{user.image}}"
+                alt="upload image"
+              />
+            </label>
+            <input
+              id="image-upload"
+              type="file"
+              onchange="const reader = new FileReader();
+                              reader.onload = function() {
+                                const imagePreview = document.getElementById('image-preview');
+                                imagePreview.src = reader.result;
+                              }
+                              reader.readAsDataURL(event.target.files[0]);"
+              style="display: none"
+              name="image"
+              required
+              #image
+            />
+          </div>
+
+          <div class="col-md-8 center-divs">
+            <div class="card-3 body" style="width: 80%">
+              <h3 class="sell-text">Personal info</h3>
+              <div class="frm col-" style="margin-top: 5%">
+                <label class="product-text">User Name: </label>
+                <input
+                  name="username"
+                  type="text"
+                  value={{user.username}}
+                  class="form-control form-control-sm validate custom-border-bottom"
+                  required
+                  #username
+                />
+              </div>
+
+              <div class="md-form form-sm mb-5">
+                <label class="product-text">Email: </label>
+                <input
+                name="email"
+                  type="email"
+                  value={{user.email}}
+                  class="form-control form-control-sm custom-border-bottom"
+                  required
+                  #email
+                />
+  
+                <label class="product-text">Password: </label>
+                <input
+                  name="password"
+                  type="password"
+                  class="form-control form-control-sm custom-border-bottom"
+                  required
+                  #password
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label">Gender:</label>
+                <div class="col-md-3 mt-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" value="male" #maleRadio [checked]="user.gender === 'male'">
+                    <label class="form-check-label" for="male">Male</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" value="female" #femaleRadio [checked]="user.gender === 'female'">
+                    <label class="form-check-label" for="female">Female</label>
+                  </div>
                 </div>
               </div>
 
-              <!-- edit form column -->
-              <div class="col-md-3 personal-info">
-                <h3>Personal info</h3>
-
-                <form  class="form-horizontal" role="form" enctype="multipart/form-data" (ngSubmit)="
-              UpdateUser(
-                email.value,
-                username.value,
-                password.value,
-                maleRadio.checked ? 'male' : 'female',
-                image)">
-
-                  <div class="form-group">
-                    <label class="col-lg-4 control-label">User name:</label>
-                    <div class="col-lg-8 mt-2">
-                      <input class="form-control" type="text" class="field" value={{user.username}} name="username" #username>
-                    </div>
-                  </div>
-                  <br>
-                  <div class="form-group">
-                    <label class="col-lg-3 control-label">Email:</label>
-                    <div class="col-lg-3 mt-2">
-                      <input class="form-control" type="email" class="field" value={{user.email}}  name="email" #email>
-                    </div>
-                    <br>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-3 control-label">Password:</label>
-                    <div class="col-md-3 mt-2">
-                      <input class="form-control" type="password" class="field" name="password" value={{user.password}}  #password>
-                    </div>
-                  </div>
-                  <br>
-                  <div class="form-group">
-                    <label class="col-md-3 control-label">Gender:</label>
-                    <div class="col-md-3 mt-3">
-                      <!-- <i class="fas fa-users prefix mt-2" style="font-size: 20px; color: white; margin-bottom: 2%;" ></i> -->
-
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" value="male" #maleRadio [checked]="user.gender === 'male'">
-              <label class="form-check-label" for="male">Male</label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" value="female" #femaleRadio [checked]="user.gender === 'female'">
-              <label class="form-check-label" for="female">Female</label>
-            </div>
-
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-3 control-label"></label>
-                    <div class="col-md-15">
-                      <input class="btnn" type="submit"  value="Save Changes">
-                      <span></span>
-                      <input type="reset" class="btnn2" value="Cancel">
-                    </div>
-                  </div>
-                </form>
+              <div class="text-center form-sm mt-2">
+                <button class="product-price-btn" type="submit">
+                  Save Changes
+                </button>
               </div>
+              <div class="text-center form-sm mt-2">
+                <button class="product-price-btn" type="reset" style="margin-bottom: 10%;">
+                  Reset
+                </button>
+              </div>
+
           </div>
         </div>
-</div>
+      </div>
+    </div>
+  </div>
+</form>
 
-
-
-
-
-
+<script>
+  const imagePreview = document.getElementById('image-preview');
+  imagePreview.addEventListener('click', function() {
+    const imageUpload = document.getElementById('image-upload');
+    imageUpload.click();
+  });
+</script>

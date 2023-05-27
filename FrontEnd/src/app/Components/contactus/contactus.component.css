@@ -21,51 +21,25 @@
 }
 
 
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+}
 
+.sub-btn {
+  background-color: rgb(201, 159, 69);
+  margin-bottom: 100px;
+  padding: 20px;
+  font-weight: bold;
+  color: white;
+  font-size: small;
+  border: none;
+}
 
-
-
-
-
-
-
-
-
-
-
-.contact-form {
-    border-radius: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    padding: 30px;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
-  }
-  .form-group {
-    margin-bottom: 20px;
-  }
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #eee;
-    font-size: 16px;
-  }
-  input[type="submit"] {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  input[type="submit"]:hover {
-    background-color: #3e8e41;
-  }
+.sub-btn:hover{
+  background-color:white;
+  color: rgb(201, 159, 69);
+  border: 1px solid #e0d393;
+}

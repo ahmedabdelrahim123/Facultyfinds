@@ -41,11 +41,20 @@ export class UpdateProductComponent {
     image: any
   ) {
       let formData = new FormData();
-      formData.append('title', title);
-      formData.append('details', details);
-      formData.append('college', college);
-      formData.append('price', price);
-        if (image && image.files && image.files.length > 0) {
+      if(title){
+        formData.append('title', title);
+      }
+      if(details){
+        formData.append('details', details);
+      }
+      if(college){
+        formData.append('college', college);
+      }
+      if(price){
+        formData.append('price', price);
+      }
+
+      if (image && image.files && image.files.length > 0) {
         // If a new image was selected, add it to the form data
         formData.append('image', image.files[0]);
       }

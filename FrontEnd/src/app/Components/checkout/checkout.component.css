@@ -1,13 +1,24 @@
-.drop{
-  display: flex;
-  flex-wrap: wrap;
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
 }
 
-.main{
-  display: flex;
-  flex-wrap: wrap;
-
+.sub-btn {
+  background-color: rgb(201, 159, 69);
+  margin-bottom: 100px;
+  padding: 20px;
+  font-weight: bold;
+  color: white;
+  font-size: small;
+  border: none;
 }
+
+.sub-btn:hover{
+  background-color:#C8AD7F;
+}
+
 .error-message {
 color: red;
 margin-left: 1%;
@@ -19,13 +30,13 @@ margin-left: 1%;
 }
 
 .check{
-  height: 200px;
   padding: 3%;
   border: none;
-  width: 29%;
-  height: 790px;
+  width: 100%;
   background: #efefef;
-
+  border-top: 3px solid rgb(216, 168, 12);
+  height: 500px; 
+  margin-top: 9%;
 }
 
 .para{
@@ -47,16 +58,10 @@ form{
   padding-top: 5%;
 }
 
-.check {
-  border-top: 3px solid rgb(216, 168, 12);
-  height: 500px; 
-  margin-top: 9%;
-}
-
 .btnn{
   font-weight: 600;
   border: white;
-  background: #e0d393;
+  background: rgb(201, 159, 69);
   height: 50px;
   margin-bottom: 10%;
   float: right;
@@ -71,10 +76,9 @@ form{
   width: 270px;
   height: 40px;
   background-color: white;
-  color: #e0d393;
+  color: rgb(201, 159, 69);
 
 }
-
 
 .btnn:hover{
   background-color: white;

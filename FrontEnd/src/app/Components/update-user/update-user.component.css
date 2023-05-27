@@ -1,49 +1,80 @@
-.field{
-border: 0;
-border: 2px solid #b89019;
-padding: 10px 10px;
-padding-left: 20px;
-width: 370px;
-outline: none;
-border-radius: 4px;
-font-size: 16px;
+.body-div {
+  background-color: #fdf1ec;
 }
 
-input[type="text"]:focus {
- border-color: #b27409
+.col-md-4{
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
-
-
-h3{
-  color:#000000
+.center-divs{
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
-h1{
-  color:#b4840f;
-  text-align: center;
+.card {
+  -webkit-box-shadow: 0px 14px 32px 0px rgba(4, 4, 4, 0.15);
+  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
 }
 
-.btnn{
-  height: 40px;
-  width: 130px;
-  border: 2px solid #b4840f;
-  background-color: #b4840f;
-  color: white;
-}
-.btnn:hover{
-  height: 40px;
-  width: 130px;
-  border: 2px solid #b4840f;
-  background-color: white;
-  color: #b4840f;
+#image-preview {
+  display: block;
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 10%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
 }
 
-.btnn2{
-  height: 40px;
-  width: 100px;
-  border: 2px solid #b4840f;
-  background-color: white;
-  margin-left: 20px;
+#image-upload {
+  display: none;
 }
 
+.product-text{
+  color: #d5b790;
+  font-family: monospace;
+  font-size: 20px;
+  margin-top: 1%
+}
+
+.product-price-btn {
+  margin-right:50%;
+  height: 50px;
+  width: 60%;
+  margin: 0 20px 0 16px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color:#0e6b52;
+  background-color: #9cebd5;
+  cursor: pointer;
+  outline: none;
+}
+
+.product-price-btn:hover {
+  background-color: #0e6b52;
+  color: #9cebd5;
+}
+
+.sell-text{
+  color: #deaf77;
+  font-size: 34px;
+  font-family: 'Playfair Display';
+  justify-content: center;
+  display: flex;
+  margin-top: 5%;
+}
+
+.hr-center{
+  width: 50%;
+  margin-left: 25%;
+}

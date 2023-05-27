@@ -17,23 +17,12 @@
     /* cover items */
     .cover-items {
         position: absolute;
-        top: 43%;
-        left: 57%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: #fff;
-    }
-
-
-    /* cover items */
-    /* .cover-items {
-        position: absolute;
-        top: 23%;
+        top: 35%;
         left: 55%;
         transform: translate(-50%, -50%);
         text-align: center;
         color: #fff;
-    } */
+    }
 
     /* bg buttons */
     .background_btn {

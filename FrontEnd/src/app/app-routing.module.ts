@@ -15,7 +15,6 @@ import { DashboradComponent } from './Components/dashborad/dashborad.component';
 import { ErrorComponent } from './Components/error/error.component';
 import { UpdateProductComponent } from './Components/update-product/update-product.component';
 import { DashboardProductsComponent } from './Components/dashboard-products/dashboard-products.component';
-import { ProductAddedComponent } from './Components/product-added/product-added.component';
 import { OrdersdetailsComponent } from './Components/ordersdetails/ordersdetails.component';
 import { AdminOrdersComponent } from './Components/admin-orders/admin-orders.component';
 import { UpdateUserComponent } from './Components/update-user/update-user.component';
@@ -24,6 +23,7 @@ import { TermsOfServiceComponent } from './Components/terms-of-service/terms-of-
 import { RefundPolicyComponent } from './Components/refund-policy/refund-policy.component';
 import { SoldProductsComponent } from './Components/sold-products/sold-products.component';
 import { OrderCreatedComponent } from './Components/order-created/order-created.component';
+import { ProductAddedComponent } from './Components/product-added/product-added.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

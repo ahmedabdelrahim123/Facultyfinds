@@ -43,10 +43,19 @@ export class UpdateUserComponent {
     image: any
   ) {
     let formData = new FormData();
-    formData.append('email', email);
-    formData.append('username', username);
-    formData.append('password', password);
-    formData.append('gender', gender);
+    if (email) {
+      formData.append('email', email);
+    }
+    if (username) {
+      formData.append('username', username);
+    }
+    if (password) {
+      formData.append('password', password);
+    }
+    if (gender) {
+      formData.append('gender', gender);
+    }
+    
     //console.log(formData.get('image'));
     if (image && image.files && image.files.length > 0) {
       // If a new image was selected, add it to the form data

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
@@ -21,7 +20,6 @@ import { DashboradComponent } from './Components/dashborad/dashborad.component';
 import { CreateProductComponent } from './Components/create-product/create-product.component';
 import { UpdateProductComponent } from './Components/update-product/update-product.component';
 import { DashboardProductsComponent } from './Components/dashboard-products/dashboard-products.component';
-import { ProductAddedComponent } from './Components/product-added/product-added.component';
 import { OrdersdetailsComponent } from './Components/ordersdetails/ordersdetails.component';
 import { AdminOrdersComponent } from './Components/admin-orders/admin-orders.component';
 import { UpdateUserComponent } from './Components/update-user/update-user.component';
