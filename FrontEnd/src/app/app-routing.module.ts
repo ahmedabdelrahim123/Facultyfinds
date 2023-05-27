@@ -24,6 +24,7 @@ import { RefundPolicyComponent } from './Components/refund-policy/refund-policy.
 import { SoldProductsComponent } from './Components/sold-products/sold-products.component';
 import { OrderCreatedComponent } from './Components/order-created/order-created.component';
 import { ProductAddedComponent } from './Components/product-added/product-added.component';
+import { ContactMessageComponent } from './Components/contact-message/contact-message.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'ordercreated', component: OrderCreatedComponent },
   { path: 'refund_policy', component: RefundPolicyComponent },
   { path: 'contactus', component: ContactusComponent },
+  { path: 'msgsend', component: ContactMessageComponent },
   { path: 'productadded', component: ProductAddedComponent },
   {
     path: 'adminproducts',

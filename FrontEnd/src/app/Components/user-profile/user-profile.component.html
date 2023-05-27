@@ -47,19 +47,19 @@
 
       <div class="row" style="width: 80%; margin-left: 10%; text-align: center;">
         <div class="col-md">
-          <button class="btn btn-primary me-md-2 sub-btn" type="button">Your Products</button>
+          <button class="btn btn-primary me-md-2 sub-btn" type="button" routerLink="/user-products">Your Products</button>
         </div>
 
         <div class="col-md">
-          <button class="btn btn-primary me-md-2 sub-btn" type="button">Your Sold Products</button>
+          <button class="btn btn-primary me-md-2 sub-btn" type="button" [routerLink]="['/soldproducts']">Your Sold Products</button>
         </div>
 
         <div class="col-md">
-          <button class="btn btn-primary me-md-2 sub-btn" type="button">Your Orders <i class="fas fa-shopping-cart"></i></button>
+          <button class="btn btn-primary me-md-2 sub-btn" type="button" routerLink="/orders">Your Orders <i class="fas fa-shopping-cart"></i></button>
         </div>
   
           <div class="col-md">
-            <button class="btn btn-primary me-md-2 sub-btn" type="button"><i class="far fa-edit"> </i> Edit Profile</button>
+            <button class="btn btn-primary me-md-2 sub-btn" type="button" [routerLink]="['/updateuser', user?._id]"><i class="far fa-edit"> </i> Edit Profile</button>
           </div>
       </div>
     </div>
