@@ -1,5 +1,13 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
+.dark:hover,
+.dark:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 1em transparent;
+}
 
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgb(199, 171, 12); }
+}
 
 
 .nav-item4, .nav-item1, .nav-item5 ,.nav-item6{

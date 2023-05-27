@@ -38,6 +38,7 @@ userRole:any;
   loginUser(user: any) {
     return this.http.post(`${this.Base_URL}/api/user/login`, user);
   }
+  
   logout(): void {
     localStorage.clear();
     this.userRoleSubject.next('');
