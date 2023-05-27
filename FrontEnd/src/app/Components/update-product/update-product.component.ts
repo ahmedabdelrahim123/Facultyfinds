@@ -19,12 +19,10 @@ export class UpdateProductComponent {
     private auth:AuthService
   ) {
     this.ID = route.snapshot.params['id'];
-    console.log('in component', this.ID);
   }
   ngOnInit(): void {
     this.dataservice.getProductById(this.ID).subscribe({
       next: (data) => {
-        console.log('in component', data);
         this.product = data;
       },
       error: (err) => {

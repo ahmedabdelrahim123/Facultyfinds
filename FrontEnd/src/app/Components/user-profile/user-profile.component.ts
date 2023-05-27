@@ -17,20 +17,15 @@ export class UserProfileComponent implements OnInit {
     const decodedToken: any = jwt_decode(token);
     const userId = decodedToken.userId;
     const userType = decodedToken.userType;
-    console.log('User ID:', userId);
     this.api.getUserbyid(userId).subscribe((response)=>{
       this.user = response;
     })
 }}
 onSaveChanges(): void {
-  // Call UserService to update user information
-  // console.log(this.user._id);
-  // console.log(this.user);
   this.api.updateUser(this.user._id, this.user)
     .subscribe((response) => {
       if (response) {
         //console.log(response);
-        // Displaya success message or perform other actions after the user information is updated
       } else {
         console.log('Error updating user information');
       }

@@ -29,7 +29,7 @@ export class ProductsComponent implements OnInit {
     cartItem.quantity = item.quantity || 1; // set the quantity to 1 if not specified
     this.cartService.addtoCart(cartItem); // add the item to the cart
     this.showAddToCartAlert(item.title);
-    
+
   }
 
   showAddToCartAlert(itemTitle: string) {
@@ -52,7 +52,6 @@ export class ProductsComponent implements OnInit {
 
   searchProductsByTitle(searchTerm: any): void {
     const searchText = searchTerm?.target?.value?.trim();
-    console.log('searchTerm:', searchTerm);
     if (!searchText) {
       // Reset the productList to the original list when the search text is empty
       this.getMyProducts(this.selectedCollege);

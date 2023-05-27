@@ -27,7 +27,6 @@ export class SoldProductsComponent implements OnInit {
           for (const order of data.data) {
             for (const product of order.product) {
               this.idOfSeller = product['pID']['userId'];
-              console.log(this.idOfSeller)
               if (this.idOfSeller === userId) {
                 this.orders.push(order);
                 this.soldProduct.push(product.pID);

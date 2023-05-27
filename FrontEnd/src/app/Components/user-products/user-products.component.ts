@@ -22,14 +22,11 @@ export class UserProductsComponent implements OnInit {
         (data) => {
           console.log(data);
           for (const product of data) {
-            console.log(product);
-            console.log(userId);
           if (product.userId === userId) {
               this.products.push(product);
               this.hasProducts = true;
             }
           }
-          console.log(this.products);
         },
         (error) => {
           console.log(error);

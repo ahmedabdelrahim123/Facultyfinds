@@ -19,7 +19,6 @@ export class OrdersdetailsComponent implements OnInit {
     if (token) {
       const decodedToken: any = jwt_decode(token);
       const userId = decodedToken.userId;
-      // console.log('User ID:', userId);
       this.myService.getMyOrders().subscribe(
         (data) => {
           console.log(data);
@@ -27,10 +26,8 @@ export class OrdersdetailsComponent implements OnInit {
             if (order.userID._id === userId) {
               this.orders.push(order);
               this.hasOrders=true;
-              console.log('hi');
             }
           }
-          console.log(this.orders);
         },
         (error) => {
           console.log(error);

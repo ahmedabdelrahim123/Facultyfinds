@@ -67,7 +67,6 @@ export class HeaderComponent {
       formData.append('gender', gender);
       formData.append('type', this.type);
       formData.append('orders', JSON.stringify(this.orders));
-      console.log(formData.get('image'));
 
       if (password !== repassword) {
         this.repassworderror = "your password doesn't match the previous one";
@@ -125,7 +124,6 @@ export class HeaderComponent {
         }
       },
       (err) => {
-        console.log(err);
         this.loginerror = err.error;
       }
     );

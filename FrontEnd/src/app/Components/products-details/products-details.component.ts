@@ -13,13 +13,11 @@ export class ProductsDetailsComponent implements OnInit{
   product:any;
   constructor(myRoute:ActivatedRoute,public myService: DataService){
     this.ID = myRoute.snapshot.params["id"];
-    console.log("in component",this.ID);
   }
   ngOnInit(): void {
     this.myService.getProductById(this.ID).subscribe(
       {
         next:(data)=>{
-          console.log("in component",data);
           this.product = data;
         },
         error:(err)=>{console.log(err)}

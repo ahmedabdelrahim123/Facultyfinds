@@ -26,12 +26,10 @@ export class UpdateUserComponent {
     private router: Router
   ) {
     this.ID = route.snapshot.params['id'];
-    console.log('in component', this.ID);
   }
   ngOnInit(): void {
     this.dataservice.getUserbyid(this.ID).subscribe({
       next: (data) => {
-        console.log('in component', data);
         this.user = data;
       },
       error: (err) => {
@@ -54,9 +52,7 @@ export class UpdateUserComponent {
     if (username) {
       formData.append('username', username);
     }
-    // if (password) {
-    //   formData.append('password', password);
-    // }
+
     if (gender) {
       formData.append('gender', gender);
     }
