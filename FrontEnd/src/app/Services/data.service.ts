@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
   constructor(private readonly http: HttpClient) {}
-  private readonly Base_URL = 'http://localhost:3000';
+  private readonly Base_URL = 'https://backend-i046.onrender.com';
 
   ///////////////////////////////
   //// product
@@ -33,7 +33,7 @@ export class DataService {
       product
     );
   }
-  
+
   updateQuantity(productId: string, product: any) {
     return this.http.put(
       `${this.Base_URL}/api/product/productquantity/${productId}`,product);
