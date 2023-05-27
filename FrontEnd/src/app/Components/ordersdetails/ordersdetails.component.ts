@@ -24,9 +24,6 @@ export class OrdersdetailsComponent implements OnInit {
         (data) => {
           console.log(data);
           for (const order of data.data) {
-            console.log(order);
-            console.log(userId);
-            console.log(order.userID._id);
             if (order.userID._id === userId) {
               this.orders.push(order);
               this.hasOrders=true;

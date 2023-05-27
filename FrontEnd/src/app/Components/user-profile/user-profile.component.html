@@ -4,7 +4,7 @@
         <label for="image-upload">
           <img
             id="image-preview"
-            src="http://localhost:3000/uploads/{{user.image}}"
+            src="http://localhost:3000/uploads/{{user?.image}}"
             alt="upload image"
           />
         </label>
@@ -12,7 +12,7 @@
         <span class="sell-text">{{user.username}}</span>
 
         <hr class="hr-center" />
-        
+
         <p class="fonts">
           This is your personal space where you can manage and customize your
           profile information. From here, you can update your profile picture,
@@ -57,7 +57,7 @@
         <div class="col-md">
           <button class="btn btn-primary me-md-2 sub-btn" type="button" routerLink="/orders">Your Orders <i class="fas fa-shopping-cart"></i></button>
         </div>
-  
+
           <div class="col-md">
             <button class="btn btn-primary me-md-2 sub-btn" type="button" [routerLink]="['/updateuser', user?._id]"><i class="far fa-edit"> </i> Edit Profile</button>
           </div>

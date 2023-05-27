@@ -20,21 +20,18 @@ export class SoldProductsComponent implements OnInit {
     if (token) {
       const decodedToken: any = jwt_decode(token);
       const userId = decodedToken.userId;
-      // console.log('User ID:', userId);
+      console.log('User ID:', userId);
       this.data.getMyOrders().subscribe(
         (data) => {
           // console.log(data);
           for (const order of data.data) {
             for (const product of order.product) {
-              this.soldProduct.push(product.pID);
-              console.log(this.soldProduct);
-
               this.idOfSeller = product['pID']['userId'];
+              console.log(this.idOfSeller)
               if (this.idOfSeller === userId) {
                 this.orders.push(order);
+                this.soldProduct.push(product.pID);
                 this.hasSoldProduct = true;
-
-                // console.log(this.orders);
               }
             }
           }
