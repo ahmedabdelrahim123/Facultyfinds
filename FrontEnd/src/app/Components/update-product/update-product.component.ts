@@ -54,7 +54,7 @@ export class UpdateProductComponent {
         formData.append('price', price);
       }
       if(quantity){
-        formData.append('quantity', price);
+        formData.append('quantity', quantity);
       }
 
       if (image && image.files && image.files.length > 0) {
@@ -64,7 +64,7 @@ export class UpdateProductComponent {
       else {
         formData.append('image', this.product.image);
       }
-
+console.log(formData.get);
       this.dataservice.updateProduct(this.ID, formData).subscribe((res) => {
         // alert('Product Updated Successfully');
         // // Reload the current URL

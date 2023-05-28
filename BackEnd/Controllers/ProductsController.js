@@ -44,8 +44,9 @@ let createProduct = async (req, res) => {
 let updateProduct = async (req, res) => {
   try {
     let id = req.params.id;
+    console.log(req.body)
     let product = await productsModel.findById(id);
-    const { title, price, quantity, details, college } = req.body;
+    const { title, price, quantity, details, college } =req.body ;
     let image = product.image;
 
     if (req.file) {
