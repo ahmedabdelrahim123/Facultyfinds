@@ -55,7 +55,7 @@ let updateUser = async (req, res) => {
   try {
     let id = req.params.id;
     let user = await usersModel.findById({ _id: id });
-    const { email, username, password, gender } = req.body;
+    const { email, username, gender } = req.body;
     let image = user.image;
 
     // Check if a new image was uploaded
@@ -72,11 +72,10 @@ let updateUser = async (req, res) => {
       // reuse the existing image in the user's profile data
       image = user.image;
     }
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(user.password , salt);
+
     await usersModel.updateOne(
       { _id: req.params.id },
-      { email, username,password: hashedPassword, gender, image },
+      { email, username, gender, image },
       { new: true }
     );
     res.status(200).json({ message: "User updated successfully" });
