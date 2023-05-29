@@ -108,22 +108,26 @@
 
 /* bg buttons for all media */
 .background_btn {
-    text-align: center;
+    font-size: 18px;
     padding: 10px 20px;
-    background-image:
-      linear-gradient(to right, #E0B0FF, #FFFACD, #B0E0E6),
-      linear-gradient(to right, #E0B0FF, #FFFACD, #B0E0E6);
-    background-size: 600% 100%; /* double the size of the button width */
-    background-position: center; /* set the initial position of the gradient */
-    color: #fff;
+    background-color: #fff;
+    background-size: 600% 100%;
+    background-position: center;
+    height: 50px;
+    color: #b67224;
     border: none;
-    border-radius: 30px;
-    animation-name: color-change;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-    color: black;
+    width: 120px;
+    /* border-radius: 30px; */
     font-weight: 500;
+    margin-bottom: 90%;
+
 }
+
+.background_btn:hover{
+    background-color: #d4a63b;
+    color: #fff;
+}
+
 
 /* bg buttons color effect for all media */
 @keyframes color-change {

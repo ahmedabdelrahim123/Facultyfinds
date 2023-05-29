@@ -4,10 +4,10 @@
 </div>
 
 <div *ngIf="hasSoldProduct" class ="notify">
-  <p style="text-align: center;" id="welcome">Hello! This is your sold products:</p>
+  <p style="text-align: center; color: #db8a1d; font-size: 19px;" id="welcome">Hello! These are your sold products:</p>
   <div *ngFor="let order of orders; let i = index" class="orders">
     <p>The <span>{{ soldProduct[i].title }} </span>product that you offered for sale was purchased by the user <span>[{{ order.userID.username }}] </span>
-      at date <span>{{order.date}}</span>, his email address is <span>[{{ order.userID.email}}]</span>, so please contact him to complete the sale process.
+      at date <span>{{order.date}}</span>, his/her email address is <span>[{{ order.userID.email}}]</span>, so please contact him to complete the sale process.
     </p>
 <hr/>
   </div>

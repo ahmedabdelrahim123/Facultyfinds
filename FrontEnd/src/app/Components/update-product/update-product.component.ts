@@ -69,17 +69,19 @@ console.log(formData.get);
         // alert('Product Updated Successfully');
         // // Reload the current URL
       });
-      if(this.auth.isAdmin()){
-      this.router.navigate(['/adminproducts']).then(() => {
-        location.reload();
-      });;
-      }
-      else{
-        this.router.navigate(['/user-products']).then(() => {
-          location.reload();
-        });
-      }
-    }
+      if (this.auth.isAdmin()) {
+        setTimeout(() => {
+          this.router.navigate(['/adminproducts']).then(() => {
+            window.location.reload();
+          });
+        }, 1000); // Add a timeout of 1000 milliseconds (1 second)
+      } else {
+        setTimeout(() => {
+          this.router.navigate(['/user-products']).then(() => {
+            window.location.reload();
+          });
+        }, 1000); // Add a timeout of 1000 milliseconds (1 second)
+      }}
 
   }
 

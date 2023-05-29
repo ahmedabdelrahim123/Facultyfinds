@@ -1,6 +1,9 @@
     <div class="container">
-      <h1>Orders List</h1>
-      <a routerLink="/profile" class="btn btn-back" style="background-color: #cfb341; color:white;">Back to Orders</a>
+      <h1 style="    font-weight: 800;
+      font-family: initial;
+      margin-bottom: 3%;
+      font-size: 30px;">Orders List</h1>
+      <a routerLink="/profile" class="btn btn-back" style="background-color: #cfb341; color:white;">Back to Profile</a>
       <div class="row" *ngIf="hasOrders">
         <div class="col-md-4" *ngFor="let order of orders" >
           <div class="card">

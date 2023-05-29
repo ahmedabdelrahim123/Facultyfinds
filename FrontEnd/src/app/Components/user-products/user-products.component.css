@@ -5,12 +5,22 @@
   font-family: 'Kalam', cursive;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #d0b03c;
+  
+  margin-bottom: 2%;
 }
 
+.content{
+  margin-top: 2%;
+  font-size: 17px;
+    color: #020405;
+    font-family: cursive;
+ 
+}
 .product-card img{
-  width: 90%;
-  height: 50vh;
-  margin-left: 5%;
+  width: 50%;
+  height: 30vh;
+  margin-left: 15%;
 }
 
 span{

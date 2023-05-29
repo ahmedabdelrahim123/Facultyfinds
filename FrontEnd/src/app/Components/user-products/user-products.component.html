@@ -1,3 +1,4 @@
+
 <div class="container w-50">
   <div *ngIf="hasProducts == true">
   <div *ngFor="let product of products" class="product-card">
@@ -14,11 +15,16 @@
           </button>
           </div>
         </div>
+        <hr style="width: 30%; margin-bottom: 3%; ">
+        <div  style="display: flex; flex-direction: row;">
+<div class="content">
         <p class="card-price"><span>Price: </span>{{product.price}} EGP</p>
         <p class="card-details"><span>Details: </span>{{product.details}}</p>
         <p class="card-college"><span>College: </span>{{product.college}}</p>
-        <img src="http://localhost:3000/products/{{product.image}}" class="card-image"/>
       </div>
+     
+        <img src="http://localhost:3000/products/{{product.image}}" class="card-image"/>
+      </div></div>
     </div>
   </div>
 </div>
@@ -27,6 +33,5 @@
   <p id="not">Hello <i class="fas fa-hand-sparkles hand" ></i>, you have not offered any products for sale yet, we will be happy to display your products</p>
 </div>
 </div>
-
 
 

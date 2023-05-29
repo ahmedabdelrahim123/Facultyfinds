@@ -13,8 +13,8 @@
     <tbody>
       <tr *ngFor="let order of orders" >
         <td>{{ order.date }}</td>
-        <td >
-          <span [ngClass]="{ 'rejected': order.statue === 'rejected', 'pending': order.statue === 'pending', 'accepted': order.statue === 'accepted' }">{{ order.statue }}</span>
+        <td>
+          <span  style="color: white;"[ngClass]="{ 'rejected': order.statue === 'rejected', 'pending': order.statue === 'pending', 'accepted': order.statue === 'accepted' }">{{ order.statue }}</span>
         </td>
         <td>{{ order.userID.username }}</td>
         <td>

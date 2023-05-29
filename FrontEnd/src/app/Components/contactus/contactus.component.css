@@ -29,12 +29,15 @@ textarea {
 }
 
 .sub-btn {
+  height: 40px;
   background-color: rgb(201, 159, 69);
   margin-bottom: 100px;
-  padding: 20px;
+  /* padding: 10px; */
   font-weight: bold;
   color: white;
-  font-size: small;
+  width: 35%;
+  margin-top: 5%;
+  /* font-size: small; */
   border: none;
 }
 
@@ -42,4 +45,10 @@ textarea {
   background-color:white;
   color: rgb(201, 159, 69);
   border: 1px solid #e0d393;
+}
+
+@media(max-width:600px) {
+.btn{
+  width: 50%;
+}
 }

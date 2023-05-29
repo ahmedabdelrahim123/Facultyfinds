@@ -7,8 +7,11 @@
   background-color: #f0f0f0;
 }
 h2{
-  font-family: 'Satisfy', cursive;
+  color: #000000;
+  font-weight: bold;
+  /* font-family: 'Satisfy', cursive; */
   text-align: center;
+  font-family: emoji;
   margin-top: 15px;
 }
 .user{
@@ -23,6 +26,7 @@ margin-left: .5rem;
   border: none;
   font-weight:bold;
   font-size: larger;
+  color: rgb(188, 162, 18);
 }
 .dashboard p{
   cursor: pointer;

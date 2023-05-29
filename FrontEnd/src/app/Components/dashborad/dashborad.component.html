@@ -1,31 +1,61 @@
 <app-sidebar></app-sidebar>
-<div style="margin-left: 17%;display: flex; gap:40px; margin-top: 8%;">
-<div class="bg-success p-3">
-  <h2 class="title">Total Orders Numbers</h2>
-  <h3>{{totalOrdersCount}}</h3>
-</div>
-<div class="bg-warning p-3">
-  <h2  class="title">Total Pending Orders</h2>
-  <h3>{{pendingOrders}}</h3>
-</div>
-<div class="bg-danger p-3">
-  <h2  class="title">Total Rejected Orders</h2>
-  <h3>{{rejectedOrders}}</h3>
-</div>
-</div>
-<div style="margin-left: 17%;display: flex; gap:40px; margin-top: 5%;">
-<div class="bg-primary p-3">
-  <h2  class="title">Total Products number</h2>
-  <h3>{{totalProductsCount}}</h3>
-</div>
-<div class="bg-light p-3">
-  <h2  class="title">Sold Products</h2>
-  <h3>{{soldProductsCount}}</h3>
-</div>
-<div class="bg-secondary p-3">
-  <h2  class="title">Users number</h2>
-  <h3>{{usersCount}}</h3>
-</div>
-</div>
+
+<div class="main-container">
+  <div class="heading">
+    <h1 class="heading__title">Admin dashboard</h1>
+  </div>
+
+        
+  <div class="cards">
+    <div class="card card-1">
+      <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <p class="card__exit"><i class="fas fa-times"></i></p>
+      <h2 class="card__title">Total Orders Numbers</h2>
+      <p class="card__apply">
+        <a class="card__link">{{totalOrdersCount}}</a>
+      </p>
+    </div>
 
 
+    <div class="card card-2">
+      <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <p class="card__exit"><i class="fas fa-times"></i></p>
+      <h2 class="card__title">Total Pending Orders</h2>
+      <p class="card__apply">
+        <a class="card__link">{{pendingOrders}} </a>
+      </p>
+    </div>
+    <div class="card card-3">
+      <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <p class="card__exit"><i class="fas fa-times"></i></p>
+      <h2 class="card__title">Total Rejected Orders</h2>
+      <p class="card__apply">
+        <a class="card__link">{{rejectedOrders}} </a>
+      </p>
+    </div>
+    <div class="card card-4">
+      <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <p class="card__exit"><i class="fas fa-times"></i></p>
+      <h2 class="card__title">Total Products number</h2>
+      <p class="card__apply">
+        <a class="card__link">{{totalProductsCount}} </a>
+      </p>
+    </div>
+    <div class="card card-5">
+      <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <p class="card__exit"><i class="fas fa-times"></i></p>
+      <h2 class="card__title">Sold Products</h2>
+      <p class="card__apply">
+        <a class="card__link">{{soldProductsCount}}</a>
+      </p>
+    </div>
+    <div class="card card-1">
+      <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <p class="card__exit"><i class="fas fa-times"></i></p>
+      <h2 class="card__title"> Users number</h2>
+      <p class="card__apply">
+        <a class="card__link" >{{usersCount}}</a>
+      </p>
+    </div>
+  </div>
+</div>

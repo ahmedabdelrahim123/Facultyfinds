@@ -43,6 +43,7 @@ userRole:any;
     localStorage.clear();
     this.userRoleSubject.next('');
     this.router.navigate(['/']);
+    location.reload();
   }
 
   getUserRole(): Observable<string> {

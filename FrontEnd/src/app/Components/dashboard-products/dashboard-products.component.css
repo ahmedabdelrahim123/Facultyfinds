@@ -5,7 +5,7 @@
   word-wrap: break-word;
   background: #faf8f8;
   background-clip: border-box;
-  border-radius: .25rem;
+  border-left: 3px solid rgb(12, 12, 12);
   width: 80%;
   padding: 10px;
   margin-top: 3%;
@@ -29,13 +29,16 @@
 }
 
 .item a:hover {
-    color:#526D82;
+    color:#bc9019;
 }
 .button{
-  border:none;
-  margin: 0.25rem;
-  padding:0.5rem;
-  border-radius: 5px;
+  color: white;
+  border: none;
+  width: 90px;
+text-align: center;
+height: 35px;
+margin: 0.5rem;
+
 }
 
 .button:hover{
@@ -43,10 +46,14 @@
 }
 
 #search{
-  width:40%;
-  margin: 1% 30%;
-  border-radius: 25px;
-  padding: 4px 30px
+  width: 30%;
+  margin-left: 16%;
+  height: 35px;
+  /* margin: 1% 30%; */
+  /* border-radius: 25px; */
+  padding: 4px 30px;
+  margin-top: 2%;
+  margin-right: 5%;
 }
 
 .table th {
@@ -59,6 +66,7 @@
   padding: 8px;
   font-family: 'Titillium Web', sans-serif;
   font-size: larger;
+
 }
 
 .table tr:nth-child(even){

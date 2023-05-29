@@ -182,6 +182,9 @@ background-color: white;
 .nav-item6:hover{
   background-color: white;
 }
+.nav-item{
+  margin-left: 40%;
+}
 }
 @keyframes welcome {
     50% {
