@@ -9,13 +9,13 @@ import jwt_decode from 'jwt-decode';
 export class AdminOrdersComponent implements OnInit {
   orders: any;
   userId: any;
-  // statue: any
   constructor(private api : DataService) { }
   ngOnInit(): void {
     this.api.getMyOrders().subscribe(
     {
       next:(data)=>{
         this.orders = data.data;
+        console.log(this.orders);
       },
       error:(err)=>{console.log(err)}
     }

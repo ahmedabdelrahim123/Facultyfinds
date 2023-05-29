@@ -29,10 +29,10 @@
                 <tbody>
                   <!-- Loop through the order items and create a row for each item -->
                   <tr *ngFor="let item of order.product">
-                    <td>{{ item.pID.title }}</td>
-                    <td>{{ item.pID.price }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>{{ item.pID.price * item.quantity }}</td>
+                    <td>{{ item.pID?.title }}</td>
+                    <td>{{ item.pID?.price }}</td>
+                    <td>{{ item?.quantity }}</td>
+                    <td>{{ item.pID?.price * item?.quantity }}</td>
                   </tr>
                 </tbody>
               </table>
