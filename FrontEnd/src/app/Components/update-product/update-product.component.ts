@@ -74,14 +74,15 @@ console.log(formData.get);
           this.router.navigate(['/adminproducts']).then(() => {
             window.location.reload();
           });
-        }, 1000); // Add a timeout of 1000 milliseconds (1 second)
+        }, 1000);
       } else {
         setTimeout(() => {
           this.router.navigate(['/user-products']).then(() => {
             window.location.reload();
           });
-        }, 1000); // Add a timeout of 1000 milliseconds (1 second)
-      }}
+        }, 1000);
+      }
+    }
 
   }
 

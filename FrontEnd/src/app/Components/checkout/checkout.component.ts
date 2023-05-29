@@ -155,16 +155,16 @@ export class CheckoutComponent {
           errorMsg += ' Apartment';
         }
       }
-      // alert(errorMsg);
     } else if (this.myForm.valid) {
-      this.router.navigate(['/ordercreated']);
+      setTimeout(() => {
+        this.router.navigate(['/ordercreated']);
+      }, 1000);
     } else {
       alert('Invalid data');
     }
   }
 
   ordercreate() {
-    // const formData = new FormData();
     const token = localStorage.getItem('token');
     if (token) {
       const decodedToken: any = jwt_decode(token);

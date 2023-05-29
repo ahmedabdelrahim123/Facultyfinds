@@ -13,14 +13,14 @@
     <tbody>
       <tr *ngFor="let order of orders" >
         <td>{{ order.date }}</td>
-        <td>
-          <span  style="color: white;"[ngClass]="{ 'rejected': order.statue === 'rejected', 'pending': order.statue === 'pending', 'accepted': order.statue === 'accepted' }">{{ order.statue }}</span>
+        <td >
+          <span [ngClass]="{ 'rejected': order.statue === 'rejected', 'pending': order.statue === 'pending', 'accepted': order.statue === 'accepted' }">{{ order?.statue }}</span>
         </td>
-        <td>{{ order.userID.username }}</td>
+        <td>{{ order?.userID.username }}</td>
         <td>
           <ul>
             <li *ngFor="let p of order.product">
-              Title: {{ p.pID.title }}- Price: {{ p.pID.price }}
+              Title: {{ p?.pID?.title }}- Price: {{ p?.pID?.price }}
             </li>
           </ul>
         </td>

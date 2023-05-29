@@ -1,14 +1,14 @@
 
 <div class="row" style="width: 90%; margin: auto; margin-top: 2%;">
   <div class="container-lg col-lg-6">
-  
+
     <!-- contact us title -->
     <h2 style="font-weight: bold; margin-left: 10%">Contact Us</h2><br>
 
     <!--contact us form-->
     <div style="width: 95%; text-align: center; margin-right: 5%; margin-left: 5%;">
       <form action="" style="width: 90%; text-align: center; margin-right: 5%; margin-left: 5%;">
-        
+
         <div class="row g-2" style="margin-bottom: 10px;">
           <input type="text" class="form-control col-md" style="margin-right: 1%;" id="first_name" placeholder="First name">
           <input type="text" class="form-control col-md" id="last_name" placeholder="Last name">
@@ -44,8 +44,8 @@
                 </select>
                 <label for="floatingSelectGrid">Country</label>
             </div>
-            
-            <input type="text" class=" form-control col-md" id="city" placeholder="City">              
+
+            <input type="text" class=" form-control col-md" id="city" placeholder="City">
         </div>
 
         <div class="form-group" style="margin-bottom: 10px;">
@@ -53,18 +53,18 @@
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary me-md-2 sub-btn" routerLink='/msgsend' type="button">Send Message</button>
+            <button class="btn btn-primary me-md-2 sub-btn" (click)="delayedNavigation()" type="button">Send Message</button>
         </div>
         </form>
     </div>
   </div>
-  <!--end of contact us form-->   
-  
+  <!--end of contact us form-->
+
   <!--contact us cards-->
   <div class="container-lg col-lg-6" style=" background: #efefef; border-top: 3px solid rgb(216, 168, 12);">
     <div class="container mb-3" style="width: 90%; margin-top: 8%; margin-left: 5%; margin-right: 5%;">
       <h5 style="margin-bottom: 5%;">Other ways to contact us</h5>
-      
+
       <div class="row g-0" style="margin-left: 5%; margin-right: 5%; margin-bottom: 5%;">
         <div class=" col-2">
           <img src="../../../assets/contact_us/call.png" class="img-fluid rounded-start" width="70%">

@@ -46,10 +46,13 @@ export class CreateProductComponent implements OnInit {
 
       this.dataservice.addNewProduct(formData).subscribe(
         () => {
-          this.router.navigate(['/productadded']);
+          setTimeout(() => {
+            this.router.navigate(['/productadded']);
+          }, 1000); 
         },
         (err) => {}
       );
+
     }
     else{
       (document.getElementById("error-message") as HTMLElement).style.display = "block"; // show error message
