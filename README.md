@@ -5,7 +5,7 @@ Facultyfinds is a website that display used products for different colleges for 
 <h2>Run</h2>
 1-clone the project
 <pre>
-git clone https://github.com/ahmedabdelrahim123/E-CommerceProject.git
+git clone https://github.com/ahmedabdelrahim123/Facultyfinds.git
 </pre>
 2-inside the backend folder run in terminal
 <pre>
